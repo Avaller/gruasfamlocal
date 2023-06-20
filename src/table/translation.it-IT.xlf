@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="it-IT" original="Please update this value">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 2126341145 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Item Features</source>
+          <target>Service Item Features</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Service Item Features - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50008-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 647367227 - Field 2208918556 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Puch. Order Down Note</source>
+          <target>Nota piè di pagina Ordine acquisto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Config. documental - Linde - Field Clausula_Nota_Ped_Compra - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50205-F54-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 647367227 - Field 672169742 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Item Template</source>
+          <target>Template Prodotti Fornitore</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Config. documental - Linde - Field Plantilla Productos Proveedor - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50205-F61-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 647367227 - Field 1514060458 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Item Shipment Path</source>
+          <target>Percorso bolle Prodotto Fornitore</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Config. documental - Linde - Field Ruta Albaranes Producto Prov. - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50205-F62-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2181329325 - Field 1753214751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Type</source>
+          <target>Tipo Origine</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Header - Field Source Type - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50217-F7122000-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2181329325 - Field 1753214751 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Transfer</source>
+          <target> ,Transfer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Header - Field Source Type - Property OptionCaption</note>
+          <note from="Transitional" annotates="general" priority="4">T50217-F7122000-P8632</note>
+        </trans-unit>
+        <trans-unit id="Table 2181329325 - Field 3921056831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculate Maintenance Type</source>
+          <target>Calcolo Tipo di Manutenzione </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Header - Field Calculate Maint. Type - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50217-F7122018-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2181329325 - Field 3921056831 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>By Service Config,Contract Calculate,Period Calculate,Orders Calculate</source>
+          <target>A seconda della configurazione,Secondo il Contratto,Per Periodo,Per Numero di Ordinazione</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Header - Field Calculate Maint. Type - Property OptionCaption</note>
+          <note from="Transitional" annotates="general" priority="4">T50217-F7122018-P8632</note>
+        </trans-unit>
+        <trans-unit id="Table 2181329325 - Field 4211452356 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculate Maint. Type Period</source>
+          <target>Calcolo del Periodo di Manutenzione</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Header - Field Calculate Maint. Type Period - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50217-F7122019-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2181329325 - Field 3861267301 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculate Maint. Type Order</source>
+          <target>Numero Ordini Calcolo di Manutenzione</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Header - Field Calculate Maint. Type Order - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50217-F7122020-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2181329325 - Field 1734164477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Maintenance Order</source>
+          <target>Ordine di manutenzione</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Header - Field Maintenance Order - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50217-F7122021-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2181329325 - Field 1650118938 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount Including VAT</source>
+          <target>Importo IVA inclusa</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Header - Field Amount Including VAT - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50217-F7122037-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2181329325 - Field 1340654506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tipo Ordine Assistenza</source>
+          <target>Service Order Type</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Header - Field Order Type - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50217-F7122038-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2181329325 - Field 1340654506 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Internal Maintenance,Internal Maintenanze Extra Contract,External Maintenance,External Maintenanze Extra Contract,External Invoicing,From Service Quote</source>
+          <target>Manutenzione Interna,Manutenzione Interna Extra Contrato,Manutezione Esterna,Manutenzione Esterna Extra Contrato,Fatturazione Esterna,Da Oferta di Assistenza</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Header - Field Order Type - Property OptionCaption</note>
+          <note from="Transitional" annotates="general" priority="4">T50217-F7122038-P8632</note>
+        </trans-unit>
+        <trans-unit id="Table 2181329325 - Field 2075359501 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Motivo Interruzione</source>
+          <target>Interruption Reason</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Header - Field Interruption Reason - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50217-F7122039-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2181329325 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <target>Importo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Header - Field Amount - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50217-F7122040-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2655458057 - Field 1753214751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Type</source>
+          <target>Tipo Origine</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Item Line - Field Source Type - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50218-F7122000-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2655458057 - Field 1753214751 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Transfer</source>
+          <target> ,Transfer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Item Line - Field Source Type - Property OptionCaption</note>
+          <note from="Transitional" annotates="general" priority="4">T50218-F7122000-P8632</note>
+        </trans-unit>
+        <trans-unit id="Table 2655458057 - Field 1340654506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tipo Ordine Assistenza</source>
+          <target>Service Order Type</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Service Item Line - Field Order Type - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50218-F7122026-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Alarms</source>
+          <target>Allarmi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 3646154088 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Alarm No.</source>
+          <target>Nessun allarme</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Alarm No. - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F1-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 474480784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Date</source>
+          <target>Data di inizio</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Start Date - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F2-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 2649176925 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End Date</source>
+          <target>Data di fine</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field End Date - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F3-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 3880909165 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Message Type</source>
+          <target>Tipo di messaggio</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Message Type - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F4-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 3880909165 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warning,Error</source>
+          <target>Attenzione,Errore</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Message Type - Property OptionCaption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F4-P8632</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 1753214751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Type</source>
+          <target>Tipo Origine</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Source Type - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F5-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 1753214751 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer,Vendor,Service Item,Contract</source>
+          <target>Cliente,Fornitore,Articolo in assistenza,Contratto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Source Type - Property OptionCaption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F5-P8632</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 1882905478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target>Nr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Source No. - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F6-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 1949222548 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping No. 2</source>
+          <target>Spedire a - Indirizzo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Source No. 2 - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F7-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 3080618677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Message</source>
+          <target>Messaggio</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Message - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F8-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 2708250016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User ID</source>
+          <target>User ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field User ID - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F9-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 280137910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Quote</source>
+          <target>Offerta vendita</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Sales Quote - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F10-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 1673401186 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Order</source>
+          <target>Ordine vendita</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Sales Order - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F11-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 4034894651 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Invoice</source>
+          <target>Fattura vendita</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Sales Invoice - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F12-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 2896007655 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Credit Memo</source>
+          <target>Nota credito vendita</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Sales Cr. Memo - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F13-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 2495627140 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Quote</source>
+          <target>Offerta acquisto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Purch. Quote - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F14-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 2955911856 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Order</source>
+          <target>Ordine acquisto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Purch. Order - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F15-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 1950360621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Invoice</source>
+          <target>Fattura acquisto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Purch. Invoice - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F16-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 525764585 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Credit Memo</source>
+          <target>Nota credito acquisto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Purch. Cr. Memo - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F17-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 2164870634 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Quote</source>
+          <target>Offerte assistenza</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Serv. Quote - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F18-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 3211592926 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Order</source>
+          <target>Ordine assistenza</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Serv. Order - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F19-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 828425919 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Invoice</source>
+          <target>Fattura assistenza</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Serv. Invoice - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F20-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 4115583827 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Credit Memo</source>
+          <target>Nota credito assistenza</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Serv. Cr. Memo - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F21-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 4290607522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Contract</source>
+          <target>Contratto di assistenza</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Serv. Contract - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F22-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 1390354173 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Internal Contract</source>
+          <target>Contratti Interni di assistenza</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Int. Serv. Contract - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F23-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 1508086995 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Message 2</source>
+          <target>Messaggio 2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Message 2 - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F24-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 451473693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Description</source>
+          <target>Origine Descrizione</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Source Description - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F25-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 1196534715 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Description 2</source>
+          <target>Origine Descrizione 2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Source Description 2 - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F26-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Field 1045604968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Shipment</source>
+          <target>Spedizione assistenza</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Field Serv. Shipment - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-F28-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - NamedType 1077004636" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 cannot be %1</source>
+          <target>%1 non può essere %2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - NamedType txtType</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-Q1000000001-P26171</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - NamedType 2457619441" size-unit="char" translate="yes" xml:space="preserve">
+          <source>It is nos posible to modify Alarm No. %1 because it has linked logs. Delete alarm or create new one.</source>
+          <target>Nos posible modificare Allarme No. %1 perché ha legato i registri. Cancella allarme o crearne uno nuovo.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - NamedType txtLogs</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-Q1000000002-P26171</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Method 1870093531 - NamedType 2095006945" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 cannot be lower than %2 in alarm No. %3</source>
+          <target>%1 non può essere inferiore al %2 n allarme %3 </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Method TestDates - NamedType txtDates</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-U1000000001-Q1000000000-P26171</note>
+        </trans-unit>
+        <trans-unit id="Table 3440040604 - Method 2585771130 - NamedType 737585157" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is Alarm Filters that will be deleted. Continue?</source>
+          <target>Ci sono filtri che l'allarme sarà cancellato, si è sicuri di voler continuare?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms - Method CheckFIltersExist - NamedType txtFilterExist</note>
+          <note from="Transitional" annotates="general" priority="4">T50221-U1000000003-Q1000000001-P26171</note>
+        </trans-unit>
+        <trans-unit id="Table 2320568272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Alarms Log</source>
+          <target>Allarme Log</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms Log - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50222-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2320568272 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <target>Nr. Movimento</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms Log - Field Entry No. - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50222-F1-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2320568272 - Field 3646154088 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Alarm No.</source>
+          <target>Nessun allarme</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms Log - Field Alarm No. - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50222-F2-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2320568272 - Field 3192175264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date</source>
+          <target>Data</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms Log - Field Date - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50222-F3-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2320568272 - Field 1230148255 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time</source>
+          <target>Tempo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms Log - Field Time - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50222-F4-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2320568272 - Field 2708250016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User ID</source>
+          <target>User ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms Log - Field User ID - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50222-F5-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2320568272 - Field 2279323338 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Action Realiced</source>
+          <target>Azione intrapresa</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms Log - Field Action - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50222-F6-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2320568272 - Field 2279323338 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accepted,Rejected</source>
+          <target>Accettato,Rifiutato</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms Log - Field Action - Property OptionCaption</note>
+          <note from="Transitional" annotates="general" priority="4">T50222-F6-P8632</note>
+        </trans-unit>
+        <trans-unit id="Table 2320568272 - Field 2316145968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Table No.</source>
+          <target>Tabella Nº Origin</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms Log - Field Source table No. - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50222-F7-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2320568272 - Field 3793209967 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source</source>
+          <target>Origine</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Alarms Log - Field Source Table Caption - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50222-F8-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 311968412 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report Selections Labels</source>
+          <target>Selezioni report Etichette</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Report Selections Labels - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50223-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 311968412 - Field 1510562767 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Usage</source>
+          <target>Utilizzo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Report Selections Labels - Field Usage - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50223-F1-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 311968412 - Field 1510562767 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item,Purchase Order,Purchase Shipment,Warranty,Service Item,Item Reclass,Item Transfer</source>
+          <target>Prodotto,Ordini Adquisto,Bolla di adquisto,Garanzia,Art. in Assistenza,Riclassificazione Prodotto,Trasferimento Prodotto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Report Selections Labels - Field Usage - Property OptionCaption</note>
+          <note from="Transitional" annotates="general" priority="4">T50223-F1-P8632</note>
+        </trans-unit>
+        <trans-unit id="Table 311968412 - Field 4154341761 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sequence</source>
+          <target>Sequenza</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Report Selections Labels - Field Sequence - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50223-F2-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 311968412 - Field 1272245069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report ID</source>
+          <target>ID report</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Report Selections Labels - Field Report ID - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50223-F3-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 311968412 - Field 4101026147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report Name</source>
+          <target>Nome report</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Report Selections Labels - Field Report Name - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50223-F4-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 865750934 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rating Code</source>
+          <target>Codice di Valutazione</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Rating Code - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50224-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 865750934 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target>Codice</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Rating Code - Field Code - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50224-F1-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 865750934 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target>Descrizione</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Rating Code - Field Description - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50224-F2-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 865750934 - Method 3152277940 - NamedType 1554006270" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Can't delete. There are Customers with this Rating.</source>
+          <target>Impossibile eliminare. Ci sono i clienti associati a questa Valutazione</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Rating Code - Method OnDelete - NamedType TxtCustExist</note>
+          <note from="Transitional" annotates="general" priority="4">T50224-P4960-Q1000000000-P26171</note>
+        </trans-unit>
+        <trans-unit id="Table 865750934 - Method 3152277940 - NamedType 708034422" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Can't delete. There are Vendors with this Rating.</source>
+          <target>Impossibile eliminare. Ci sono i Venditori associati a questa valutazione</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Rating Code - Method OnDelete - NamedType TxtVendExist</note>
+          <note from="Transitional" annotates="general" priority="4">T50224-P4960-Q1000000001-P26171</note>
+        </trans-unit>
+        <trans-unit id="Table 2299186691 - Field 2999139543 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <target>Cod. Fornitore</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Discounts Groups - Field Vendor No - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50225-F1-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2299186691 - Field 1398674846 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount Group</source>
+          <target>Grupo Sconto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Discounts Groups - Field Discount Group - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50225-F2-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2299186691 - Field 3310956332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>% Discount</source>
+          <target>% Sconto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Discounts Groups - Field Discount % - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50225-F3-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2299186691 - Field 460889064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <target>Data Inizio</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Discounts Groups - Field Starting Date - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50225-F4-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 2299186691 - Field 3228807201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finish Date</source>
+          <target>Data Fine</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Discounts Groups - Field Finish Date - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50225-F5-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 1366131808 - Field 4230565839 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. 2</source>
+          <target>Nr. 2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TempInvoiceResume - Field No. 2 - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50230-F13-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 1366131808 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target>Nr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TempInvoiceResume - Field No. - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50230-F14-P8629</note>
+        </trans-unit>
+        <trans-unit id="Table 3264555947 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PDF Mail Report Params</source>
+          <target>PDF Mail Segnala Parametri</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PDF Mail Report Params - Property Caption</note>
+          <note from="Transitional" annotates="general" priority="4">T50231-P8629</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-GB" original="Please update this value">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 1144830005 - NamedType 3216065459" size-unit="char" translate="yes" xml:space="preserve">
+          <source>El valor del Horómetro debe ser igual o superior al actual.</source>
+          <target>The horometer value must be equal or greater than the current value.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text026</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000033-P26171</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

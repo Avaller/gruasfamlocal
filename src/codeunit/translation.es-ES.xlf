@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="es-ES" original="Please update this value">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 1269133249 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Operation</source>
+          <target>Genérico</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000000-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General Terms Quote</source>
+          <target>Oferta de Condiciones Generales</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text002</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000003-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>For Customer %3 - %4 has been automatically created:\Crane General Terms Quote No. %1\Platform General Terms Quote No. %2</source>
+          <target>Se ha creado automaticamente para el Cliente %3 - %4:\La Oferta de Condiciones Generales de Grúa %1\La Oferta de Condiciones Generales de Plataformas %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text003</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000004-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>For Customer %2 - %3 has been automatically created:\Crane General Terms Quote No. %1</source>
+          <target>Se ha creado automaticamente para el Cliente %2 - %3:\La Oferta de Condiciones Generales de Grúa %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text004</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000005-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>For Customer %2 - %3 has been automatically created:\Platform General Terms Quote No. %1</source>
+          <target>Se ha creado automaticamente para el Cliente %2 - %3:\La Oferta de Condiciones Generales de Plataformas %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text005</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000006-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quote dont have %1 overdued\ Continue?</source>
+          <target>La oferta no tiene %1 vencido\ Continuar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text006</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000009-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 2645849790" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There are no service requests associated with the Crane Quote\ Continue?</source>
+          <target>No existen pedidos de servicio asociado a la oferta de grua\ Continuar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text007</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000008-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This detail has already been invoiced. \ Continue?</source>
+          <target>El detalle ya ha sido facturado.\ Continuar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text008</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000007-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 3921243024" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Invoice No. %1 has been created.</source>
+          <target>Se ha creado la Factura de Servicio Nº %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text009</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000010-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 1664139952" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ref. Quote No. %1</source>
+          <target>N.\Ref. Oferta Nº %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text010</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000011-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 1026443335" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Order No. %1 has some lines with %2 different from %3\Do you want to continue?</source>
+          <target>El Ped. Servicio Nº %1 tiene lineas con %2 diferente de %3\Desea continuar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text011</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000012-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 2939533186" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The process has been interrupted to respect the warning.</source>
+          <target>Se ha interrumpido el proceso para respetar la advertencia.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text012</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000014-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 2301836569" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Quote creation is activated. Which type of Quote do you want to create?</source>
+          <target>La creación de Ofertas Automatica está activada. ¿Que tipo de oferta desea crear?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text013</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000013-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 4214926420" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;None,&amp;Crane,&amp;Platform,&amp;Both Crane and Platform</source>
+          <target>&amp;Ninguna,&amp;Grúa,&amp;Plataforma,&amp;Ambas Grúa y Plataforma</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text014</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000015-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 3577229803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There can only be one General Type Quote by Customer</source>
+          <target>Solo puede existir una oferta de tipo General por Cliente</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text015</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000016-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 1195352358" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quote No. %1 has pending Forfait Calendar Entries. </source>
+          <target>La Oferta %1 tiene registros vinculados en el Calendario Forfait pendientes de Procesar.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text016</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000018-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 557655741" size-unit="char" translate="yes" xml:space="preserve">
+          <source>By distributing a Fofait Quote, you won't be able to create new linked Serv. Orders, such it will be impossible to recover that quote from archive. Are you sure yo want to proceed?</source>
+          <target>Realizar la distribución de una oferta forfait, bloqueará la posibilidad de crear nuevos pedidos vinculados, e impedirá recuperar la oferta desde el histórico por haberse realizado la distribución de ingresos. ¿Desea continuar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text017</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000017-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 857534312" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quote No. %1 has been properly distributed. Please, verify the set up journal</source>
+          <target>Se ha distribuido correctamente la Oferta Nº %1. Revise el Diario configurado</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text018</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000019-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 219837695" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please, post the Service Invoice No %1 before distributing this Crane Quote.</source>
+          <target>Por favor, registre la Pre-factura de Servicios Nº %1 antes de distribuir la oferta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text019</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000020-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 1940672225" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operation %1 - %2 has no Service Order linked, so the amount of %3 won't be distributed. Do you want to continue?</source>
+          <target>La operación %1 - %2 no cuenta con ningun pedido asociado, por lo que el importe de %3 no se distribuirá. ¿Está seguro de querer continuar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text020</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000021-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1269133249 - NamedType 2578368842" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is already a Displacement Amount. Doy you want to overwrite it?</source>
+          <target>Ya existe un importe de desplazamiento. ¿Desea sobreescribirlo?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Quote Mgt. - NamedType Text021</note>
+          <note from="Transitional" annotates="general" priority="4">C50001-Q1000000022-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2826093843 - NamedType 2277751438" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Connection error</source>
+          <target>Error en la conexión</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Ingestrel Mgt. - NamedType errorCon</note>
+          <note from="Transitional" annotates="general" priority="4">C50002-Q1000000006-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2826093843 - NamedType 2847113736" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing Companies:</source>
+          <target>Procesando Información Empresas:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Ingestrel Mgt. - NamedType CompanyProcess</note>
+          <note from="Transitional" annotates="general" priority="4">C50002-Q1000000016-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2826093843 - NamedType 2180158921" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing Customer:</source>
+          <target>Procesando Información Clientes:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Ingestrel Mgt. - NamedType CustomerProcess</note>
+          <note from="Transitional" annotates="general" priority="4">C50002-Q1000000017-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2826093843 - NamedType 2919219028" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing Employees:</source>
+          <target>Procesando Información Empleados:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Ingestrel Mgt. - NamedType EmployedProcess</note>
+          <note from="Transitional" annotates="general" priority="4">C50002-Q1000000018-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2826093843 - NamedType 1318704794" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing Manufacturer:</source>
+          <target>Procesando Información Fabricantes:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Ingestrel Mgt. - NamedType ManufactureProcess</note>
+          <note from="Transitional" annotates="general" priority="4">C50002-Q1000000019-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2826093843 - NamedType 3770933629" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing Service Item:</source>
+          <target>Procesando Información Productos de Servicio:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Ingestrel Mgt. - NamedType ServiceItemProcess</note>
+          <note from="Transitional" annotates="general" priority="4">C50002-Q1000000020-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2826093843 - NamedType 1366159272" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing Service Item Model:</source>
+          <target>Procesando Información Modelos de Producto Servicio:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Ingestrel Mgt. - NamedType ServiceItemModelProcess</note>
+          <note from="Transitional" annotates="general" priority="4">C50002-Q1000000021-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2826093843 - NamedType 2626101138" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Synchronize Customer Files:</source>
+          <target>Sincronizando Documentos Clientes:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Ingestrel Mgt. - NamedType CustomerSincro</note>
+          <note from="Transitional" annotates="general" priority="4">C50002-Q1000000026-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2826093843 - NamedType 2044516179" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Synchronize Employed Files:</source>
+          <target>Sincronizando Documentos Empleado:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Ingestrel Mgt. - NamedType EmployedSincro</note>
+          <note from="Transitional" annotates="general" priority="4">C50002-Q1000000025-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2826093843 - NamedType 1269128486" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Synchronize Service Item Files:</source>
+          <target>Sincronizando Documentos Prod. Servicio:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Ingestrel Mgt. - NamedType ServiceItemSincro</note>
+          <note from="Transitional" annotates="general" priority="4">C50002-Q1000000023-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2826093843 - NamedType 3231999915" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End Process</source>
+          <target>Proceso Finalizado</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Ingestrel Mgt. - NamedType Endms</note>
+          <note from="Transitional" annotates="general" priority="4">C50002-Q1000000030-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3691023307 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There isn't any file to process</source>
+          <target>No se han encontrado Ficheros que cargar.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Serv. Item Refill Mgt. - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50003-Q1000000006-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3691023307 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>It has been loaded % Files</source>
+          <target>Se han cargado %1 Ficheros</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Serv. Item Refill Mgt. - NamedType Text002</note>
+          <note from="Transitional" annotates="general" priority="4">C50003-Q1000000007-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3691023307 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no Service Item with Vehicle Refill Id %1</source>
+          <target>No se encuentra el Prod. Servicio con Id Vehiculo Repostaje %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Serv. Item Refill Mgt. - NamedType Text003</note>
+          <note from="Transitional" annotates="general" priority="4">C50003-Q1000000009-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3691023307 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no Serv. Item Counter with Terminal Code %1 for Serv. Item No. %2</source>
+          <target>No se encuentra el Contador de Prod. Servicio con Nº Borna %1 para el Producto Servicio Nº %2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Serv. Item Refill Mgt. - NamedType Text004</note>
+          <note from="Transitional" annotates="general" priority="4">C50003-Q1000000010-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3691023307 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Refill Entry Counter's Value must be greater than the Actual H/Km in Serv. Item's counter.</source>
+          <target>El Valor del Contador en el Movimiento de Repostaje debe ser superior al valor actual de H/Km en el Contador del Producto de Servicio.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Serv. Item Refill Mgt. - NamedType Text005</note>
+          <note from="Transitional" annotates="general" priority="4">C50003-Q1000000012-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 Service Orders with %2 Lines has been created</source>
+          <target>Se han creado %1 Pedidos de Servicio con %2 lineas</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000003-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All Serv. Item Lines must have %1 as Repair Status Code</source>
+          <target>Todas las lineas de Producto de Servicio deben tener %1 como Cód. Estado de Reparacion</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text002</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000005-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Distance from Post Code %1 City %2 to Post Code %3 City %4 does not exist.</source>
+          <target>No se encuentra la distancia entre CP %1 Población %2 y CP %3 Población %4</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text003</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000006-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DISPLACEMENTS (Hours):</source>
+          <target>RECORRIDOS (Horas):</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text004</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000001-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EXTRA OPERATOR WORK:</source>
+          <target>TRABAJO REALIZADO AYUDANTE:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text005</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000007-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Order No. %1 has been processed.</source>
+          <target>Se ha procesado el Pedido Servicio Nº %1.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text006</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000008-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 2645849790" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Serv. Order No. %2 is linked to Quote No. %1 which has some extra concepts. Do you want to process them?</source>
+          <target>El Pedido Nº %2 está asociado a la Oferta Nº %1 que tiene algun concepto extra. ¿Desea procesarlos?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text007</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000010-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specific Displacement in %1</source>
+          <target>Desplazamiento Específico por %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text008</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000012-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 3921243024" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exit Fee</source>
+          <target>Salida</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text009</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000013-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 1664139952" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Minimum hours</source>
+          <target>Horas Minimas</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text010</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000014-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 1026443335" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Franchise of %1 Kms applied</source>
+          <target>Franquicia de %1 Kms aplicada</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text011</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000015-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 2939533186" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Platform Delivery</source>
+          <target>Entrega de Plataforma</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text012</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000016-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 2301836569" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Platform Pickup</source>
+          <target>Recogida de Plataforma</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text013</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000017-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 4214926420" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 No. %2 regarding Service Contract No. %3</source>
+          <target>%1 No. %2 segun el Contrato de Servicio No. %3</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text014</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000018-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 3577229803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %3 regarding Service Contract No. %2</source>
+          <target>%1 %3 segun el Contrato de Servicio No. %2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text015</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000019-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 1195352358" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 Orders has been created. Impossible to show only the last one. Please, go to Service Orders List.</source>
+          <target>Se han creado %1 Pedidos. No se puede mostrar unicamente el ultimo. Por favor, vaya a la lista de Pedidos de Servicio</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text016</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000022-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 557655741" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Displacement Amount and KM/Time must have a value greater than 0 in Crane Quote No. %1 for Inv. Group No. %2</source>
+          <target>Importe Desplazamiento y KM/Horas a aplicar deben tener un valor mayor que 0 en Oferta de Grúa Nº %1 para el Grupo Facturacion %2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text017</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000023-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 857534312" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 No. %2 - %3 regarding Service Contract No. %4</source>
+          <target>%1 No. %2 - %3 segun Contrato de Servicio No. %4</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text018</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000024-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 219837695" size-unit="char" translate="yes" xml:space="preserve">
+          <source>At least one of the Service Item Lines has been sent to mobility. Please proceed to unassign them prior to change the Travel Type or Destinations</source>
+          <target>Al menos una de las lineas de Producto de Servicio ha sido enviada a movilidad. Por favor, desasigne las lineas antes de cambiar el tipo de cesplazamiento o destinos.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text019</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000025-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 1940672225" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DISPLACEMENTS (Kms):</source>
+          <target>RECORRIDOS (Kms):</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text020</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000026-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 2578368842" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plattform No. %1 Pick Up</source>
+          <target>Recogida Plataforma Nº %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text021</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000027-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 665278991" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Platf. Works %1</source>
+          <target>Trabajos %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text022</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000028-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 1302975608" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Offer No. %1 Invoice Group</source>
+          <target>Gr. Facturacion Oferta Nº %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text023</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000029-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 196491397" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship to Addr. No. %1 Invoice Group</source>
+          <target>Gr. Facturacion Dir. Envio Nº %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text024</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000030-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 834188014" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Service Order must have at least 1 Service Line</source>
+          <target>El Ped. Servicio debe tener al menos 1 linea de servicio</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text025</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000032-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1144830005 - NamedType 3216065459" size-unit="char" translate="yes" xml:space="preserve">
+          <source>El valor del Horómetro debe ser igual o superior al actual.</source>
+          <target>El valor del Horómetro debe ser igual o superior al actual.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Order Mgt. - NamedType Text026</note>
+          <note from="Transitional" annotates="general" priority="4">C50004-Q1000000033-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2836813165 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy of: </source>
+          <target>Copia de: </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Copy Serv. Rate Mgt. - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50005-Q1000000001-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 612564297 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no Serv. Item Counter with Terminal Code %1 for Serv. Item No. %2</source>
+          <target>No se encuentra el Contador de Prod. Servicio con Nº Borna %1 para el Producto Servicio Nº %2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Mobility Order Mgt. - NamedType Text004</note>
+          <note from="Transitional" annotates="general" priority="4">C50006-Q1000000003-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 612564297 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no employee associated with Resource No. %1</source>
+          <target>No hay ningún empleado asociado al Recurso Nº %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Mobility Order Mgt. - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50006-Q1000000005-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 612564297 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The type of expense %2 was not found for Employee No %1</source>
+          <target>No se ha encontrado el tipo de gasto %2 para el Empleado Nº %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Mobility Order Mgt. - NamedType Text002</note>
+          <note from="Transitional" annotates="general" priority="4">C50006-Q1000000004-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 612564297 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Expenses Code %2 was not found for Employee No %1</source>
+          <target>No se ha encontrado el Dod. gasto %2 para el Empleado Nº %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Mobility Order Mgt. - NamedType Text003</note>
+          <note from="Transitional" annotates="general" priority="4">C50006-Q1000000006-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2992327570 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>UOM %1 isn't setup as a valid UOM in %2</source>
+          <target>La Unidad de Medida %1 no está configurada como Unidad valida en %2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Crane Price Mgt. - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50007-Q1000000001-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 171637726 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to assign all lines?</source>
+          <target>¿Desea asignar todas las lineas del pedido?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Planner Mgt. - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50008-Q1000000012-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 171637726 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to unassign all lines?</source>
+          <target>¿Desea des-asignar todas las lineas del pedido?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Planner Mgt. - NamedType Text002</note>
+          <note from="Transitional" annotates="general" priority="4">C50008-Q1000000015-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 171637726 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This Serv. Item doesn't allows a Driver Assignment.</source>
+          <target>Este Prod. Servicio no permite asignacion de conductor.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Planner Mgt. - NamedType Text003</note>
+          <note from="Transitional" annotates="general" priority="4">C50008-Q1000000013-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 171637726 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deleting a Pickup Platfform Serv. Order assign, will delete completelly the Service Order and it will be necessary to create it again from the beggining. Are you sure you want to continue?</source>
+          <target>Eliminar una asignación de Recogida de Plataforma provocará que el Pedido de Servicio sea eliminado completamente, y será necesario volver a crearlo desde el principio. ¿Está seguro de querer continuar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Planner Mgt. - NamedType Text004</note>
+          <note from="Transitional" annotates="general" priority="4">C50008-Q1000000016-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 171637726 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process cancelled by the user</source>
+          <target>Proceso cancelado por el usuario</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Planner Mgt. - NamedType Text005</note>
+          <note from="Transitional" annotates="general" priority="4">C50008-Q1000000017-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 171637726 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This Service Item still has some Open Pickups. Please, process them prior to planning new Deliveries</source>
+          <target>Este Producto de Servicio aún tiene alguna recogida pendiente. Por favor, complete dichas recogidas antes de planificar nuevas entregas.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Planner Mgt. - NamedType Text006</note>
+          <note from="Transitional" annotates="general" priority="4">C50008-Q1000000018-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 171637726 - NamedType 2645849790" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plattform No. %1 Delivery</source>
+          <target>Entrega de Plataforma Nº %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Planner Mgt. - NamedType Text007</note>
+          <note from="Transitional" annotates="general" priority="4">C50008-Q1000000019-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 171637726 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delivery with order No. %1</source>
+          <target>Entrega segun pedido Nº %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Planner Mgt. - NamedType Text008</note>
+          <note from="Transitional" annotates="general" priority="4">C50008-Q1000000020-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 171637726 - NamedType 3921243024" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pickup with order No. %1</source>
+          <target>Recogida segun pedido Nº %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Planner Mgt. - NamedType Text009</note>
+          <note from="Transitional" annotates="general" priority="4">C50008-Q1000000021-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1824333801 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There isn't any file to process</source>
+          <target>No se han encontrado Ficheros que cargar.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Employee Marking Mgt. - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50009-Q1000000011-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1824333801 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>It has been loaded % Files</source>
+          <target>Se han cargado %1 Ficheros</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Employee Marking Mgt. - NamedType Text002</note>
+          <note from="Transitional" annotates="general" priority="4">C50009-Q1000000010-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1824333801 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no Service Item with Vehicle Refill Id %1</source>
+          <target>No se encuentra el Prod. Servicio con Id Vehiculo Repostaje %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Employee Marking Mgt. - NamedType Text003</note>
+          <note from="Transitional" annotates="general" priority="4">C50009-Q1000000009-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1824333801 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no Serv. Item Counter with Terminal Code %1 for Serv. Item No. %2</source>
+          <target>No se encuentra el Contador de Prod. Servicio con Nº Borna %1 para el Producto Servicio Nº %2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Employee Marking Mgt. - NamedType Text004</note>
+          <note from="Transitional" annotates="general" priority="4">C50009-Q1000000008-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2818955689 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Original Company: %1</source>
+          <target>Empresa Origen: %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Intercompany invoicing - NamedType Txt001</note>
+          <note from="Transitional" annotates="general" priority="4">C50010-Q1000000002-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2818955689 - NamedType 2585689438" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Original Invoice No.: %1</source>
+          <target>Nº Factura Origen: %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Intercompany invoicing - NamedType Txt002</note>
+          <note from="Transitional" annotates="general" priority="4">C50010-Q1000000010-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2818955689 - NamedType 1947992821" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contract No.: %1</source>
+          <target>Nº Contrato: %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Intercompany invoicing - NamedType Txt003</note>
+          <note from="Transitional" annotates="general" priority="4">C50010-Q1000000013-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2818955689 - NamedType 1231486827" size-unit="char" translate="yes" xml:space="preserve">
+          <source> Veh. %1 - Nº %2 from %3</source>
+          <target> Veh. %1 - Nº %2 del %3</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Intercompany invoicing - NamedType txtDescripcion</note>
+          <note from="Transitional" annotates="general" priority="4">C50010-Q1000000012-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2818955689 - NamedType 2342505594" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delivery</source>
+          <target>Entrega</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Intercompany invoicing - NamedType txtEntrega</note>
+          <note from="Transitional" annotates="general" priority="4">C50010-Q1000000017-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2818955689 - NamedType 4177235860" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pickup</source>
+          <target>Recogida</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Intercompany invoicing - NamedType txtRecogida</note>
+          <note from="Transitional" annotates="general" priority="4">C50010-Q1000000018-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2818955689 - NamedType 598575501" size-unit="char" translate="yes" xml:space="preserve">
+          <source> Veh. %1</source>
+          <target> Veh. %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Intercompany invoicing - NamedType txtDescripcion2</note>
+          <note from="Transitional" annotates="general" priority="4">C50010-Q1000000019-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2818955689 - Method 3356160327 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You need to set a Reparation Status for replication Orders.</source>
+          <target>Debe seleccionar un Estado de Reparación para la Replicación de Pedidos de Servicio en la Configuración de Estados de Reparación. </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Intercompany invoicing - Method GenerateServiceItemLine - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50010-U1000000002-Q1000000001-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1192366097 - NamedType 2344539320" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quote dont have %1 overdued\ Continue?</source>
+          <target>La oferta no tiene %1 vencido\ Continuar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Invoicing Forfait Quote - NamedType Text0001</note>
+          <note from="Transitional" annotates="general" priority="4">C50011-Q1000000000-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1192366097 - NamedType 2982235937" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There are no service requests associated with the Crane Quote\ Continue?</source>
+          <target>No existen pedidos de servicio asociado a la oferta de grua\ Continuar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Invoicing Forfait Quote - NamedType Text0002</note>
+          <note from="Transitional" annotates="general" priority="4">C50011-Q1000000001-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1192366097 - NamedType 3619932554" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Detail has already been invoiced. \ Continue?</source>
+          <target>El detalle ya ha sido facturado.\ Continuar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Invoicing Forfait Quote - NamedType Text0003</note>
+          <note from="Transitional" annotates="general" priority="4">C50011-Q1000000002-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2852834489 - Method 3570007328 - NamedType 2951775720" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is more than one employee assigned to resource number %1</source>
+          <target>Hay más de un empleado asignado al recurso número %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Employee Expenses Mgt - Method CreateNewEntry - NamedType text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50012-U1000000001-Q1000000004-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2852834489 - Method 3446884255 - NamedType 2951775720" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is more than one employee assigned to resource number %1</source>
+          <target>Hay más de un empleado asignado al recurso número %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Employee Expenses Mgt - Method UpdateEntry - NamedType text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50012-U1000000002-Q1000000004-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365855254 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You may not enter numbers manually. </source>
+          <target>No puede introducir números de forma manual. </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CreatePostedServOrdReplication - NamedType Text000</note>
+          <note from="Transitional" annotates="general" priority="4">C50107-Q1000000023-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365855254 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>If you want to enter numbers manually, please activate %1 in %2 %3.</source>
+          <target>Si desea introducir números manualmente, active %1 en %2 %3.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CreatePostedServOrdReplication - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50107-Q1000000022-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365855254 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>It is not possible to assign numbers automatically. </source>
+          <target>No es posible asignar números de manera automática. </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CreatePostedServOrdReplication - NamedType Text002</note>
+          <note from="Transitional" annotates="general" priority="4">C50107-Q1000000021-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365855254 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>If you want the program to assign numbers automatically, please activate %1 in %2 %3.</source>
+          <target>Si desea que el programa asigne números de manera automática, active %1 en %2 %3</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CreatePostedServOrdReplication - NamedType Text003</note>
+          <note from="Transitional" annotates="general" priority="4">C50107-Q1000000020-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365855254 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot assign new numbers from the number series %1 on %2.</source>
+          <target>No puede asignar números nuevos de la serie %1 en la %2.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CreatePostedServOrdReplication - NamedType Text004</note>
+          <note from="Transitional" annotates="general" priority="4">C50107-Q1000000019-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365855254 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot assign new numbers from the number series %1.</source>
+          <target>No puede asignar números nuevos de la serie %1.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CreatePostedServOrdReplication - NamedType Text005</note>
+          <note from="Transitional" annotates="general" priority="4">C50107-Q1000000018-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365855254 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot assign new numbers from the number series %1 on a date before %2.</source>
+          <target>No puede asignar números nuevos de la serie %1 en una fecha anterior a %2.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CreatePostedServOrdReplication - NamedType Text006</note>
+          <note from="Transitional" annotates="general" priority="4">C50107-Q1000000017-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365855254 - NamedType 2645849790" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot assign numbers greater than %1 from the number series %2.</source>
+          <target>No puede asignar números mayores que %1 de la serie %2.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CreatePostedServOrdReplication - NamedType Text007</note>
+          <note from="Transitional" annotates="general" priority="4">C50107-Q1000000016-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365855254 - NamedType 3921243024" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The number format in %1 must be the same as the number format in %2.</source>
+          <target>El formato de número en %1 debe ser igual que en %2.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CreatePostedServOrdReplication - NamedType Text009</note>
+          <note from="Transitional" annotates="general" priority="4">C50107-Q1000000015-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365855254 - NamedType 1664139952" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The number %1 cannot be extended to more than 20 characters.</source>
+          <target>El número %1 no puede superar 20 caracteres.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CreatePostedServOrdReplication - NamedType Text010</note>
+          <note from="Transitional" annotates="general" priority="4">C50107-Q1000000014-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365855254 - Method 3356160327 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You need to set a Reparation Status for replication Orders.</source>
+          <target>Debe seleccionar un Estado de Reparación para la Replicación de Pedidos de Servicio en la Configuración de Estados de Reparación. </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CreatePostedServOrdReplication - Method GenerateServiceItemLine - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50107-U1000000002-Q1000000001-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 966182464 - Method 1665861916 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to launch the task to load all the employee accumulated hours?</source>
+          <target>¿Desea lanzar el proceso para cargar las horas acumuladas de los empleados?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Break Hours Mgt. - Method OnRun - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50200-P26369-Q1000000000-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>cannot be filtered when posting recurring journals</source>
+          <target>No puede contener un filtro cuando se registra un diario periódico</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text000</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1000-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to post the journal lines?</source>
+          <target>¿Confirma que desea registrar las líneas del diario?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text001</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1001-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is nothing to post.</source>
+          <target>No hay nada que registrar.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text002</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1002-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The journal lines were successfully posted.</source>
+          <target>Se han registrado correctamente las líneas del diario.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text003</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1003-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The journal lines were successfully posted. </source>
+          <target>Se han registrado correctamente las líneas del diario. </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text004</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1004-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are now in the %1 journal.</source>
+          <target>Se encuentra en el diario %1.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text005</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1005-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 3669593336" size-unit="char" translate="yes" xml:space="preserve">
+          <source>cannot exceed %1 characters</source>
+          <target>No puede superar %1 caracteres</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text100</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1000000026-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 3031896719" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch Name    #1##########\\</source>
+          <target>Nombre sección diario #1##########\\</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text101</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1000000025-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 650019274" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Checking lines        #2######\</source>
+          <target>Comprobando líneas    #2######\</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text102</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1000000024-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 12322657" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting lines         #3###### @4@@@@@@@@@@@@@\</source>
+          <target>Registrando líneas    #3###### @4@@@@@@@@@@@@@\</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text103</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1000000023-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 1925412508" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Updating lines        #5###### @6@@@@@@@@@@@@@</source>
+          <target>Actualizando líns.    #5###### @6@@@@@@@@@@@@@</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text104</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1000000022-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 1287715891" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting lines         #3###### @4@@@@@@@@@@@@@</source>
+          <target>Registrando líneas    #3###### @4@@@@@@@@@@@@@</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text105</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1000000021-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822996795 - NamedType 3200805742" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A maximum of %1 posting number series can be used in each journal.</source>
+          <target>Se puede utilizar un máximo de %1 números de serie de registro en cada diario.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Service Item Entry-Post - NamedType Text106</note>
+          <note from="Transitional" annotates="general" priority="4">C50204-Q1000000020-P26171</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1675328413 - Method 1477660516 - NamedType 4101962809" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1\¿Do you want to continue?</source>
+          <target>%1\¿Desea continuar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Alarm Mgt. - Method ShowAlarm - NamedType TextConfirm</note>
+          <note from="Transitional" annotates="general" priority="4">C50209-U1000000001-Q1000000001-P26171</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
