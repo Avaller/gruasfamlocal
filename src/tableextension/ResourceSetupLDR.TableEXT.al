@@ -5,7 +5,7 @@ tableextension 50050 "Resources Setup_LDR" extends "Resources Setup"
 {
     fields
     {
-        field(50000; "Work Type Code Mandatory"; BoolEAN)
+        field(50000; "Work Type Code Mandatory"; Boolean)
         {
             Caption = 'Obligatorio Código Tipo Trabajo en Diario Recursos';
             DataClassification = ToBeClassified;

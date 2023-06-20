@@ -5,7 +5,7 @@ tableextension 50060 "Fixed Asset_LDR" extends "Fixed Asset"
 {
     fields
     {
-        field(7121994; "Service Item No._LDR"; Code[20])
+        field(50000; "Service Item No._LDR"; Code[20])
         {
             Caption = 'Nº Producto Servicio';
             DataClassification = ToBeClassified;

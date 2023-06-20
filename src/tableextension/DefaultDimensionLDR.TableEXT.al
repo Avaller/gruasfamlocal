@@ -3,7 +3,7 @@
 /// </summary>
 tableextension 50106 "Default Dimension_LDR" extends "Default Dimension"
 {
-    trigger OnBeforeInsert()
+    trigger OnAfterInsert()
     begin
         ServSetup.Get();
         if ServSetup."Machine Type Dimension_LDR" <> '' then begin
@@ -12,7 +12,7 @@ tableextension 50106 "Default Dimension_LDR" extends "Default Dimension"
         end;
     end;
 
-    trigger OnBeforeModify()
+    trigger OnAfterModify()
     begin
         ServSetup.Get();
         if ServSetup."Machine Type Dimension_LDR" <> '' then begin
@@ -21,7 +21,7 @@ tableextension 50106 "Default Dimension_LDR" extends "Default Dimension"
         end;
     end;
 
-    trigger OnBeforeDelete()
+    trigger OnAfterDelete()
     begin
         ServSetup.Get();
         if ServSetup."Machine Type Dimension_LDR" <> '' then begin

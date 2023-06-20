@@ -3,7 +3,7 @@
 /// </summary>
 tableextension 50108 "Service Item Group_LDR" extends "Service Item Group"
 {
-    trigger OnBeforeDelete()
+    trigger OnAfterDelete()
     var
     //Plantillas: Record 7121997;
     begin

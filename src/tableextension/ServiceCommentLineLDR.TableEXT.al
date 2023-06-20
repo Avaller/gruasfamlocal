@@ -30,13 +30,13 @@ tableextension 50069 "Service Comment Line_LDR" extends "Service Comment Line"
             DataClassification = ToBeClassified;
             OptionMembers = "Space","Carriage Return";
         }
-        field(50005; CR_LDR; BoolEAN)
+        field(50005; CR_LDR; Boolean)
         {
             DataClassification = ToBeClassified;
         }
     }
 
-    trigger OnBeforeInsert()
+    trigger OnAfterInsert()
     begin
         if (Type in [1, 2, 3, 4]) and ("Table Subtype" <> "Table Subtype"::"0") then
             TestField("Table Line No.");

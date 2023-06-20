@@ -5,7 +5,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
 {
     fields
     {
-        field(50000; "Ingestrel Export_LDR"; BoolEAN)
+        field(50000; "Ingestrel Export_LDR"; Boolean)
         {
             Caption = 'Exportar a Ingestrel';
             DataClassification = ToBeClassified;
@@ -105,7 +105,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
             DataClassification = ToBeClassified;
             MinValue = 1;
         }
-        field(50014; "Maintenance Block_LDR"; BoolEAN) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50014; "Maintenance Block_LDR"; Boolean) //TODO: Revisar warning del atributo CalcFormula del field
         {
             //CalcFormula = Exist("Serv. Item Availability Entry" WHERE("Service Item Code" = FIELD("No."), "Entry Type" = CONST("maintenance"), "Starting Date" = FIELD("Starting Date Filter"), "Ending Date" = FIELD("Ending Date Filter"))); //TODO: Revisar si conservamos el atributo CalcFormula
             Caption = 'Bloqueado Mantenimiento';
@@ -482,7 +482,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
         }
     }
 
-    trigger OnBeforeInsert()
+    trigger OnAfterInsert()
     var
         ServiceItemFeatures: Record "Service Item Features_LDR";
     begin
@@ -506,7 +506,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
         "Modified Date_LDR" := CurrentDateTime;
     end;
 
-    trigger OnBeforeDelete()
+    trigger OnAfterDelete()
     var
         ServiceItemCounter: Record "Service Item Counter_LDR";
         TowingAllocation: Record "Trailer Allocation_LDR";
@@ -550,7 +550,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
         ServItemSinister.DeleteAll(true);
     end;
 
-    trigger OnBeforeRename()
+    trigger OnAfterRename()
     var
         DefaultDim: Record "Default Dimension";
         DefaultDim2: Record "Default Dimension";

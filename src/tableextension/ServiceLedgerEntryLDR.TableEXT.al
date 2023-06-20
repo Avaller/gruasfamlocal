@@ -24,7 +24,7 @@ tableextension 50070 "Service Ledger Entry_LDR" extends "Service Ledger Entry"
         {
             DataClassification = ToBeClassified;
         }
-        field(50004; "ELESOFT Historial_LDR"; BoolEAN)
+        field(50004; "ELESOFT Historial_LDR"; Boolean)
         {
             Caption = 'Histórico Elesoft';
             DataClassification = ToBeClassified;
@@ -54,7 +54,7 @@ tableextension 50070 "Service Ledger Entry_LDR" extends "Service Ledger Entry"
             Caption = 'Fecha Deshacer Factura Contrato Servicio';
             DataClassification = ToBeClassified;
         }
-        field(50010; "Service Contract Concept Entry_LDR"; BoolEAN)
+        field(50010; "Service Contract Concept Entry_LDR"; Boolean)
         {
             Caption = 'Movimiento Origen Concepto Contrato';
             DataClassification = ToBeClassified;
@@ -125,7 +125,7 @@ tableextension 50070 "Service Ledger Entry_LDR" extends "Service Ledger Entry"
             Caption = 'Nº Contrato Servicio Proveedor';
             DataClassification = ToBeClassified;
         }
-        field(50023; "Day Invoicing_LDR"; BoolEAN)
+        field(50023; "Day Invoicing_LDR"; Boolean)
         {
             Caption = 'Facturar por Precio Día';
             DataClassification = ToBeClassified;
