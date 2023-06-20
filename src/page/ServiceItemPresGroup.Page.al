@@ -46,8 +46,4 @@ page 50004 "Service Item Pres. Group"
             }
         }
     }
-
-    actions
-    {
-    }
 }

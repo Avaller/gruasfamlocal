@@ -6,14 +6,13 @@ page 50105 "Plat. Serv. Q. Inv. G Line"
     // version FAM
 
     AutoSplitKey = true;
-    CaptionML = ENU = 'Platform Service Quote Operation Line - Invoice Group',
-                ESP = 'Linea de Operacion de Oferta Servicio Plataforma - Grupo Facturación';
+    Caption = 'Linea de Operacion de Oferta Servicio Plataforma - Grupo Facturación';
     CardPageID = "Crane Serv. Q. Op. Inv. G Card";
     PageType = ListPart;
     SourceTable = "Platf. Serv. Q. Inv G Line_LDR";
     SourceTableView = Sorting("Quote No.", "Line No.");
 
-    /*
+
     layout
     {
         area(content)
@@ -38,7 +37,7 @@ page 50105 "Plat. Serv. Q. Inv. G Line"
                     Caption = 'No. de tarifa';
                     ToolTip = 'No. de tarifa';
 
-                    trigger OnLookup(var Text: Text): BoolEAN;
+                    trigger OnLookup(var Text: Text): Boolean;
                     var
                         ServiceItemInvoiceGroup: Record "Service Item Invoice Group_LDR";
                         ServiceItemRateLineCrane: Record "Servic Item Rat Li - Crane_LDR";
@@ -114,12 +113,10 @@ page 50105 "Plat. Serv. Q. Inv. G Line"
         {
             group("F&unctions")
             {
-                CaptionML = ENU = 'F&unctions',
-                            ESP = 'Funci&ones';
+                Caption = 'Funci&ones';
                 action("Load Service Rate")
                 {
-                    CaptionML = ENU = 'Load Service Rate',
-                                ESP = 'Volcar Tarifa de Servicio';
+                    Caption = 'Volcar Tarifa de Servicio';
                     Image = LinesFromJob;
 
                     trigger OnAction();
@@ -147,6 +144,5 @@ page 50105 "Plat. Serv. Q. Inv. G Line"
 
     var
         Text001: TextConst ENU = 'Platform Quote No. %1, already has some Invoice Groups specified. By continuing you will add all the Service Rate''s Invoices Groups to the existing ones.', ESP = 'La Oferta de Plataformas Nº %1, ya tiene algun grupo de facturación especificado. Continuando se añadirán todos los grupos de facturación presentes en la Tarifa de Servicio.';
-    */
 }
 

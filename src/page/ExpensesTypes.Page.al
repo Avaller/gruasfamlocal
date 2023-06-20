@@ -52,8 +52,4 @@ page 50095 "Expenses Types"
             }
         }
     }
-
-    actions
-    {
-    }
 }

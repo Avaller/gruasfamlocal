@@ -56,8 +56,4 @@ page 50075 "Crane Serv. Quote Calendar"
             }
         }
     }
-
-    actions
-    {
-    }
 }

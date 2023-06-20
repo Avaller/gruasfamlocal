@@ -7,45 +7,78 @@ page 50015 "Alarm List"
     ModifyAllowed = false;
     PageType = List;
     SourceTable = Alarms_LDR;
-    /*
+
     layout
     {
         area(content)
         {
             repeater(repeater)
             {
-                field("Alarm No."; "Alarm No.")
+                field("Alarm No."; Rec."Alarm No.")
                 {
+                    ApplicationArea = All;
+                    Caption = 'No de Alarma';
+                    ToolTip = 'No de Alarma';
                 }
-                field("Start Date"; "Start Date")
+                field("Start Date"; Rec."Start Date")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Fecha de inicio';
+                    ToolTip = 'Fecha de inicio';
                 }
-                field("End Date"; "End Date")
+                field("End Date"; Rec."End Date")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Fecha de fin';
+                    ToolTip = 'Fecha de fin';
                 }
-                field("Message Type"; "Message Type")
+                field("Message Type"; Rec."Message Type")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Tipo de mensaje';
+                    ToolTip = 'Tipo de mensaje';
                 }
-                field("Source Type"; "Source Type")
+                field("Source Type"; Rec."Source Type")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Tipo de fuente';
+                    ToolTip = 'Tipo de fuente';
                 }
-                field("Source No."; "Source No.")
+                field("Source No."; Rec."Source No.")
                 {
+                    ApplicationArea = All;
+                    Caption = 'No de Fuente';
+                    ToolTip = 'No de Fuente';
                 }
-                field("Source No. 2"; "Source No. 2")
+                field("Source No. 2"; Rec."Source No. 2")
                 {
+                    ApplicationArea = All;
+                    Caption = 'No de Fuente 2';
+                    ToolTip = 'No de Fuente 2';
                 }
-                field(Message; Message)
+                field(Message; Rec.Message)
                 {
+                    ApplicationArea = All;
+                    Caption = 'Mensaje';
+                    ToolTip = 'Mensaje';
                 }
-                field("Message 2"; "Message 2")
+                field("Message 2"; Rec."Message 2")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Mensaje 2';
+                    ToolTip = 'Mensaje 2';
                 }
-                field("Off on next use"; "Off on next use")
+                field("Off on next use"; Rec."Off on next use")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Apagado en el próximo uso';
+                    ToolTip = 'Apagado en el próximo uso';
                 }
-                field("User ID"; "User ID")
+                field("User ID"; Rec."User ID")
                 {
+                    ApplicationArea = All;
+                    Caption = 'ID de usuario';
+                    ToolTip = 'ID de usuario';
                 }
             }
         }
@@ -58,31 +91,9 @@ page 50015 "Alarm List"
             group("&Alarm")
             {
                 Caption = '&Alarm';
-                action(Card)
-                {
-                    Caption = 'Card';
-                    Image = EditLines;
-                    Promoted = true;
-                    PromotedCategory = "Report";
-                    RunObject = Page 70104;
-                    RunPageLink = Alarm No.=FIELD(Alarm No.);
-                    ShortCutKey = 'Shift+F7';
-                }
-                separator()
-                {
-                }
-                action(Logs)
-                {
-                    Caption = 'Logs';
-                    Image = Log;
-                    Promoted = true;
-                    PromotedCategory = "Report";
-                    RunObject = Page 70105;
-                                    RunPageLink = Alarm No.=FIELD(Alarm No.);
-                    RunPageView = SORTING(Alarm No.,Date,Time);
-                }
+
             }
         }
     }
-    */
+
 }

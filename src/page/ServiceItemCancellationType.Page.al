@@ -28,8 +28,4 @@ page 50001 "Service Item Cancellation Type"
             }
         }
     }
-
-    actions
-    {
-    }
 }

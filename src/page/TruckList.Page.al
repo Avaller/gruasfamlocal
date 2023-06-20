@@ -1,6 +1,6 @@
 page 50074 TruckList
 {
-    /*Caption = 'Truck List';
+    Caption = 'Truck List';
     PageType = List;
     SourceTable = "Service Item";
     SourceTableView = where("Cancelation Cause Code" = filter(''));
@@ -11,24 +11,33 @@ page 50074 TruckList
         {
             repeater(Group)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
+                    ApplicationArea = All;
+                    Caption = 'No';
+                    ToolTip = 'No';
                 }
-                field("Planner No"; "Planner No")
+                field("Planner No"; Rec."Planner No")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Planificador no';
+                    ToolTip = 'Planificador no';
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
+                    ApplicationArea = All;
+                    Caption = 'Descripción';
+                    ToolTip = 'Descripción';
                 }
             }
         }
         area(factboxes)
         {
-            systempart(; Links)
+            systempart(Links; Links)
             {
                 Visible = false;
             }
-            systempart(; Notes)
+            systempart(Notes; Notes)
             {
                 Visible = false;
             }
@@ -45,15 +54,15 @@ page 50074 TruckList
         ServiceMgtSetup.GET;
 
 
-        SETFILTER("Presentation Group Code", '%1', OrderPlannerSetup."Platform Trucks Pres. Code");
-        SETFILTER("Explotation Customer No.", '%1', ServiceMgtSetup."No. Internal Customer");
+        Rec.SETFILTER("Presentation Group Code", '%1', OrderPlannerSetup."Platform Trucks Pres. Code");
+        Rec.SETFILTER("Explotation Customer No.", '%1', ServiceMgtSetup."No. Internal Customer");
 
-        FILTERGROUP(2);
-        SETRANGE("Service Item Type", "Service Item Type"::Crane);
-        FILTERGROUP(0);
+        Rec.FILTERGROUP(2);
+        Rec.SETRANGE("Service Item Type", Rec."Service Item Type"::Crane);
+        Rec.FILTERGROUP(0);
     end;
 
     var
-        OrderPlannerSetup: Record "50229";
-        ServiceMgtSetup: Record "5911"; */
+        OrderPlannerSetup: Record "Order Planner Setup_LDR";
+        ServiceMgtSetup: Record "Service Mgt. Setup";
 }

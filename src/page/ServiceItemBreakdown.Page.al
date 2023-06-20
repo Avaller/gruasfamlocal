@@ -7,7 +7,6 @@ page 50019 "Service Item Breakdown"
     PageType = List;
     SourceTable = "Service Item Breakdown_LDR";
 
-    /*
     layout
     {
         area(content)
@@ -92,7 +91,7 @@ page 50019 "Service Item Breakdown"
 
                     trigger OnAction()
                     var
-                        CopyServItemBreakdown: Report 50002;
+                        CopyServItemBreakdown: Report "Copy Serv. Item Breakdown";
                     begin
 
                         IF NOT CONFIRM(Text001, FALSE) THEN
@@ -111,5 +110,4 @@ page 50019 "Service Item Breakdown"
     var
         Text001: Label 'Updating an existing Breakdown, wili append all detail from Source''s Breakdown into the selected one. Are you sure you want to proceed?';
         Text002: Label 'You are about to modify the Default Breakdown Detail. Please, proceed carefully';
-    */
 }

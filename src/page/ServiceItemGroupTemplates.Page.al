@@ -37,8 +37,4 @@ page 50036 "Service Item Group Templates"
             }
         }
     }
-
-    actions
-    {
-    }
 }

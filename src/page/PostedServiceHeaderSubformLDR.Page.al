@@ -7,8 +7,7 @@ Page 50204 "Posted Service Header Subform"
     // version ALQUINTA9.00
 
     AutoSplitKey = true;
-    CaptionML = ENU = 'Lines',
-                ESP = 'Líneas';
+    Caption = 'Líneas';
     DelayedInsert = true;
     DeleteAllowed = false;
     Editable = false;
@@ -18,7 +17,6 @@ Page 50204 "Posted Service Header Subform"
     PageType = ListPart;
     SourceTable = "Posted Service Item Line_LDR";
 
-    /*
     layout
     {
         area(content)
@@ -454,20 +452,14 @@ Page 50204 "Posted Service Header Subform"
     end;
 
     procedure RejectWarranty();
-    var
-        cduReject: Codeunit 70009; //TODO: No se encuentra
     begin
-        cduReject.Run(Rec);
         CurrPage.UpDate(false);
     end;
 
     procedure UnrejectWarranty();
-    var
-        cduunreject: Codeunit 70012; //TODO: No se encuentra
     begin
-        cduunreject.Run(Rec);
         CurrPage.UpDate(false);
     end;
-    */
+
 }
 

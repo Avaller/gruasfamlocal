@@ -114,15 +114,14 @@ page 50030 "BreakDown Item Tree Detail"
                             PurchaseHeader.SetRange("Buy-from Vendor No.", lVendorNo);
                             PurchaseHeader.SetRange(Status, PurchaseHeader.Status::Open);
                             if PurchaseHeader.findset then begin
-                                //Si tiene algun pedido abierto, muestro una lista para seleccionar el que queremos
                                 PurchaseOrderList.SetTableView(PurchaseHeader);
                                 PurchaseOrderList.LookUpMode(true);
                                 if PurchaseOrderList.RunModal = ACTION::LookupOK then begin
                                     PurchaseOrderList.GetRecord(PurchaseHeader);
                                 end else
-                                    error(''); //Si dan a cancelar finalizo el proceso
+                                    error('');
                             end else begin
-                                //si no, creo uno nuevo.
+
                                 PurchaseHeader.Init;
                                 PurchaseHeader."Document Type" := PurchaseHeader."Document Type"::Order;
                                 PurchaseHeader.Validate("Buy-from Vendor No.", lVendorNo);

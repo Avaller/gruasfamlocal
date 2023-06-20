@@ -12,7 +12,8 @@ page 50205 Planner
     // 8 --> Activate Movility
     // ************************************************************************************************************
 
-    /*Caption = 'Planner';
+    /*
+    Caption = 'Planner';
 
     layout
     {
@@ -33,7 +34,7 @@ page 50205 Planner
 
                     trigger Update(Params: DotNet Params)
                     var
-                        UserDate: Record "50042";
+                        UserDate: Record "User Date_LDR";
                     begin
                         IF NOT UserDate.GET(USERID) THEN BEGIN
                             UserDate."User Id" := USERID;
@@ -60,7 +61,7 @@ page 50205 Planner
         }
         area(factboxes)
         {
-            systempart(; Notes)
+            systempart(Notes; Notes)
             {
                 Visible = false;
             }
@@ -81,7 +82,7 @@ page 50205 Planner
 
                     trigger OnAction()
                     var
-                        ServiceOrderMgt: Codeunit "50004";
+                        ServiceOrderMgt: Codeunit "Service Order Mgt._LDR";
                     begin
                         ServiceOrderMgt.RUN;
                     end;
@@ -97,16 +98,16 @@ page 50205 Planner
     end;
 
     var
-        bReady: BoolEAN;
+        bReady: Boolean;
         txtAllocationUnfound: Label 'Other user has already modified Order %1 resource allocation. Update control to view updated changes.';
         EntryTypes: DotNet PlannerEvent;
-        DateFormula: Record "50229";
-        PlannerMgt: Codeunit "50008";
+        DateFormula: Record "Order Planner Setup_LDR";
+        PlannerMgt: Codeunit "Planner Mgt._LDR";
 
     local procedure UpdateControl()
     var
-        Groups: Record "50004";
-        TempBlob: Record "99008535";
+        Groups: Record "Service Item Pres. Group_LDR";
+        TempBlob: Record 99008535;
         OutXML: OutStream;
         InXML: InStream;
         Big: BigText;
@@ -121,8 +122,8 @@ page 50205 Planner
 
     local procedure RefreshControl(Params: Text)
     var
-        Groups: Record "50004";
-        TempBlob: Record "99008535";
+        Groups: Record "Service Item Pres. Group_LDR";
+        TempBlob: Record "BLOB Storage Module"; //TODO: No encontrada
         OutXML: OutStream;
         InXML: InStream;
         Big: BigText;
@@ -137,7 +138,11 @@ page 50205 Planner
         CurrPage.Planner.UpdateDataToControl(Big);
     end;
 
-    [Scope('Internal')]
+    /// <summary>
+    /// GetTime.
+    /// </summary>
+    /// <param name="Value">Text.</param>
+    /// <returns>Return value of type Time.</returns>
     procedure GetTime(Value: Text): Time
     var
         MyTextTime: Text;
@@ -150,7 +155,11 @@ page 50205 Planner
         EXIT(MyTime);
     end;
 
-    [Scope('Internal')]
+    /// <summary>
+    /// GetDate.
+    /// </summary>
+    /// <param name="Value">Text.</param>
+    /// <returns>Return value of type Date.</returns>
     procedure GetDate(Value: Text): Date
     var
         MyTextDate: Text;
@@ -165,6 +174,7 @@ page 50205 Planner
 
         MyDate := DMY2DATE(Day, Month, Year);
         EXIT(MyDate);
-    end; */
+    end;
+    */
 }
 

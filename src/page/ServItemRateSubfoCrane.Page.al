@@ -196,8 +196,4 @@ page 50017 "Serv. Item Rate Subfo. - Crane"
             }
         }
     }
-
-    actions
-    {
-    }
 }

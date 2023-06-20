@@ -9,7 +9,6 @@ page 50219 "Posted Service Order List"
     PageType = List;
     SourceTable = "Posted Service Header_LDR";
 
-    /*
     layout
     {
         area(content)
@@ -283,16 +282,7 @@ page 50219 "Posted Service Order List"
             {
                 Caption = 'Statistics';
                 Image = Statistics;
-                action("S&tatistics")
-                {
-                    Caption = 'S&tatistics';
-                    Image = Statistics;
-                    Promoted = true;
-                    PromotedCategory = Process;
-                    RunObject = Page 70086; //TODO: No encontrado
-                    RunPageLink = "No." = field("No.");
-                    ShortCutKey = 'F7';
-                }
+
             }
             group(Documents)
             {
@@ -325,5 +315,4 @@ page 50219 "Posted Service Order List"
             }
         }
     }
-    */
 }

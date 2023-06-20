@@ -41,8 +41,4 @@ page 50007 "Service Item Model"
             }
         }
     }
-
-    actions
-    {
-    }
 }

@@ -77,8 +77,4 @@ page 50068 "Crane Serv. Q. Forfait Calenda"
             }
         }
     }
-
-    actions
-    {
-    }
 }

@@ -11,7 +11,6 @@ page 50022 "Insert Quote"
     SourceTable = "Quote Start Temp_LDR";
     SourceTableTemporary = true;
 
-    /*
     layout
     {
         area(content)
@@ -152,14 +151,14 @@ page 50022 "Insert Quote"
                 trigger OnAction()
                 var
                     "Count": Integer;
-                    ServiceQuoteMgt: Codeunit "Service Quote Mgt.";
+                    ServiceQuoteMgt: Codeunit "Service Quote Mgt._LDR";
                 begin
                     // Crear oferta
                     if Rec."Machine Quote Type" = Rec."Machine Quote Type"::Crane then
                         ServiceQuoteMgt.CreateCraneQuote(Rec)
                     else
                         if Rec."Machine Quote Type" = Rec."Machine Quote Type"::Platform then
-                            ServiceQuoteMgt.CreatePLatformQuote(Rec);
+                            ServiceQuoteMgt.CreatePlatformQuoteOLD(Rec);
 
                     CurrPage.close;
                 end;
@@ -177,28 +176,28 @@ page 50022 "Insert Quote"
     trigger OnOpenPage()
     begin
         updateEditable;
-        Rec."Quote Type" := Rec."Quote Type"::Tariff; //TODO: Dice que no los puede usar
+        Rec."Quote Type" := Rec."Quote Type"::Tariff;
 
         ShowStep(true);
     end;
 
     var
         [InDataSet]
-        bStep1Visible: BoolEAN;
+        bStep1Visible: Boolean;
         [InDataSet]
-        bStep2Visible: BoolEAN;
+        bStep2Visible: Boolean;
         [InDataSet]
-        bFinishEnable: BoolEAN;
+        bFinishEnable: Boolean;
         [InDataSet]
-        bBackEnable: BoolEAN;
+        bBackEnable: Boolean;
         [InDataSet]
-        bNextEnable: BoolEAN;
+        bNextEnable: Boolean;
         WizzardStep: Option " ","1","2","3","4","5","6";
-        ServiceQuoteMgt: Codeunit "Service Quote Mgt.";
+        ServiceQuoteMgt: Codeunit "Service Quote Mgt._LDR";
         Text001: Label 'General Purpose Quote Nr. %1 has been completed with the Default Rate Set Up';
-        bQuoteTypeEnabled: BoolEAN;
+        bQuoteTypeEnabled: Boolean;
 
-    local procedure ShowStep(Visible: BoolEAN)
+    local procedure ShowStep(Visible: Boolean)
     begin
         case WizzardStep of
             WizzardStep::"1":
@@ -262,5 +261,4 @@ page 50022 "Insert Quote"
     local procedure updateEditable()
     begin
     end;
-    */
 }

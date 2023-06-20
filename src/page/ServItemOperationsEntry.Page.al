@@ -135,9 +135,5 @@ page 50057 "Serv. Item Operations Entry"
             }
         }
     }
-
-    actions
-    {
-    }
 }
 

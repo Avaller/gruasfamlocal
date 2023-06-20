@@ -61,8 +61,4 @@ page 50018 "Serv. Item Rate Subfo. - Platf"
             }
         }
     }
-
-    actions
-    {
-    }
 }

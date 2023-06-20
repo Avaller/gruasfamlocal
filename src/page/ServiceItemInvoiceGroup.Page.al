@@ -79,7 +79,7 @@ page 50005 "Service Item Invoice Group"
             {
                 Caption = 'Bonus per company';
                 Image = RelatedInformation;
-                RunObject = Page 50090;
+                RunObject = Page "Bonus per Company";
                 RunPageLink = "Invoicing Group" = FIELD(Code);
             }
         }

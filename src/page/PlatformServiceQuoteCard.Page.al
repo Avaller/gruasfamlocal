@@ -10,7 +10,6 @@ page 50104 "Platform Service Quote Card"
     SourceTable = "Crane Service Quote Header_LDR";
     SourceTableView = where("Historical" = Const(false), "Platform Quote" = Const(true));
 
-    /*
     layout
     {
         area(content)
@@ -441,15 +440,15 @@ page 50104 "Platform Service Quote Card"
 
     var
         [InDataSet]
-        DisplacementCalcTypeEnabled: BoolEAN;
+        DisplacementCalcTypeEnabled: Boolean;
         [InDataSet]
-        KMsFranchiseEnabled: BoolEAN;
+        KMsFranchiseEnabled: Boolean;
         [InDataSet]
-        KmsHoursEnabled: BoolEAN;
+        KmsHoursEnabled: Boolean;
         [InDataSet]
-        DiplacementAmountEnabled: BoolEAN;
-        ServiceQuoteMgt: Codeunit "Service Quote Mgt.";
-        bCustOrderNo: BoolEAN;
+        DiplacementAmountEnabled: Boolean;
+        ServiceQuoteMgt: Codeunit "Service Quote Mgt._LDR";
+        bCustOrderNo: Boolean;
         Text0001: Label 'By modifying the Service Rate on this quote, ALL lines will be affected. This will not apply to the existing Service Order or Contracts\Are you sure you want to proceed?';
 
     local procedure Updatefields()
@@ -497,5 +496,5 @@ page 50104 "Platform Service Quote Card"
             end;
         end;
     end;
-    */
+
 }

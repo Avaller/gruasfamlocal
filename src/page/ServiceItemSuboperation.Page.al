@@ -52,8 +52,4 @@ page 50094 "Service Item Suboperation"
             }
         }
     }
-
-    actions
-    {
-    }
 }

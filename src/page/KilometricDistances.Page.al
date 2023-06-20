@@ -6,8 +6,7 @@ page 50236 "Kilometric distances"
 {
     // version ALQUINTA9.00,FAM
 
-    CaptionML = ENU = 'Kilometric distances',
-                ESP = 'Distancias Kilométricas';
+    Caption = 'Distancias Kilométricas';
     PageType = List;
     SourceTable = "Kilometric distance_LDR";
 
@@ -67,10 +66,6 @@ page 50236 "Kilometric distances"
                 }
             }
         }
-    }
-
-    actions
-    {
     }
 
     var

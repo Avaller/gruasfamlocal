@@ -3,7 +3,6 @@
 /// </summary>
 page 50023 "Crane Service Quotes"
 {
-    /*
     Caption = 'Crane Service Quotes';
     CardPageID = "Crane Service Quote Card";
     DeleteAllowed = false;
@@ -11,8 +10,8 @@ page 50023 "Crane Service Quotes"
     ModifyAllowed = false;
     PageType = List;
     SourceTable = "Crane Service Quote Header_LDR";
-    SourceTableView = where(Historical = const("No."),
-                            "Platform Quote" = const("No."));   //TODO: No permite transformar un boolEAN a un Option 
+    //SourceTableView = where(Historical = const("No."),
+    //                        "Platform Quote" = const("No."));   //TODO: No permite transformar un boolean a un Option 
 
     layout
     {
@@ -127,5 +126,5 @@ page 50023 "Crane Service Quotes"
             }
         }
     }
-    */
+
 }

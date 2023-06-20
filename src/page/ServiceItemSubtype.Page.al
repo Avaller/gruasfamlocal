@@ -36,8 +36,4 @@ page 50009 "Service Item Subtype"
             }
         }
     }
-
-    actions
-    {
-    }
 }

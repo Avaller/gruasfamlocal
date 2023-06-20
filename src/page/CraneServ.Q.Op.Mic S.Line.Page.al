@@ -6,8 +6,7 @@ page 50025 "Crane Serv. Q. Op. Mic S. Line"
     // version FAM
 
     AutoSplitKey = true;
-    CaptionML = ENU = 'Crane Service Quote Operation Line - Other Services',
-                ESP = 'Linea de Operacion de Oferta Servicio Grúa - Otros Servicios';
+    Caption = 'Linea de Operacion de Oferta Servicio Grúa - Otros Servicios';
     PageType = List;
     SourceTable = "Crane Serv Q Op Mic S Line_LDR";
 
@@ -52,8 +51,7 @@ page 50025 "Crane Serv. Q. Op. Mic S. Line"
 
             action("Co&mments")
             {
-                CaptionML = ENU = 'Co&mments',
-                            ESP = 'C&omentarios';
+                Caption = 'C&omentarios';
                 Image = ViewComments;
                 RunObject = Page "Service Comment Sheet";
                 RunPageLink = Type = const(General),

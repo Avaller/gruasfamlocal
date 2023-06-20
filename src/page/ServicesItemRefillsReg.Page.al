@@ -9,7 +9,6 @@ page 50021 "Services Item Refills Reg"
     PageType = List;
     SourceTable = "Service Item Refills Reg_LDR";
 
-    /*
     layout
     {
         area(content)
@@ -183,11 +182,10 @@ page 50021 "Services Item Refills Reg"
                 begin
                     //MESSAGE('Pendiente de Implementar');
 
-                    ServItemRefillMgt.ProcessSingleEntry(Rec);
+                    ServItemRefillMgt.ProcessSingleEntry(Rec); //TODO: No definido
                     CurrPage.UPDATE(FALSE);
                 end;
             }
         }
     }
-    */
 }

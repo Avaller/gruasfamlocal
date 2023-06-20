@@ -9,7 +9,6 @@ page 50024 "Crane Service Quote Card"
     SourceTable = "Crane Service Quote Header_LDR";
     SourceTableView = where("Historical" = Const(false), "Platform Quote" = Const(false));
 
-    /*
     layout
     {
         area(content)
@@ -416,9 +415,9 @@ page 50024 "Crane Service Quote Card"
                     var
                         CraneServiceQuoteHeader: Record "Crane Service Quote Header_LDR";
                     begin
-                        if CONFIRM(Text0001) then begin
-                            Rec.TestField(CraneServiceQuoteHeader."Quote Status", CraneServiceQuoteHeader."Quote Status"::Open);
-                            clear(CraneServiceQuoteHeader);
+                        if Confirm(Text0001) then begin
+                            Rec.TestField("Quote Status", Rec."Quote Status"::Open);
+                            Clear(CraneServiceQuoteHeader);
                             CraneServiceQuoteHeader.SetRange("Quote no.", CraneServiceQuoteHeader."Quote no.");
                             Report.run(Report::"Apply Serv. Rate on Quotes", true, true, CraneServiceQuoteHeader);
                             CurrPage.upDate(false);
@@ -514,15 +513,15 @@ page 50024 "Crane Service Quote Card"
 
     var
         [InDataSet]
-        DisplacementCalcTypeEnabled: BoolEAN;
+        DisplacementCalcTypeEnabled: Boolean;
         [InDataSet]
-        KMsFranchiseEnabled: BoolEAN;
+        KMsFranchiseEnabled: Boolean;
         [InDataSet]
-        KmsHoursEnabled: BoolEAN;
+        KmsHoursEnabled: Boolean;
         [InDataSet]
-        DiplacementAmountEnabled: BoolEAN;
-        ServiceQuoteMgt: Codeunit "Service Quote Mgt.";
-        bCustOrderNo: BoolEAN;
+        DiplacementAmountEnabled: Boolean;
+        ServiceQuoteMgt: Codeunit "Service Quote Mgt._LDR";
+        bCustOrderNo: Boolean;
         Text0001: Label 'By modifying the Service Rate on this quote, ALL lines will be affected. This will not apply to the existing Service Order or Contracts\Are you sure you want to proceed?';
 
     local procedure upDatefields()
@@ -570,5 +569,4 @@ page 50024 "Crane Service Quote Card"
             end;
         end;
     end;
-    */
 }

@@ -1,73 +1,115 @@
-page 50027 "Serv. Contract Line Hours_LDR"
+/// <summary>
+/// Page Serv. Contract Line Hours_LDR (ID 50029).
+/// </summary>
+page 50029 "Serv. Contract Line Hours_LDR"
 {
     // UPG2016 20160120 1CF_SVD DIALOG WINDOW reimplemented
     // UPG2016 22/01/2016 1CF_MGF DIALOG WINDOW reimplemented
 
-    /*Caption = 'Serv. Contract Line Hours';
+    Caption = 'Serv. Contract Line Hours';
     DeleteAllowed = true;
     InsertAllowed = false;
-    ModifyAllowed = true;
-    PageType = List;
+    ModIfyAllowed = true;
+    PaGetype = List;
     SourceTable = "Serv. Contract Line Hours_LDR";
+
 
     layout
     {
         area(content)
         {
-            repeater()
+            Repeater(Contents)
             {
-                field("Starting Date"; "Starting Date")
+                field("Starting Date"; Rec."Starting Date")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Fecha de inicio';
                     Editable = false;
+                    ToolTip = 'Fecha de inicio';
                 }
-                field("End Date"; "End Date")
+                field("End Date"; Rec."End Date")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Fecha final';
                     Editable = false;
+                    ToolTip = 'Fecha final';
                 }
-                field("Contracted hours"; "Contracted hours")
+                field("Contracted hours"; Rec."Contracted hours")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Horas contratadas';
+                    ToolTip = 'Horas contratadas';
                 }
-                field("Beginning hours"; "Beginning hours")
+                field("Beginning hours"; Rec."Beginning hours")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Horas de inicio';
+                    ToolTip = 'Horas de inicio';
                 }
-                field("Ending hours"; "Ending hours")
+                field("Ending hours"; Rec."Ending hours")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Horas de finalización';
+                    ToolTip = 'Horas de finalización';
                 }
-                field("Completed hours"; "Completed hours")
+                field("Completed hours"; Rec."Completed hours")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Horas completadas';
+                    ToolTip = 'Horas completadas';
                 }
-                field("Contracted/Realized Difference"; "Contracted/Realized Difference")
+                field("Contracted/Realized DIfference"; Rec."Contracted/Realized DIfference")
                 {
+                    ApplicationArea = All;
+                    Caption = 'DIferencia Contratada / Realizada';
                     Style = Attention;
-                    StyleExpr = styleContRealDiff;
+                    StyleExpr = styleContRealDIff;
+                    ToolTip = 'DIferencia Contratada / Realizada';
                 }
                 field(PeriodoActivo; PeriodoActivo)
                 {
-                    Caption = 'Active Period';
+                    ApplicationArea = All;
+                    Caption = 'Período Activo';
                     Editable = false;
+                    ToolTip = 'Período Activo';
                 }
-                field("Corrected Hour Price"; "Corrected Hour Price")
+                field("Corrected Hour Price"; Rec."Corrected Hour Price")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Precio Hora Corregido';
                     DecimalPlaces = 2 : 5;
+                    ToolTip = 'Precio Hora Corregido';
                 }
-                field("Contract No."; "Contract No.")
+                field("Contract No."; Rec."Contract No.")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Nº de contrato';
                     Editable = false;
+                    ToolTip = 'Nº de contrato';
                     Visible = false;
                 }
-                field("Contract Line No."; "Contract Line No.")
+                field("Contract Line No."; Rec."Contract Line No.")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Nº de línea de contrato';
                     Editable = false;
+                    ToolTip = 'Nº de línea de contrato';
                     Visible = false;
                 }
-                field("Service Item No."; "Service Item No.")
+                field("Service Item No."; Rec."Service Item No.")
                 {
+                    ApplicationArea = All;
+                    Caption = 'Número de artículo de servicio';
                     Editable = false;
+                    ToolTip = 'Número de artículo de servicio';
                     Visible = false;
                 }
-                field(Procesed; Procesed)
+                field(Procesed; Rec.Procesed)
                 {
+                    ApplicationArea = All;
+                    Caption = 'Procesada';
                     Editable = false;
+                    ToolTip = 'Procesada';
                 }
             }
         }
@@ -80,18 +122,18 @@ page 50027 "Serv. Contract Line Hours_LDR"
             group("&Actions")
             {
                 Caption = '&Actions';
-                action(Planificate)
+                action(PlanIficate)
                 {
-                    Caption = 'Planificate';
+                    Caption = 'PlanIficate';
                     Image = Planning;
                     Promoted = true;
                     PromotedCategory = Process;
                     ShortCutKey = 'Ctrl+p';
 
                     trigger OnAction()
-                    begin
-                        CreatePlanification;
-                    end;
+                    Begin
+                        CreatePlanIfication;
+                    End;
                 }
                 action("Calc. Ending Hours")
                 {
@@ -102,9 +144,9 @@ page 50027 "Serv. Contract Line Hours_LDR"
                     ShortCutKey = 'Ctrl+c';
 
                     trigger OnAction()
-                    begin
-                        CalcEndingHours;
-                    end;
+                    Begin
+                        Rec.CalcEndingHours;
+                    End;
                 }
                 action("Add to Invoicing")
                 {
@@ -114,319 +156,256 @@ page 50027 "Serv. Contract Line Hours_LDR"
                     PromotedCategory = Process;
 
                     trigger OnAction()
-                    begin
+                    Begin
                         SetInvoicing;
-                    end;
+                    End;
                 }
             }
         }
     }
 
     trigger OnAfterGetRecord()
-    begin
-        PeriodoActivo := FALSE;
+    Begin
+        PeriodoActivo := false;
 
-        IF ("Starting Date" <= WORKDATE) AND ("End Date" >= WORKDATE) THEN
-            PeriodoActivo := TRUE;
-        ContractedRealizedDifferenceOn;
-    end;
+        If (Rec."Starting Date" <= WORKDATE) AND (Rec."End Date" >= WORKDATE) then
+            PeriodoActivo := true;
+        ContractedRealizedDIfferenceOn;
+    End;
 
-    trigger OnDeleteRecord(): BoolEAN
+    trigger OnDeleteRecord(): Boolean
     var
-        temprec: Record "50232";
-    begin
+        temprec: Record "Serv. Contract Line Hours_LDR";
+    Begin
         temprec := Rec;
         temprec.COPYFILTERS(Rec);
-        IF temprec.FIND('>') THEN
-            EXIT(FALSE);
-    end;
+        If temprec.FIND('>') then
+            Exit(false);
+    End;
 
     var
-        PeriodoActivo: BoolEAN;
-        gServContractLine: Record "5964";
-        gIntServContractLine: Record "70029";
+        PeriodoActivo: Boolean;
+        gServContractLine: Record "Service Contract Line";
         Type: Option Internal,External;
         [InDataSet]
-        styleContRealDiff: BoolEAN;
+        styleContRealDIff: Boolean;
 
-    [Scope('Internal')]
-    procedure CreatePlanification()
+    procedure CreatePlanIfication()
     var
-        bCompletado: BoolEAN;
+        bCompletado: Boolean;
         PeriodStart: Date;
         PeriodEnd: Date;
         Contador: Integer;
         Mensaje: Dialog;
         HorasContratadas: Integer;
         txtHorasContratadas: Label 'Enter contracted hours by %1 ';
-        TempServContractLineHours: Record "50232";
-        DialogInput: Page "70096";
-    begin
-        CASE Type OF
+        TempServContractLineHours: Record "Serv. Contract Line Hours_LDR";
+    Begin
+        Case Type Of
             Type::Internal:
-                BEGIN
-                    gIntServContractLine.TESTFIELD(gIntServContractLine."Starting Date");
-                    gIntServContractLine.TESTFIELD(gIntServContractLine."Expiration Date");
-                    PeriodStart := gIntServContractLine."Starting Date";
+                Begin
 
                     CLEAR(TempServContractLineHours);
-                    TempServContractLineHours.SETRANGE(TempServContractLineHours.Type, TempServContractLineHours.Type::Internal);
-                    TempServContractLineHours.SETRANGE(TempServContractLineHours."Contract Type", gIntServContractLine."Contract Type");
-                    TempServContractLineHours.SETRANGE(TempServContractLineHours."Contract No.", gIntServContractLine."Contract No.");
-                    TempServContractLineHours.SETRANGE(TempServContractLineHours."Contract Line No.", gIntServContractLine."Line No.");
-                    IF TempServContractLineHours.FINDLAST THEN BEGIN
+                    TempServContractLineHours.SetRange(TempServContractLineHours.Type, TempServContractLineHours.Type::Internal);
+                    If TempServContractLineHours.FindLast then Begin
                         HorasContratadas := TempServContractLineHours."Contracted hours";
                         PeriodStart := TempServContractLineHours."End Date" + 1;
-                        IF PeriodStart > gIntServContractLine."Expiration Date" THEN
-                            EXIT;
-                    END;
+                    End;
                     //UPG2016_SVD Start
                     //Mensaje.OPEN(STRSUBSTNO(txtHorasContratadas,gIntServContractLine."Hours Period Review"));
-                    //IF Mensaje.INPUT(2,HorasContratadas) = 0 THEN
-                    //  EXIT;
+                    //If Mensaje.INPUT(2,HorasContratadas) = 0 then
+                    //  Exit;
                     //EVALUATE(HorasContratadas,Window.InputBox(STRSUBSTNO(txtHorasContratadas,gIntServContractLine."Hours Period Review") ,'INPUT','',100,100));
                     CLEAR(HorasContratadas);
-                    DialogInput.CAPTION('INPUT');
-                    DialogInput.SetInputText(STRSUBSTNO(txtHorasContratadas, gIntServContractLine."Hours Period Review"));
-                    DialogInput.LOOKUPMODE(TRUE);
-                    IF DialogInput.RUNMODAL = ACTION::LookupOK THEN
-                        EVALUATE(HorasContratadas, DialogInput.GetValue);
-                    IF HorasContratadas = 0 THEN
-                        EXIT;
+                    If HorasContratadas = 0 then
+                        Exit;
                     //<< UPG2016 SVD End
 
-                    bCompletado := FALSE;
+                    bCompletado := false;
                     Contador := 1;
 
-                    REPEAT
-                        CASE gIntServContractLine."Hours Period Review" OF
-                            gIntServContractLine."Hours Period Review"::Month:
-                                BEGIN
-                                    PeriodEnd := CALCDATE('<1M-1D>', PeriodStart);
-                                END;
-                            gIntServContractLine."Hours Period Review"::"Two Months":
-                                BEGIN
-                                    PeriodEnd := CALCDATE('<2M-1D>', PeriodStart);
-                                END;
-                            gIntServContractLine."Hours Period Review"::Quarter:
-                                BEGIN
-                                    PeriodEnd := CALCDATE('<3M-1D>', PeriodStart);
-                                END;
-                            gIntServContractLine."Hours Period Review"::"Half Year":
-                                BEGIN
-                                    PeriodEnd := CALCDATE('<6M-1D>', PeriodStart);
-                                END;
-                            gIntServContractLine."Hours Period Review"::Year:
-                                BEGIN
-                                    PeriodEnd := CALCDATE('<12M-1D>', PeriodStart);
-                                END;
-                            gIntServContractLine."Hours Period Review"::None:
-                                PeriodEnd := gIntServContractLine."Expiration Date";
-                        END;
+                    Repeat
 
-                        IF (PeriodEnd >= gIntServContractLine."Expiration Date") THEN BEGIN
-                            PeriodEnd := gIntServContractLine."Expiration Date";
-                            bCompletado := TRUE;
-                        END;
-
-                        INIT;
-                        VALIDATE(Type, Type::Internal);
-                        VALIDATE("Contract Type", gIntServContractLine."Contract Type");
-                        VALIDATE("Contract No.", gIntServContractLine."Contract No.");
-                        VALIDATE("Contract Line No.", gIntServContractLine."Line No.");
-                        VALIDATE("Service Item No.", gIntServContractLine."Service Item No.");
-                        VALIDATE("Starting Date", PeriodStart);
-                        VALIDATE("End Date", PeriodEnd);
-                        VALIDATE("Contracted hours", HorasContratadas);
-                        IF "Starting Date" = gIntServContractLine."Starting Date" THEN
-                            VALIDATE("Beginning hours", gIntServContractLine."Exit N´Š¢ of Hours");
-                        INSERT(TRUE);
+                        Rec.Init;
+                        Rec.Validate(Type, Type::Internal);
+                        Rec.Validate("Starting Date", PeriodStart);
+                        Rec.Validate("End Date", PeriodEnd);
+                        Rec.Validate("Contracted hours", HorasContratadas);
+                        Rec.Insert(true);
 
                         PeriodStart := PeriodEnd + 1;
 
                         Contador := Contador + 1;
-                    UNTIL (bCompletado = TRUE);
+                    UNTIL (bCompletado = true);
 
 
-                END;
+                End;
             Type::External:
-                BEGIN
-                    gServContractLine.TESTFIELD(gServContractLine."Starting Date");
-                    gServContractLine.TESTFIELD(gServContractLine."Contract Expiration Date");
+                Begin
+                    gServContractLine.TestField(gServContractLine."Starting Date");
+                    gServContractLine.TestField(gServContractLine."Contract Expiration Date");
                     PeriodStart := gServContractLine."Starting Date";
 
                     CLEAR(TempServContractLineHours);
-                    TempServContractLineHours.SETRANGE(TempServContractLineHours.Type, TempServContractLineHours.Type::External);
-                    TempServContractLineHours.SETRANGE(TempServContractLineHours."Contract Type", gServContractLine."Contract Type");
-                    TempServContractLineHours.SETRANGE(TempServContractLineHours."Contract No.", gServContractLine."Contract No.");
-                    TempServContractLineHours.SETRANGE(TempServContractLineHours."Contract Line No.", gServContractLine."Line No.");
-                    IF TempServContractLineHours.FINDLAST THEN BEGIN
+                    TempServContractLineHours.SetRange(TempServContractLineHours.Type, TempServContractLineHours.Type::External);
+                    TempServContractLineHours.SetRange(TempServContractLineHours."Contract Type", gServContractLine."Contract Type");
+                    TempServContractLineHours.SetRange(TempServContractLineHours."Contract No.", gServContractLine."Contract No.");
+                    TempServContractLineHours.SetRange(TempServContractLineHours."Contract Line No.", gServContractLine."Line No.");
+                    If TempServContractLineHours.FindLast then Begin
                         HorasContratadas := TempServContractLineHours."Contracted hours";
                         PeriodStart := TempServContractLineHours."End Date" + 1;
-                        IF PeriodStart > gServContractLine."Contract Expiration Date" THEN
-                            EXIT;
-                    END;
+                        If PeriodStart > gServContractLine."Contract Expiration Date" then
+                            Exit;
+                    End;
 
                     //>> UPG2016_MGF Start
                     //Mensaje.OPEN(STRSUBSTNO(txtHorasContratadas,gServContractLine."Hours Period Review"));
-                    //IF Mensaje.INPUT(2,HorasContratadas) = 0 THEN
-                    //  EXIT;
+                    //If Mensaje.INPUT(2,HorasContratadas) = 0 then
+                    //  Exit;
                     CLEAR(HorasContratadas);
-                    DialogInput.CAPTION('INPUT');
-                    DialogInput.SetInputText(STRSUBSTNO(txtHorasContratadas, gServContractLine."Hours Period Review"));
-                    DialogInput.LOOKUPMODE(TRUE);
-                    IF DialogInput.RUNMODAL = ACTION::LookupOK THEN
-                        EVALUATE(HorasContratadas, DialogInput.GetValue);
-                    IF HorasContratadas = 0 THEN
-                        EXIT;
+                    If HorasContratadas = 0 then
+                        Exit;
                     //<< UPG2016_MGF End
 
-                    bCompletado := FALSE;
+                    bCompletado := false;
                     Contador := 1;
 
-                    REPEAT
-                        CASE gServContractLine."Hours Period Review" OF
+                    Repeat
+                        Case gServContractLine."Hours Period Review" Of
                             gServContractLine."Hours Period Review"::Month:
-                                BEGIN
-                                    PeriodEnd := CALCDATE('<1M-1D>', PeriodStart);
-                                END;
+                                Begin
+                                    PeriodEnd := CalcDate('<1M-1D>', PeriodStart);
+                                End;
                             gServContractLine."Hours Period Review"::"Two Months":
-                                BEGIN
-                                    PeriodEnd := CALCDATE('<2M-1D>', PeriodStart);
-                                END;
+                                Begin
+                                    PeriodEnd := CalcDate('<2M-1D>', PeriodStart);
+                                End;
                             gServContractLine."Hours Period Review"::Quarter:
-                                BEGIN
-                                    PeriodEnd := CALCDATE('<3M-1D>', PeriodStart);
-                                END;
+                                Begin
+                                    PeriodEnd := CalcDate('<3M-1D>', PeriodStart);
+                                End;
                             gServContractLine."Hours Period Review"::"Half Year":
-                                BEGIN
-                                    PeriodEnd := CALCDATE('<6M-1D>', PeriodStart);
-                                END;
+                                Begin
+                                    PeriodEnd := CalcDate('<6M-1D>', PeriodStart);
+                                End;
                             gServContractLine."Hours Period Review"::Year:
-                                BEGIN
-                                    PeriodEnd := CALCDATE('<12M-1D>', PeriodStart);
-                                END;
+                                Begin
+                                    PeriodEnd := CalcDate('<12M-1D>', PeriodStart);
+                                End;
                             gServContractLine."Hours Period Review"::None:
                                 PeriodEnd := gServContractLine."Contract Expiration Date";
-                        END;
+                        End;
 
-                        IF (PeriodEnd >= gServContractLine."Contract Expiration Date") THEN BEGIN
+                        If (PeriodEnd >= gServContractLine."Contract Expiration Date") then Begin
                             PeriodEnd := gServContractLine."Contract Expiration Date";
-                            bCompletado := TRUE;
-                        END;
+                            bCompletado := true;
+                        End;
 
-                        INIT;
-                        VALIDATE(Type, Type::External);
-                        VALIDATE("Contract Type", gServContractLine."Contract Type");
-                        VALIDATE("Contract No.", gServContractLine."Contract No.");
-                        VALIDATE("Contract Line No.", gServContractLine."Line No.");
-                        VALIDATE("Service Item No.", gServContractLine."Service Item No.");
-                        VALIDATE("Starting Date", PeriodStart);
-                        VALIDATE("End Date", PeriodEnd);
-                        VALIDATE("Contracted hours", HorasContratadas);
-                        IF "Starting Date" = gServContractLine."Starting Date" THEN
-                            VALIDATE("Beginning hours", gServContractLine."Exit No. of Hours");
-                        INSERT(TRUE);
+                        Rec.Init;
+                        Rec.Validate(Type, Type::External);
+                        Rec.Validate("Contract Type", gServContractLine."Contract Type");
+                        Rec.Validate("Contract No.", gServContractLine."Contract No.");
+                        Rec.Validate("Contract Line No.", gServContractLine."Line No.");
+                        Rec.Validate("Service Item No.", gServContractLine."Service Item No.");
+                        Rec.Validate("Starting Date", PeriodStart);
+                        Rec.Validate("End Date", PeriodEnd);
+                        Rec.Validate("Contracted hours", HorasContratadas);
+                        If Rec."Starting Date" = gServContractLine."Starting Date" then
+                            Rec.Validate("Beginning hours", gServContractLine."Exit No. Of Hours");
+                        Rec.Insert(true);
 
                         PeriodStart := PeriodEnd + 1;
 
                         Contador := Contador + 1;
-                    UNTIL (bCompletado = TRUE);
+                    UNTIL (bCompletado = true);
 
-                END;
-        END;
-    end;
+                End;
+        End;
+    End;
 
-    [Scope('Internal')]
-    procedure SetServContractLine(TempServContractLine: Record "5964")
-    begin
-        gServContractLine.GET(TempServContractLine."Contract Type", TempServContractLine."Contract No.",
+    /// <summary>
+    /// SetServContractLine.
+    /// </summary>
+    /// <param name="TempServContractLine">Record "Service Contract Line".</param>
+    procedure SetServContractLine(TempServContractLine: Record "Service Contract Line")
+    Begin
+        gServContractLine.Get(TempServContractLine."Contract Type", TempServContractLine."Contract No.",
                               TempServContractLine."Line No.");
 
         Type := Type::External;
-    end;
+    End;
 
-    [Scope('Internal')]
-    procedure SetIntServContractLine(TempServContractLine: Record "70029")
-    begin
-        gIntServContractLine.GET(TempServContractLine."Contract Type", TempServContractLine."Contract No.",
-                              TempServContractLine."Line No.");
-
-        Type := Type::Internal;
-    end;
-
-    [Scope('Internal')]
     procedure SetInvoicing()
     var
-        ServMgt: Record "5911";
-        ContractConcepts: Record "50206";
+        ServMgt: Record "Service Mgt. Setup";
+        ContractConcepts: Record "Contract Concepts_LDR";
         txtTextoConcepto: Label 'Hours Control';
-        LastContractConcepts: Record "50206";
-    begin
-        TESTFIELD(Procesed, FALSE);
-        TESTFIELD("Contracted hours");
-        TESTFIELD("Ending hours");
-        TESTFIELD("Corrected Hour Price");
+        LastContractConcepts: Record "Contract Concepts_LDR";
+    Begin
+        Rec.TestField(Procesed, false);
+        Rec.TestField("Contracted hours");
+        Rec.TestField("Ending hours");
+        Rec.TestField("Corrected Hour Price");
 
 
-        ServMgt.GET;
+        ServMgt.Get;
 
         CLEAR(LastContractConcepts);
-        CASE Type OF
+        Case Type Of
             Type::External:
-                BEGIN
-                    LastContractConcepts.SETRANGE(LastContractConcepts."Source Table", DATABASE::"Service Contract Line");
-                END;
+                Begin
+                    LastContractConcepts.SetRange(LastContractConcepts."Source Table", DATABASE::"Service Contract Line");
+                End;
             Type::Internal:
-                BEGIN
-                    LastContractConcepts.SETRANGE(LastContractConcepts."Source Table", DATABASE::"Internal Serv. Contract Line");
-                END;
-        END;
-        LastContractConcepts.SETRANGE("Contract Type", "Contract Type");
-        LastContractConcepts.SETRANGE("Contract No.", "Contract No.");
-        LastContractConcepts.SETRANGE("Contract Line No.", "Contract Line No.");
-        IF LastContractConcepts.FINDLAST THEN;
+                Begin
+                    //LastContractConcepts.SetRange(LastContractConcepts."Source Table", DATABASE::"Internal Serv. Contract Line"); //TODO: No encontrado DATABASE::"Internal Serv. Contract Line"
+                End;
+        End;
+        LastContractConcepts.SetRange("Contract Type", Rec."Contract Type");
+        LastContractConcepts.SetRange("Contract No.", Rec."Contract No.");
+        LastContractConcepts.SetRange("Contract Line No.", Rec."Contract Line No.");
+        If LastContractConcepts.FindLast then;
 
 
         CLEAR(ContractConcepts);
-        CASE Type OF
+        Case Type Of
             Type::External:
-                BEGIN
-                    ServMgt.TESTFIELD(ServMgt."Ext.Hours Control Service Cost");
-                    ContractConcepts.VALIDATE(ContractConcepts."Source Table", DATABASE::"Service Contract Line");
-                END;
+                Begin
+                    ServMgt.TestField(ServMgt."Ext.Hours Control Service Cost");
+                    ContractConcepts.Validate(ContractConcepts."Source Table", DATABASE::"Service Contract Line");
+                End;
             Type::Internal:
-                BEGIN
-                    ServMgt.TESTFIELD(ServMgt."Int.Hours Control Service Cost");
-                    ContractConcepts.VALIDATE(ContractConcepts."Source Table", DATABASE::"Internal Serv. Contract Line");
-                END;
-        END;
+                Begin
+                    ServMgt.TestField(ServMgt."Int.Hours Control Service Cost");
+                    //ContractConcepts.Validate(ContractConcepts."Source Table", DATABASE::"Internal Serv. Contract Line"); //TODO: No encontrado DATABASE::"Internal Serv. Contract Line"
+                End;
+        End;
 
 
-        ContractConcepts.VALIDATE("Contract Type", "Contract Type");
-        ContractConcepts.VALIDATE("Contract No.", "Contract No.");
-        ContractConcepts.VALIDATE("Contract Line No.", "Contract Line No.");
-        ContractConcepts.VALIDATE("Line No.", LastContractConcepts."Line No." + 10000);
+        ContractConcepts.Validate("Contract Type", Rec."Contract Type");
+        ContractConcepts.Validate("Contract No.", Rec."Contract No.");
+        ContractConcepts.Validate("Contract Line No.", Rec."Contract Line No.");
+        ContractConcepts.Validate("Line No.", LastContractConcepts."Line No." + 10000);
 
-        CASE Type OF
+        Case Type Of
             Type::External:
-                ContractConcepts.VALIDATE(ContractConcepts."Concept No.", ServMgt."Ext.Hours Control Service Cost");
+                ContractConcepts.Validate(ContractConcepts."Concept No.", ServMgt."Ext.Hours Control Service Cost");
             Type::Internal:
-                ContractConcepts.VALIDATE(ContractConcepts."Concept No.", ServMgt."Int.Hours Control Service Cost");
-        END;
+                ContractConcepts.Validate(ContractConcepts."Concept No.", ServMgt."Int.Hours Control Service Cost");
+        End;
 
-        ContractConcepts.VALIDATE(ContractConcepts.Periodicity, ContractConcepts.Periodicity::"Date expecific");
-        ContractConcepts.VALIDATE(ContractConcepts.Date, "End Date");
-        ContractConcepts.VALIDATE(ContractConcepts.Amount, (("Contracted/Realized Difference" * -1) * "Corrected Hour Price"));
-        ContractConcepts.VALIDATE(ContractConcepts."Created from Hours Control", TRUE);
-        ContractConcepts.INSERT(TRUE);
+        ContractConcepts.Validate(ContractConcepts.Periodicity, ContractConcepts.Periodicity::"Date expecIfic");
+        ContractConcepts.Validate(ContractConcepts.Date, Rec."End Date");
+        ContractConcepts.Validate(ContractConcepts.Amount, ((Rec."Contracted/Realized DIfference" * -1) * Rec."Corrected Hour Price"));
+        ContractConcepts.Validate(ContractConcepts."Created from Hours Control", true);
+        ContractConcepts.Insert(true);
 
-        VALIDATE(Procesed, TRUE);
-        MODIFY(TRUE);
-    end;
+        Rec.Validate(Procesed, true);
+        Rec.ModIfy(true);
+    End;
 
-    local procedure ContractedRealizedDifferenceOn()
-    begin
-        styleContRealDiff := ("Contracted/Realized Difference" < 0);
-    end;*/
+    local procedure ContractedRealizedDIfferenceOn()
+    Begin
+        styleContRealDIff := (Rec."Contracted/Realized DIfference" < 0);
+    End;
 }

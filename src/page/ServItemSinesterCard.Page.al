@@ -4,7 +4,7 @@ page 50092 "Serv. Item Sinester Card"
 
     CaptionML = ENU = 'Serv. Item Sinister',
                 ESP = 'Siniestro Producto Servicio';
-    SourceTable = 50045;
+    SourceTable = "Serv. Item Sinister_LDR";
 
     layout
     {
@@ -68,10 +68,6 @@ page 50092 "Serv. Item Sinester Card"
                 }
             }
         }
-    }
-
-    actions
-    {
     }
 }
 

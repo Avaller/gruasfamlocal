@@ -7,7 +7,6 @@ page 50031 "Crane Serv. Q. Op. Inv. G Card"
     PaGetype = Card;
     SourceTable = "Crane Serv Q Op Inv G Line_LDR";
 
-    /*
     layout
     {
         area(content)
@@ -38,7 +37,7 @@ page 50031 "Crane Serv. Q. Op. Inv. G Card"
                     Caption = 'No. de tarifa';
                     ToolTip = 'No. de tarifa';
 
-                    trigger OnLookup(var Text: Text): BoolEAN
+                    trigger OnLookup(var Text: Text): Boolean
                     var
                         ServiceItemInvoiceGroup: Record "Service Item Invoice Group_LDR";
                         ServiceItemRateLineCrane: Record "Servic Item Rat Li - Crane_LDR";
@@ -101,8 +100,7 @@ page 50031 "Crane Serv. Q. Op. Inv. G Card"
             }
             group(Displacement)
             {
-                CaptionML = ENU = 'Displacement',
-                            ESP = 'Desplazamiento';
+                Caption = 'Desplazamiento';
                 field("Invoice Displacement"; Rec."Invoice Displacement")
                 {
                     ApplicationArea = All;
@@ -175,8 +173,7 @@ page 50031 "Crane Serv. Q. Op. Inv. G Card"
             }
             group(Minimums)
             {
-                CaptionML = ENU = 'Minimums',
-                            ESP = 'Mínimos';
+                Caption = 'Mínimos';
                 field("Minimum Treatment Type"; Rec."Minimum Treatment Type")
                 {
                     ApplicationArea = All;
@@ -211,8 +208,7 @@ page 50031 "Crane Serv. Q. Op. Inv. G Card"
             }
             group(Extras)
             {
-                CaptionML = ENU = 'Extras',
-                            ESP = 'Extras';
+                Caption = 'Extras';
                 field("Misc. S Line Line No."; Rec."Misc. S Line Line No.")
                 {
                     ApplicationArea = All;
@@ -228,8 +224,7 @@ page 50031 "Crane Serv. Q. Op. Inv. G Card"
             }
             group(Forfait)
             {
-                CaptionML = ENU = 'Forfait',
-                            ESP = 'Forfait';
+                Caption = 'Forfait';
                 Visible = ForfaitVisible;
                 field("Maximum Hours"; Rec."Maximum Hours")
                 {
@@ -254,8 +249,7 @@ page 50031 "Crane Serv. Q. Op. Inv. G Card"
         {
             action("Co&mments")
             {
-                CaptionML = ENU = 'Co&mments',
-                            ESP = 'C&omentarios';
+                Caption = 'C&omentarios';
                 Image = ViewComments;
                 RunObject = Page "Service Comment Sheet";
                 RunPageLink = Type = const(General), "Table Subtype" = const(2), "Table Name" = const("Crane Quote"), "No." = field("Quote No."),
@@ -271,14 +265,14 @@ page 50031 "Crane Serv. Q. Op. Inv. G Card"
     end;
 
     var
-        DisplacementCalcTypeEnabled: BoolEAN;
-        KmsHoursEnabled: BoolEAN;
+        DisplacementCalcTypeEnabled: Boolean;
+        KmsHoursEnabled: Boolean;
         QuoteHeader: Record "Crane Service Quote Header_LDR";
-        FillMinimumWithDisplacementEnabled: BoolEAN;
-        KMsFranchiseEnabled: BoolEAN;
-        ApplyStandardKmsEnabled: BoolEAN;
+        FillMinimumWithDisplacementEnabled: Boolean;
+        KMsFranchiseEnabled: Boolean;
+        ApplyStandardKmsEnabled: Boolean;
         [InDataSet]
-        ForfaitVisible: BoolEAN;
+        ForfaitVisible: Boolean;
 
     local procedure Updatefields();
     begin
@@ -318,6 +312,5 @@ page 50031 "Crane Serv. Q. Op. Inv. G Card"
                 ForfaitVisible := false;
         end;
     end;
-    */
 }
 

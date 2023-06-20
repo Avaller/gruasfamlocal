@@ -100,7 +100,7 @@ page 50056 Operations
     end;
 
     var
-        EnablePS: BoolEAN;
+        EnablePS: Boolean;
 
     local procedure UpdateFields()
     begin

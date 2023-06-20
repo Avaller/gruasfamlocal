@@ -7,7 +7,6 @@ page 50011 "Service Item Counter"
     PageType = List;
     SourceTable = "Service Item Counter_LDR";
 
-    /*
     layout
     {
         area(content)
@@ -105,9 +104,8 @@ page 50011 "Service Item Counter"
             action(ServItemCounterNo)
             {
                 RunObject = Page "Services Item Refills Reg";
-                RunPageLink = "Serv. Item Counter No." = field(Code); //TODO: No puede convertir Integer a Code
+                //RunPageLink = "Serv. Item Counter No." = field(Code); //TODO: No puede convertir Integer a Code
             }
         }
     }
-    */
 }

@@ -65,8 +65,4 @@ page 50000 "Employee Marking Entries"
             }
         }
     }
-
-    actions
-    {
-    }
 }

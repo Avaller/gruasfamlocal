@@ -1,7 +1,4 @@
-/// <summary>
-/// Page Service Item Prices_LDR (ID 50032).
-/// </summary>
-page 50032 "Service Item Prices_LDR"
+page 50027 "Service Item Prices"
 {
     Caption = 'Service Item Group Prices';
     PageType = List;

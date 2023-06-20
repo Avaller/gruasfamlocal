@@ -528,13 +528,13 @@ page 50234 "Posted Service Lines"
         ServiceInvLine: Record "Service Line";
         ServiceItemLine: Record "Service Item Line";
         [InDataSet]
-        "Fault Area CodeVisible": BoolEAN;
+        "Fault Area CodeVisible": Boolean;
         [InDataSet]
-        "Symptom CodeVisible": BoolEAN;
+        "Symptom CodeVisible": Boolean;
         [InDataSet]
-        "Fault CodeVisible": BoolEAN;
+        "Fault CodeVisible": Boolean;
         [InDataSet]
-        "Resolution CodeVisible": BoolEAN;
+        "Resolution CodeVisible": Boolean;
 
     /// <summary>
     /// CalcInvDisc.
@@ -573,8 +573,8 @@ page 50234 "Posted Service Lines"
     /// <summary>
     /// InfopaneEnable.
     /// </summary>
-    /// <param name="Value">BoolEAN.</param>
-    procedure InfopaneEnable(Value: BoolEAN);
+    /// <param name="Value">Boolean.</param>
+    procedure InfopaneEnable(Value: Boolean);
     begin
     end;
 

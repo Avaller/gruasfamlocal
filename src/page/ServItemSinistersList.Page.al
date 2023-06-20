@@ -64,8 +64,4 @@ page 50091 "Serv. Item Sinisters List"
             }
         }
     }
-
-    actions
-    {
-    }
 }

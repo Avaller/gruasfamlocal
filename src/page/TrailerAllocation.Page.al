@@ -40,8 +40,4 @@ page 50012 "Trailer Allocation"
             }
         }
     }
-
-    actions
-    {
-    }
 }

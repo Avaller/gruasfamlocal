@@ -4,14 +4,12 @@
 page 50028 "Serv. Contract Inv. Group List"
 {
     Caption = 'Serv. Contract Inv. Group List';
-    //CardPageID = "Serv. Contract Inv. Group"; //TODO: No encontrado
     DeleteAllowed = false;
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
     SourceTable = "Servic Contra Invoic Group_LDR";
 
-    /*
     layout
     {
         area(content)
@@ -70,14 +68,6 @@ page 50028 "Serv. Contract Inv. Group List"
             group(Groups)
             {
                 Caption = 'Group';
-                action(Group)
-                {
-                    Caption = 'Group';
-                    Image = Card;
-                    RunObject = Page 70038; //TODO: No encontrado
-                    RunPageLink = "No." = FIELD("No.");
-                    ShortCutKey = 'Shift+F7';
-                }
                 action("&Contracts")
                 {
                     Caption = '&Contracts';
@@ -89,5 +79,4 @@ page 50028 "Serv. Contract Inv. Group List"
             }
         }
     }
-    */
 }

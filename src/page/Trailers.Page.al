@@ -118,8 +118,4 @@ page 50002 Trailers
             }
         }
     }
-
-    actions
-    {
-    }
 }

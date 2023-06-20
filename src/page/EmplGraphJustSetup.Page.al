@@ -52,8 +52,4 @@ page 50097 "Empl. Graph. Just. Setup"
             }
         }
     }
-
-    actions
-    {
-    }
 }

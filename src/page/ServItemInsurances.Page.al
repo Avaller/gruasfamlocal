@@ -55,8 +55,4 @@ page 50064 "Serv. Item Insurances"
             }
         }
     }
-
-    actions
-    {
-    }
 }

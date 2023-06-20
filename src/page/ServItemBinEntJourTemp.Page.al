@@ -9,7 +9,7 @@ page 50033 "Serv. Item Bin Ent. Jour Temp."
     RefreshOnActivate = true;
     SourceTable = "Serv Item Entr Journ Templ_LDR";
 
-    /*
+
     layout
     {
         area(content)
@@ -106,15 +106,10 @@ page 50033 "Serv. Item Bin Ent. Jour Temp."
             {
                 Caption = 'Te&mplate';
                 Image = Template;
-                action("Serv. Item Bin Entry Journal Batches")
-                {
-                    Caption = 'Serv. Item Bin Entry Journal Batches';
-                    Image = Description;
-                    RunObject = Page 70060; //TODO: No se encuentra
-                    RunPageLink = "Journal Template Name" = FIELD("Name");
-                }
+                //TODO: Aqui habia un actión con una Page no existente
+
             }
         }
     }
-    */
+
 }

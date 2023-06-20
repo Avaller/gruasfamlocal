@@ -60,7 +60,7 @@ page 50037 "Resource Disc. Groups"
         LastItemDiscGr: Code[30];
         SelectionFilter: Code[250];
         ItemDiscGrCount: Integer;
-        More: BoolEAN;
+        More: Boolean;
     begin
         CurrPage.SETSELECTIONFILTER(ItemDiscGr);
         ItemDiscGrCount := ItemDiscGr.Count;

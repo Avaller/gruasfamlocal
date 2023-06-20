@@ -5,8 +5,7 @@ page 50203 "Posted Service Header"
 {
     // version ALQUINTA9.00,FAM
 
-    CaptionML = ENU = 'Posted Service Header',
-                ESP = 'Pedido servicio registrado';
+    Caption = 'Pedido servicio registrado';
     DeleteAllowed = false;
     InsertAllowed = false;
     ModifyAllowed = false;
@@ -14,15 +13,13 @@ page 50203 "Posted Service Header"
     RefreshOnActivate = true;
     SourceTable = "Posted Service Header_LDR";
 
-    /*
     layout
     {
         area(content)
         {
             group(General)
             {
-                CaptionML = ENU = 'General',
-                            ESP = 'General';
+                Caption = 'General';
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
@@ -192,14 +189,13 @@ page 50203 "Posted Service Header"
                     ToolTip = 'No de Tarifa de artículo de servicio';
                 }
             }
-            part(ServShipmentItemLines; 50204)
+            part(ServShipmentItemLines; "Posted Service Header Subform")
             {
                 SubPageLink = "No." = field("No.");
             }
             group(Invoicing)
             {
-                CaptionML = ENU = 'Invoicing',
-                            ESP = 'Facturación';
+                Caption = 'Facturación';
                 field("Bill-to Customer No."; Rec."Bill-to Customer No.")
                 {
                     ApplicationArea = All;
@@ -325,8 +321,7 @@ page 50203 "Posted Service Header"
             }
             group(Shipping)
             {
-                CaptionML = ENU = 'Shipping',
-                            ESP = 'Envío';
+                Caption = 'Envío';
                 field("Ship-to Code"; Rec."Ship-to Code")
                 {
                     ApplicationArea = All;
@@ -414,8 +409,7 @@ page 50203 "Posted Service Header"
             }
             group(Details)
             {
-                CaptionML = ENU = 'Details',
-                            ESP = 'Detalles';
+                Caption = 'Detalles';
                 field("Warning Status"; Rec."Warning Status")
                 {
                     ApplicationArea = All;
@@ -510,8 +504,7 @@ page 50203 "Posted Service Header"
             }
             group("Foreign Trade")
             {
-                CaptionML = ENU = 'Foreign Trade',
-                            ESP = 'Internacional';
+                Caption = 'Internacional';
                 field("Currency Code"; Rec."Currency Code")
                 {
                     ApplicationArea = All;
@@ -529,8 +522,7 @@ page 50203 "Posted Service Header"
             }
             group(Payment)
             {
-                CaptionML = ENU = 'Payment',
-                            ESP = 'Pago';
+                Caption = 'Pago';
                 field("Pay-at Code"; Rec."Pay-at Code")
                 {
                     ApplicationArea = All;
@@ -548,8 +540,7 @@ page 50203 "Posted Service Header"
             }
             group("PDF Mail")
             {
-                CaptionML = ENU = 'PDF Mail',
-                            ESP = 'PDF Mail';
+                Caption = 'PDF Mail';
                 field("Send Document By Mail"; Rec."Send Document By Mail")
                 {
                     ApplicationArea = All;
@@ -605,12 +596,10 @@ page 50203 "Posted Service Header"
         {
             group("&Order")
             {
-                CaptionML = ENU = '&Order',
-                            ESP = '&Pedido';
+                Caption = '&Pedido';
                 action("Service Ledger E&ntries")
                 {
-                    CaptionML = ENU = 'Service Ledger E&ntries',
-                                ESP = 'Movs. ser&vicio';
+                    Caption = 'Movs. ser&vicio';
                     Image = ServiceLedger;
                     RunObject = Page "Service Ledger Entries";
                     RunPageLink = "Service Order No." = field("No.");
@@ -619,8 +608,7 @@ page 50203 "Posted Service Header"
                 }
                 action("&Warranty Ledger Entries")
                 {
-                    CaptionML = ENU = '&Warranty Ledger Entries',
-                                ESP = 'Movs. &garantía';
+                    Caption = 'Movs. &garantía';
                     Image = WarrantyLedger;
                     RunObject = Page "Warranty Ledger Entries";
                     RunPageLink = "Service Order No." = field("No.");
@@ -628,8 +616,7 @@ page 50203 "Posted Service Header"
                 }
                 action("&Job Ledger Entries")
                 {
-                    CaptionML = ENU = '&Job Ledger Entries',
-                                ESP = 'Movs. pro&yectos';
+                    Caption = 'Movs. pro&yectos';
                     Image = JobLedger;
                     RunObject = Page "Job Ledger Entries";
                     RunPageLink = "Service Order No." = field("No.");
@@ -639,21 +626,9 @@ page 50203 "Posted Service Header"
                 separator(Separator)
                 {
                 }
-                action("S&tatistics")
-                {
-                    CaptionML = ENU = 'S&tatistics',
-                                ESP = '&Estadísticas';
-                    Image = Statistics;
-                    Promoted = true;
-                    PromotedCategory = Process;
-                    RunObject = Page 70086; //TODO: No encontrada
-                    RunPageLink = "field" = field("No.");
-                    ShortCutKey = 'F7';
-                }
                 action("Co&mments")
                 {
-                    CaptionML = ENU = 'Co&mments',
-                                ESP = 'C&omentarios';
+                    Caption = 'C&omentarios';
                     Image = ViewComments;
                     RunObject = Page "Service Comment Sheet";
                     RunPageLink = "No." = field("No."),
@@ -663,8 +638,7 @@ page 50203 "Posted Service Header"
                 action(Dimensions)
                 {
                     AccessByPermission = TableData Dimension = R;
-                    CaptionML = ENU = 'Dimensions',
-                                ESP = 'Dimensiones';
+                    Caption = 'Dimensiones';
                     Image = Dimensions;
                     Promoted = true;
                     PromotedCategory = Process;
@@ -679,8 +653,7 @@ page 50203 "Posted Service Header"
                 }
                 action("Service Document Lo&g")
                 {
-                    CaptionML = ENU = 'Service Document Lo&g',
-                                ESP = '&Registro pedido servicio';
+                    Caption = '&Registro pedido servicio';
                     Image = Log;
 
                     trigger OnAction();
@@ -718,8 +691,7 @@ page 50203 "Posted Service Header"
                 }
                 action("Service E-Mail &Queue")
                 {
-                    CaptionML = ENU = 'Service E-Mail &Queue',
-                                ESP = '&Cola correo electrónico servicio';
+                    Caption = '&Cola correo electrónico servicio';
                     Image = Email;
                     RunObject = Page "Service Email Queue";
                     RunPageLink = "Document Type" = Const("Service Order"),
@@ -731,8 +703,7 @@ page 50203 "Posted Service Header"
                 }
                 action("Print Warranty / Submission Agreement")
                 {
-                    CaptionML = ENU = 'Print Warranty / Submission Agreement',
-                                ESP = 'Imprimir Garantía / Petición Acuerdo';
+                    Caption = 'Imprimir Garantía / Petición Acuerdo';
                     Image = WarrantyLedger;
                     Promoted = true;
                     PromotedCategory = "report";
@@ -741,24 +712,19 @@ page 50203 "Posted Service Header"
                     trigger OnAction();
                     var
                         PostedServItemLine: Record "Posted Service Item Line_LDR";
-                        reportGarantia: report 70007; //TODO: No encontrado
                     Begin
                         Clear(PostedServItemLine);
                         PostedServItemLine.SetRange(PostedServItemLine."No.", Rec."No.");
-                        reportGarantia.SetTableView(PostedServItemLine);
-                        reportGarantia.Run;
                     end;
                 }
             }
             group("Comm&ents")
             {
-                CaptionML = ENU = 'Comm&ents',
-                            ESP = 'Come&ntarios';
+                Caption = 'Come&ntarios';
                 Image = ViewComments;
                 action(Faults)
                 {
-                    CaptionML = ENU = 'Faults',
-                                ESP = 'Defectos';
+                    Caption = 'Defectos';
                     Image = Error;
                     Promoted = true;
                     PromotedCategory = Category5;
@@ -771,8 +737,7 @@ page 50203 "Posted Service Header"
                 }
                 action(Resolutions)
                 {
-                    CaptionML = ENU = 'Resolutions',
-                                ESP = 'Resoluciones';
+                    Caption = 'Resoluciones';
                     Image = Completed;
                     Promoted = true;
                     PromotedCategory = Category5;
@@ -785,8 +750,7 @@ page 50203 "Posted Service Header"
                 }
                 action(Internal)
                 {
-                    CaptionML = ENU = 'Internal',
-                                ESP = 'Interno';
+                    Caption = 'Interno';
                     Image = Comment;
                     Promoted = true;
                     PromotedCategory = Category5;
@@ -803,17 +767,14 @@ page 50203 "Posted Service Header"
         {
             group("F&unctions")
             {
-                CaptionML = ENU = 'F&unctions',
-                            ESP = 'Acci&ones';
+                Caption = 'Acci&ones';
                 group("Print Labels")
                 {
-                    CaptionML = ENU = 'Print Labels',
-                                ESP = 'Imprimir Etiquetado';
+                    Caption = 'Imprimir Etiquetado';
                     Image = BarCode;
                     action(PrintIntermec)
                     {
-                        CaptionML = ENU = 'Print Intermec',
-                                    ESP = 'Imprimir Intermec';
+                        Caption = 'Imprimir Intermec';
                         Image = BarCode;
                         Promoted = true;
 
@@ -824,14 +785,13 @@ page 50203 "Posted Service Header"
                         Begin
                             Clear(PostedServHeader);
                             PostedServHeader.SetRange(PostedServHeader."No.", Rec."No.");
-                            if PostedServHeader.FindSet then
-                                report.RunModal(report::report7122024, true, false, PostedServHeader);
+                            //if PostedServHeader.FindSet then
+                            //report.RunModal(report::report7122024, true, false, PostedServHeader); //TODO: 'report' No tiene definición de 'report7122024'
                         end;
                     }
                     action(PrintLabel)
                     {
-                        CaptionML = ENU = 'Print Label EAN13',
-                                    ESP = 'Imprimir Etiqueta EAN13';
+                        Caption = 'Imprimir Etiqueta EAN13';
                         Image = BarCode;
                         Promoted = true;
                         PromotedCategory = Process;
@@ -842,7 +802,6 @@ page 50203 "Posted Service Header"
                             ServiceItem: Record "Service Item";
                             reportSelection: Record "report Selections Labels_LDR";
                             i: Integer;
-                            EANServItem: report 70120; //TODO: No se encuentra
                         Begin
                             Clear(PostedServItemLine);
                             PostedServItemLine.SetRange("No.", Rec."No.");
@@ -857,9 +816,7 @@ page 50203 "Posted Service Header"
                                         reportSelection.FindFirst;
                                         Repeat
                                             if reportSelection."report ID" = 7122151 then Begin
-                                                EANServItem.SetTableView(ServiceItem);
-                                                EANServItem.SetServHeaderNo(Rec."No.");
-                                                EANServItem.RunModal();
+
                                             end else
                                                 report.RunModal(reportSelection."report ID", false, false, ServiceItem);
                                         Until reportSelection.Next = 0;
@@ -871,8 +828,7 @@ page 50203 "Posted Service Header"
                 }
                 action("&Print")
                 {
-                    CaptionML = ENU = '&Print',
-                                ESP = '&Imprimir';
+                    Caption = '&Imprimir';
                     Ellipsis = true;
                     Image = Print;
                     Promoted = true;
@@ -882,14 +838,14 @@ page 50203 "Posted Service Header"
                     Begin
                         Clear(PostedServHeader);
                         PostedServHeader.SetRange("No.", Rec."No.");
-                        report.Run(report::report7122091, true, true, PostedServHeader);
+                        //report.Run(report::report7122091, true, true, PostedServHeader); //TODO: 'report' No tiene definición de 'report7122091'
                     end;
                 }
             }
         }
     }
 
-    trigger OnFindRecord(Which: Text): BoolEAN;
+    trigger OnFindRecord(Which: Text): Boolean;
     Begin
         if Rec.Find(Which) then
             Exit(true);
@@ -897,7 +853,7 @@ page 50203 "Posted Service Header"
         Exit(Rec.Find(Which));
     end;
 
-    trigger OnModifyRecord(): BoolEAN;
+    trigger OnModifyRecord(): Boolean;
     Begin
         CodeUnit.Run(CodeUnit::"Shipment Header - Edit", Rec);
         Exit(false);
@@ -907,6 +863,5 @@ page 50203 "Posted Service Header"
         PostedServHeader: Record "Posted Service Header_LDR";
         PurchSetup: Record "Purchases & Payables Setup";
         PostedServiceItemLine: Record "Posted Service Item Line_LDR";
-    */
 }
 

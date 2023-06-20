@@ -122,7 +122,7 @@ page 50026 "Service Crane Quote Op. Subf."
 
     var
         [InDataSet]
-        ForfaitAmountEditable: BoolEAN;
+        ForfaitAmountEditable: Boolean;
 
     local procedure SetVisibility()
     var

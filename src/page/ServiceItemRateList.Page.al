@@ -48,8 +48,4 @@ page 50014 "Service Item Rate List"
             }
         }
     }
-
-    actions
-    {
-    }
 }

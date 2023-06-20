@@ -738,7 +738,7 @@ page 50008 "Service Item Features"
     trigger OnOpenPage()
     begin
         ServItem.GET(Rec."Service Item No.");
-        ServItemType.GET(ServItem."Service Item Type Code_LDR");
+        ServItemType.GET(ServItem."Service Item Type Code");
 
 
         CraneVisible := ServItemType."Features Type" = ServItemType."Features Type"::Crane;
@@ -749,7 +749,7 @@ page 50008 "Service Item Features"
     var
         ServItem: Record "Service Item";
         ServItemType: Record "Service Item Type_LDR";
-        CraneVisible: BoolEAN;
-        TruckVisible: BoolEAN;
-        PlatformVisible: BoolEAN;
+        CraneVisible: Boolean;
+        TruckVisible: Boolean;
+        PlatformVisible: Boolean;
 }

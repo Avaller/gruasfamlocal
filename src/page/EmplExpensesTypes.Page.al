@@ -59,8 +59,4 @@ page 50082 "Empl. Expenses Types"
             }
         }
     }
-
-    actions
-    {
-    }
 }

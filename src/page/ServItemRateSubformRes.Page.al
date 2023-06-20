@@ -102,8 +102,4 @@ page 50016 "Serv. Item Rate Subform - Res."
             }
         }
     }
-
-    actions
-    {
-    }
 }

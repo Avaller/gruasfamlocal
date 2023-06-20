@@ -1,6 +1,6 @@
 page 50051 "Crate Quote Op. Lines"
 {
-    /*DeleteAllowed = false;
+    DeleteAllowed = false;
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
@@ -13,32 +13,53 @@ page 50051 "Crate Quote Op. Lines"
         {
             repeater(Group)
             {
-                field(MARK; MARK)
+                field(MARK_LDR; Rec.MARK)
                 {
+                    ApplicationArea = All;
+                    Caption = '';
+                    ToolTip = '';
                 }
-                field("Quote No."; "Quote No.")
+                field("Quote No."; Rec."Quote No.")
                 {
+                    ApplicationArea = All;
+                    Caption = '';
                     StyleExpr = StyleText;
+                    ToolTip = '';
                 }
-                field("Line No."; "Line No.")
+                field("Line No."; Rec."Line No.")
                 {
+                    ApplicationArea = All;
+                    Caption = '';
                     StyleExpr = StyleText;
+                    ToolTip = '';
                 }
-                field("Operation No."; "Operation No.")
+                field("Operation No."; Rec."Operation No.")
                 {
+                    ApplicationArea = All;
+                    Caption = '';
                     StyleExpr = StyleText;
+                    ToolTip = '';
                 }
-                field("Operation Description"; "Operation Description")
+                field("Operation Description"; Rec."Operation Description")
                 {
+                    ApplicationArea = All;
+                    Caption = '';
                     StyleExpr = StyleText;
+                    ToolTip = '';
                 }
-                field(Amount; Amount)
+                field(Amount; Rec.Amount)
                 {
+                    ApplicationArea = All;
+                    Caption = '';
                     StyleExpr = StyleText;
+                    ToolTip = '';
                 }
-                field(Processed; Processed)
+                field(Processed; Rec.Processed)
                 {
+                    ApplicationArea = All;
+                    Caption = '';
                     StyleExpr = StyleText;
+                    ToolTip = '';
                 }
             }
         }
@@ -60,11 +81,11 @@ page 50051 "Crate Quote Op. Lines"
                 begin
                     //CLEARMARKS;
 
-                    IF Processed THEN
+                    IF Rec.Processed THEN
                         IF NOT CONFIRM(Text001) THEN
                             ERROR('');
 
-                    MARK(NOT MARK);
+                    Rec.MARK(NOT Rec.MARK);
                 end;
             }
             action("Marked Only")
@@ -77,7 +98,7 @@ page 50051 "Crate Quote Op. Lines"
 
                 trigger OnAction()
                 begin
-                    MARKEDONLY(NOT MARKEDONLY)
+                    Rec.MARKEDONLY(NOT Rec.MARKEDONLY)
                 end;
             }
             action("Clear Marks")
@@ -90,7 +111,7 @@ page 50051 "Crate Quote Op. Lines"
 
                 trigger OnAction()
                 begin
-                    CLEARMARKS;
+                    Rec.CLEARMARKS;
                 end;
             }
         }
@@ -101,7 +122,7 @@ page 50051 "Crate Quote Op. Lines"
         SetStyle;
     end;
 
-    trigger OnQueryClosePage(CloseAction: Action): BoolEAN
+    trigger OnQueryClosePage(CloseAction: Action): Boolean
     begin
         IF CloseAction = ACTION::LookupOK THEN
             LookupOKOnPush;
@@ -109,7 +130,7 @@ page 50051 "Crate Quote Op. Lines"
 
     var
         StyleText: Text;
-        gServHeader: Record "5900";
+        gServHeader: Record "Service Header";
         Text001: Label 'You have choosed a Forfait Invoice Calendar Detail that has been already invoiced. Are you sure you want to proceed?';
 
     local procedure SetStyle()
@@ -118,28 +139,28 @@ page 50051 "Crate Quote Op. Lines"
         StyleText := 'Standard';
 
 
-        IF Processed THEN
+        IF Rec.Processed THEN
             StyleText := 'StrongAccent';
     end;
 
     local procedure LookupOKOnPush()
     var
-        ServiceOrderMgt: Codeunit "50004";
+        ServiceOrderMgt: Codeunit "Service Order Mgt._LDR";
     begin
 
 
-        MARKEDONLY(TRUE);
+        Rec.MARKEDONLY(TRUE);
 
-        MESSAGE(FORMAT(COUNT));
-        IF FINDSET THEN BEGIN
+        MESSAGE(FORMAT(Rec.COUNT));
+        IF Rec.FINDSET THEN BEGIN
             REPEAT
                 ServiceOrderMgt.AddForfaitConceptLine(gServHeader."No.", Rec);
-                Processed := TRUE;
-                MODIFY(FALSE);
-            UNTIL NEXT = 0;
+                Rec.Processed := TRUE;
+                Rec.MODIFY(FALSE);
+            UNTIL Rec.NEXT = 0;
         END ELSE
             ERROR('');
-    end; */
+    end;
 
     procedure SetParams(pServHeader: Record "Service Header")
     begin

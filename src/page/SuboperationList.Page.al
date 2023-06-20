@@ -53,8 +53,4 @@ page 50093 "Suboperation List"
             }
         }
     }
-
-    actions
-    {
-    }
 }
