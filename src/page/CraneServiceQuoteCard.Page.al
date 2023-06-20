@@ -400,7 +400,7 @@ page 50024 "Crane Service Quote Card"
 
                     trigger OnAction()
                     var
-                        InvoicingForfaitQuote: Codeunit "Invoicing Forfait Quote";
+                        InvoicingForfaitQuote: Codeunit "Invoicing Forfait Quote_LDR";
                     begin
                         //InvoicingForfaitQuote.run(Rec);
                         ServiceQuoteMgt.InvoiceForfaitCraneQuote(Rec);

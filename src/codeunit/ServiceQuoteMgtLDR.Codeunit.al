@@ -540,7 +540,7 @@ codeunit 50001 "Service Quote Mgt._LDR"
     /// <summary>
     ///  InvoiceForfaitCraneQuote()
     /// </summary>
-    procedure InvoiceForfaitCraneQuote(CraneServiceQuoteHeader: Record "Service Item Line")
+    procedure InvoiceForfaitCraneQuote(CraneServiceQuoteHeader: Record "Crane Service Quote Header_LDR")
     var
         TestServiceHeader: Record "Service Header";
         TestServiceItemLine: Record "Service Item Line";

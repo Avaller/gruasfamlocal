@@ -73,7 +73,7 @@ page 50028 "Serv. Contract Inv. Group List"
                     Caption = '&Contracts';
                     Image = Documents;
                     RunObject = Page "Service Contract List";
-                    RunPageLink = "Serv. Contract Inv. Group" = FIELD("No.");
+                    RunPageLink = "Serv. Contract Inv. Group_LDR" = FIELD("No.");
                     RunPageView = SORTING("Contract Type", "Contract No.");
                 }
             }

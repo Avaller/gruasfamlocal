@@ -271,28 +271,28 @@ page 50029 "Serv. Contract Line Hours_LDR"
                     Contador := 1;
 
                     Repeat
-                        Case gServContractLine."Hours Period Review" Of
-                            gServContractLine."Hours Period Review"::Month:
+                        Case gServContractLine."Hours Period Review_LDR" Of
+                            gServContractLine."Hours Period Review_LDR"::Month:
                                 Begin
                                     PeriodEnd := CalcDate('<1M-1D>', PeriodStart);
                                 End;
-                            gServContractLine."Hours Period Review"::"Two Months":
+                            gServContractLine."Hours Period Review_LDR"::"Two Months":
                                 Begin
                                     PeriodEnd := CalcDate('<2M-1D>', PeriodStart);
                                 End;
-                            gServContractLine."Hours Period Review"::Quarter:
+                            gServContractLine."Hours Period Review_LDR"::Quarter:
                                 Begin
                                     PeriodEnd := CalcDate('<3M-1D>', PeriodStart);
                                 End;
-                            gServContractLine."Hours Period Review"::"Half Year":
+                            gServContractLine."Hours Period Review_LDR"::"Half Year":
                                 Begin
                                     PeriodEnd := CalcDate('<6M-1D>', PeriodStart);
                                 End;
-                            gServContractLine."Hours Period Review"::Year:
+                            gServContractLine."Hours Period Review_LDR"::Year:
                                 Begin
                                     PeriodEnd := CalcDate('<12M-1D>', PeriodStart);
                                 End;
-                            gServContractLine."Hours Period Review"::None:
+                            gServContractLine."Hours Period Review_LDR"::None:
                                 PeriodEnd := gServContractLine."Contract Expiration Date";
                         End;
 
@@ -311,7 +311,7 @@ page 50029 "Serv. Contract Line Hours_LDR"
                         Rec.Validate("End Date", PeriodEnd);
                         Rec.Validate("Contracted hours", HorasContratadas);
                         If Rec."Starting Date" = gServContractLine."Starting Date" then
-                            Rec.Validate("Beginning hours", gServContractLine."Exit No. Of Hours");
+                            Rec.Validate("Beginning hours", gServContractLine."Exit No. of Hours_LDR");
                         Rec.Insert(true);
 
                         PeriodStart := PeriodEnd + 1;
@@ -371,12 +371,12 @@ page 50029 "Serv. Contract Line Hours_LDR"
         Case Type Of
             Type::External:
                 Begin
-                    ServMgt.TestField(ServMgt."Ext.Hours Control Service Cost");
+                    ServMgt.TestField(ServMgt."Ext.Hours Control Service Cost_LDR");
                     ContractConcepts.Validate(ContractConcepts."Source Table", DATABASE::"Service Contract Line");
                 End;
             Type::Internal:
                 Begin
-                    ServMgt.TestField(ServMgt."Int.Hours Control Service Cost");
+                    ServMgt.TestField(ServMgt."Int.Hours Control Service Cost_LDR");
                     //ContractConcepts.Validate(ContractConcepts."Source Table", DATABASE::"Internal Serv. Contract Line"); //TODO: No encontrado DATABASE::"Internal Serv. Contract Line"
                 End;
         End;
@@ -389,9 +389,9 @@ page 50029 "Serv. Contract Line Hours_LDR"
 
         Case Type Of
             Type::External:
-                ContractConcepts.Validate(ContractConcepts."Concept No.", ServMgt."Ext.Hours Control Service Cost");
+                ContractConcepts.Validate(ContractConcepts."Concept No.", ServMgt."Ext.Hours Control Service Cost_LDR");
             Type::Internal:
-                ContractConcepts.Validate(ContractConcepts."Concept No.", ServMgt."Int.Hours Control Service Cost");
+                ContractConcepts.Validate(ContractConcepts."Concept No.", ServMgt."Int.Hours Control Service Cost_LDR");
         End;
 
         ContractConcepts.Validate(ContractConcepts.Periodicity, ContractConcepts.Periodicity::"Date expecIfic");

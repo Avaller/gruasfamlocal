@@ -208,34 +208,34 @@ report 50002 "Copy Serv. Item Breakdown"
     labels
     {
     }
-
+    */
     var
-        SourceManufacturer : Code[10];
-        SourceModel : Code[10];
-        TargetManufacturer : Code[10];
-        TargetModel : Code[10];
-        Text001 : TextConst ENU='You must choose a Target Manufacturer Code and Target Model Code in order to continue.',ESP='Debe seleccionar Cod. Fabricante Destino y Cod. Modelo Destino para poder continuar.';
-        bCopyItemDetail : BoolEAN;
+        SourceManufacturer: Code[10];
+        SourceModel: Code[10];
+        TargetManufacturer: Code[10];
+        TargetModel: Code[10];
+        Text001: TextConst ENU = 'You must choose a Target Manufacturer Code and Target Model Code in order to continue.', ESP = 'Debe seleccionar Cod. Fabricante Destino y Cod. Modelo Destino para poder continuar.';
+        bCopyItemDetail: BoolEAN;
         [InDataSet]
-        bNewDetail : BoolEAN;
-        Text002 : TextConst ENU='The selected Serv. Item Breakdown already exist. Please, use the "Update from.." functionality instead.',ESP='El Despiece de Prod. Servicio seleccionado ya existe. Por favor, utilice la funcionalidad "Actualizar desde.." en su lugar.';
-        Text003 : TextConst ENU='You must define a Default Service Item Breakdown first',ESP='Debe definir un Despiece por Defecto primero.';
-        ServiceItemBreakdown : Record "50018";
-        CounterCategory : Integer;
-        CounterItem : Integer;
-        Text004 : TextConst ENU='You must choose a Source Manufacturer Code and Source Model Code in order to continue.',ESP='Debe seleccionar Cod. Fabricante Origen y Cod. Modelo Origen para poder continuar.';
+        bNewDetail: BoolEAN;
+        Text002: TextConst ENU = 'The selected Serv. Item Breakdown already exist. Please, use the "Update from.." functionality instead.', ESP = 'El Despiece de Prod. Servicio seleccionado ya existe. Por favor, utilice la funcionalidad "Actualizar desde.." en su lugar.';
+        Text003: TextConst ENU = 'You must define a Default Service Item Breakdown first', ESP = 'Debe definir un Despiece por Defecto primero.';
+        ServiceItemBreakdown: Record "Service Item Breakdown_LDR";
+        CounterCategory: Integer;
+        CounterItem: Integer;
+        Text004: TextConst ENU = 'You must choose a Source Manufacturer Code and Source Model Code in order to continue.', ESP = 'Debe seleccionar Cod. Fabricante Origen y Cod. Modelo Origen para poder continuar.';
 
-    procedure SetValues(pNewDetail : BoolEAN;pManufacturerCode : Code[10];pModelCode : Code[10]);
+    procedure SetValues(pNewDetail: BoolEAN; pManufacturerCode: Code[10]; pModelCode: Code[10]);
     begin
         bNewDetail := pNewDetail;
         TargetManufacturer := pManufacturerCode;
         TargetModel := pModelCode;
     end;
 
-    procedure EnableTargetSelection() flag : BoolEAN;
+    procedure EnableTargetSelection() flag: BoolEAN;
     begin
         EXIT(bNewDetail);
     end;
-    */
+
 }
 
