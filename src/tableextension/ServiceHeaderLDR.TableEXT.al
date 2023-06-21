@@ -7,7 +7,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
     {
         modify("Customer No.")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             var
                 AlarmMgt: Codeunit "Alarm Mgt._LDR";
             begin
@@ -16,7 +16,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         }
         modify("Bill-to Customer No.")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             var
                 RecPmtAdress: Record "Customer Pmt. Address";
                 Cust: Record Customer;
@@ -71,7 +71,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         }
         modify("Ship-to Code")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             var
                 ServItemLine: Record "Service Item Line";
             begin
@@ -94,7 +94,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         }
         modify("Posting Date")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             begin
                 if "Posting Date" <> xRec."Posting Date" then begin
                     ComprobarClienteProductoServ;
@@ -104,28 +104,28 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         }
         modify("Due Date")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             begin
                 "Due Date Modified_LDR" := true;
             end;
         }
         modify("Payment Discount %")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             begin
                 UpdatePmtDiscDate();
             end;
         }
         modify("Pmt. Discount Date")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             begin
                 UpdatePmtDiscDate();
             end;
         }
         modify("Applies-to Doc. No.")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             begin
                 CheckBillSituation();
             end;
@@ -167,7 +167,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         // }
         modify("Service Order Type")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             var
                 CraneMgtSetup: Record "Crane Mgt. Setup_LDR";
             begin
@@ -188,7 +188,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         }
         modify("Contract No.")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             begin
                 if "Internal Contract No._LDR" = '' then
                     if "Contract No." <> xRec."Contract No." then
@@ -197,7 +197,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         }
         modify("Ship-to E-Mail")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             var
                 MailManagement: Codeunit "Mail Management";
             begin
@@ -233,13 +233,13 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             DataClassification = ToBeClassified;
             //TableRelation = "Serv. Item Operations Entry"."Entry No."; //TODO: Revisar si conservamos la tabla
         }
-        field(50053; "Role Center Filter_LDR"; BoolEAN)
+        field(50053; "Role Center Filter_LDR"; Boolean)
         {
             Caption = 'Visible Role Center';
             DataClassification = ToBeClassified;
             Description = 'Se usará para Filtrar el RoleCenter por Pedidos de Tipo Grúa", "Entrega de Plataforma" y "Recogida de Plataforma"';
         }
-        field(50054; "Role Center Filter 2_LDR"; BoolEAN)
+        field(50054; "Role Center Filter 2_LDR"; Boolean)
         {
             Caption = 'Visible Role Center 2';
             DataClassification = ToBeClassified;
@@ -250,7 +250,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             Caption = 'Nº Línea Opción Oferta Servicio Grúa';
             DataClassification = ToBeClassified;
         }
-        field(50056; Retained_LDR; BoolEAN)
+        field(50056; Retained_LDR; Boolean)
         {
             Caption = 'Retenido';
             DataClassification = ToBeClassified;
@@ -349,13 +349,13 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             OptionMembers = Work,Offer,Standalone,Order;
 
         }
-        field(50067; "Converted to Order_LDR"; BoolEAN)
+        field(50067; "Converted to Order_LDR"; Boolean)
         {
             Caption = 'Convertida en Pedido';
             DataClassification = ToBeClassified;
             Enabled = false;
         }
-        field(50068; "Customer Comment_LDR"; BoolEAN)
+        field(50068; "Customer Comment_LDR"; Boolean)
         {
             CalcFormula = Exist("Comment Line" WHERE("Table Name" = CONST("Customer"), "No." = FIELD("Customer No.")));
             Caption = 'Comentario Cliente';
@@ -499,12 +499,12 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             DataClassification = ToBeClassified;
             //TableRelation = Table70002; //TODO: Revisar si conservamos la tabla
         }
-        field(50078; "Rejected Quote_LDR"; BoolEAN)
+        field(50078; "Rejected Quote_LDR"; Boolean)
         {
             Caption = 'Oferta Rechazada';
             DataClassification = ToBeClassified;
         }
-        field(50079; "Historical Quote_LDR"; BoolEAN)
+        field(50079; "Historical Quote_LDR"; Boolean)
         {
             Caption = 'Oferta Histórica';
             DataClassification = ToBeClassified;
@@ -536,7 +536,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             Caption = 'Nº Documento Externo';
             DataClassification = ToBeClassified;
         }
-        field(50084; "Direct sales_LDR"; BoolEAN)
+        field(50084; "Direct sales_LDR"; Boolean)
         {
             Caption = 'Venta Directa';
             DataClassification = ToBeClassified;
@@ -564,7 +564,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             MinValue = 0;
             notBlank = true;
         }
-        field(50088; "Maintenance Order_LDR"; BoolEAN)
+        field(50088; "Maintenance Order_LDR"; Boolean)
         {
             Caption = 'Pedido Mantenimiento';
             DataClassification = ToBeClassified;
@@ -591,7 +591,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             DataClassification = ToBeClassified;
             Description = 'Planner';
         }
-        field(50093; "Send Document By Mail_LDR"; BoolEAN)
+        field(50093; "Send Document By Mail_LDR"; Boolean)
         {
             Caption = 'Enviar Documento por Mail';
             DataClassification = ToBeClassified;
@@ -602,7 +602,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             DataClassification = ToBeClassified;
             ExtendedDatatype = EMail;
         }
-        field(50095; "Due Date Modified_LDR"; BoolEAN)
+        field(50095; "Due Date Modified_LDR"; Boolean)
         {
             DataClassification = ToBeClassified;
             Editable = false;
@@ -640,7 +640,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             DataClassification = ToBeClassified;
             Description = 'EVO FIELDEAS MODEN';
         }
-        field(50100; "Fault Comment_LDR"; BoolEAN)
+        field(50100; "Fault Comment_LDR"; Boolean)
         {
             CalcFormula = Exist("Service Comment Line" WHERE("Table Name" = CONST("Service Header"),
             "Table Subtype" = FIELD("Document Type"), "No." = FIELD("No."), "Type" = CONST("Fault")));
@@ -648,7 +648,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50101; "Resolution Comment_LDR"; BoolEAN)
+        field(50101; "Resolution Comment_LDR"; Boolean)
         {
             CalcFormula = Exist("Service Comment Line" WHERE("Table Name" = CONST("Service Header"),
             "Table Subtype" = FIELD("Document Type"), "No." = FIELD("No."), "Type" = CONST("Resolution")));
@@ -656,7 +656,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50102; "Internal Comment_LDR"; BoolEAN)
+        field(50102; "Internal Comment_LDR"; Boolean)
         {
             CalcFormula = Exist("Service Comment Line" WHERE("Table Name" = CONST("Service Header"),
             "Table Subtype" = FIELD("Document Type"), "No." = FIELD("No."), "Type" = CONST("Internal")));
@@ -664,14 +664,14 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50103; Replicate_LDR; BoolEAN) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50103; Replicate_LDR; Boolean) //TODO: Revisar warning del atributo CalcFormula del field
         {
             //CalcFormula = Exist("Service Line" WHERE("Document Type" = FIELD("Document Type"), "Customer No." = FIELD("Customer No."), "Document No." = FIELD("No."), "Replicate" = CONST(true), "Replicate Company" = FIELD("CompanyFilter"))); //TODO: Revisar si conservamos el atributo CalcFormula
             Caption = 'Replicar';
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50104; "Replicate Pending_LDR"; BoolEAN) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50104; "Replicate Pending_LDR"; Boolean) //TODO: Revisar warning del atributo CalcFormula del field
         {
             //CalcFormula = Exist("Service Line" WHERE("Document Type" = FIELD("Document Type"), "Customer No." = FIELD("Customer No."), "Document No." = FIELD("No."), "Replicate" = CONST(true), "Replicated" = CONST("No"), "Replicate Company" = FIELD("CompanyFilter"))); //TODO: Revisar si conservamos el atributo CalcFormula
             Caption = 'Pendiente Replicar';
@@ -692,6 +692,10 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             MaintainSQLIndex = false;
             MaintainSiftIndex = false;
         }
+        key(Key9; "Direct sales_LDR")
+        {
+
+        }
     }
 
     fieldgroups
@@ -700,7 +704,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         { }
     }
 
-    trigger OnBeforeInsert()
+    trigger OnAfterInsert()
     begin
         "New Order No. Series_LDR" := ServSetup."Service Order Nos.";
         if "Document Type" = "Document Type"::Order then
@@ -710,12 +714,12 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         "Created Date_LDR" := CurrentDateTime;
     end;
 
-    trigger OnBeforeModify()
+    trigger OnAfterModify()
     begin
         "Modified Date_LDR" := CurrentDateTime;
     end;
 
-    trigger OnBeforeDelete()
+    trigger OnAfterDelete()
     var
         Deshacer: Integer;
         Salesline2: Record "Service Line";

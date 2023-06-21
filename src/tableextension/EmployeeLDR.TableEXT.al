@@ -100,7 +100,7 @@ tableextension 50056 "Employee_LDR" extends "Employee"
         }
     }
 
-    trigger OnBeforeModify()
+    trigger OnAfterModify()
     begin
         if (Rec."VAT Registration No." <> xRec."VAT Registration No.") or (Rec."Employment Date" <> xRec."Employment Date") or (Rec.Name <> xRec.Name) or
             (Rec."First Family Name" <> xRec."First Family Name") or (Rec."Second Family Name" <> xRec."Second Family Name") or (Rec."Phone No." <> xRec."Phone No.") or

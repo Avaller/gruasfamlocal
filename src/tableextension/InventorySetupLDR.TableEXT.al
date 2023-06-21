@@ -11,7 +11,7 @@ tableextension 50049 "Inventory Setup_LDR" extends "Inventory Setup"
             DataClassification = ToBeClassified;
             TableRelation = "No. Series";
         }
-        field(50001; "Inherit Item Dims. to Inv. Jnl"; BoolEAN)
+        field(50001; "Inherit Item Dims. to Inv. Jnl"; Boolean)
         {
             Caption = 'Heredar Dimensiones Producto a Diario Inventario';
             DataClassification = ToBeClassified;

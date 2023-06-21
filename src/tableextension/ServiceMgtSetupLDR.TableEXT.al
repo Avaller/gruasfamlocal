@@ -158,7 +158,7 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
             Description = 'Almacén Activos Fijos';
             TableRelation = "Location";
         }
-        field(50023; "Group Displacement on Invoices_LDR"; BoolEAN)
+        field(50023; "Group Displacement on Invoices_LDR"; Boolean)
         {
             Caption = 'Agrupar Desplazamiento en Facturas';
             DataClassification = ToBeClassified;
@@ -195,12 +195,12 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
             Description = 'Dimensión Tipo de Máquina';
             TableRelation = "Dimension";
         }
-        field(50029; "Not to detract Serv. Item_LDR"; BoolEAN)
+        field(50029; "Not to detract Serv. Item_LDR"; Boolean)
         {
             Caption = 'No Depreciar el PS con Amortizaciones';
             DataClassification = ToBeClassified;
         }
-        field(50030; "Sales Price Mandatory_LDR"; BoolEAN)
+        field(50030; "Sales Price Mandatory_LDR"; Boolean)
         {
             Caption = 'Obligatorio Introducir PVP';
             DataClassification = ToBeClassified;
@@ -218,12 +218,12 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
             DataClassification = ToBeClassified;
             TableRelation = "Dimension";
         }
-        field(50033; "Price/Km Advanced Calc_LDR"; BoolEAN)
+        field(50033; "Price/Km Advanced Calc_LDR"; Boolean)
         {
             Caption = 'Cálculo Avanzado Precio/Km';
             DataClassification = ToBeClassified;
         }
-        field(50034; "Res. Center Mandatory_LDR"; BoolEAN)
+        field(50034; "Res. Center Mandatory_LDR"; Boolean)
         {
             Caption = 'Centro Resp. Obligatorio';
             DataClassification = ToBeClassified;
@@ -324,7 +324,7 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
             OptionCaption = 'Ida,Ida y Vuelta';
             OptionMembers = "Way","Way Back";
         }
-        field(50051; "Basic Response Times_LDR"; BoolEAN)
+        field(50051; "Basic Response Times_LDR"; Boolean)
         {
             Caption = 'Cálculo Básico Tiempos de Respuesta';
             DataClassification = ToBeClassified;
@@ -358,7 +358,7 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
             MinValue = 0;
             NotBlank = true;
         }
-        field(50056; "Not Service Orders Active_LDR"; BoolEAN)
+        field(50056; "Not Service Orders Active_LDR"; Boolean)
         {
             Caption = 'Excluye Pedidos Servicio Activos';
             DataClassification = ToBeClassified;
@@ -438,7 +438,7 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
             DataClassification = ToBeClassified;
             TableRelation = "No. Series"."Code";
         }
-        field(50066; "Show Delivery Contract Invoice_LDR"; BoolEAN)
+        field(50066; "Show Delivery Contract Invoice_LDR"; Boolean)
         {
             Caption = 'Muestra Información Entrega en Facturas Contrato';
             DataClassification = ToBeClassified;
@@ -493,27 +493,27 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
             DataClassification = ToBeClassified;
             TableRelation = "Contract Group";
         }
-        field(50076; "0 Pending Qty. on Invoicing_LDR"; BoolEAN)
+        field(50076; "0 Pending Qty. on Invoicing_LDR"; Boolean)
         {
             Caption = 'Cantidad pendiente a 0 al Facturar';
             DataClassification = ToBeClassified;
         }
-        field(50077; "Hide proposal Res. Allocation_LDR"; BoolEAN)
+        field(50077; "Hide proposal Res. Allocation_LDR"; Boolean)
         {
             Caption = 'Ocultar Propuestas Asignación Recursos';
             DataClassification = ToBeClassified;
         }
-        field(50078; "Hide Offered Invoice Lines_LDR"; BoolEAN)
+        field(50078; "Hide Offered Invoice Lines_LDR"; Boolean)
         {
             Caption = 'Ocultar Líneas Factura Ofertada';
             DataClassification = ToBeClassified;
         }
-        field(50079; "Automatic Delivery on Sale_LDR"; BoolEAN)
+        field(50079; "Automatic Delivery on Sale_LDR"; Boolean)
         {
             Caption = 'Entrega Automática en Venta';
             DataClassification = ToBeClassified;
         }
-        field(50080; "Order Post not Purch. Test_LDR"; BoolEAN)
+        field(50080; "Order Post not Purch. Test_LDR"; Boolean)
         {
             Caption = 'No Testear Pedidos Compra al Cerrar Pedido Servicio';
             DataClassification = ToBeClassified;
@@ -551,13 +551,13 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
             DataClassification = ToBeClassified;
             TableRelation = "Item Journal Template";
         }
-        field(50083; "PDA Auto Post Device Entries_LDR"; BoolEAN)
+        field(50083; "PDA Auto Post Device Entries_LDR"; Boolean)
         {
             Caption = 'Auto Registra Movimiento PDA Magazzino';
             DataClassification = ToBeClassified;
             Description = 'PDA';
         }
-        field(50084; "Additional Contract Inv. Text_LDR"; BoolEAN)
+        field(50084; "Additional Contract Inv. Text_LDR"; Boolean)
         {
             Caption = 'Textos Adicionales Factura Contrato (Horas y Fecha Último Servicio)';
             DataClassification = ToBeClassified;
@@ -607,7 +607,7 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
             Description = 'PDA';
             TableRelation = "Item Journal Template";
         }
-        field(50089; "Cumulate Phys. Inv Qty._LDR"; BoolEAN)
+        field(50089; "Cumulate Phys. Inv Qty._LDR"; Boolean)
         {
             Caption = 'Acumular Cantidad en Inventario Físico Dispositivo';
             DataClassification = ToBeClassified;
@@ -618,12 +618,12 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
             DataClassification = ToBeClassified;
             TableRelation = "Repair Status";
         }
-        field(50091; "Use Custom Days in Year_LDR"; BoolEAN)
+        field(50091; "Use Custom Days in Year_LDR"; Boolean)
         {
             Caption = 'Utilizar Nº de Días/Año Personalizado';
             DataClassification = ToBeClassified;
         }
-        field(50092; "Copy Comments Contract Invoice_LDR"; BoolEAN)
+        field(50092; "Copy Comments Contract Invoice_LDR"; Boolean)
         {
             Caption = 'Copiar Comentario Contrato a Factura';
             DataClassification = ToBeClassified;

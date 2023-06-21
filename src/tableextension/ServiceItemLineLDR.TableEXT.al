@@ -31,12 +31,12 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             DataClassification = ToBeClassified;
             //TableRelation = "Service Item Rate Header"; //TODO: Revisar si conservamos la tabla
         }
-        field(50052; "Sent to Device_LDR"; BoolEAN)
+        field(50052; "Sent to Device_LDR"; Boolean)
         {
             Caption = 'Enviado a Dispositivo';
             DataClassification = ToBeClassified;
         }
-        field(50053; "Closed by Device_LDR"; BoolEAN)
+        field(50053; "Closed by Device_LDR"; Boolean)
         {
             Caption = 'Cerrado por Dispositivo';
             DataClassification = ToBeClassified;
@@ -95,7 +95,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             Caption = 'Nº Línea Opción Oferta Servicio Grúa';
             DataClassification = ToBeClassified;
         }
-        field(50060; "Role Center Filter_LDR"; BoolEAN)
+        field(50060; "Role Center Filter_LDR"; Boolean)
         {
             //CalcFormula = Lookup("Service Header"."Role Center Filter" WHERE("Document Type" = FIELD("Document Type"),
             //"No." = FIELD("Document No.")));
@@ -103,7 +103,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50061; "Exported to Device_LDR"; BoolEAN)
+        field(50061; "Exported to Device_LDR"; Boolean)
         {
             Caption = 'Exportado a Dispositivo';
             DataClassification = ToBeClassified;
@@ -114,12 +114,12 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             FieldClass = FlowFilter;
             TableRelation = "Service Item"."No.";
         }
-        field(50063; "Use Saturdays_LDR"; BoolEAN)
+        field(50063; "Use Saturdays_LDR"; Boolean)
         {
             Caption = 'Utilizar Sábados';
             DataClassification = ToBeClassified;
         }
-        field(50064; "Use Sundays_LDR"; BoolEAN)
+        field(50064; "Use Sundays_LDR"; Boolean)
         {
             Caption = 'Utilizar Domingos';
             DataClassification = ToBeClassified;
@@ -186,7 +186,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             end;
 
         }
-        field(50073; nonfacturable_LDR; BoolEAN)
+        field(50073; nonfacturable_LDR; Boolean)
         {
             Caption = 'Nº Facturable';
             DataClassification = ToBeClassified;
@@ -236,7 +236,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             Description = 'Nº Línea Oferta';
             Editable = false;
         }
-        field(50077; "Warranty Generated_LDR"; BoolEAN)
+        field(50077; "Warranty Generated_LDR"; Boolean)
         {
             Caption = 'Garantía Tramitada';
             DataClassification = ToBeClassified;
@@ -284,7 +284,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             Description = 'Código Dimensión Acceso Directo 2';
             FieldClass = FlowField;
         }
-        field(50083; "Existe Dto_LDR"; BoolEAN)
+        field(50083; "Existe Dto_LDR"; Boolean)
         {
             CalcFormula = Exist("Service Line" WHERE("Document No." = FIELD("Document No."), "Service Item Line No." = FIELD("Line No."),
             "Line Discount %" = FILTER(<> 0)));
@@ -293,7 +293,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50084; "Warranty in effect_LDR"; BoolEAN)
+        field(50084; "Warranty in effect_LDR"; Boolean)
         {
             Caption = 'Garantía en Vigor Fabricante';
             DataClassification = ToBeClassified;
@@ -330,7 +330,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             Description = 'Tipo Pedido Servicio';
             FieldClass = FlowField;
         }
-        field(50089; "Reval Service Item_LDR"; BoolEAN)
+        field(50089; "Reval Service Item_LDR"; Boolean)
         {
             Caption = 'Revalorizar Máquina';
             DataClassification = ToBeClassified;
@@ -391,7 +391,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             Caption = 'Código Dirección Envío Ubicación Actual';
             FieldClass = FlowField;
         }
-        field(50095; "Default Invoice Lines Created_LDR"; BoolEAN)
+        field(50095; "Default Invoice Lines Created_LDR"; Boolean)
         {
             DataClassification = ToBeClassified;
         }
@@ -411,7 +411,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             Caption = 'Prioridad Asignación';
             FieldClass = FlowField;
         }
-        field(50098; "Historical Quote_LDR"; BoolEAN)
+        field(50098; "Historical Quote_LDR"; Boolean)
         {
             //CalcFormula = Lookup("Service Header"."Historical Quote" WHERE("Document Type" = FIELD("Document Type"),
             //"No." = FIELD("Document No.")));
@@ -427,7 +427,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
         }
     }
 
-    trigger OnBeforeInsert()
+    trigger OnAfterInsert()
     var
         ServItemLine: Record "Service Item Line";
     begin
@@ -440,9 +440,9 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             Error(Text50008, CraneMgtSetup."Ready to Invoice Repair Status");
     end;
 
-    trigger OnBeforeDelete()
+    trigger OnAfterDelete()
     var
-        HideDialogBox: BoolEAN;
+        HideDialogBox: Boolean;
         ServOrderMgt: Codeunit "ServOrderManagement";
     begin
         if not HideDialogBox then begin
@@ -453,7 +453,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
     end;
 
     var
-        bOmitirFacturarA: BoolEAN;
+        bOmitirFacturarA: Boolean;
         TextErrorMontaje: TextConst ENU = 'It is not posible to revaluate a machine on an Assembly Service Order', ESP = 'No se puede revalorizar la máquina en un pedido de montaje';
         TextNoespropia: TextConst ENU = 'It is not posible to revaluate a not own machine', ESP = 'No se puede revalorizar una máquina que no es propia';
         CraneMgtSetup: Record "Crane Mgt. Setup_LDR";

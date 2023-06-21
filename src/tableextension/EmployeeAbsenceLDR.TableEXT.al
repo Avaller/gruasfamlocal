@@ -7,7 +7,7 @@ tableextension 50058 "Employee Absence_LDR" extends "Employee Absence"
     {
         modify("Employee No.")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             var
                 Employee: Record Employee;
             begin
@@ -20,14 +20,14 @@ tableextension 50058 "Employee Absence_LDR" extends "Employee Absence"
         }
         modify("From Date")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             begin
                 ValidateDatesandTimes(FieldNo("From Date"));
             end;
         }
         modify("To Date")
         {
-            trigger OnBeforeValidate()
+            trigger OnAfterValidate()
             begin
                 ValidateDatesAndTimes(FieldNo("To Date"));
             end;

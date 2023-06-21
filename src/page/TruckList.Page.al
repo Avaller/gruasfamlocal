@@ -3,7 +3,7 @@ page 50074 TruckList
     Caption = 'Truck List';
     PageType = List;
     SourceTable = "Service Item";
-    SourceTableView = where("Cancelation Cause Code" = filter(''));
+    SourceTableView = where("Cancelation Cause Code_LDR" = filter(''));
 
     layout
     {
@@ -17,7 +17,7 @@ page 50074 TruckList
                     Caption = 'No';
                     ToolTip = 'No';
                 }
-                field("Planner No"; Rec."Planner No")
+                field("Planner No"; Rec."Planner No_LDR")
                 {
                     ApplicationArea = All;
                     Caption = 'Planificador no';
@@ -54,11 +54,11 @@ page 50074 TruckList
         ServiceMgtSetup.GET;
 
 
-        Rec.SETFILTER("Presentation Group Code", '%1', OrderPlannerSetup."Platform Trucks Pres. Code");
-        Rec.SETFILTER("Explotation Customer No.", '%1', ServiceMgtSetup."No. Internal Customer");
+        Rec.SETFILTER("Presentation Group Code_LDR", '%1', OrderPlannerSetup."Platform Trucks Pres. Code");
+        Rec.SETFILTER("Explotation Customer No._LDR", '%1', ServiceMgtSetup."No. Internal Customer_LDR");
 
         Rec.FILTERGROUP(2);
-        Rec.SETRANGE("Service Item Type", Rec."Service Item Type"::Crane);
+        Rec.SETRANGE("Service Item Type_LDR", Rec."Service Item Type_LDR"::Crane);
         Rec.FILTERGROUP(0);
     end;
 

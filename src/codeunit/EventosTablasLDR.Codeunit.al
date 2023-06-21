@@ -205,4 +205,13 @@ codeunit 50100 "EventosTablas_LDR"
     //     ResLedgerEntry."End Time" := "End Time";
     //     ResLedgerEntry."Internal Quantity" := "Internal Quantity";
     // end;
+
+    /// <summary>
+    /// ProcessSingleEntry.
+    /// </summary>
+    /// <param name="Rec">Record "Service Item Refills Reg_LDR".</param>
+    procedure ProcessSingleEntry(Rec: Record "Service Item Refills Reg_LDR")
+    begin
+
+    end;
 }

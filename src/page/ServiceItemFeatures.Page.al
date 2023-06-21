@@ -738,7 +738,7 @@ page 50008 "Service Item Features"
     trigger OnOpenPage()
     begin
         ServItem.GET(Rec."Service Item No.");
-        ServItemType.GET(ServItem."Service Item Type Code");
+        ServItemType.GET(ServItem."Service Item Type Code_LDR");
 
 
         CraneVisible := ServItemType."Features Type" = ServItemType."Features Type"::Crane;

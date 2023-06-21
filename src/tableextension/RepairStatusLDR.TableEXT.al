@@ -5,12 +5,12 @@ tableextension 50072 "Repair Status_LDR" extends "Repair Status"
 {
     fields
     {
-        field(50001; Shipped_LDR; BoolEAN)
+        field(50001; Shipped_LDR; Boolean)
         {
             Caption = 'Enviado';
             DataClassification = ToBeClassified;
         }
-        field(50002; "Serv. Order Replication Status_LDR"; BoolEAN)
+        field(50002; "Serv. Order Replication Status_LDR"; Boolean)
         {
             Caption = 'Estado Para Replicación de Pedidos de Servicio';
             DataClassification = ToBeClassified;
@@ -32,7 +32,7 @@ tableextension 50072 "Repair Status_LDR" extends "Repair Status"
             Caption = 'Índice Movilidad';
             DataClassification = ToBeClassified;
         }
-        field(50004; "Not allow insert service lines_LDR"; BoolEAN)
+        field(50004; "Not allow insert service lines_LDR"; Boolean)
         {
             Caption = 'No Permitir Insertar Nuevas Líneas de Servicio';
             DataClassification = ToBeClassified;

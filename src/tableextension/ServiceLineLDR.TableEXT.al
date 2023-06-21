@@ -12,6 +12,15 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
             TableRelation = IF ("Type" = CONST("Item")) "Item Unit of Measure"."Code" WHERE("Item No." = FIELD("No.")) ELSE
             IF ("Type" = CONST("Resource")) "Resource Unit of Measure"."Code" WHERE("Resource No." = FIELD("No.")) ELSE
             "Unit of Measure";
+
+            trigger OnValidate()
+            var
+                UnitOfMeasureTranslation: Record "Unit of Measure Translation";
+                ResUnitofMeasure: Record "Resource Unit of Measure";
+                WhseValidateSourceLine: Codeunit "Whse. Validate Source Line";
+            begin
+
+            end;
         }
         field(50051; "Crane Quote No._LDR"; Code[20])
         {
@@ -39,7 +48,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
             Caption = 'Nº Línea Concepto Contrato';
             DataClassification = ToBeClassified;
         }
-        field(50056; Replicated_LDR; BoolEAN)
+        field(50056; Replicated_LDR; Boolean)
         {
             Caption = 'Replicado';
             DataClassification = ToBeClassified;
@@ -55,48 +64,48 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
             Caption = 'Nº Línea Factura Servicio Origen';
             DataClassification = ToBeClassified;
         }
-        field(7121993; "Purchase Receipt No._LDR"; Code[20])
+        field(50061; "Purchase Receipt No._LDR"; Code[20])
         {
             Caption = 'Nº Albarán Compra';
             DataClassification = ToBeClassified;
             Description = 'Nº Albarán Compra';
         }
-        field(7121994; "Purchase Receipt Line No._LDR"; Integer)
+        field(50062; "Purchase Receipt Line No._LDR"; Integer)
         {
             Caption = 'Nº Línea Albarán Compra';
             DataClassification = ToBeClassified;
             Description = 'Nº Línea Albarán Compra';
         }
-        field(7121995; "Opened (Quote)_LDR"; BoolEAN)
+        field(50063; "Opened (Quote)_LDR"; Boolean)
         {
             Caption = 'Abierto';
             DataClassification = ToBeClassified;
         }
-        field(7121996; "Quote No._LDR"; Code[20])
+        field(50064; "Quote No._LDR"; Code[20])
         {
             Caption = 'Nº Oferta';
             DataClassification = ToBeClassified;
             Description = 'Nº Oferta';
         }
-        field(7121997; "Quote Line No._LDR"; Integer)
+        field(50065; "Quote Line No._LDR"; Integer)
         {
             Caption = 'Nº Línea Oferta';
             DataClassification = ToBeClassified;
             Description = 'Nº Línea Oferta';
         }
-        field(7121998; "Quote Invoice Line No._LDR"; Integer)
+        field(50066; "Quote Invoice Line No._LDR"; Integer)
         {
             Caption = 'Nº Línea Factura Oferta';
             DataClassification = ToBeClassified;
             Description = 'Nº Línea Factura Oferta';
         }
-        field(7121999; "Item Entry No._LDR"; Integer)
+        field(50067; "Item Entry No._LDR"; Integer)
         {
             Caption = 'Nº Movimiento Producto';
             DataClassification = ToBeClassified;
             Description = 'Nº Movimiento Producto';
         }
-        field(7122000; "Initial Time_LDR"; Time)
+        field(50068; "Initial Time_LDR"; Time)
         {
             Caption = 'Hora Inicio';
             DataClassification = ToBeClassified;
@@ -123,7 +132,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
                 //}
             end;
         }
-        field(7122001; "End Time_LDR"; Time)
+        field(50069; "End Time_LDR"; Time)
         {
             Caption = 'Hora Fin';
             DataClassification = ToBeClassified;
@@ -152,7 +161,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
                 //}
             end;
         }
-        field(7122002; "Internal Quantity_LDR"; Decimal)
+        field(50070; "Internal Quantity_LDR"; Decimal)
         {
             Caption = 'Cantidad Teórica';
             DataClassification = ToBeClassified;
@@ -160,7 +169,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
             Description = 'Cantidad Teórica';
             Editable = false;
         }
-        field(7122003; "Service Order Description_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
+        field(50071; "Service Order Description_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
         {
             CalcFormula = Lookup("Service Header"."Description" WHERE("Document Type" = FIELD("Document Type"),
              "No." = FIELD("Document No.")));
@@ -168,7 +177,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
             Description = 'Descripción Pedido';
             FieldClass = FlowField;
         }
-        field(7122004; "Number of Hours_LDR"; Integer)
+        field(50072; "Number of Hours_LDR"; Integer)
         {
             CalcFormula = Lookup("Service Item Line"."No of hours_LDR" WHERE("Document Type" = FIELD("Document Type"),
             "Document No." = FIELD("Document No."), "Line No." = FIELD("Service Item Line No.")));
@@ -176,7 +185,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
             Description = 'Nº Horas Máquina';
             FieldClass = FlowField;
         }
-        field(7122005; "EAN code_LDR"; Code[13])
+        field(50073; "EAN code_LDR"; Code[13])
         {
             Caption = 'Código EAN';
             DataClassification = ToBeClassified;
@@ -220,7 +229,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
                 end;
             end;
         }
-        field(7122006; Revaluation_LDR; BoolEAN)
+        field(50074; Revaluation_LDR; Boolean)
         {
             Caption = 'Revalorizar Máquina';
             DataClassification = ToBeClassified;
@@ -252,30 +261,30 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
                     Error(TextErrorMontaje);
             end;
         }
-        field(7122007; "Created from Transfer_LDR"; BoolEAN)
+        field(50075; "Created from Transfer_LDR"; Boolean)
         {
             Caption = 'Creado desde Transferencia';
             DataClassification = ToBeClassified;
             Description = 'Indica que la Liínea se ha Creado desde una Reclasificación';
         }
-        field(7122008; "Transfer Source Location Code_LDR"; Code[20])
+        field(50076; "Transfer Source Location Code_LDR"; Code[20])
         {
             Caption = 'Código Almacén Origen Transferencia';
             DataClassification = ToBeClassified;
             TableRelation = "Location";
         }
-        field(7122009; "Transfer Source Bin Code_LDR"; Code[20])
+        field(50077; "Transfer Source Bin Code_LDR"; Code[20])
         {
             Caption = 'Código Ubicación Origen Transferencia';
             DataClassification = ToBeClassified;
             TableRelation = "Bin"."Code" WHERE("Location Code" = FIELD("Transfer Source Location Code_LDR"));
         }
-        field(7122010; "Convert to Order_LDR"; BoolEAN)
+        field(50078; "Convert to Order_LDR"; Boolean)
         {
             Caption = 'Convertir en Pedido';
             DataClassification = ToBeClassified;
         }
-        field(71220011; Chargeable_LDR; BoolEAN)
+        field(50079; Chargeable_LDR; Boolean)
         {
             Caption = 'Generar Factura';
             DataClassification = ToBeClassified;
@@ -293,35 +302,35 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
                 end;
             end;
         }
-        field(71220013; Grouper_LDR; Text[20])
+        field(50080; Grouper_LDR; Text[20])
         {
             Caption = 'Agrupador';
             DataClassification = ToBeClassified;
         }
-        field(71220014; "Service item Model_LDR"; Text[50])
+        field(50081; "Service item Model_LDR"; Text[50])
         {
             Caption = 'Modelo';
             DataClassification = ToBeClassified;
             Description = 'Modelo';
         }
-        field(7122015; "Contract Hours Entry No._LDR"; Integer)
+        field(50082; "Contract Hours Entry No._LDR"; Integer)
         {
             Caption = 'Nº Movimiento Contrato por Horas';
             DataClassification = ToBeClassified;
             //TableRelation = Table70061; //TODO: Revisar si conservamos la tabla
         }
-        field(7122016; "Service Price Version No._LDR"; Code[20])
+        field(50083; "Service Price Version No._LDR"; Code[20])
         {
             Caption = 'Nº Versión Grupo Precio';
             DataClassification = ToBeClassified;
             //TableRelation = "Service Item Price"."Version No." WHERE("Service Price Group" = FIELD("Service Price Group Code")); //TODO: Revisar si conservamos la tabla
         }
-        field(7122017; "Service Contract Period_LDR"; Text[50])
+        field(50084; "Service Contract Period_LDR"; Text[50])
         {
             Caption = 'Período Contrato Servicio';
             DataClassification = ToBeClassified;
         }
-        field(7122018; "Concept No._LDR"; Code[20])
+        field(50085; "Concept No._LDR"; Code[20])
         {
             Caption = 'Nº concepto';
             DataClassification = ToBeClassified;
@@ -334,13 +343,13 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
 
             end;
         }
-        field(7122019; "Charge Capacity_LDR"; Decimal)
+        field(50086; "Charge Capacity_LDR"; Decimal)
         {
             Caption = 'Capacidad Carga (Kg)';
             DataClassification = ToBeClassified;
             Description = 'Indica la Capacidad de Carga de la Máquina en Kg';
         }
-        field(7122093; "Warranty Service Code_LDR"; Code[20])
+        field(50087; "Warranty Service Code_LDR"; Code[20])
         {
             Caption = 'Coste Servicio Garantía';
             DataClassification = ToBeClassified;
@@ -362,18 +371,18 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
                 end;
             end;
         }
-        field(7122094; "Warranty No._LDR"; Code[20])
+        field(50088; "Warranty No._LDR"; Code[20])
         {
             Caption = 'Nº Garantía';
             DataClassification = ToBeClassified;
         }
-        /*field(7122095; Warranty_LDR; BoolEAN) //TODO: Revisar si conservamos el field
+        /*field(50089; Warranty_LDR; Boolean) //TODO: Revisar si conservamos el field
         {
             Caption = 'Garantía';
             DataClassification = ToBeClassified;
             Description = 'Determina si es una Garantía';
         }*/
-        field(7122193; "Invoice Line Discount Amount_LDR"; Decimal)
+        field(50090; "Invoice Line Discount Amount_LDR"; Decimal)
         {
             AutoFormatExpression = "Currency Code";
             AutoFormatType = 1;
@@ -381,7 +390,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(7122194; "Invoice Line Amount_LDR"; Decimal)
+        field(50091; "Invoice Line Amount_LDR"; Decimal)
         {
             AutoFormatExpression = "Currency Code";
             AutoFormatType = 1;
@@ -389,27 +398,27 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(7122493; Migrated_LDR; BoolEAN)
+        field(50092; Migrated_LDR; Boolean)
         {
             Caption = 'Migrada';
             DataClassification = ToBeClassified;
         }
-        field(7122494; Reclasified_LDR; BoolEAN)
+        field(50093; Reclasified_LDR; Boolean)
         {
             Caption = 'Reclasificado';
             DataClassification = ToBeClassified;
         }
-        field(7122495; "Created Date_LDR"; DateTime)
+        field(50094; "Created Date_LDR"; DateTime)
         {
             Caption = 'Fecha Creación';
             DataClassification = ToBeClassified;
         }
-        field(7122496; "Modified Date_LDR"; DateTime)
+        field(50095; "Modified Date_LDR"; DateTime)
         {
             Caption = 'Fecha Modificación';
             DataClassification = ToBeClassified;
         }
-        field(7122497; "Warranty Service Order No._LDR"; Code[20])
+        field(50096; "Warranty Service Order No._LDR"; Code[20])
         {
             Caption = 'Nº Pedido Servicio';
             DataClassification = ToBeClassified;
@@ -431,49 +440,49 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
                 end;
             end;
         }
-        field(7122498; "Historical Quote_LDR"; BoolEAN)
+        field(50097; "Historical Quote_LDR"; Boolean)
         {
             CalcFormula = Lookup("Service Header"."Historical Quote_LDR" WHERE("Document Type" = FIELD("Document Type"),
             "No." = FIELD("Document No.")));
             Caption = 'Oferta Histórica';
             FieldClass = FlowField;
         }
-        field(7122499; "Day Invoicing_LDR"; BoolEAN)
+        field(50098; "Day Invoicing_LDR"; Boolean)
         {
             Caption = 'Facturar por Precio Día';
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(7122500; "No of Days_LDR"; Integer)
+        field(50099; "No of Days_LDR"; Integer)
         {
             Caption = 'Nº de Días';
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(7122501; "Day Amount_LDR"; Decimal)
+        field(50100; "Day Amount_LDR"; Decimal)
         {
             Caption = 'Precio Venta Día';
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(7122502; Replicate_LDR; BoolEAN)
+        field(50101; Replicate_LDR; Boolean)
         {
             Caption = 'Replicar';
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(7122503; "Replicate Company_LDR"; Text[30])
+        field(50102; "Replicate Company_LDR"; Text[30])
         {
             Caption = 'Empresa Réplica';
             DataClassification = ToBeClassified;
             Editable = false;
             TableRelation = "Company"."Name";
         }
-        field(7122504; "Replicate Service Item_LDR"; Code[20])
+        field(50103; "Replicate Service Item_LDR"; Code[20])
         {
             DataClassification = ToBeClassified;
         }
-        field(7122505; "No. 2_LDR"; Code[20])
+        field(50104; "No. 2_LDR"; Code[20])
         {
             CalcFormula = Lookup("Item"."No. 2" WHERE("No." = FIELD("No.")));
             Caption = 'Nº 2';
@@ -490,12 +499,12 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
         }
     }
 
-    trigger OnBeforeInsert()
+    trigger OnAfterInsert()
     begin
         "Created Date_LDR" := CurrentDateTime;
     end;
 
-    trigger OnBeforeModify()
+    trigger OnAfterModify()
     var
         txtOferta: TextConst ENU = 'You cant modify the line because it comes from a quote. You have to unblock from the menu Line - Unblock', ESP = 'No se puede modificar la línea porque proviene de una Oferta. Desbloquee la línea desde el menú Línea - Desbloquear';
         txtPedidoCompra: TextConst ENU = 'You cant modify the line because it comes from a purchase order. You have to unblock from the menu Line - Unblock', ESP = 'No se puede modificar la línea porque proviene de un Pedido de Compra. Desbloquee la línea desde el menú Línea - Desbloquear';
@@ -515,12 +524,12 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
         "Modified Date_LDR" := CurrentDateTime;
     end;
 
-    trigger OnBeforeDelete()
+    trigger OnAfterDelete()
     var
         txtOferta: TextConst ENU = 'It is not posible to delete Line because it is linked with a Quote. Unlock line by menu Line - Unlock.', ESP = 'No se puede eliminar la línea por que proviene de una Oferta. Desloquee la línea desde el menú Línea - Desloquear';
         Almacenes: Record "Location";
         Ubicaciones: Record "Bin";
-        bOk: BoolEAN;
+        bOk: Boolean;
         //ContractHoursEntry: Record 70061;
         CraneServQForfaitCalendar: Record "Crane Serv Q. Forf Calend_LDR";
     begin
@@ -580,9 +589,9 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
         txtLineaDiarioGenerada: TextConst ENU = 'There are lines to register in the Reclasif. Journal, Journal Book TRANSFEREN, batch AJUSTES', ESP = 'Se han generado líneas en el Diario de Reclasificación, libro diario TRANSFEREN, sección AJUSTES pendientes de registrar.';
         Text50002: TextConst ENU = 'Dou you want creata a line in Serv.Item. Entry Journal?', ESP = '¿Desea crear la línea de devolución en el Diario de Reclasificación?';
         Text50011: TextConst ENU = 'You cannot delete this invoice line because a %1 exists for this line. Delete all invoice for reverse contract periodo.', ESP = 'No puede eliminar esta factura porque existe un %1 para esta línea. Elimine completamente la factura para deshacer el periodo y vuelva a generar la factura.';
-        HideDialogBox: BoolEAN;
+        HideDialogBox: Boolean;
         ServLedgEntry: Record "Service Ledger Entry";
-        bRecreating: BoolEAN;
+        bRecreating: Boolean;
         ServItemComponent: Record "Service Item Component";
         ServItem2: Record "Service Item";
 
