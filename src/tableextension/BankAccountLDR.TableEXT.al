@@ -5,7 +5,7 @@ tableextension 50044 "Bank Account_LDR" extends "Bank Account"
 {
     fields
     {
-        field(50000; "Bank Payment No. in IOU_LDR"; BoolEAN)
+        field(50000; "Bank Payment No. in IOU_LDR"; Boolean)
         {
             Caption = 'Utilizar Nº de Pago de Banco en Pagaré';
             DataClassification = ToBeClassified;

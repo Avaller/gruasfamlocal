@@ -10,7 +10,7 @@ tableextension 50056 "Employee_LDR" extends "Employee"
             Caption = 'Nº Tarjeta Marcaje';
             DataClassification = ToBeClassified;
         }
-        field(50001; "Ingestrel Export"; BoolEAN)
+        field(50001; "Ingestrel Export"; Boolean)
         {
             Caption = 'Exportar a Ingestrel';
             DataClassification = ToBeClassified;
@@ -67,7 +67,7 @@ tableextension 50056 "Employee_LDR" extends "Employee"
             DataClassification = ToBeClassified;
             TableRelation = "G/L Account"."No.";
         }
-        field(50011; "Avoid Expenses"; BoolEAN)
+        field(50011; "Avoid Expenses"; Boolean)
         {
             Caption = 'Nº Generar Gastos';
             DataClassification = ToBeClassified;
@@ -80,7 +80,7 @@ tableextension 50056 "Employee_LDR" extends "Employee"
             FieldClass = FlowField;
             TableRelation = "Company";
         }
-        field(50013; "Extranet Deletion"; BoolEAN)
+        field(50013; "Extranet Deletion"; Boolean)
         {
             Caption = 'Eliminar de Ingestrel';
             DataClassification = ToBeClassified;

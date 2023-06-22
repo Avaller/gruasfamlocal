@@ -26,7 +26,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
         {
             Caption = 'Código Oferta Grúa';
             DataClassification = ToBeClassified;
-            //TableRelation = "Crane Service Quote Header"."Quote no."; //TODO: Revisar si conservamos la tabla
+            TableRelation = "Crane Service Quote Header_LDR"."Quote no.";
         }
         field(50052; "Crane Quote Op. Line No._LDR"; Integer)
         {
@@ -323,7 +323,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
         {
             Caption = 'Nº Versión Grupo Precio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Service Item Price"."Version No." WHERE("Service Price Group" = FIELD("Service Price Group Code")); //TODO: Revisar si conservamos la tabla
+            TableRelation = "Service Item Price_LDR"."Version No." WHERE("Service Price Group" = FIELD("Service Price Group Code"));
         }
         field(50084; "Service Contract Period_LDR"; Text[50])
         {
@@ -334,7 +334,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
         {
             Caption = 'Nº concepto';
             DataClassification = ToBeClassified;
-            //TableRelation = "Concept"."No." WHERE("Type" = CONST("External")); //TODO: Revisar si conservamos la tabla
+            TableRelation = Concept_LDR."No." WHERE("Type" = CONST("External"));
 
             trigger OnValidate()
             var
@@ -376,12 +376,12 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
             Caption = 'Nº Garantía';
             DataClassification = ToBeClassified;
         }
-        /*field(50089; Warranty_LDR; Boolean) //TODO: Revisar si conservamos el field
+        field(50089; Warranty_LDR; Boolean)
         {
             Caption = 'Garantía';
             DataClassification = ToBeClassified;
             Description = 'Determina si es una Garantía';
-        }*/
+        }
         field(50090; "Invoice Line Discount Amount_LDR"; Decimal)
         {
             AutoFormatExpression = "Currency Code";

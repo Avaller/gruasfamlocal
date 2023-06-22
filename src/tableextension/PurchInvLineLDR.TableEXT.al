@@ -5,7 +5,7 @@ tableextension 50027 "Purch. Inv. Line_LDR" extends "Purch. Inv. Line"
 {
     fields
     {
-        field(50000; Warranty_LDR; BoolEAN)
+        field(50000; Warranty_LDR; Boolean)
         {
             Caption = 'Garantía';
             DataClassification = ToBeClassified;

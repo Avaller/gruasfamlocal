@@ -35,7 +35,7 @@ tableextension 50025 "Purch. Rcpt. Line_LDR" extends "Purch. Rcpt. Line"
             Caption = 'Código Ubicación Demanda';
             DataClassification = ToBeClassified;
         }
-        field(50005; Reclasified_LDR; BoolEAN)
+        field(50005; Reclasified_LDR; Boolean)
         {
             Caption = 'Reclasificado';
             DataClassification = ToBeClassified;

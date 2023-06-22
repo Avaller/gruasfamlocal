@@ -5,7 +5,7 @@ tableextension 50081 "Filed Serv Contract Header_LDR" extends "Filed Service Con
 {
     fields
     {
-        field(50000; "Day Invoicing_LDR"; BoolEAN)
+        field(50000; "Day Invoicing_LDR"; Boolean)
         {
             Caption = 'Facturar por Precio Día';
             DataClassification = ToBeClassified;
@@ -18,7 +18,7 @@ tableextension 50081 "Filed Serv Contract Header_LDR" extends "Filed Service Con
             MaxValue = 31;
             MinValue = 0;
         }
-        field(50002; Lineal_LDR; BoolEAN)
+        field(50002; Lineal_LDR; Boolean)
         {
             Caption = 'Lineal';
             DataClassification = ToBeClassified;
@@ -52,6 +52,12 @@ tableextension 50081 "Filed Serv Contract Header_LDR" extends "Filed Service Con
             Caption = 'Importe Contrato ELESOFT';
             DataClassification = ToBeClassified;
             Editable = false;
+        }
+        field(50008; "LDR_Invoice Period_LDR"; Option)
+        {
+            Caption = 'Invoice Period';
+            OptionCaption = 'Month,Two Months,Quarter,Half Year,Year,None,Third of a year';
+            OptionMembers = Month,"Two Months",Quarter,"Half Year",Year,"None","Third of a year";
         }
     }
 }

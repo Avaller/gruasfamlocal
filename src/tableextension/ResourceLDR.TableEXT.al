@@ -42,10 +42,9 @@ tableextension 50031 "Resource_LDR" extends "Resource"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50005; "Exported to Mobility_LDR"; BoolEAN) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50005; "Exported to Mobility_LDR"; Boolean)
         {
-            //CalcFormula = Lookup("Exp. to Mobility Relation"."Exported to Mobility" WHERE ("Table Id"=CONST(156),"Code"=FIELD("No."))); //TODO: Revisar si conservamos el atributo CalcFormula
-            Caption = 'Exportado a Movilidad';
+            CalcFormula = Lookup("Exp. to Mobility Relation_LDR"."Exported to Mobility" WHERE("Table Id" = CONST(156), "Code" = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }

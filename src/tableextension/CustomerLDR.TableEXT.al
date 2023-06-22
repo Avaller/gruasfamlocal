@@ -5,7 +5,7 @@ tableextension 50003 "Customer_LDR" extends "Customer"
 {
     fields
     {
-        field(50000; "Ingestrel Export_LDR"; BoolEAN)
+        field(50000; "Ingestrel Export_LDR"; Boolean)
         {
             Caption = 'Exportar a Ingestrel';
             DataClassification = ToBeClassified;
@@ -59,7 +59,7 @@ tableextension 50003 "Customer_LDR" extends "Customer"
             Caption = 'Nº Cliente Antiguo';
             DataClassification = ToBeClassified;
         }
-        field(50008; "Internal Customer_LDR"; BoolEAN)
+        field(50008; "Internal Customer_LDR"; Boolean)
         {
             Caption = 'Cliente Interno';
             DataClassification = ToBeClassified;
@@ -76,20 +76,20 @@ tableextension 50003 "Customer_LDR" extends "Customer"
             DataClassification = ToBeClassified;
             Description = 'Almacena el Nº Proveedor para el Cliente';
         }
-        field(50011; "Group Serv. Contract Invoices_LDR"; BoolEAN)
+        field(50011; "Group Serv. Contract Invoices_LDR"; Boolean)
         {
             Caption = 'Agrupar Facturas Contrato';
             DataClassification = ToBeClassified;
             Description = 'Determina si se agrupan las Facturas de Contrato Servicio';
         }
-        field(50012; "Submit for Acceptance_LDR"; BoolEAN)
+        field(50012; "Submit for Acceptance_LDR"; Boolean)
         {
             CalcFormula = Lookup("Payment Method"."Submit for Acceptance" WHERE(Code = FIELD("Payment Method Code")));
             Caption = 'Envío Al Acepto';
             Description = 'Envío al Acepto de la Forma de Pago';
             FieldClass = FlowField;
         }
-        field(50013; "Financial Institution_LDR"; BoolEAN)
+        field(50013; "Financial Institution_LDR"; Boolean)
         {
             Caption = 'Entidad Financiera';
             DataClassification = ToBeClassified;
@@ -151,7 +151,7 @@ tableextension 50003 "Customer_LDR" extends "Customer"
             Caption = 'Fecha Modificación';
             DataClassification = ToBeClassified;
         }
-        field(50024; "Send Sales Documents By Mail_LDR"; BoolEAN)
+        field(50024; "Send Sales Documents By Mail_LDR"; Boolean)
         {
             Caption = 'Enviar Documentos de Venta Por Mail';
             DataClassification = ToBeClassified;
@@ -162,7 +162,7 @@ tableextension 50003 "Customer_LDR" extends "Customer"
             ExtendedDatatype = EMail;
             DataClassification = ToBeClassified;
         }
-        field(50026; "Send Service Documents By Mail_LDR"; BoolEAN)
+        field(50026; "Send Service Documents By Mail_LDR"; Boolean)
         {
             Caption = 'Enviar Documentos de Servicio por Mail';
             DataClassification = ToBeClassified;
@@ -179,7 +179,7 @@ tableextension 50003 "Customer_LDR" extends "Customer"
             DataClassification = ToBeClassified;
             TableRelation = "Rating Code_LDR";
         }
-        field(50029; "Extranet Deletion_LDR"; BoolEAN)
+        field(50029; "Extranet Deletion_LDR"; Boolean)
         {
             Caption = 'Eliminar de Ingestrel';
             DataClassification = ToBeClassified;

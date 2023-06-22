@@ -5,7 +5,7 @@ tableextension 50024 "Purch. Rcpt. Header_LDR" extends "Purch. Rcpt. Header"
 {
     fields
     {
-        field(50000; "Machine Purchase Document_LDR"; BoolEAN)
+        field(50000; "Machine Purchase Document_LDR"; Boolean)
         {
             Caption = 'Compra de Máquina';
             DataClassification = ToBeClassified;
@@ -19,14 +19,14 @@ tableextension 50024 "Purch. Rcpt. Header_LDR" extends "Purch. Rcpt. Header"
             OptionCaption = 'Pendiente Montaje,Orden Montaje Adjudicada,Montaje Realizado';
             OptionMembers = Pending,"Service Order",Mounted;
         }
-        field(50002; "Sended to AS400_LDR"; BoolEAN)
+        field(50002; "Sended to AS400_LDR"; Boolean)
         {
             Caption = 'Enviado a AS400';
             DataClassification = ToBeClassified;
             Description = 'AS400';
             Editable = false;
         }
-        field(50003; Resupply_LDR; BoolEAN)
+        field(50003; Resupply_LDR; Boolean)
         {
             Caption = 'Reaprovisionamiento';
             DataClassification = ToBeClassified;

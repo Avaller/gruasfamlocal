@@ -330,7 +330,7 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
             DataClassification = ToBeClassified;
             Description = 'Indica si se utiliza la Funcionalidad Avanzada de Cálculo de Tiempos de Respuesta *OBSOLETO*';
         }
-        field(50052; "Check Displacement Calculation_LDR"; BoolEAN)
+        field(50052; "Check Displacement Calculation_LDR"; Boolean)
         {
             Caption = 'Testear Cálculo Desplazamiento / Distancia / Duración';
             DataClassification = ToBeClassified;

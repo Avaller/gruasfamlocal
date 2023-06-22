@@ -15,7 +15,7 @@ tableextension 50023 "Sales Cr.Memo Line_LDR" extends "Sales Cr.Memo Line"
         {
             Caption = 'Nº Pedido Servicio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Posted Service Header"; //TODO: Revisar si conservamos la tabla
+            TableRelation = "Posted Service Header_LDR";
         }
         field(50002; "Service Item No."; Code[20])
         {
@@ -49,7 +49,7 @@ tableextension 50023 "Sales Cr.Memo Line_LDR" extends "Sales Cr.Memo Line"
         {
             Caption = 'Nº Versión Grupo Precio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Service Item Price"."Version No." WHERE ("Service Price Group"=FIELD("Service Price Group Code")); //TODO: Revisar si conservamos la tabla
+            TableRelation = "Service Item Price_LDR"."Version No." WHERE("Service Price Group" = FIELD("Service Price Group Code"));
         }
         field(50008; "Service Contract Period"; Text[50])
         {
@@ -60,7 +60,7 @@ tableextension 50023 "Sales Cr.Memo Line_LDR" extends "Sales Cr.Memo Line"
         {
             Caption = 'Nº Concepto';
             DataClassification = ToBeClassified;
-            //TableRelation = "Concept"."No." WHERE (Type=CONST(External)); //TODO: Revisar si conservamos la tabla
+            TableRelation = Concept_LDR."No." WHERE(Type = CONST(External));
         }
         field(50010; "Charge Capacity"; Decimal)
         {
@@ -79,7 +79,7 @@ tableextension 50023 "Sales Cr.Memo Line_LDR" extends "Sales Cr.Memo Line"
             Caption = 'Nº Garantía';
             DataClassification = ToBeClassified;
         }
-        field(50013; "Warranty"; BoolEAN)
+        field(50013; "Warranty"; Boolean)
         {
             Caption = 'Garantía';
             DataClassification = ToBeClassified;

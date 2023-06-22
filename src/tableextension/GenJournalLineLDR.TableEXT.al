@@ -15,7 +15,7 @@ tableextension 50014 "Gen. Journal Line_LDR" extends "Gen. Journal Line"
             Caption = 'Línea de Previsión';
             DataClassification = ToBeClassified;
         }
-        field(50002; "Register on Exploit Account_LDR"; BoolEAN)
+        field(50002; "Register on Exploit Account_LDR"; Boolean)
         {
             Caption = 'Registro en Cuenta Explotación';
             DataClassification = ToBeClassified;

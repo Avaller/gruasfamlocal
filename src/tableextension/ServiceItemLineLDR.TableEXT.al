@@ -5,9 +5,9 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
 {
     fields
     {
-        field(50030; "Service Item Type_LDR"; Option) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50030; "Service Item Type_LDR"; Option)
         {
-            //CalcFormula = Lookup("Service Item"."Service Item Type" WHERE("No." = FIELD("Service Item No."))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Lookup("Service Item"."Service Item Type_LDR" WHERE("No." = FIELD("Service Item No.")));
             Caption = 'Tipo Producto Servicio';
             Editable = false;
             FieldClass = FlowField;
@@ -23,13 +23,13 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
         {
             Caption = 'Código Oferta Servicio Grúa';
             DataClassification = ToBeClassified;
-            //TableRelation = "Crane Service Quote Header"."Quote no." WHERE ("Historical"=CONST(false)); //TODO: Revisar si conservamos la tabla
+            TableRelation = "Crane Service Quote Header_LDR"."Quote no." WHERE("Historical" = CONST(false));
         }
         field(50051; "Service Item Tariff No._LDR"; Code[20])
         {
             Caption = 'Código Tarifa Producto Servicio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Service Item Rate Header"; //TODO: Revisar si conservamos la tabla
+            TableRelation = "Service Item Rate Header_LDR";
         }
         field(50052; "Sent to Device_LDR"; Boolean)
         {
@@ -65,7 +65,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
         {
             Caption = 'Código Grupo Facturación';
             DataClassification = ToBeClassified;
-            //TableRelation = "Service Item Invoice Group"; //TODO: Revisar si conservamos la tabla
+            TableRelation = "Service Item Invoice Group_LDR";
 
             trigger OnValidate()
             var
@@ -97,8 +97,8 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
         }
         field(50060; "Role Center Filter_LDR"; Boolean)
         {
-            //CalcFormula = Lookup("Service Header"."Role Center Filter" WHERE("Document Type" = FIELD("Document Type"),
-            //"No." = FIELD("Document No.")));
+            CalcFormula = Lookup("Service Header"."Role Center Filter_LDR" WHERE("Document Type" = FIELD("Document Type"),
+            "No." = field("Document No.")));
             Caption = 'Filtro Role Center';
             Editable = false;
             FieldClass = FlowField;
@@ -124,9 +124,9 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             Caption = 'Utilizar Domingos';
             DataClassification = ToBeClassified;
         }
-        field(50065; "Service Inv. Group Description_LDR"; Text[50]) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50065; "Service Inv. Group Description_LDR"; Text[50])
         {
-            //CalcFormula = Lookup("Service Item Invoice Group"."Description" WHERE("Code" = FIELD("Service Inv. Group No."))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Lookup("Service Item Invoice Group_LDR"."Description" WHERE("Code" = FIELD("Service Inv. Group No._LDR")));
             Caption = 'Descripción Grupo Facturación';
             Editable = false;
             FieldClass = FlowField;
@@ -142,9 +142,9 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             DataClassification = ToBeClassified;
             TableRelation = "Customer";
         }
-        field(50068; "Serv. Item Planner No_LDR"; Code[20]) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50068; "Serv. Item Planner No_LDR"; Code[20])
         {
-            //CalcFormula = Lookup("Service Item"."Planner No" WHERE ("No."=FIELD("Service Item No."))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Lookup("Service Item"."Planner No_LDR" WHERE("No." = FIELD("Service Item No.")));
             Caption = 'Nº Planificador';
             Editable = false;
             FieldClass = FlowField;
@@ -158,11 +158,11 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
         {
             Caption = 'Código Contador Producto Servicio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Service Item Counter"."Counter No." WHERE("Code" = FIELD("Service Item No.")); //TODO: Revisar si conservamos la tabla
+            TableRelation = "Service Item Counter_LDR"."Counter No." WHERE("Code" = FIELD("Service Item No."));
         }
-        field(50071; "Serv. Item Counter Description_LDR"; Text[50]) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50071; "Serv. Item Counter Description_LDR"; Text[50])
         {
-            //CalcFormula = Lookup("Service Item Counter"."Description" WHERE("Code" = FIELD("Service Item No."), "Counter No." = FIELD("Serv. Item Counter Code"))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Lookup("Service Item Counter_LDR"."Description" WHERE("Code" = FIELD("Service Item No."), "Counter No." = FIELD("Serv. Item Counter Code_LDR")));
             Caption = 'Descripción Contador Producto Servicio';
             Editable = false;
             FieldClass = FlowField;
@@ -358,7 +358,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
         field(50090; "Service Zone Code_LDR"; Code[10])
         {
             CalcFormula = Lookup("Service Header"."Service Zone Code" WHERE("Document Type" = FIELD("Document Type"),
-             "No." = FIELD("Document No.")));
+            "No." = FIELD("Document No.")));
             Caption = 'Código Zona Servicio';
             Editable = false;
             FieldClass = FlowField;
@@ -405,22 +405,21 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50097; "Assignation Priority_LDR"; Integer) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50097; "Assignation Priority_LDR"; Integer)
         {
-            //CalcFormula = Lookup("Service Order Allocation"."Assignation Priority" WHERE("Document Type" = FIELD("Document Type"), "Document No." = FIELD("Document No."), "Service Item Line No." = FIELD("Line No."), "Allocation Date" = FIELD("Date Filter"), "Resource No." = FIELD("Resource Filter"), "Status" = FILTER("Active"), "Resource Group No." = FIELD("Resource Group Filter"))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Lookup("Service Order Allocation"."Assignation Priority_LDR" WHERE("Document Type" = FIELD("Document Type"), "Document No." = FIELD("Document No."), "Service Item Line No." = FIELD("Line No."), "Allocation Date" = FIELD("Date Filter"), "Resource No." = FIELD("Resource Filter"), "Status" = FILTER("Active"), "Resource Group No." = FIELD("Resource Group Filter")));
             Caption = 'Prioridad Asignación';
             FieldClass = FlowField;
         }
         field(50098; "Historical Quote_LDR"; Boolean)
         {
-            //CalcFormula = Lookup("Service Header"."Historical Quote" WHERE("Document Type" = FIELD("Document Type"),
-            //"No." = FIELD("Document No.")));
+            CalcFormula = Lookup("Service Header"."Historical Quote_LDR" WHERE("Document Type" = FIELD("Document Type"), "No." = field("Document No.")));
             Caption = 'Oferta Histórica';
             FieldClass = FlowField;
         }
         field(50099; "Order Type_LDR"; Option)
         {
-            //CalcFormula = Lookup("Service Header"."Order Type" WHERE("Document Type" = FILTER("Order"), "No." = FIELD("Document No.")));
+            CalcFormula = Lookup("Service Header"."Order Type_LDR" WHERE("Document Type" = FILTER("Order"), "No." = FIELD("Document No.")));
             Caption = 'Tipo Pedido';
             FieldClass = FlowField;
             OptionMembers = FSI,FSIEC,FS,FSEC,FE,OFF;

@@ -32,7 +32,7 @@ tableextension 50009 "Sales Line_LDR" extends "Sales Line"
             Caption = 'Nº Garantía';
             DataClassification = ToBeClassified;
         }
-        field(50002; "Warranty"; BoolEAN)
+        field(50002; "Warranty"; Boolean)
         {
             Caption = 'Garantía';
             DataClassification = ToBeClassified;

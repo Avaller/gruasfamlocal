@@ -5,12 +5,12 @@ tableextension 50032 "Work Type_LDR" extends "Work Type"
 {
     fields
     {
-        field(50001; "Exported to Mobility_LDR"; BoolEAN)
+        field(50001; "Exported to Mobility_LDR"; Boolean)
         {
             Caption = 'Exportado a Movilidad';
             DataClassification = ToBeClassified;
         }
-        field(50002; "NonWorktime Presence_LDR"; BoolEAN)
+        field(50002; "NonWorktime Presence_LDR"; Boolean)
         {
             Caption = 'Fuera de Jornada - Presencia';
             DataClassification = ToBeClassified;
@@ -22,7 +22,7 @@ tableextension 50032 "Work Type_LDR" extends "Work Type"
             OptionMembers = "External Invoice","Internal Production Invoice","Internal Not Production Invoice","Not Production Task";
             OptionCaption = 'Facturación Externa,Facturación Interna Productiva,Facturación Interna Improductiva,Tareas Improductivas';
         }
-        field(50004; Nonfacturable_LDR; BoolEAN)
+        field(50004; Nonfacturable_LDR; Boolean)
         {
             Caption = 'No Facturable';
             DataClassification = ToBeClassified;
@@ -34,7 +34,7 @@ tableextension 50032 "Work Type_LDR" extends "Work Type"
             MaxValue = 100;
             MinValue = 0;
         }
-        field(50006; "Res. Journal Type_LDR"; BoolEAN)
+        field(50006; "Res. Journal Type_LDR"; Boolean)
         {
             Caption = 'No Habilitado para Pedido Servicio';
             DataClassification = ToBeClassified;

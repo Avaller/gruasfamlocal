@@ -5,7 +5,7 @@ tableextension 50022 "Sales Cr.Memo Header_LDR" extends "Sales Cr.Memo Header"
 {
     fields
     {
-        field(50000; "Send Document By Mail"; BoolEAN)
+        field(50000; "Send Document By Mail"; Boolean)
         {
             Caption = 'Enviar Documento por Mail';
             DataClassification = ToBeClassified;
@@ -44,7 +44,7 @@ tableextension 50022 "Sales Cr.Memo Header_LDR" extends "Sales Cr.Memo Header"
         DocumentSendingProfile: Record "Document Sending Profile";
         DocTxt: Text;
         DummyReportSelections: Record "Report Selections";
-        IsHandled: BoolEAN;
+        IsHandled: Boolean;
     begin
         IsHandled := false;
         //OnBeforeSendRecords(DummyReportSelections, Rec, DocTxt, IsHandled);
@@ -61,7 +61,7 @@ tableextension 50022 "Sales Cr.Memo Header_LDR" extends "Sales Cr.Memo Header"
     var
         DocTxt: Text;
         DummyReportSelections: Record "Report Selections";
-        IsHandled: BoolEAN;
+        IsHandled: Boolean;
     begin
         IsHandled := false;
         //OnBeforeSendProfile(DummyReportSelections, Rec, DocTxt, IsHandled, DocumentSendingProfile);
@@ -81,7 +81,7 @@ tableextension 50022 "Sales Cr.Memo Header_LDR" extends "Sales Cr.Memo Header"
         BillToCustomerNoFilter: Text;
         DocumentSendingProfile: Record "Document Sending Profile";
         DummyReportSelections: Record "Report Selections";
-        IsHandled: BoolEAN;
+        IsHandled: Boolean;
     begin
         SelectedCount := Count;
         IsHandled := false;
@@ -108,7 +108,7 @@ tableextension 50022 "Sales Cr.Memo Header_LDR" extends "Sales Cr.Memo Header"
     var
         DocumentSendingProfile: Record "Document Sending Profile";
         DummyReportSelections: Record "Report Selections";
-        IsHandled: BoolEAN;
+        IsHandled: Boolean;
     begin
         IsHandled := false;
         //OnBeforePrintRecords(DummyReportSelections, Rec, ShowRequestPage, IsHandled);
@@ -125,7 +125,7 @@ tableextension 50022 "Sales Cr.Memo Header_LDR" extends "Sales Cr.Memo Header"
         DocumentSendingProfile: Record "Document Sending Profile";
         DocTxt: Text;
         DummyReportSelections: Record "Report Selections";
-        IsHandled: BoolEAN;
+        IsHandled: Boolean;
     begin
         IsHandled := false;
         //OnBeforeEmailRecords(DummyReportSelections, Rec, DocTxt, ShowRequestPage, IsHandled);

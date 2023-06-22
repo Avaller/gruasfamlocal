@@ -35,8 +35,18 @@ tableextension 50097 "Cartera Doc._LDR" extends "Cartera Doc."
         {
             Caption = 'Nº Pagaré';
             DataClassification = ToBeClassified;
+
+            trigger OnValidate()
+            var
+                PaymentMethod: Record "Payment Method";
+            begin
+                Clear(PaymentMethod);
+                PaymentMethod.Get("Payment Method Code");
+                if PaymentMethod."Bill Type" <> PaymentMethod."Bill Type"::IOU then
+                    Error(txterror001);
+            end;
         }
-        field(50005; "IOU Printed_LDR"; BoolEAN)
+        field(50005; "IOU Printed_LDR"; Boolean)
         {
             Caption = 'Pagaré Impreso';
             DataClassification = ToBeClassified;
@@ -54,4 +64,7 @@ tableextension 50097 "Cartera Doc._LDR" extends "Cartera Doc."
 
         }
     }
+
+    var
+        txterror001: TextConst ENU = 'The Payment Method must be a Payment Method with a Bill Type IOU', ESP = 'La Forma de Pago tiene que ser una Forma de Pago que el tipo de efecto sea Pagar';
 }

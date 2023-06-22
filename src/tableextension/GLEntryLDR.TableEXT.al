@@ -24,12 +24,12 @@ tableextension 50002 "G/L Entry_LDR" extends "G/L Entry"
             Description = 'Almacena el Nº Cuota Leasing del movimiento';
             //TableRelation = Table70011.Field2 WHERE(Field1 = FIELD("Leasing No.")); //TODO: Revisar si conservamos la tabla
         }
-        field(50002; Dotted_LDR; BoolEAN)
+        field(50002; Dotted_LDR; Boolean)
         {
             Caption = 'Punteada';
             DataClassification = ToBeClassified;
         }
-        field(50003; Hidden_LDR; BoolEAN)
+        field(50003; Hidden_LDR; Boolean)
         {
             Caption = 'Oculta';
             DataClassification = ToBeClassified;

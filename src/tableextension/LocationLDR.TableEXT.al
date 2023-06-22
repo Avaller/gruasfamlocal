@@ -33,7 +33,7 @@ tableextension 50000 "Location_LDR" extends "Location"
             Caption = 'Fecha Modificación';
             DataClassification = ToBeClassified;
         }
-        field(50005; "Show in Warehouse Device_LDR"; BoolEAN)
+        field(50005; "Show in Warehouse Device_LDR"; Boolean)
         {
             Caption = 'Mostrar En Dispositivo Almacén';
             DataClassification = ToBeClassified;

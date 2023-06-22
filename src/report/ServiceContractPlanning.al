@@ -9,4 +9,9 @@ report 50203 "Service Contract Planning"
     begin
 
     end;
+
+    procedure DeleteAllContractReservation(ContractType: Enum "Service Contract Type"; ContractNo: Code[20]; TableId: Integer; arg: Text)
+    begin
+
+    end;
 }

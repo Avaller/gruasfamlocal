@@ -5,7 +5,7 @@ tableextension 50034 "Res. Ledger Entry_LDR" extends "Res. Ledger Entry"
 {
     fields
     {
-        field(50000; Replicated_LDR; BoolEAN)
+        field(50000; Replicated_LDR; Boolean)
         {
             Caption = 'Replicado';
             DataClassification = ToBeClassified;
