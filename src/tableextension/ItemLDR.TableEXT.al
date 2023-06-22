@@ -109,7 +109,7 @@ tableextension 50006 "Item_LDR" extends "Item"
             DecimalPlaces = 0 : 0;
             Description = 'Indica el Replegado (mm)';
         }
-        field(50013; "Exclude armopa_LDR"; BoolEAN)
+        field(50013; "Exclude armopa_LDR"; Boolean)
         {
             Caption = 'Excluir Armopa';
             DataClassification = ToBeClassified;

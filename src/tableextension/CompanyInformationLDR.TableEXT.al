@@ -5,7 +5,7 @@ tableextension 50013 "Company Information_LDR" extends "Company Information"
 {
     fields
     {
-        field(50000; "Export Ingestrel_LDR"; BoolEAN)
+        field(50000; "Export Ingestrel_LDR"; Boolean)
         {
             Caption = 'Exportar a Ingestrel';
             DataClassification = ToBeClassified;

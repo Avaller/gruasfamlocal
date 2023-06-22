@@ -14,13 +14,13 @@ tableextension 50084 "Service Shipment Item Line_LDR" extends "Service Shipment 
         {
             Caption = 'Código Oferta Servicio Grúa';
             DataClassification = ToBeClassified;
-            //TableRelation = "Crane Service Quote Header"."Quote no." WHERE ("Historical"=CONST(false)); //TODO: Revisar si conservamos la tabla
+            TableRelation = "Crane Service Quote Header_LDR"."Quote no." WHERE("Historical" = CONST(false));
         }
         field(50051; "Service Item Tariff No._LDR"; Code[20])
         {
             Caption = 'Código Tarifa Producto Servicio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Service Item Rate Header"; //TODO: Revisar si conservamos la tabla
+            TableRelation = "Service Item Rate Header_LDR";
         }
         field(50054; "Requested Starting Date_LDR"; Date)
         {
@@ -46,16 +46,23 @@ tableextension 50084 "Service Shipment Item Line_LDR" extends "Service Shipment 
         {
             Caption = 'Código Grupo Facturación';
             DataClassification = ToBeClassified;
-            //TableRelation = "Service Item Invoice Group"; //TODO: Revisar si conservamos la tabla
+            TableRelation = "Service Item Invoice Group_LDR";
+
+            trigger OnValidate()
+            var
+                CraneServQOpInvGLine: Record "Crane Serv Q Op Inv G Line_LDR";
+            begin
+
+            end;
         }
         field(50059; "Crane Serv. Quote Op. Line No_LDR"; Integer)
         {
             Caption = 'Nº Línea Opción Oferta Servicio Grúa';
             DataClassification = ToBeClassified;
         }
-        field(50065; "Service Inv. Group Description_LDR"; Text[50]) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50065; "Service Inv. Group Description_LDR"; Text[50])
         {
-            //CalcFormula = Lookup("Service Item Invoice Group"."Description" WHERE ("Code"=FIELD("Service Inv. Group No."))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Lookup("Service Item Invoice Group_LDR"."Description" WHERE("Code" = FIELD("Service Inv. Group No._LDR")));
             Caption = 'Descripción Grupo Facturación';
             FieldClass = FlowField;
             Editable = false;
@@ -71,7 +78,7 @@ tableextension 50084 "Service Shipment Item Line_LDR" extends "Service Shipment 
             DataClassification = ToBeClassified;
             Description = 'Permite Almacenar la Tarea a Realizar';
         }
-        field(50071; nonfacturable_LDR; BoolEAN)
+        field(50071; nonfacturable_LDR; Boolean)
         {
             Caption = 'Nº Facturable';
             DataClassification = ToBeClassified;
@@ -97,7 +104,7 @@ tableextension 50084 "Service Shipment Item Line_LDR" extends "Service Shipment 
             Description = 'Nº Línea Oferta';
             Editable = false;
         }
-        field(50075; "Warranty Generated_LDR"; BoolEAN)
+        field(50075; "Warranty Generated_LDR"; Boolean)
         {
             Caption = 'Garantía Tramitada';
             DataClassification = ToBeClassified;
@@ -144,7 +151,7 @@ tableextension 50084 "Service Shipment Item Line_LDR" extends "Service Shipment 
             Description = 'Código Dimensión Acceso Directo 2';
             FieldClass = FlowField;
         }
-        field(50081; "Existe Dto._LDR"; BoolEAN)
+        field(50081; "Existe Dto._LDR"; Boolean)
         {
             CalcFormula = Exist("Service Shipment Line" WHERE("Document No." = FIELD("No."),
             "Service Item Line No." = FIELD("Line No."), "Line Discount %" = FILTER(<> 0)));
@@ -153,7 +160,7 @@ tableextension 50084 "Service Shipment Item Line_LDR" extends "Service Shipment 
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50082; "Warranty in effect_LDR"; BoolEAN)
+        field(50082; "Warranty in effect_LDR"; Boolean)
         {
             Caption = 'Garantía en Vigor Fabricante';
             DataClassification = ToBeClassified;
@@ -189,7 +196,7 @@ tableextension 50084 "Service Shipment Item Line_LDR" extends "Service Shipment 
             Description = 'Tipo Pedido Servicio';
             FieldClass = FlowField;
         }
-        field(50087; "Reval Service Item_LDR"; BoolEAN)
+        field(50087; "Reval Service Item_LDR"; Boolean)
         {
             Caption = 'Revalorizar Máquina';
             DataClassification = ToBeClassified;
@@ -227,7 +234,7 @@ tableextension 50084 "Service Shipment Item Line_LDR" extends "Service Shipment 
             Caption = 'Código Dirección Envío Ubicación Actual';
             FieldClass = FlowField;
         }
-        field(50093; "Default Invoice Lines Created_LDR"; BoolEAN)
+        field(50093; "Default Invoice Lines Created_LDR"; Boolean)
         {
             DataClassification = ToBeClassified;
         }

@@ -5,7 +5,7 @@ tableextension 50007 "Item Ledger Entry_LDR" extends "Item Ledger Entry"
 {
     fields
     {
-        field(50000; "Consumed"; BoolEAN)
+        field(50000; "Consumed"; Boolean)
         {
             Caption = 'Consumido';
             DataClassification = ToBeClassified;

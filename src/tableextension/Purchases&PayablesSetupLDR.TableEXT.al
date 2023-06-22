@@ -94,18 +94,18 @@ tableextension 50048 "Purchases & Payables Setup_LDR" extends "Purchases & Payab
             DataClassification = ToBeClassified;
             TableRelation = "Service Cost";
         }
-        field(50016; "Vendor Shipment No. Mandatory"; BoolEAN)
+        field(50016; "Vendor Shipment No. Mandatory"; Boolean)
         {
             Caption = 'Nº Albarán Proveedor Obligatorio';
             DataClassification = ToBeClassified;
             InitValue = true;
         }
-        field(50017; "Payment Discount Expl. Count"; BoolEAN)
+        field(50017; "Payment Discount Expl. Count"; Boolean)
         {
             Caption = 'Departamento P.P. en Cuenta Explotación';
             DataClassification = ToBeClassified;
         }
-        field(50018; "CIF/NIF Obligatory"; BoolEAN)
+        field(50018; "CIF/NIF Obligatory"; Boolean)
         {
             Caption = 'Obligatorio CIF/NIF';
             DataClassification = ToBeClassified;
@@ -162,7 +162,7 @@ tableextension 50048 "Purchases & Payables Setup_LDR" extends "Purchases & Payab
             OptionCaption = 'Compra,Venta';
             OptionMembers = Compra,Venta;
         }
-        field(50027; "Create Payment Days"; BoolEAN)
+        field(50027; "Create Payment Days"; Boolean)
         {
             Caption = 'Crear Codígo Días de Pago y de No Pago';
             DataClassification = ToBeClassified;
@@ -186,7 +186,7 @@ tableextension 50048 "Purchases & Payables Setup_LDR" extends "Purchases & Payab
             DataClassification = ToBeClassified;
             Description = 'Parámetro para Calcular Máximos y Mínimos';
         }
-        field(50031; "ARMOPA Post Transfers"; BoolEAN)
+        field(50031; "ARMOPA Post Transfers"; Boolean)
         {
             Caption = 'Registrar Transferencias';
             DataClassification = ToBeClassified;
@@ -211,13 +211,13 @@ tableextension 50048 "Purchases & Payables Setup_LDR" extends "Purchases & Payab
             DataClassification = ToBeClassified;
             Description = 'Nombre Concesionario para Etiquetas EAN 13 (Lariana, Faro)';
         }
-        field(50035; "checkCostZero"; BoolEAN)
+        field(50035; "checkCostZero"; Boolean)
         {
             Caption = 'Aviso Coste Unitario 0 en Pedido Compra';
             DataClassification = ToBeClassified;
             Description = 'Habilita el Mostrar un Mensaje Avisando de Líneas a Coste 0 en Pedidos de Compra';
         }
-        field(50036; "forzeCostUpdate"; BoolEAN)
+        field(50036; "forzeCostUpdate"; Boolean)
         {
             Caption = 'Forzar Actualización Coste Unitario en Albarán Compra';
             DataClassification = ToBeClassified;

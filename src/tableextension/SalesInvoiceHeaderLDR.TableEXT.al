@@ -5,7 +5,7 @@ tableextension 50020 "Sales Invoice Header_LDR" extends "Sales Invoice Header"
 {
     fields
     {
-        field(50000; "Send Document By Mail"; BoolEAN)
+        field(50000; "Send Document By Mail"; Boolean)
         {
             Caption = 'Enviar Documento por Mail';
             DataClassification = ToBeClassified;

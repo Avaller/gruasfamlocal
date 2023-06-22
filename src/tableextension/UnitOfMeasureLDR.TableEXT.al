@@ -5,7 +5,7 @@ tableextension 50035 "Unit of Measure_LDR" extends "Unit of Measure"
 {
     fields
     {
-        field(50001; Mobility_LDR; BoolEAN)
+        field(50001; Mobility_LDR; Boolean)
         {
             Caption = 'Movilidad';
             DataClassification = ToBeClassified;
@@ -20,9 +20,9 @@ tableextension 50035 "Unit of Measure_LDR" extends "Unit of Measure"
         {
             Caption = 'Tipo de Gastos';
             DataClassification = ToBeClassified;
-            //TableRelation = "Expenses Types"; //TODO: Revisar si conservamos la tabla
+            TableRelation = "Expenses Types_LDR";
         }
-        field(50004; "Time Measure Unit_LDR"; BoolEAN)
+        field(50004; "Time Measure Unit_LDR"; Boolean)
         {
             Caption = 'Unidad de Tiempo';
             DataClassification = ToBeClassified;

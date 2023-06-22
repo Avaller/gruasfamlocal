@@ -20,7 +20,7 @@ tableextension 50089 "Service Cr.Memo Header_LDR" extends "Service Cr.Memo Heade
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(50002; "Send Document By Mail_LDR"; BoolEAN)
+        field(50002; "Send Document By Mail_LDR"; Boolean)
         {
             Caption = 'Enviar Documento por Mail';
             DataClassification = ToBeClassified;
@@ -38,6 +38,10 @@ tableextension 50089 "Service Cr.Memo Header_LDR" extends "Service Cr.Memo Heade
             DataClassification = ToBeClassified;
             ExtendedDatatype = EMail;
         }
+        field(50005; "LDR_Corrected Invoice No._LDR"; Code[20])
+        {
+            TableRelation = "Service Invoice Header";
+        }
     }
 
     keys
@@ -47,4 +51,10 @@ tableextension 50089 "Service Cr.Memo Header_LDR" extends "Service Cr.Memo Heade
 
         }
     }
+
+    trigger OnBeforeModify()
+    begin
+        if "Send Document By Mail_LDR" then
+            TestField("E-Mail Destination_LDR");
+    end;
 }

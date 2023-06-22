@@ -5,20 +5,20 @@ tableextension 50026 "Purch. Inv. Header_LDR" extends "Purch. Inv. Header"
 {
     fields
     {
-        field(50000; "Machine Purchase Document_LDR"; BoolEAN)
+        field(50000; "Machine Purchase Document_LDR"; Boolean)
         {
             Caption = 'Compra de Máquina';
             DataClassification = ToBeClassified;
             Description = 'Determina si se trata de una Compra de una Máquina';
         }
-        field(50001; "Sended to AS400_LDR"; BoolEAN)
+        field(50001; "Sended to AS400_LDR"; Boolean)
         {
             Caption = 'Enviado a AS400';
             DataClassification = ToBeClassified;
             Description = 'AS400';
             Editable = false;
         }
-        field(50002; Resupply_LDR; BoolEAN)
+        field(50002; Resupply_LDR; Boolean)
         {
             Caption = 'Reaprovisionamiento';
             DataClassification = ToBeClassified;

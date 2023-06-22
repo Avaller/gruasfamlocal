@@ -40,7 +40,7 @@ tableextension 50061 "Stockkeeping Unit_LDR" extends "Stockkeeping Unit"
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(50004; "Apply change_LDR"; BoolEAN)
+        field(50004; "Apply change_LDR"; Boolean)
         {
             Caption = 'Aplicar Cambios';
             DataClassification = ToBeClassified;
@@ -111,12 +111,12 @@ tableextension 50061 "Stockkeeping Unit_LDR" extends "Stockkeeping Unit"
                     Error(StrSubstNo(Text50001, "Item No.", "Location Code"));
             end;
         }
-        field(50012; "Armopa Generate_LDR"; BoolEAN)
+        field(50012; "Armopa Generate_LDR"; Boolean)
         {
             Caption = 'Armopa - Generar';
             DataClassification = ToBeClassified;
         }
-        field(50013; "Sales Exist_LDR"; BoolEAN)
+        field(50013; "Sales Exist_LDR"; Boolean)
         {
             CalcFormula = Exist("Item Ledger Entry" WHERE("Entry Type" = CONST("Sale"), "Item No." = FIELD("Item No."),
             "Variant Code" = FIELD("Variant Code"), "Location Code" = FIELD("Location Code"), "Posting Date" = FIELD("Armopa Date Filter_LDR")));
@@ -124,7 +124,7 @@ tableextension 50061 "Stockkeeping Unit_LDR" extends "Stockkeeping Unit"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50014; "Exclude armopa_LDR"; BoolEAN)
+        field(50014; "Exclude armopa_LDR"; Boolean)
         {
             Caption = 'Excluir Armopa';
             DataClassification = ToBeClassified;
@@ -152,7 +152,7 @@ tableextension 50061 "Stockkeeping Unit_LDR" extends "Stockkeeping Unit"
                 "Unif. Armopa Vendor Name_LDR" := Vendor.Name;
             end;
         }
-        field(50018; "Unif Armopa Generate Purch._LDR"; BoolEAN)
+        field(50018; "Unif Armopa Generate Purch._LDR"; Boolean)
         {
             Caption = 'Generar Compra';
             DataClassification = ToBeClassified;

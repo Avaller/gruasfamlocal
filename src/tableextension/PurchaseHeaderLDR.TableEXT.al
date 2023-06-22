@@ -5,24 +5,24 @@ tableextension 50010 "Purchase Header_LDR" extends "Purchase Header"
 {
     fields
     {
-        field(50000; Forecast_LDR; BoolEAN)
+        field(50000; Forecast_LDR; Boolean)
         {
             Caption = 'Previsión';
             DataClassification = ToBeClassified;
         }
-        field(50001; "Machine Purchase Document_LDR"; BoolEAN)
+        field(50001; "Machine Purchase Document_LDR"; Boolean)
         {
             Caption = 'Compra de Máquina';
             DataClassification = ToBeClassified;
             Description = 'Determina si se trata de una Compra de una Máquina';
         }
-        field(50002; "Sended to AS400_LDR"; BoolEAN)
+        field(50002; "Sended to AS400_LDR"; Boolean)
         {
             Caption = 'Enviado a AS400';
             DataClassification = ToBeClassified;
             Description = 'AS400';
         }
-        field(50003; Resupply_LDR; BoolEAN)
+        field(50003; Resupply_LDR; Boolean)
         {
             Caption = 'Reaprovisionamiento';
             DataClassification = ToBeClassified;

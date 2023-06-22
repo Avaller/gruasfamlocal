@@ -12,7 +12,7 @@ tableextension 50079 "Contract Group_LDR" extends "Contract Group"
             OptionCaption = 'Alquiler,Mantenimiento';
             OptionMembers = Rent,Maintenance;
         }
-        field(50001; Internal_LDR; BoolEAN)
+        field(50001; Internal_LDR; Boolean)
         {
             Caption = 'Interno';
             DataClassification = ToBeClassified;

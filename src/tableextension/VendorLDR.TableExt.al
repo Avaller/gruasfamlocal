@@ -12,7 +12,7 @@ tableextension 50005 "Vendor_LDR" extends Vendor
             Enabled = false;
             TableRelation = "Bank Account";
         }
-        field(50001; "Refueling Vendor_LDR"; BoolEAN)
+        field(50001; "Refueling Vendor_LDR"; Boolean)
         {
             Caption = 'Proveedor Combustible';
             DataClassification = ToBeClassified;
@@ -22,7 +22,7 @@ tableextension 50005 "Vendor_LDR" extends Vendor
             Caption = 'Nº Proveedor Antiguo';
             DataClassification = ToBeClassified;
         }
-        field(50004; "Exported to Mobility_LDR"; BoolEAN)
+        field(50004; "Exported to Mobility_LDR"; Boolean)
         {
             Caption = 'Exportado a Movilidad';
             DataClassification = ToBeClassified;

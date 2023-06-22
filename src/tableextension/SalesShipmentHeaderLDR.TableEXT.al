@@ -3,7 +3,7 @@
 /// </summary>
 tableextension 50103 "Sales Shipment Header_LDR" extends "Sales Shipment Header"
 {
-    procedure PrintRecordsValued(ShowRequestForm: BoolEAN);
+    procedure PrintRecordsValued(ShowRequestForm: Boolean);
     var
         ReportSelection: Record "Report Selections";
         SalesShptHeader: Record "Sales Shipment Header";

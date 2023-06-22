@@ -5,7 +5,7 @@ tableextension 50037 "Res. Journal Line_LDR" extends "Res. Journal Line"
 {
     fields
     {
-        field(50000; Replicated_LDR; BoolEAN)
+        field(50000; Replicated_LDR; Boolean)
         {
             Caption = 'Replicado';
             DataClassification = ToBeClassified;

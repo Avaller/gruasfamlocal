@@ -70,11 +70,11 @@ tableextension 50058 "Employee Absence_LDR" extends "Employee Absence"
             Caption = 'Nº Movimiento Horas Acumuladas';
             DataClassification = ToBeClassified;
             Editable = false;
-            //TableRelation = "Accumulated Employee Hours"."Entry No."; //TODO: Revisar si conservamos la tabla
+            TableRelation = "Accumulated Employee Hours_LDR"."Entry No.";
         }
-        field(50006; "Accumulated Hour Date_LDR"; Date) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50006; "Accumulated Hour Date_LDR"; Date)
         {
-            //CalcFormula = Lookup("Accumulated Employee Hours"."Date" WHERE ("Entry No."=FIELD("Accumulated Hours Entry No."))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Lookup("Accumulated Employee Hours_LDR"."Date" WHERE("Entry No." = FIELD("Accumulated Hours Entry No._LDR")));
             Caption = 'Fecha Horas Acumuladas';
             FieldClass = FlowField;
         }

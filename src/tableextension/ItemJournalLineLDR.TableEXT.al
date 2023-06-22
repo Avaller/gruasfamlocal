@@ -125,7 +125,7 @@ tableextension 50015 "Item Journal Line_LDR" extends "Item Journal Line"
             Caption = 'Movilidad';
             DataClassification = ToBeClassified;
         }
-        field(50008; Marked_LDR; BoolEAN)
+        field(50008; Marked_LDR; Boolean)
         {
             Caption = 'Marcado';
             DataClassification = ToBeClassified;
@@ -180,7 +180,7 @@ tableextension 50015 "Item Journal Line_LDR" extends "Item Journal Line"
                 end;
             end;
         }
-        field(50010; "Rectified by Device_LDR"; BoolEAN)
+        field(50010; "Rectified by Device_LDR"; Boolean)
         {
             Caption = 'Rectificado por Dispositivo';
             DataClassification = ToBeClassified;

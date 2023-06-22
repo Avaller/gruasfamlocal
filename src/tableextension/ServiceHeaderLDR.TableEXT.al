@@ -209,7 +209,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         {
             Caption = 'Código Oferta Servicio Grúa';
             DataClassification = ToBeClassified;
-            //TableRelation = "Crane Service Quote Header"."Quote no."; //TODO: Revisar si conservamos la tabla
+            TableRelation = "Crane Service Quote Header_LDR"."Quote no.";
 
             trigger OnValidate()
             var
@@ -225,7 +225,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         {
             Caption = 'Código Tarifa Producto Servicio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Service Item Rate Header"; //TODO: Revisar si conservamos la tabla
+            TableRelation = "Service Item Rate Header_LDR";
         }
         field(50052; "Serv. Item Operation Entry No._LDR"; Integer)
         {
@@ -319,30 +319,30 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             DataClassification = ToBeClassified;
             TableRelation = "Country/Region";
         }
-        field(50063; "Requested Starting Date_LDR"; Date) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50063; "Requested Starting Date_LDR"; Date)
         {
-            //CalcFormula = Lookup("Service Item Line"."Requested Starting Date" WHERE ("Document No."=FIELD("No."),"Document Type"=FIELD("Document Type"))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Lookup("Service Item Line"."Requested Starting Date_LDR" WHERE("Document No." = FIELD("No."), "Document Type" = FIELD("Document Type")));
             Caption = 'Fecha Inicio Solicitada';
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50064; "Requested ending Date_LDR"; Date) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50064; "Requested ending Date_LDR"; Date)
         {
-            //CalcFormula = Lookup("Service Item Line"."Requested ending Date" WHERE("Document No." = FIELD("No."), "Document Type" = FIELD("Document Type"))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Lookup("Service Item Line"."Requested Ending Date_LDR" WHERE("Document No." = FIELD("No."), "Document Type" = FIELD("Document Type")));
             Caption = 'Fecha Final Solicitada';
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50065; "Old Worksheet No._LDR"; Code[20]) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50065; "Old Worksheet No._LDR"; Code[20])
         {
-            //CalcFormula = Lookup("Service Item Line"."Old Worksheet No." WHERE ("Document No."=FIELD("No."),"Document Type"=FIELD("Document Type"))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Lookup("Service Item Line"."Old Worksheet No._LDR" WHERE("Document No." = FIELD("No."), "Document Type" = FIELD("Document Type")));
             Caption = 'Nº. Albarán Antiguo';
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50066; "Invoicing Type_LDR"; Option) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50066; "Invoicing Type_LDR"; Option)
         {
-            //CalcFormula = Lookup("Crane Service Quote Header"."Invoicing Type" WHERE("Quote no." = FIELD("Crane Service Quote No."))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Lookup("Crane Service Quote Header_LDR"."Invoicing Type" WHERE("Quote no." = FIELD("Crane Service Quote No._LDR")));
             Caption = 'Tipo Facturación';
             FieldClass = FlowField;
             OptionCaption = 'Obra,Oferta,Independiente,Pedido';
@@ -404,12 +404,12 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             Editable = false;
             FieldClass = FlowField;
         }
-        /*field(50071; "Direct Debit Mandate ID_LDR"; Code[35]) //TODO: Revisar si conservamos el field
+        field(50071; "Direct Debit Mandate ID_LDR"; Code[35])
         {
             Caption = 'Id. de Orden de Domiciliación de Adeudo Directo';
             DataClassification = ToBeClassified;
             //TableRelation = "SEPA Direct Debit Mandate" WHERE("Customer No." = FIELD("Bill-to Customer No."), "Closed" = CONST("No"), "Blocked" = CONST("No")); //TODO: Revisar si conservamos la tabla
-        }*/
+        }
         field(50072; "Source Type_LDR"; Option)
         {
             Caption = 'Tipo Origen';
@@ -422,7 +422,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         {
             Caption = 'Código Tipo Trabajo por Defecto';
             DataClassification = ToBeClassified;
-            //TableRelation = "Work Type" WHERE ("Res. Journal Type"=FILTER("No")); //TODO: Revisar si conservamos la tabla
+            //TableRelation = "Work Type" WHERE ("Res. Journal Type_LDR"=FILTER("No")); //TODO: Revisar si conservamos la tabla
 
             trigger OnValidate()
             var
@@ -569,9 +569,9 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             Caption = 'Pedido Mantenimiento';
             DataClassification = ToBeClassified;
         }
-        field(50089; "Assignation Priority_LDR"; Integer) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50089; "Assignation Priority_LDR"; Integer)
         {
-            //CalcFormula = Lookup("Service Order Allocation"."Assignation Priority" WHERE("Document Type" = FIELD("Document Type"),"Document No." = FIELD("No."), "Allocation Date" = FIELD("Date Filter"), "Resource No." = FIELD("Resource Filter"), "Status" = FILTER("Active"),"Resource Group No." = FIELD("Resource Group Filter"))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Lookup("Service Order Allocation"."Assignation Priority_LDR" WHERE("Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Allocation Date" = FIELD("Date Filter"), "Resource No." = FIELD("Resource Filter"), "Status" = FILTER("Active"), "Resource Group No." = FIELD("Resource Group Filter")));
             Caption = 'Prioridad Asignación';
             FieldClass = FlowField;
         }
@@ -664,16 +664,16 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50103; Replicate_LDR; Boolean) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50103; Replicate_LDR; Boolean)
         {
-            //CalcFormula = Exist("Service Line" WHERE("Document Type" = FIELD("Document Type"), "Customer No." = FIELD("Customer No."), "Document No." = FIELD("No."), "Replicate" = CONST(true), "Replicate Company" = FIELD("CompanyFilter"))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Exist("Service Line" WHERE("Document Type" = FIELD("Document Type"), "Customer No." = FIELD("Customer No."), "Document No." = FIELD("No."), Replicate_LDR = CONST(true), "Replicate Company_LDR" = FIELD(CompanyFilter_LDR)));
             Caption = 'Replicar';
             Editable = false;
             FieldClass = FlowField;
         }
         field(50104; "Replicate Pending_LDR"; Boolean) //TODO: Revisar warning del atributo CalcFormula del field
         {
-            //CalcFormula = Exist("Service Line" WHERE("Document Type" = FIELD("Document Type"), "Customer No." = FIELD("Customer No."), "Document No." = FIELD("No."), "Replicate" = CONST(true), "Replicated" = CONST("No"), "Replicate Company" = FIELD("CompanyFilter"))); //TODO: Revisar si conservamos el atributo CalcFormula
+            //CalcFormula = Exist("Service Line" WHERE("Document Type" = FIELD("Document Type"), "Customer No." = FIELD("Customer No."), "Document No." = FIELD("No."), Replicate_LDR = CONST(true), Replicated_LDR = CONST("No"), "Replicate Company" = FIELD("CompanyFilter"))); //TODO: Revisar si conservamos el atributo CalcFormula
             Caption = 'Pendiente Replicar';
             Editable = false;
             FieldClass = FlowField;

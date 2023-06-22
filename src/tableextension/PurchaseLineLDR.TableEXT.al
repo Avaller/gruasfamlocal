@@ -22,7 +22,7 @@ tableextension 50011 "Purchase Line_LDR" extends "Purchase Line"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50003; Warranty_LDR; BoolEAN)
+        field(50003; Warranty_LDR; Boolean)
         {
             Caption = 'Garantía';
             DataClassification = ToBeClassified;

@@ -5,7 +5,7 @@ tableextension 50016 "BOM Component_LDR" extends "BOM Component"
 {
     fields
     {
-        field(50000; Blocked_LDR; BoolEAN)
+        field(50000; Blocked_LDR; Boolean)
         {
             CalcFormula = Lookup(Item.Blocked WHERE("No." = FIELD("No.")));
             Caption = 'Bloqueado';

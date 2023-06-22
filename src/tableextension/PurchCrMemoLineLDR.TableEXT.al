@@ -5,7 +5,7 @@ tableextension 50029 "Purch. Cr. Memo Line_LDR" extends "Purch. Cr. Memo Line"
 {
     fields
     {
-        field(50000; Warranty_LDR; BoolEAN)
+        field(50000; Warranty_LDR; Boolean)
         {
             Caption = 'Garantía';
             DataClassification = ToBeClassified;

@@ -36,7 +36,7 @@ tableextension 50101 "Cartera Setup_LDR" extends "Cartera Setup"
             Caption = 'Nombre Diario Liquidación';
             DataClassification = ToBeClassified;
         }
-        field(50006; "File SEPA Bankia_LDR"; BoolEAN)
+        field(50006; "File SEPA Bankia_LDR"; Boolean)
         {
             Caption = 'Fichero SEPA Bankia';
             DataClassification = ToBeClassified;

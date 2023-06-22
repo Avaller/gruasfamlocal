@@ -5,7 +5,7 @@ tableextension 50098 "Posted Cartera Doc._LDR" extends "Posted Cartera Doc."
 {
     fields
     {
-        field(50001; "Promissory Note Printed_LDR"; BoolEAN)
+        field(50001; "Promissory Note Printed_LDR"; Boolean)
         {
             Caption = 'Pagaré Impreso';
             DataClassification = ToBeClassified;

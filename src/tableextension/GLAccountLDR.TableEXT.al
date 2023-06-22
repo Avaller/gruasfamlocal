@@ -5,7 +5,7 @@ tableextension 50001 "G/L Account_LDR" extends "G/L Account"
 {
     fields
     {
-        field(50001; Hidden_LDR; BoolEAN)
+        field(50001; Hidden_LDR; Boolean)
         {
             Caption = 'Filtro Seguridad';
             DataClassification = ToBeClassified;

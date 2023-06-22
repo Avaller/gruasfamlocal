@@ -39,7 +39,7 @@ tableextension 50008 "Sales Header_LDR" extends "Sales Header"
                 end;
             end;
         }
-        field(50001; "Send Document By Mail"; BoolEAN)
+        field(50001; "Send Document By Mail"; Boolean)
         {
             Caption = 'Enviar Documento por Mail';
             DataClassification = ToBeClassified;

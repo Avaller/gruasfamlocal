@@ -9,28 +9,28 @@ tableextension 50087 "Service Invoice Header_LDR" extends "Service Invoice Heade
         {
             Caption = 'Código Oferta Servicio Grúa';
             DataClassification = ToBeClassified;
-            //TableRelation = "Crane Service Quote Header"."Quote no." WHERE ("Historical"=CONST(false)); //TODO: Revisar si conservamos la tabla
+            TableRelation = "Crane Service Quote Header_LDR"."Quote no." WHERE("Historical" = CONST(false));
         }
         field(50057; "Customer Order No._LDR"; Code[20])
         {
             Caption = 'Nº Pedido Cliente';
             DataClassification = ToBeClassified;
         }
-        /*field(50058; "Direct Debit Mandate ID_LDR"; Code[35])
+        field(50058; "Direct Debit Mandate ID_LDR"; Code[35])
         {
             Caption = 'ID de Orden de Domiciliación de Adeudo Directo';
             DataClassification = ToBeClassified;
             Editable = false;
             TableRelation = "SEPA Direct Debit Mandate" WHERE("Customer No." = FIELD("Bill-to Customer No."),
             "Closed" = CONST(false), "Blocked" = CONST(false));
-        }*/
+        }
         field(50059; "External Document No._LDR"; Code[20])
         {
             Caption = 'Nº Documento Externo';
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(50060; "Send Document By Mail_LDR"; BoolEAN)
+        field(50060; "Send Document By Mail_LDR"; Boolean)
         {
             Caption = 'Enviar Documento por Mail';
             DataClassification = ToBeClassified;
@@ -48,16 +48,16 @@ tableextension 50087 "Service Invoice Header_LDR" extends "Service Invoice Heade
             DataClassification = ToBeClassified;
             ExtendedDatatype = EMail;
         }
-        field(50063; Replicate_LDR; BoolEAN) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50063; Replicate_LDR; Boolean)
         {
-            //CalcFormula = Exist("Service Invoice Line" WHERE("Customer No." = FIELD("Customer No."), "Document No." = FIELD("No."), "Replicate" = CONST(true), "Replicate Company" = FIELD("CompanyFilter"))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Exist("Service Invoice Line" WHERE("Customer No." = FIELD("Customer No."), "Document No." = FIELD("No."), Replicate_LDR = CONST(true), "Replicate Company_LDR" = FIELD(CompanyFilter_LDR)));
             Caption = 'Replicar';
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50064; "Replicate Pending_LDR"; BoolEAN) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50064; "Replicate Pending_LDR"; Boolean)
         {
-            //CalcFormula = Exist("Service Invoice Line" WHERE("Customer No." = FIELD("Customer No."), "Document No." = FIELD("No."), "Replicate" = CONST(true), "Replicated" = CONST(false), "Replicate Company" = FIELD("CompanyFilter"))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Exist("Service Invoice Line" WHERE("Customer No." = FIELD("Customer No."), "Document No." = FIELD("No."), Replicate_LDR = CONST(true), Replicated_LDR = CONST(false), "Replicate Company_LDR" = FIELD(CompanyFilter_LDR)));
             Caption = 'Pendiente Replicar';
             Editable = false;
             FieldClass = FlowField;
@@ -76,7 +76,7 @@ tableextension 50087 "Service Invoice Header_LDR" extends "Service Invoice Heade
         }
     }
 
-    trigger OnAfterModify()
+    trigger OnBeforeModify()
     begin
         if "Send Document By Mail_LDR" then
             TestField("E-Mail Destination_LDR");

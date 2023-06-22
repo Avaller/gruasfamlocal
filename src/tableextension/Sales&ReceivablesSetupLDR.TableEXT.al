@@ -5,12 +5,12 @@ tableextension 50047 "Sales & Receivables Setup_LDR" extends "Sales & Receivable
 {
     fields
     {
-        field(50000; "CIF/NIF Obligatory"; BoolEAN)
+        field(50000; "CIF/NIF Obligatory"; Boolean)
         {
             Caption = 'Obligatorio CIF/NIF';
             DataClassification = ToBeClassified;
         }
-        field(50001; "Create Payment Days"; BoolEAN)
+        field(50001; "Create Payment Days"; Boolean)
         {
             Caption = 'Crear Codígo Días de Pago y de No Pago';
             DataClassification = ToBeClassified;
