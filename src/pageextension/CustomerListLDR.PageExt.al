@@ -196,7 +196,7 @@ pageextension 50005 "Customer List_LDR" extends "Customer List"
                         CraneServiceQuote: Page "Crane Service Quotes";
                         CraneServiceQuoteHeader: Record "Crane Service Quote Header_LDR";
                     begin
-                        CraneServiceQuoteHeader.SetRange("Customer No.", "No.");
+                        CraneServiceQuoteHeader.SetRange("Customer No.", Rec."No.");
                         Page.Run(50023, CraneServiceQuoteHeader);
                     end;
                 }
@@ -211,7 +211,7 @@ pageextension 50005 "Customer List_LDR" extends "Customer List"
                         CraneServiceQuotesHis: Page "Crane Serv. Q. Op. Inv. G Line";
                         CraneServiceQuoteHeader: Record "Crane Service Quote Header_LDR";
                     begin
-                        CraneServiceQuoteHeader.SetRange("Customer No.", "No.");
+                        CraneServiceQuoteHeader.SetRange("Customer No.", Rec."No.");
                         Page.Run(50035, CraneServiceQuoteHeader);
                     end;
                 }
