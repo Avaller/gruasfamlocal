@@ -95,7 +95,7 @@ tableextension 50006 "Item_LDR" extends "Item"
             Editable = false;
             TableRelation = "No. Series";
         }
-        field(50011; Heightss_LDR; Decimal)
+        field(50011; Height_LDR; Decimal)
         {
             Caption = 'Altura (mm)';
             DataClassification = ToBeClassified;
@@ -406,7 +406,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                             begin
                                 "Item Type_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 "Valid For_LDR" := '';
@@ -442,7 +442,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                                 "Item Type_LDR" := '';
                                 "Series Code_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 "Valid For_LDR" := '';
@@ -462,7 +462,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                                 Model_LDR := '';
                                 "Series Code_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 "Valid For_LDR" := '';
@@ -479,8 +479,8 @@ tableextension 50006 "Item_LDR" extends "Item"
                                 Model_LDR := '';
                                 "Series Code_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 "Valid For_LDR" := '';
@@ -496,8 +496,8 @@ tableextension 50006 "Item_LDR" extends "Item"
                                 "Item Type_LDR" := '';
                                 "Series Code_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 Characteristics_LDR := '';
@@ -512,7 +512,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                                 "Item Type_LDR" := '';
                                 "Series Code_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 Plates_LDR := 0;
@@ -529,7 +529,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                                 Model_LDR := '';
                                 "Series Code_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 "Valid For_LDR" := '';
@@ -549,7 +549,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                 begin
                     "Item Type_LDR" := '';
                     "Charge Capacity_LDR" := 0;
-                    //Height := 0;
+                    Height_LDR := 0;
                     Folded_LDR := 0;
                     "Free Elevation_LDR" := 0;
                     "Valid For_LDR" := '';
@@ -570,7 +570,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                     Model_LDR := '';
                     "Series Code_LDR" := '';
                     "Charge Capacity_LDR" := 0;
-                    //Height := 0;
+                    Height_LDR := 0;
                     Folded_LDR := 0;
                     "Free Elevation_LDR" := 0;
                     "Valid For_LDR" := '';
@@ -588,7 +588,7 @@ tableextension 50006 "Item_LDR" extends "Item"
             Tipo::Machine:
                 begin
                     "Item Type_LDR" := '';
-                    //Height := 0;
+                    Height_LDR := 0;
                     Folded_LDR := 0;
                     "Free Elevation_LDR" := 0;
                     "Valid For_LDR" := '';
@@ -610,7 +610,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                     Model_LDR := '';
                     "Series Code_LDR" := '';
                     "Charge Capacity_LDR" := 0;
-                    //Height := 0;
+                    Height_LDR := 0;
                     Folded_LDR := 0;
                     "Free Elevation_LDR" := 0;
                     "Valid For_LDR" := '';
