@@ -246,7 +246,6 @@ tableextension 50006 "Item_LDR" extends "Item"
         ServiceItem: Record "Service Item Line";
         ItemBudgetEntry: Record "Item Budget Entry";
         ItemSub: Record "Item Substitution";
-        //SKU: Record "Safety Stock Quantity";
         CommentLine: Record "Comment Line";
         ItemVend: Record "Item Vendor";
         SalesPrice: Record "Sales Price";
@@ -289,11 +288,11 @@ tableextension 50006 "Item_LDR" extends "Item"
                 ItemSub.SetRange("Substitute No.", "No.");
                 ItemSub.DeleteAll();
 
-                //SKU.RESET;
-                //SKU.CHANGECOMPANY(Companies.Name);
-                //SKU.SETCURRENTKEY("Item No.");
-                //SKU.SETRANGE("Item No.", "No.");
-                //SKU.DELETEALL;
+                SKU.Reset();
+                SKU.ChangeCompany(Companies.Name);
+                SKU.SetCurrentKey("Item No.");
+                SKU.SetRange("Item No.", "No.");
+                SKU.DeleteAll();
 
                 CommentLine.ChangeCompany(Companies.Name);
                 CommentLine.SetRange("Table Name", CommentLine."Table Name"::Item);
@@ -394,6 +393,7 @@ tableextension 50006 "Item_LDR" extends "Item"
         TextEANIncorrecto: TextConst ENU = 'The EAN %1 must be 13 digits', ESP = 'El EAN %1 debe tener 13 dígitos';
         TextDCIncorrecto: TextConst ENU = 'The code %1 it is not an correct EAN', ESP = 'El código %1 no es un EAN correcto';
         Companies: Record "Company";
+        SKU: Record "Stockkeeping Unit";
 
     procedure InicializarCaracteristicas(Tipo: Option " ",Component,Implement,"Spare Part",Machine; Subtipo: Option " ",Chasis,Mast,Engine,Wheels,Brackets,Batery,Charger);
     begin

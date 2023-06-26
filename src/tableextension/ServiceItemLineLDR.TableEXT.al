@@ -617,14 +617,13 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
                     //         ServInvoiceLine."Replaced Item No." := '';
                     //         ServInvoiceLine."Component Line No." := 0;
                     //         ServInvoiceLine."Spare Part Action" := ServInvoiceLine."Spare Part Action"::" ";
-                    //         ServInvoiceLine.Validate("Internal Quantity", StdSalesLine.Quantity);
+                    //         ServInvoiceLine.Validate("Internal Quantity_LDR", StdSalesLine.Quantity);
                     //         ServInvoiceLine.Validate(Quantity, StdSalesLine.Quantity);
                     //         ServInvoiceLine.Validate(ServInvoiceLine."Posting Date", WorkDate);
                     //         ServInvoiceLine.Validate(ServInvoiceLine.Description, StdSalesLine.Description);
                     //         ServInvoiceLine.Modify(true);
                     //         LineNo := LineNo + 10000;
                     //     end;
-
                     StdSalesLine.Type::Resource:
                         begin
                             ServInvoiceLine.Init();

@@ -13,7 +13,7 @@ tableextension 50095 "Service Cue_LDR" extends "Service Cue"
         }
         field(50001; "Service Orders - to Plan_LDR"; Integer)
         {
-            //CalcFormula = Count("Service Item Line" WHERE("Requested Starting Date_LDR" = FIELD("WorkDate Filter_LDR"), "Service Item No." = FILTER(''), "Repair Status Code" = FIELD("Repair Status Filter_LDR"), "Role Center Filter_LDR" = CONST(true), "Repair Status Code" = CONST(INICIAL))); 
+            //CalcFormula = Count("Service Item Line" WHERE("Requested Starting Date_LDR" = FIELD("WorkDate Filter_LDR"), "Service Item No." = FILTER(''), "Repair Status Code" = FIELD("Repair Status Filter_LDR"), "Role Center Filter_LDR" = CONST(true), "Repair Status Code" = CONST("Initial")));
             Caption = 'Pedidos Servicio - Pendientes de Planificar';
             Editable = false;
             FieldClass = FlowField;
@@ -139,36 +139,28 @@ tableextension 50095 "Service Cue_LDR" extends "Service Cue"
         field(50031; "LDR_Service Orders - in Process_LDR"; Integer)
         {
             FieldClass = FlowField;
-            CalcFormula = Count("Service Header" WHERE("Document Type" = FILTER("Order"),
-                                                        "Status" = FILTER("In Process"),
-                                                        "Responsibility Center" = FIELD("Responsibility Center Filter"),
-                                                        "Role Center Filter_LDR" = CONST(true),
-                                                        "Direct sales_LDR" = CONST(false)));
+            CalcFormula = Count("Service Header" WHERE("Document Type" = FILTER("Order"), "Status" = FILTER("In Process"),
+            "Responsibility Center" = FIELD("Responsibility Center Filter"), "Role Center Filter_LDR" = CONST(true),
+            "Direct sales_LDR" = CONST(false)));
         }
         field(50032; "LDR_Service Orders - Finished_LDR"; Integer)
         {
             FieldClass = FlowField;
-            CalcFormula = Count("Service Header" WHERE("Document Type" = FILTER("Order"),
-                                                        "Status" = FILTER("Finished"),
-                                                        "Responsibility Center" = FIELD("Responsibility Center Filter"),
-                                                        "Role Center Filter_LDR" = CONST(true),
-                                                        "Direct sales_LDR" = CONST(false)));
+            CalcFormula = Count("Service Header" WHERE("Document Type" = FILTER("Order"), "Status" = FILTER("Finished"),
+            "Responsibility Center" = FIELD("Responsibility Center Filter"), "Role Center Filter_LDR" = CONST(true),
+            "Direct sales_LDR" = CONST(false)));
         }
         field(50033; "LDR_Service Orders - Inactive_LDR"; Integer)
         {
             FieldClass = FlowField;
-            CalcFormula = Count("Service Header" WHERE("Document Type" = FILTER("Order"),
-                                                        "Status" = FILTER("Pending" | "On Hold"),
-                                                        "Responsibility Center" = FIELD("Responsibility Center Filter"),
-                                                        "Direct sales_LDR" = CONST(false)));
+            CalcFormula = Count("Service Header" WHERE("Document Type" = FILTER("Order"), "Status" = FILTER("Pending" | "On Hold"),
+            "Responsibility Center" = FIELD("Responsibility Center Filter"), "Direct sales_LDR" = CONST(false)));
         }
         field(50034; "LDR_Service Contracts to Expire_LDR"; Integer)
         {
             FieldClass = FlowField;
-            CalcFormula = Count("Service Contract Header" WHERE("Contract Type" = FILTER("Contract"),
-                                                                 "Expiration Date" = FIELD("Date Filter"),
-                                                                 "Responsibility Center" = FIELD("Responsibility Center Filter"),
-                                                                 Historical_LDR = CONST(false)));
+            CalcFormula = Count("Service Contract Header" WHERE("Contract Type" = FILTER("Contract"), "Expiration Date" = FIELD("Date Filter"),
+            "Responsibility Center" = FIELD("Responsibility Center Filter"), Historical_LDR = CONST(false)));
         }
     }
 }

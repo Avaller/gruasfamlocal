@@ -22,7 +22,7 @@ tableextension 50077 "Service Contract Line_LDR" extends "Service Contract Line"
         {
             Caption = 'Código Tarifa Producto Servicio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Service Item Rate Line - Platf"."Code" WHERE("Invoice Group No." = FIELD("Serv. Item Invoice Group Code")); 
+            TableRelation = "Servic Item Rat Lin - Plat_LDR"."Code" WHERE("Invoice Group No." = FIELD("Serv. Item Invoice Group Code_LDR"));
 
             trigger OnValidate()
             begin

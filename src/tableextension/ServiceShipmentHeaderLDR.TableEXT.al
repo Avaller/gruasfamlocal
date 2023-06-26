@@ -21,7 +21,7 @@ tableextension 50085 "Service Shipment Header_LDR" extends "Service Shipment Hea
         {
             Caption = 'Nº Movimiento Operación Producto Servicio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Serv. Item Operations Entry"."Entry No."; 
+            TableRelation = "Serv. Item Operat Entry_LDR"."Entry No.";
         }
         field(50055; "Crane Serv. Quote Op. Line No_LDR"; Integer)
         {

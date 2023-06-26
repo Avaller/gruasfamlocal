@@ -87,7 +87,7 @@ tableextension 50056 "Employee_LDR" extends "Employee"
         }
         field(50014; "Total Accumulated Hours"; Decimal)
         {
-            //CalcFormula = Sum("Accumulated Employee Hours"."Remaining Hours" WHERE ("Employee No."=FIELD("No."))); 
+            CalcFormula = Sum("Accumulated Employee Hours_LDR"."Remaining Hours" WHERE("Employee No." = FIELD("No.")));
             Caption = 'Horas Totales Acumuladas';
             Editable = false;
             FieldClass = FlowField;

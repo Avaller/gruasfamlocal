@@ -79,7 +79,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
         {
             Caption = 'Código Causa Baja';
             DataClassification = ToBeClassified;
-            //TableRelation = "Cancellation Type Service Item"; 
+            TableRelation = "Cancellat Type Servic Item_LDR";
         }
         field(50008; "No. Chassis_LDR"; Text[20])
         {
@@ -114,7 +114,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
         }
         field(50014; "Maintenance Block_LDR"; Boolean)
         {
-            //CalcFormula = Exist("Serv. Item Availability Entry" WHERE("Service Item Code" = FIELD("No."), "Entry Type" = CONST("maintenance"), "Starting Date" = FIELD("Starting Date Filter"), "Ending Date" = FIELD("Ending Date Filter"))); 
+            CalcFormula = Exist("Serv. Item Avail Entry_LDR" WHERE("Service Item Code" = FIELD("No."), "Entry Type" = CONST("maintenance"), "Starting Date" = FIELD("Starting Date Filter_LDR"), "Ending Date" = FIELD("Ending Date Filter_LDR")));
             Caption = 'Bloqueado Mantenimiento';
             FieldClass = FlowField;
             Editable = false;

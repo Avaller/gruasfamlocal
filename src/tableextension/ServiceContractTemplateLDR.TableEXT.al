@@ -45,7 +45,7 @@ tableextension 50080 "Service Contract Template_LDR" extends "Service Contract T
                 SalesSetup.TestField(SalesSetup."Posted Invoice Nos.");
                 if NoSeriesMgt.LookupSeries(SalesSetup."Posted Invoice Nos.", "Invoice Series No._LDR") then
                     Validate("Invoice Series No._LDR");
-                //}                                           // END: ALQUINTA
+                //}                                           
             end;
         }
         field(50004; "LDR_Invoice Period_LDR"; Option)

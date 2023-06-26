@@ -9,7 +9,7 @@ tableextension 50031 "Resource_LDR" extends "Resource"
         {
             trigger OnAfterValidate()
             var
-                ResGroup: Record 152;
+                ResGroup: Record "Resource Group";
             begin
                 if rec."Resource Group No." <> '' then begin
                     ResGroup.Get("Resource Group No.");
