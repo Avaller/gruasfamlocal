@@ -21,7 +21,7 @@ tableextension 50085 "Service Shipment Header_LDR" extends "Service Shipment Hea
         {
             Caption = 'Nº Movimiento Operación Producto Servicio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Serv. Item Operations Entry"."Entry No."; //TODO: Revisar si conservamos la tabla
+            //TableRelation = "Serv. Item Operations Entry"."Entry No."; 
         }
         field(50055; "Crane Serv. Quote Op. Line No_LDR"; Integer)
         {
@@ -96,7 +96,7 @@ tableextension 50085 "Service Shipment Header_LDR" extends "Service Shipment Hea
         {
             Caption = 'Nº Contrato Interno';
             DataClassification = ToBeClassified;
-            //TableRelation = "Table7122021"."Field1" WHERE("Field2" = CONST(1)); //TODO: Revisar si conservamos la tabla
+            //TableRelation = "Table7122021"."Field1" WHERE("Field2" = CONST(1)); 
         }
         field(50066; "Review No._LDR"; Integer)
         {
@@ -112,7 +112,7 @@ tableextension 50085 "Service Shipment Header_LDR" extends "Service Shipment Hea
         {
             Caption = 'Nº Plantilla Revisión';
             DataClassification = ToBeClassified;
-            //TableRelation = "Table7121995"; //TODO: Revisar si conservamos la tabla
+            //TableRelation = "Table7121995"; 
         }
         field(50069; "Shipping Agent Code_LDR"; Code[10])
         {

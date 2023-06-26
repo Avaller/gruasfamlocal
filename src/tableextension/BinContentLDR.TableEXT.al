@@ -5,7 +5,7 @@ tableextension 50092 "Bin Content_LDR" extends "Bin Content"
 {
     fields
     {
-        field(50000; "Item Description_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
+        field(50000; "Item Description_LDR"; Text[50])
         {
             CalcFormula = Lookup("Item"."Description" WHERE("No." = FIELD("Item No.")));
             Caption = 'Descripción Producto';

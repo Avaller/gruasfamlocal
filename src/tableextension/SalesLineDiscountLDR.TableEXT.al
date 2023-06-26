@@ -1,7 +1,7 @@
 /// <summary>
 /// tableextension 50091 "Sales Line Discount_LDR"
 /// </summary>
-tableextension 50091 "Sales Line Discount_LDR" extends "Sales Line Discount" //TODO: Revisar warning de la extends de la tableextension
+tableextension 50091 "Sales Line Discount_LDR" extends "Sales Line Discount"
 {
     fields
     {

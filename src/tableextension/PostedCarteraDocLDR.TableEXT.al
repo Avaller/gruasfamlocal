@@ -15,14 +15,14 @@ tableextension 50098 "Posted Cartera Doc._LDR" extends "Posted Cartera Doc."
             Caption = 'Nº Pagaré';
             DataClassification = ToBeClassified;
         }
-        field(50003; "Customer Name_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
+        field(50003; "Customer Name_LDR"; Text[50])
         {
             CalcFormula = Lookup("Customer"."Name" WHERE("No." = FIELD("Account No.")));
             Caption = 'Nombre Cliente';
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50004; "Vendor Name_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
+        field(50004; "Vendor Name_LDR"; Text[50])
         {
             CalcFormula = Lookup("Vendor"."Name" WHERE("No." = FIELD("Account No.")));
             Caption = 'Nombre Proveedor';

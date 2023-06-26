@@ -39,7 +39,7 @@ tableextension 50081 "Filed Serv Contract Header_LDR" extends "Filed Service Con
         {
             Caption = 'Código Grupo Facturación Contrato Servicio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Table7122019" WHERE ("Field3"=FIELD("Bill-to Customer No.")); //TODO: Revisar si conservamos la tabla
+            //TableRelation = "Table7122019" WHERE ("Field3"=FIELD("Bill-to Customer No."));
         }
         field(50006; "Payment Method Code_LDR"; Code[10])
         {

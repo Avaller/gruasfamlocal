@@ -41,7 +41,7 @@ tableextension 50010 "Purchase Header_LDR" extends "Purchase Header"
         {
             Caption = 'Nº Contrato Proveedor';
             DataClassification = ToBeClassified;
-            //TableRelation = Table70072.Field1 WHERE (Field2=CONST(1))"; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70072.Field1 WHERE (Field2=CONST(1))"; 
         }
         field(50006; Notas1_LDR; Text[100])
         {

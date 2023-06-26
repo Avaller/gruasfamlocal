@@ -309,7 +309,7 @@ tableextension 50011 "Purchase Line_LDR" extends "Purchase Line"
         {
             Caption = 'Nº Contrato Proveedor';
             DataClassification = ToBeClassified;
-            //TableRelation = Table70072.Field1 WHERE (Field2=CONST(1)); //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70072.Field1 WHERE (Field2=CONST(1)); 
         }
         field(50014; "Service Contract Line No._LDR"; Integer)
         {

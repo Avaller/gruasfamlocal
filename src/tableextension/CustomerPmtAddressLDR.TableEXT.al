@@ -1,7 +1,7 @@
 /// <summary>
 /// tableextension 50100 "Customer Pmt. Address_LDR"
 /// </summary>
-tableextension 50100 "Customer Pmt. Address_LDR" extends "Customer Pmt. Address" //TODO: Revisar warning de la extends de la tableextension
+tableextension 50100 "Customer Pmt. Address_LDR" extends "Customer Pmt. Address"
 {
     fields
     {

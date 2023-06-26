@@ -10,7 +10,7 @@ tableextension 50075 "Service Order Allocation_LDR" extends "Service Order Alloc
             Caption = 'Exportado a Dispositivo';
             DataClassification = ToBeClassified;
         }
-        field(50002; "Resource Name_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text 
+        field(50002; "Resource Name_LDR"; Text[50])
         {
             CalcFormula = Lookup("Resource"."Name" WHERE("No." = FIELD("Resource No.")));
             Caption = 'Nombre Recurso';

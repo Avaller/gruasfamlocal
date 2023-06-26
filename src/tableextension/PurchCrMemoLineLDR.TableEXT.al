@@ -52,7 +52,7 @@ tableextension 50029 "Purch. Cr. Memo Line_LDR" extends "Purch. Cr. Memo Line"
         {
             Caption = 'Nº Contrato Proveedor';
             DataClassification = ToBeClassified;
-            //TableRelation = Table70072.Field1 WHERE (Field2=CONST(1)); //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70072.Field1 WHERE (Field2=CONST(1)); 
         }
         field(50006; "Service Contract Line No._LDR"; Integer)
         {

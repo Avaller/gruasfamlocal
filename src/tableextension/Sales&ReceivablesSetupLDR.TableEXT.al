@@ -1,5 +1,5 @@
 /// <summary>
-/// tableextension 50047 "Sales & Receivables Setup_LDR" //TODO: Revisar warning de comentario
+/// tableextension 50047 "Sales & Receivables Setup_LDR" 
 /// </summary>
 tableextension 50047 "Sales & Receivables Setup_LDR" extends "Sales & Receivables Setup"
 {

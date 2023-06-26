@@ -30,7 +30,7 @@ tableextension 50026 "Purch. Inv. Header_LDR" extends "Purch. Inv. Header"
             Caption = 'Nº Contrato Proveedor';
             DataClassification = ToBeClassified;
             Editable = false;
-            //TableRelation = Table70072.Field1 WHERE (Field2=CONST(1)); //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70072.Field1 WHERE (Field2=CONST(1)); 
         }
     }
 }

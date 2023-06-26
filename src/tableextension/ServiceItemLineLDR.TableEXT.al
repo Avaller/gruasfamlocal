@@ -172,7 +172,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             Caption = 'Código Tarea Servicio';
             DataClassification = ToBeClassified;
             Description = 'Permite Almacenar la Tarea a Realizar';
-            //TableRelation = Table70001.Field1; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70001.Field1; 
 
             trigger OnValidate()
             var
@@ -258,7 +258,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
             OptionCaption = 'Transfer';
             OptionMembers = Transfer;
         }
-        field(50080; "Service Order Description_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
+        field(50080; "Service Order Description_LDR"; Text[50])
         {
             CalcFormula = Lookup("Service Header"."Description" WHERE("Document Type" = FIELD("Document Type"),
             "No." = FIELD("Document No.")));

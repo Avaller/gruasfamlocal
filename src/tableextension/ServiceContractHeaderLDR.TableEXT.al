@@ -157,7 +157,7 @@ tableextension 50078 "Service Contract Header_LDR" extends "Service Contract Hea
         {
             Caption = 'Código Grupo Facturación Contrato Servicio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Service Contract Invoice Group" WHERE ("Customer No."=FIELD("Bill-to Customer No.")); //TODO: Revisar si conservamos la tabla 
+            //TableRelation = "Service Contract Invoice Group" WHERE ("Customer No."=FIELD("Bill-to Customer No.")); 
 
             trigger OnValidate()
             begin
@@ -175,7 +175,7 @@ tableextension 50078 "Service Contract Header_LDR" extends "Service Contract Hea
         {
             Caption = 'Contrato Interno Relacionado';
             DataClassification = ToBeClassified;
-            //TableRelation = "Table70028"."Field1" WHERE(Field2 = CONST(1)); //TODO: Revisar si conservamos la tabla
+            //TableRelation = "Table70028"."Field1" WHERE(Field2 = CONST(1)); 
 
             trigger OnValidate()
             begin

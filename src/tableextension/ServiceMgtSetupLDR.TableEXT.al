@@ -291,14 +291,14 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
             Caption = 'Coste Servicio Control Horas Externos';
             DataClassification = ToBeClassified;
             Description = 'Control de Horas';
-            //TableRelation = Table7122020 WHERE(Field4 = CONST(1)); //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table7122020 WHERE(Field4 = CONST(1)); 
         }
         field(50046; "Int.Hours Control Service Cost_LDR"; Code[20])
         {
             Caption = 'Coste Servicio Control Horas Internos';
             DataClassification = ToBeClassified;
             Description = 'Control de Horas';
-            //TableRelation = Table7122020 WHERE(Field4 = CONST(0)); //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table7122020 WHERE(Field4 = CONST(0));
         }
         field(50047; "Direct Sales Serv. Order Type_LDR"; Code[20])
         {
@@ -404,7 +404,7 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
         {
             Caption = 'Sección Diario Movimientos Producto Servicio';
             DataClassification = ToBeClassified;
-            //TableRelation = Table7122035.Field2; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table7122035.Field2; 
 
             trigger OnLookup()
             var

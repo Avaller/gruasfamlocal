@@ -48,7 +48,7 @@ tableextension 50006 "Item_LDR" extends "Item"
             Caption = 'Tipo Producto';
             DataClassification = ToBeClassified;
             Description = 'Tipo Producto';
-            //TableRelation = Table70023.Field2 WHERE (Field1=FIELD(Subtype)); //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70023.Field2 WHERE (Field1=FIELD(Subtype)); 
         }
         field(50004; "Charge Capacity_LDR"; Decimal)
         {
@@ -61,14 +61,14 @@ tableextension 50006 "Item_LDR" extends "Item"
             Caption = 'Código de Serie';
             DataClassification = ToBeClassified;
             Description = 'Indica el Código de la Serie';
-            //TableRelation = Table70005; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70005; 
         }
         field(50006; "Medea Code_LDR"; Code[20])
         {
             Caption = 'Código de Clasificación Medea';
             DataClassification = ToBeClassified;
             Description = 'Indica el Código de Clasificacion Medea';
-            //TableRelation = Table70007; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70007; 
         }
         field(50007; "Valid For_LDR"; Text[50])
         {
@@ -207,6 +207,14 @@ tableextension 50006 "Item_LDR" extends "Item"
         {
             Caption = 'Fecha Modificación';
             DataClassification = ToBeClassified;
+        }
+        field(50026; "LDR_Inventory_LDR"; Integer)
+        {
+            FieldClass = FlowField;
+            CalcFormula = Sum("Item Ledger Entry"."Quantity" WHERE("Item No." = FIELD("No."), "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+            "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"), "Location Code" = FIELD("Location Filter"), "Drop Shipment" = FIELD("Drop Shipment Filter"),
+            "Variant Code" = FIELD("Variant Filter"), "Lot No." = FIELD("Lot No. Filter"), "Serial No." = FIELD("Serial No. Filter"),
+            "Posting Date" = FIELD("Date Filter")));
         }
     }
 

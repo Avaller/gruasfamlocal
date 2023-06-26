@@ -1,5 +1,5 @@
 /// <summary>
-/// tableextension 50048 "Purchases & Payables Setup_LDR" //TODO: Revisar warning de comentario
+/// tableextension 50048 "Purchases & Payables Setup_LDR" 
 /// </summary>
 tableextension 50048 "Purchases & Payables Setup_LDR" extends "Purchases & Payables Setup"
 {

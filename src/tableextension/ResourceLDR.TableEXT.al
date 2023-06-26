@@ -35,7 +35,7 @@ tableextension 50031 "Resource_LDR" extends "Resource"
             DataClassification = ToBeClassified;
             TableRelation = "Customer";
         }
-        field(50004; "Explotation Name_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
+        field(50004; "Explotation Name_LDR"; Text[50])
         {
             CalcFormula = Lookup("Customer"."Name" WHERE("No." = FIELD("Explotation Customer No._LDR")));
             Caption = 'Nombre';

@@ -26,7 +26,7 @@ tableextension 50014 "Gen. Journal Line_LDR" extends "Gen. Journal Line"
             Caption = 'Nº Leasing';
             DataClassification = ToBeClassified;
             Description = 'Almacena el Nº Leasing para generar Movimiento';
-            //TableRelation = Table70010; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70010; 
 
             trigger OnValidate()
             var
@@ -47,7 +47,7 @@ tableextension 50014 "Gen. Journal Line_LDR" extends "Gen. Journal Line"
             Caption = 'Nº Cuota Leasing';
             DataClassification = ToBeClassified;
             Description = 'Almacena el Nº Cuota Leasing para generar Movimiento';
-            //TableRelation = Table70011.Field2 WHERE (Field1=FIELD("Leasing No.")); //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70011.Field2 WHERE (Field1=FIELD("Leasing No.")); 
         }
         field(50005; "Service Cost No._LDR"; Code[20])
         {

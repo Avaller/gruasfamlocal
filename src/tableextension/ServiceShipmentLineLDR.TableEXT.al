@@ -120,7 +120,7 @@ tableextension 50086 "Service Shipment Line_LDR" extends "Service Shipment Line"
             Description = 'Cantidad Teórica';
             Editable = false;
         }
-        field(50069; "Service Order Description_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
+        field(50069; "Service Order Description_LDR"; Text[50])
         {
             CalcFormula = Lookup("Service Shipment Header"."Description" WHERE("No." = FIELD("Document No.")));
             Caption = 'Descripción Pedido';

@@ -169,7 +169,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
             Description = 'Cantidad Teórica';
             Editable = false;
         }
-        field(50071; "Service Order Description_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
+        field(50071; "Service Order Description_LDR"; Text[50])
         {
             CalcFormula = Lookup("Service Header"."Description" WHERE("Document Type" = FIELD("Document Type"),
              "No." = FIELD("Document No.")));
@@ -317,7 +317,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
         {
             Caption = 'Nº Movimiento Contrato por Horas';
             DataClassification = ToBeClassified;
-            //TableRelation = Table70061; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70061; 
         }
         field(50083; "Service Price Version No._LDR"; Code[20])
         {
