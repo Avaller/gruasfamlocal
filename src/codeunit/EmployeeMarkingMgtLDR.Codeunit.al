@@ -85,7 +85,7 @@ codeunit 50009 "Employee Marking Mgt._LDR"
                     "Employee Marking Entries"."No Operation Card" := COPYSTR(vString, 10, 4);
 
                     CLEAR(Employee);
-                    Employee.SETRANGE("Tag Card No.", "Employee Marking Entries"."No Operation Card");
+                    Employee.SETRANGE("Tag Card No._LDR", "Employee Marking Entries"."No Operation Card");
                     IF Employee.FINDFIRST THEN BEGIN
                         //Encontrar el empleado que es para almacenar sus valores
 

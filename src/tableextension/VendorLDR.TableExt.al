@@ -57,7 +57,7 @@ tableextension 50005 "Vendor_LDR" extends Vendor
     var
         PurchaseSetupAux: Record "Purchases & Payables Setup";
     begin
-        if PurchaseSetupAux."Create Payment Days" then begin
+        if PurchaseSetupAux."Create Payment Days_LDR" then begin
 
         end;
     end;

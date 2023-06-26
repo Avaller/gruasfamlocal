@@ -59,7 +59,7 @@ pageextension 50018 "Sales Invoice Subform" extends "Sales Invoice Subform"
         PurchSetup: Record "Purchases & Payables Setup";
     begin
         PurchSetup.GET();
-        PurchSetup.TestField("Warranty Mgt. Type", PurchSetup."Warranty Mgt. Type"::Venta);
+        PurchSetup.TestField("Warranty Mgt. Type_LDR", PurchSetup."Warranty Mgt. Type_LDR"::Venta);
     end;
 
     var

@@ -109,8 +109,8 @@ table 50227 "Break Hours Compensation_LDR"
         ResourcesSetup: Record "Resources Setup";
     begin
         ResourcesSetup.GET;
-        ResourcesSetup.TESTFIELD("Absence Cause");
-        "Absence Cause" := ResourcesSetup."Absence Cause";
+        ResourcesSetup.TESTFIELD("Absence Cause_LDR");
+        "Absence Cause" := ResourcesSetup."Absence Cause_LDR";
     end;
 
     /// <summary>

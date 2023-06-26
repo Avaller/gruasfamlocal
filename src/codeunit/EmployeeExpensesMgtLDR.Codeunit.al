@@ -30,7 +30,7 @@ codeunit 50012 "Employee Expenses Mgt_LDR"
                 CLEAR(Employee);
                 Employee.SETRANGE("Resource No.", ResLedgerEntry."Resource No.");
                 Employee.FINDFIRST;
-                IF NOT Employee."Avoid Expenses" THEN BEGIN
+                IF NOT Employee."Avoid Expenses_LDR" THEN BEGIN
                     EmployeeExpenses.RESET;
                     EmployeeExpenses.SETRANGE(Date, ResLedgerEntry."Posting Date");
                     EmployeeExpenses.SETRANGE("Resource No.", ResLedgerEntry."Resource No.");
@@ -48,7 +48,7 @@ codeunit 50012 "Employee Expenses Mgt_LDR"
             REPEAT
                 //Obtener el empleado
                 Employee.GET(EmplExpensesJustification."Employee No.");
-                IF NOT Employee."Avoid Expenses" THEN BEGIN
+                IF NOT Employee."Avoid Expenses_LDR" THEN BEGIN
                     EmployeeExpenses.RESET;
                     EmployeeExpenses.SETRANGE(Date, EmplExpensesJustification.Date);
                     EmployeeExpenses.SETRANGE("Resource No.", EmplExpensesJustification."Resource No.");

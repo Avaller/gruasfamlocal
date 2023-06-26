@@ -634,8 +634,8 @@ tableextension 50006 "Item_LDR" extends "Item"
     begin
         TestField("No. 2", '');
         InvSetup.Get();
-        InvSetup.TestField(InvSetup."Item Nos. 2");
-        NoSeriesMgt.InitSeries(InvSetup."Item Nos. 2", xRec."No. 2 Series_LDR", 0D, "No. 2", "No. 2 Series_LDR");
+        InvSetup.TestField(InvSetup."Item Nos. 2_LDR");
+        NoSeriesMgt.InitSeries(InvSetup."Item Nos. 2_LDR", xRec."No. 2 Series_LDR", 0D, "No. 2", "No. 2 Series_LDR");
         Modify(true);
     end;
 

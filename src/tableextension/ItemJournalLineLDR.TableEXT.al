@@ -120,7 +120,7 @@ tableextension 50015 "Item Journal Line_LDR" extends "Item Journal Line"
             Caption = 'Nº Línea Servicio';
             DataClassification = ToBeClassified;
         }
-        field(50007; Mobility_LDR; BoolEAN)
+        field(50007; Mobility_LDR; Boolean)
         {
             Caption = 'Movilidad';
             DataClassification = ToBeClassified;

@@ -192,7 +192,7 @@ tableextension 50003 "Customer_LDR" extends "Customer"
                 txtErrorCIF: Label 'Debe especificar un CIF/NIF válido';
             begin
                 SalesSetup.Get();
-                if (SalesSetup."CIF/NIF Obligatory") and (Rec."VAT Registration No." = '') and (Rec."No." <> '') then
+                if (SalesSetup."CIF/NIF Obligatory_LDR") and (Rec."VAT Registration No." = '') and (Rec."No." <> '') then
                     Error(txtErrorCIF);
             end;
         }

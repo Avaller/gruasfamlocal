@@ -5,7 +5,7 @@ tableextension 50004 "Cust. Ledger Entry_LDR" extends "Cust. Ledger Entry"
 {
     fields
     {
-        field(50000; "Accepted"; Option)
+        field(50000; "Accepted_LDR"; Option)
         {
             CalcFormula = Lookup("Cartera Doc.".Accepted WHERE("Entry No." = FIELD("Entry No.")));
             Caption = 'Aceptado';

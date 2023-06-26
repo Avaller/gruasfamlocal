@@ -31,14 +31,14 @@ codeunit 50200 "Break Hours Mgt._LDR"
     procedure "Code"()
     begin
         ResourcesSetup.GET;
-        ResourcesSetup.TESTFIELD("Process Delay");
-        ResourcesSetup.TESTFIELD("Break Hours Weekdays");
-        ResourcesSetup.TESTFIELD("Break Hours Weekend");
-        IF ResourcesSetup."Last Process Date" <> 0D THEN
-            StartingDate := ResourcesSetup."Last Process Date" + 1
+        ResourcesSetup.TESTFIELD("Process Delay_LDR");
+        ResourcesSetup.TESTFIELD("Break Hours Weekdays_LDR");
+        ResourcesSetup.TESTFIELD("Break Hours Weekend_LDR");
+        IF ResourcesSetup."Last Process Date_LDR" <> 0D THEN
+            StartingDate := ResourcesSetup."Last Process Date_LDR" + 1
         ELSE
-            StartingDate := ResourcesSetup."Starting Process Date";
-        EndingDate := CALCDATE(ResourcesSetup."Process Delay", WORKDATE);
+            StartingDate := ResourcesSetup."Starting Process Date_LDR";
+        EndingDate := CALCDATE(ResourcesSetup."Process Delay_LDR", WORKDATE);
 
         CraneMgtSetup.GET;
         CraneMgtSetup.TESTFIELD("Driver Resource Group");
@@ -75,7 +75,7 @@ codeunit 50200 "Break Hours Mgt._LDR"
             UNTIL Dates.NEXT = 0;
 
             ResourcesSetup.GET;
-            ResourcesSetup."Last Process Date" := EndingDate;
+            ResourcesSetup."Last Process Date_LDR" := EndingDate;
             ResourcesSetup.MODIFY;
         END;
     end;
@@ -93,8 +93,8 @@ codeunit 50200 "Break Hours Mgt._LDR"
         Employee.FINDFIRST;
 
         ResourcesSetup.GET;
-        ResourcesSetup.TESTFIELD("Calc. Time Weekday Due Date");
-        ResourcesSetup.TESTFIELD("Calc. Time Weekend Due Date");
+        ResourcesSetup.TESTFIELD("Calc. Time Weekday Due Date_LDR");
+        ResourcesSetup.TESTFIELD("Calc. Time Weekend Due Date_LDR");
 
         AccumulatedEmployeeHours.INIT;
         AccumulatedEmployeeHours.VALIDATE("Employee No.", Employee."No.");
@@ -102,10 +102,10 @@ codeunit 50200 "Break Hours Mgt._LDR"
         AccumulatedEmployeeHours.VALIDATE(Hours, HoursQty);
 
         IF DATE2DWY(EntryDate, 1) IN [1, 2, 3, 4, 5] THEN BEGIN // Entre semana. (de Lunes a Martes, Martes a Miércoles…Viernes a Sábado)
-            AccumulatedEmployeeHours.VALIDATE("Due Date", CALCDATE(ResourcesSetup."Calc. Time Weekday Due Date", EntryDate));
+            AccumulatedEmployeeHours.VALIDATE("Due Date", CALCDATE(ResourcesSetup."Calc. Time Weekday Due Date_LDR", EntryDate));
             AccumulatedEmployeeHours.VALIDATE("Week Day Type", AccumulatedEmployeeHours."Week Day Type"::Weekday);
         END ELSE BEGIN // fines de semana. (Desde sábado a las 12h a Domingo 24h)
-            AccumulatedEmployeeHours.VALIDATE("Due Date", CALCDATE(ResourcesSetup."Calc. Time Weekend Due Date", EntryDate));
+            AccumulatedEmployeeHours.VALIDATE("Due Date", CALCDATE(ResourcesSetup."Calc. Time Weekend Due Date_LDR", EntryDate));
             AccumulatedEmployeeHours.VALIDATE("Week Day Type", AccumulatedEmployeeHours."Week Day Type"::Weekend);
         END;
 

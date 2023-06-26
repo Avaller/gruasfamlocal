@@ -20,8 +20,8 @@ table 50019 "Employee Expenses_LDR"
                 IF Employee.GET("Employee No.") THEN BEGIN
                     "Employee Name" := Employee.Name + ' ' + Employee."First Family Name" + ' ' + Employee."Second Family Name";
                     "Resource No." := Employee."Resource No.";
-                    "Entry Time" := Employee."Journey Starting Time";
-                    "Exit Time" := Employee."Journey Ending Time";
+                    "Entry Time" := Employee."Journey Starting Time_LDR";
+                    "Exit Time" := Employee."Journey Ending Time_LDR";
                 END;
                 UpdateCapacityPlanned;
                 UpdateRealWorks;

@@ -16,13 +16,13 @@ pageextension 50016 "Sales Credit Memo" extends "Sales Credit Memo"
             group("PDF Mail")
             {
                 Caption = 'PDF Mail';
-                field("Send Document By Mail"; Rec."Send Document By Mail")
+                field("Send Document By Mail"; Rec."Send Document By Mail_LDR")
                 {
                     ApplicationArea = All;
                     Caption = 'Enviar documento por correo';
                     ToolTip = 'Enviar documento por correo';
                 }
-                field("E-Mail Destination"; Rec."E-Mail Destination")
+                field("E-Mail Destination"; Rec."E-Mail Destination_LDR")
                 {
                     ApplicationArea = All;
                     Caption = 'Destino de correo electrónico';

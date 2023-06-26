@@ -19,7 +19,7 @@ table 50030 Forecast_LDR
             begin
                 IF "No." <> xRec."No." THEN BEGIN
                     PurchSetup.GET;
-                    NoSeriesMgt.TestManual(PurchSetup."Forecast Nos.");
+                    NoSeriesMgt.TestManual(PurchSetup."Forecast Nos._LDR");
                 END;
 
                 CLEAR(ResponsibilityCenter);
@@ -270,8 +270,8 @@ table 50030 Forecast_LDR
     begin
         IF "No." = '' THEN BEGIN
             PurchSetup.GET;
-            PurchSetup.TESTFIELD("Forecast Nos.");
-            NoSeriesMgt.InitSeries(PurchSetup."Forecast Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            PurchSetup.TESTFIELD("Forecast Nos._LDR");
+            NoSeriesMgt.InitSeries(PurchSetup."Forecast Nos._LDR", xRec."No. Series", 0D, "No.", "No. Series");
 
             CLEAR(ResponsibilityCenter);
             IF ResponsibilityCenter.FINDFIRST THEN
@@ -291,8 +291,8 @@ table 50030 Forecast_LDR
         WITH Forecast DO BEGIN
             Forecast := Rec;
             PurchSetup.GET;
-            PurchSetup.TESTFIELD("Forecast Nos.");
-            IF NoSeriesMgt.SelectSeries(PurchSetup."Forecast Nos.", OldForecast."No. Series", "No. Series") THEN BEGIN
+            PurchSetup.TESTFIELD("Forecast Nos._LDR");
+            IF NoSeriesMgt.SelectSeries(PurchSetup."Forecast Nos._LDR", OldForecast."No. Series", "No. Series") THEN BEGIN
                 NoSeriesMgt.SetSeries("No.");
                 Rec := Forecast;
                 EXIT(TRUE);

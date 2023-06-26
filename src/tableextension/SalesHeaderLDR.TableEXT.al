@@ -5,7 +5,7 @@ tableextension 50008 "Sales Header_LDR" extends "Sales Header"
 {
     fields
     {
-        field(50000; "Sales Order Series No."; Code[20])
+        field(50000; "Sales Order Series No._LDR"; Code[20])
         {
             Caption = 'Nº Serie Pedido Venta';
             DataClassification = ToBeClassified;
@@ -15,12 +15,12 @@ tableextension 50008 "Sales Header_LDR" extends "Sales Header"
                 SalesSetup: Record "Sales & Receivables Setup";
                 NoSeriesMgt: Codeunit "NoSeriesManagement";
             begin
-                if "Sales Order Series No." <> '' then begin
+                if "Sales Order Series No._LDR" <> '' then begin
                     SalesSetup.Get();
                     SalesSetup.TestField("Order Nos.");
-                    NoSeriesMgt.TestSeries(SalesSetup."Order Nos.", "Sales Order Series No.");
+                    NoSeriesMgt.TestSeries(SalesSetup."Order Nos.", "Sales Order Series No._LDR");
                 end;
-                TestField("Sales Order Series No.");
+                TestField("Sales Order Series No._LDR");
             end;
 
             trigger OnLookup()
@@ -33,18 +33,18 @@ tableextension 50008 "Sales Header_LDR" extends "Sales Header"
                     SalesHeader := Rec;
                     SalesSetup.Get();
                     SalesSetup.TestField(SalesSetup."Order Nos.");
-                    if NoSeriesMgt.LookupSeries(SalesSetup."Order Nos.", "Sales Order Series No.") then
-                        Validate("Sales Order Series No.");
+                    if NoSeriesMgt.LookupSeries(SalesSetup."Order Nos.", "Sales Order Series No._LDR") then
+                        Validate("Sales Order Series No._LDR");
                     Rec := SalesHeader;
                 end;
             end;
         }
-        field(50001; "Send Document By Mail"; Boolean)
+        field(50001; "Send Document By Mail_LDR"; Boolean)
         {
             Caption = 'Enviar Documento por Mail';
             DataClassification = ToBeClassified;
         }
-        field(50002; "E-Mail Destination"; Text[250])
+        field(50002; "E-Mail Destination_LDR"; Text[250])
         {
             Caption = 'E-Mail de destino';
             DataClassification = ToBeClassified;
