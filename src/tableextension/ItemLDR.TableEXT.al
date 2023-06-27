@@ -48,7 +48,7 @@ tableextension 50006 "Item_LDR" extends "Item"
             Caption = 'Tipo Producto';
             DataClassification = ToBeClassified;
             Description = 'Tipo Producto';
-            //TableRelation = Table70023.Field2 WHERE (Field1=FIELD(Subtype)); //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70023.Field2 WHERE (Field1=FIELD(Subtype)); 
         }
         field(50004; "Charge Capacity_LDR"; Decimal)
         {
@@ -61,14 +61,14 @@ tableextension 50006 "Item_LDR" extends "Item"
             Caption = 'Código de Serie';
             DataClassification = ToBeClassified;
             Description = 'Indica el Código de la Serie';
-            //TableRelation = Table70005; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70005; 
         }
         field(50006; "Medea Code_LDR"; Code[20])
         {
             Caption = 'Código de Clasificación Medea';
             DataClassification = ToBeClassified;
             Description = 'Indica el Código de Clasificacion Medea';
-            //TableRelation = Table70007; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70007; 
         }
         field(50007; "Valid For_LDR"; Text[50])
         {
@@ -95,7 +95,7 @@ tableextension 50006 "Item_LDR" extends "Item"
             Editable = false;
             TableRelation = "No. Series";
         }
-        field(50011; Heightss_LDR; Decimal)
+        field(50011; Height_LDR; Decimal)
         {
             Caption = 'Altura (mm)';
             DataClassification = ToBeClassified;
@@ -186,13 +186,13 @@ tableextension 50006 "Item_LDR" extends "Item"
                     Clear(recItem);
                     recItem.SetCurrentKey(EAN_LDR);
                     recItem.SetRange(recItem.EAN_LDR, EAN_LDR);
-                    if recItem.FindFirst then
+                    if recItem.FindFirst() then
                         Error(TextEANerror, EAN_LDR);
 
                     if StrLen(EAN_LDR) <> 13 then
                         Error(TextEANIncorrecto, EAN_LDR);
 
-                    //CheckEAN := FuncionesEAN.ObtenerDC(CopyStr(EAN, 1, (StrLen(EAN) - 1)));
+                    //CheckEAN := FuncionesEAN.ObtenerDC(CopyStr(EAN_LDR, 1, (StrLen(EAN_LDR) - 1)));
                     if CheckEAN <> EAN_LDR then
                         Error(TextDCIncorrecto, EAN_LDR);
                 END;
@@ -207,6 +207,14 @@ tableextension 50006 "Item_LDR" extends "Item"
         {
             Caption = 'Fecha Modificación';
             DataClassification = ToBeClassified;
+        }
+        field(50026; "LDR_Inventory_LDR"; Integer)
+        {
+            FieldClass = FlowField;
+            CalcFormula = Sum("Item Ledger Entry"."Quantity" WHERE("Item No." = FIELD("No."), "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+            "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"), "Location Code" = FIELD("Location Filter"), "Drop Shipment" = FIELD("Drop Shipment Filter"),
+            "Variant Code" = FIELD("Variant Filter"), "Lot No." = FIELD("Lot No. Filter"), "Serial No." = FIELD("Serial No. Filter"),
+            "Posting Date" = FIELD("Date Filter")));
         }
     }
 
@@ -238,7 +246,6 @@ tableextension 50006 "Item_LDR" extends "Item"
         ServiceItem: Record "Service Item Line";
         ItemBudgetEntry: Record "Item Budget Entry";
         ItemSub: Record "Item Substitution";
-        //SKU: Record "Safety Stock Quantity";
         CommentLine: Record "Comment Line";
         ItemVend: Record "Item Vendor";
         SalesPrice: Record "Sales Price";
@@ -281,11 +288,11 @@ tableextension 50006 "Item_LDR" extends "Item"
                 ItemSub.SetRange("Substitute No.", "No.");
                 ItemSub.DeleteAll();
 
-                //SKU.RESET;
-                //SKU.CHANGECOMPANY(Companies.Name);
-                //SKU.SETCURRENTKEY("Item No.");
-                //SKU.SETRANGE("Item No.", "No.");
-                //SKU.DELETEALL;
+                SKU.Reset();
+                SKU.ChangeCompany(Companies.Name);
+                SKU.SetCurrentKey("Item No.");
+                SKU.SetRange("Item No.", "No.");
+                SKU.DeleteAll();
 
                 CommentLine.ChangeCompany(Companies.Name);
                 CommentLine.SetRange("Table Name", CommentLine."Table Name"::Item);
@@ -386,6 +393,7 @@ tableextension 50006 "Item_LDR" extends "Item"
         TextEANIncorrecto: TextConst ENU = 'The EAN %1 must be 13 digits', ESP = 'El EAN %1 debe tener 13 dígitos';
         TextDCIncorrecto: TextConst ENU = 'The code %1 it is not an correct EAN', ESP = 'El código %1 no es un EAN correcto';
         Companies: Record "Company";
+        SKU: Record "Stockkeeping Unit";
 
     procedure InicializarCaracteristicas(Tipo: Option " ",Component,Implement,"Spare Part",Machine; Subtipo: Option " ",Chasis,Mast,Engine,Wheels,Brackets,Batery,Charger);
     begin
@@ -398,7 +406,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                             begin
                                 "Item Type_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 "Valid For_LDR" := '';
@@ -434,7 +442,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                                 "Item Type_LDR" := '';
                                 "Series Code_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 "Valid For_LDR" := '';
@@ -454,7 +462,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                                 Model_LDR := '';
                                 "Series Code_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 "Valid For_LDR" := '';
@@ -471,8 +479,8 @@ tableextension 50006 "Item_LDR" extends "Item"
                                 Model_LDR := '';
                                 "Series Code_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 "Valid For_LDR" := '';
@@ -488,8 +496,8 @@ tableextension 50006 "Item_LDR" extends "Item"
                                 "Item Type_LDR" := '';
                                 "Series Code_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 Characteristics_LDR := '';
@@ -504,7 +512,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                                 "Item Type_LDR" := '';
                                 "Series Code_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 Plates_LDR := 0;
@@ -521,7 +529,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                                 Model_LDR := '';
                                 "Series Code_LDR" := '';
                                 "Charge Capacity_LDR" := 0;
-                                //Height := 0;
+                                Height_LDR := 0;
                                 Folded_LDR := 0;
                                 "Free Elevation_LDR" := 0;
                                 "Valid For_LDR" := '';
@@ -541,7 +549,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                 begin
                     "Item Type_LDR" := '';
                     "Charge Capacity_LDR" := 0;
-                    //Height := 0;
+                    Height_LDR := 0;
                     Folded_LDR := 0;
                     "Free Elevation_LDR" := 0;
                     "Valid For_LDR" := '';
@@ -562,7 +570,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                     Model_LDR := '';
                     "Series Code_LDR" := '';
                     "Charge Capacity_LDR" := 0;
-                    //Height := 0;
+                    Height_LDR := 0;
                     Folded_LDR := 0;
                     "Free Elevation_LDR" := 0;
                     "Valid For_LDR" := '';
@@ -580,7 +588,7 @@ tableextension 50006 "Item_LDR" extends "Item"
             Tipo::Machine:
                 begin
                     "Item Type_LDR" := '';
-                    //Height := 0;
+                    Height_LDR := 0;
                     Folded_LDR := 0;
                     "Free Elevation_LDR" := 0;
                     "Valid For_LDR" := '';
@@ -602,7 +610,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                     Model_LDR := '';
                     "Series Code_LDR" := '';
                     "Charge Capacity_LDR" := 0;
-                    //Height := 0;
+                    Height_LDR := 0;
                     Folded_LDR := 0;
                     "Free Elevation_LDR" := 0;
                     "Valid For_LDR" := '';
@@ -626,8 +634,8 @@ tableextension 50006 "Item_LDR" extends "Item"
     begin
         TestField("No. 2", '');
         InvSetup.Get();
-        InvSetup.TestField(InvSetup."Item Nos. 2");
-        NoSeriesMgt.InitSeries(InvSetup."Item Nos. 2", xRec."No. 2 Series_LDR", 0D, "No. 2", "No. 2 Series_LDR");
+        InvSetup.TestField(InvSetup."Item Nos. 2_LDR");
+        NoSeriesMgt.InitSeries(InvSetup."Item Nos. 2_LDR", xRec."No. 2 Series_LDR", 0D, "No. 2", "No. 2 Series_LDR");
         Modify(true);
     end;
 
@@ -742,7 +750,7 @@ tableextension 50006 "Item_LDR" extends "Item"
         frmJournal.Run;
     end;
 
-    procedure GetJournalBatch(TemplateName: Code[20] /*; var SelectedJournalBatch: Record 70065*/): BoolEAN;
+    procedure GetJournalBatch(TemplateName: Code[20] /*; var SelectedJournalBatch: Record 70065*/): Boolean;
     var
     //frmJournalBatch : Page 70100;
     begin
@@ -760,7 +768,7 @@ tableextension 50006 "Item_LDR" extends "Item"
         end; */
     end;
 
-    procedure ProdOrderExistCompany(Company: Text[80]): BoolEAN;
+    procedure ProdOrderExistCompany(Company: Text[80]): Boolean;
     var
         ProdOrderLine: Record "Prod. Order Line";
     begin

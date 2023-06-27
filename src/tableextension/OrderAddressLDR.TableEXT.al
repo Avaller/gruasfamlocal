@@ -5,7 +5,7 @@ tableextension 50039 "Order Address_LDR" extends "Order Address"
 {
     fields
     {
-        field(50001; "Last User Modified"; Code[50])
+        field(50001; "Last User Modified_LDR"; Code[50])
         {
             Caption = 'Usuario Última Modificación';
             DataClassification = ToBeClassified;
@@ -15,11 +15,11 @@ tableextension 50039 "Order Address_LDR" extends "Order Address"
 
     trigger OnAfterModify()
     begin
-        "Last User Modified" := UserId;
+        "Last User Modified_LDR" := UserId;
     end;
 
     trigger OnAfterRename()
     begin
-        "Last User Modified" := UserId;
+        "Last User Modified_LDR" := UserId;
     end;
 }

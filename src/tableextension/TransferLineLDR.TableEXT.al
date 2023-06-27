@@ -5,7 +5,7 @@ tableextension 50063 "Transfer Line_LDR" extends "Transfer Line"
 {
     fields
     {
-        field(50000; "Nº EAN labels"; Integer)
+        field(50000; "Nº EAN labels_LDR"; Integer)
         {
             Caption = 'Nº Etiquetas EAN';
             DataClassification = ToBeClassified;

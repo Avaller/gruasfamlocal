@@ -1,7 +1,7 @@
 /// <summary>
 /// tableextension 50052 "Resource Price Change_LDR"
 /// </summary>
-tableextension 50052 "Resource Price Change_LDR" extends "Resource Price Change" //TODO: Revisar warning de la extends de la tableextension
+tableextension 50052 "Resource Price Change_LDR" extends "Resource Price Change"
 {
     fields
     {

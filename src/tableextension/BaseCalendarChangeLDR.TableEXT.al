@@ -15,7 +15,7 @@ tableextension 50094 "Base Calendar Change_LDR" extends "Base Calendar Change"
                 TestField(Nonworking);
             end;
         }
-        field(50002; lLDR_Nonworking_LDR; Boolean)
+        field(50002; LDR_Nonworking_LDR; Boolean)
         {
             trigger OnValidate()
             begin

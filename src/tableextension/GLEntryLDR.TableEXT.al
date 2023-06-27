@@ -14,7 +14,7 @@ tableextension 50002 "G/L Entry_LDR" extends "G/L Entry"
             trigger OnLookup()
             begin
                 Clear(ServOrderMgt);
-                //ServOrderMgt.LeasingLookup("Leasing No.");
+                //ServOrderMgt.LeasingLookup("Leasing No._LDR");
             end;
         }
         field(50001; "Leasing Line No._LDR"; Integer)
@@ -22,7 +22,7 @@ tableextension 50002 "G/L Entry_LDR" extends "G/L Entry"
             Caption = 'Nº Cuota Leasing';
             DataClassification = ToBeClassified;
             Description = 'Almacena el Nº Cuota Leasing del movimiento';
-            //TableRelation = Table70011.Field2 WHERE(Field1 = FIELD("Leasing No.")); //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70011.Field2 WHERE(Field1 = FIELD("Leasing No.")); 
         }
         field(50002; Dotted_LDR; Boolean)
         {

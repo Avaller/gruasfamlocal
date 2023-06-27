@@ -25,7 +25,7 @@ pageextension 50006 "Customer Ledger Entries_LDR" extends "Customer Ledger Entri
         }
         addafter("Entry No.")
         {
-            field(Accepted; Rec.Accepted)
+            field(Accepted; Rec.Accepted_LDR)
             {
                 ApplicationArea = All;
                 Caption = 'Aceptado';

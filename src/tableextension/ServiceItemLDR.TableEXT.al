@@ -79,7 +79,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
         {
             Caption = 'Código Causa Baja';
             DataClassification = ToBeClassified;
-            //TableRelation = "Cancellation Type Service Item"; //TODO: Revisar si conservamos la tabla
+            TableRelation = "Cancellat Type Servic Item_LDR";
         }
         field(50008; "No. Chassis_LDR"; Text[20])
         {
@@ -112,9 +112,9 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
             DataClassification = ToBeClassified;
             MinValue = 1;
         }
-        field(50014; "Maintenance Block_LDR"; Boolean) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50014; "Maintenance Block_LDR"; Boolean)
         {
-            //CalcFormula = Exist("Serv. Item Availability Entry" WHERE("Service Item Code" = FIELD("No."), "Entry Type" = CONST("maintenance"), "Starting Date" = FIELD("Starting Date Filter"), "Ending Date" = FIELD("Ending Date Filter"))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Exist("Serv. Item Avail Entry_LDR" WHERE("Service Item Code" = FIELD("No."), "Entry Type" = CONST("maintenance"), "Starting Date" = FIELD("Starting Date Filter_LDR"), "Ending Date" = FIELD("Ending Date Filter_LDR")));
             Caption = 'Bloqueado Mantenimiento';
             FieldClass = FlowField;
             Editable = false;
@@ -129,7 +129,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
             Caption = 'Exportar a Ingestrel';
             DataClassification = ToBeClassified;
         }
-        field(50017; "Explotation Name_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text 
+        field(50017; "Explotation Name_LDR"; Text[50])
         {
             CalcFormula = Lookup("Customer"."Name" WHERE("No." = FIELD("Explotation Customer No._LDR")));
             Caption = 'Nombre';
@@ -143,7 +143,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
             FieldClass = FlowField;
             Editable = false;
         }
-        field(50019; "Explotation Address_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text 
+        field(50019; "Explotation Address_LDR"; Text[50])
         {
             CalcFormula = Lookup("Customer"."Address" WHERE("No." = FIELD("Explotation Customer No._LDR")));
             Caption = 'Dirección';
@@ -268,7 +268,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
                 end;
             end;
         }
-        field(50037; "Branch Customer Name_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
+        field(50037; "Branch Customer Name_LDR"; Text[50])
         {
             CalcFormula = Lookup("Customer"."Name" WHERE("No." = FIELD("Branch Customer No._LDR")));
             Caption = 'Nombre Cliente Sede Trabajo';
@@ -323,7 +323,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
             Caption = 'Plantilla Mantenimiento';
             DataClassification = ToBeClassified;
             Description = 'Indica la Plantilla de Mantenimiento';
-            //TableRelation = Table70002; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70002; 
         }
         field(50056; "Machine Created_LDR"; Boolean)
         {
@@ -410,7 +410,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
                 ValidateShortcutDimCode(2, "Global Dimension 2 Code_LDR");
             end;
         }
-        field(50063; "Customer Name_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text 
+        field(50063; "Customer Name_LDR"; Text[50])
         {
             CalcFormula = Lookup("Customer"."Name" WHERE("No." = FIELD("Customer No.")));
             Caption = 'Nombre Cliente';
@@ -462,7 +462,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
             Caption = 'Sin Contadores';
             DataClassification = ToBeClassified;
         }
-        field(50067; "Owner Customer Name_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
+        field(50067; "Owner Customer Name_LDR"; Text[50])
         {
             CalcFormula = Lookup("Customer"."Name" WHERE("No." = FIELD("Owner Customer No._LDR")));
             Caption = 'Dimensión Tipo Máquina';
@@ -904,7 +904,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
         DimMgt: Codeunit "DimensionManagement";
     begin
         DimMgt.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
-        //DimMgt.SaveDefaultDim(Database:"Service Item", "No.", FieldNumber, ShortcutDimCode);
+        DimMgt.SaveDefaultDim(Database::"Service Item", "No.", FieldNumber, ShortcutDimCode);
         Modify();
     end;
 

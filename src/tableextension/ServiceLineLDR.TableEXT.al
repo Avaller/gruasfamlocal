@@ -169,7 +169,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
             Description = 'Cantidad Teórica';
             Editable = false;
         }
-        field(50071; "Service Order Description_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
+        field(50071; "Service Order Description_LDR"; Text[50])
         {
             CalcFormula = Lookup("Service Header"."Description" WHERE("Document Type" = FIELD("Document Type"),
              "No." = FIELD("Document No.")));
@@ -317,7 +317,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
         {
             Caption = 'Nº Movimiento Contrato por Horas';
             DataClassification = ToBeClassified;
-            //TableRelation = Table70061; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70061; 
         }
         field(50083; "Service Price Version No._LDR"; Code[20])
         {
@@ -559,9 +559,9 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
         end;
 
         if "Contract Hours Entry No._LDR" <> 0 then begin
-            //ContractHoursEntry.Get("Contract Hours Entry No.");
-            //ContractHoursEntry.Procesed := false;
-            //ContractHoursEntry.Modify();
+            //"Contract Hours Entry No._LDR".Get("Contract Hours Entry No._LDR");
+            //"Contract Hours Entry No._LDR".Procesed := false;
+            //"Contract Hours Entry No._LDR".Modify();
         end;
 
         Clear(CraneServQForfaitCalendar);
@@ -1439,17 +1439,17 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
                         //"Spare Part Action" := "Spare Part Action"::"Component Changed";
                         Quantity := 0;
                     end else
-                        Error(Text007, ServItemComponent.TABLECAPTION);
+                        Error(Text007, ServItemComponent.TableCaption());
                 end;
         end;
     end;
 
-    procedure SetHideDialog(bHide: BoolEAN);
+    procedure SetHideDialog(bHide: Boolean);
     begin
         HideDialogBox := bHide;
     end;
 
-    procedure GetNextLineNoLast(ServInvLine: Record "Service Line"; BelowxRec: BoolEAN): Integer;
+    procedure GetNextLineNoLast(ServInvLine: Record "Service Line"; BelowxRec: Boolean): Integer;
     var
         ServInvLine2: Record "Service Line";
         LoLineNo: Integer;
@@ -1503,24 +1503,23 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
         ServSetup: Record "Service Mgt. Setup";
         ServItemLine: Record "Service Item Line";
     begin
-        // Comprueba si la linea es facturable
-        // ServSetup.Get();
-        // ServSetup.TestField(ServSetup."Assembly Service Order Type");
-        //
-        // ServHeader.Get("Document Type","Document No.");
-        // if ServHeader."Service Order Type" = ServSetup."Assembly Service Order Type" then
-        //  Validate(Chargeable,false);
-        //
-        // if ServHeader."Internal Contract No." <> '' then
-        //  Validate(Chargeable,false);
-        //
-        // if ("Document Type" <> "Document Type"::Invoice) and
-        //   ("Document Type" <> "Document Type"::"Credit Memo") then begin
-        //
-        //  ServItemLine.Get("Document Type","Document No.","Service Item Line No.");
-        //  if ServItemLine.nonfacturable then
-        //    Validate("Line Discount %",100);
-        // end;
+        ServSetup.Get();
+        ServSetup.TestField(ServSetup."Assembly Service Order Type_LDR");
+
+        ServHeader.Get("Document Type", "Document No.");
+        if ServHeader."Service Order Type" = ServSetup."Assembly Service Order Type_LDR" then
+            Validate(Chargeable_LDR, false);
+
+        if ServHeader."Internal Contract No._LDR" <> '' then
+            Validate(Chargeable_LDR, false);
+
+        if ("Document Type" <> "Document Type"::Invoice) and
+          ("Document Type" <> "Document Type"::"Credit Memo") then begin
+
+            ServItemLine.Get("Document Type", "Document No.", "Service Item Line No.");
+            if ServItemLine.nonfacturable_LDR then
+                Validate("Line Discount %", 100);
+        end;
     end;
 
     procedure InitFacturableQty(CurrentFieldNo: Integer);
@@ -1532,7 +1531,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
         end;
     end;
 
-    procedure SetRecreatingTable(bRecreate: BoolEAN);
+    procedure SetRecreatingTable(bRecreate: Boolean);
     begin
         bRecreating := bRecreate;
     end;
@@ -1580,7 +1579,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
         end;
     end;
 
-    procedure ChangeLocationReclasified(newLocation: Code[10]; NotReclassify: BoolEAN);
+    procedure ChangeLocationReclasified(newLocation: Code[10]; NotReclassify: Boolean);
     var
         ItemJnlLine: Record "Item Journal Line";
         SourceCodeSetup: Record "Source Code Setup";

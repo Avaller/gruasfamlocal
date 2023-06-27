@@ -126,7 +126,7 @@ tableextension 50084 "Service Shipment Item Line_LDR" extends "Service Shipment 
             OptionCaption = 'Transfer';
             OptionMembers = Transfer;
         }
-        field(50078; "Service Order Description_LDR"; Text[50]) //TODO: Revisar warning del field de la longitud Text
+        field(50078; "Service Order Description_LDR"; Text[50])
         {
             CalcFormula = Lookup("Service Shipment Header"."Description" WHERE("No." = FIELD("No.")));
             Caption = 'Descripción Pedido';

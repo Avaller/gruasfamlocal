@@ -122,7 +122,7 @@ tableextension 50090 "Service Cr.Memo Line_LDR" extends "Service Cr.Memo Line"
         {
             Caption = 'Nº Versión Grupo Precio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Table7122009"."Field6" WHERE("Field1" = FIELD("Service Price Group Code")); //TODO: Revisar si conservamos la tabla
+            //TableRelation = "Table7122009"."Field6" WHERE("Field1" = FIELD("Service Price Group Code")); 
         }
         field(50020; "Service Contract Period_LDR"; Text[50])
         {
@@ -133,7 +133,7 @@ tableextension 50090 "Service Cr.Memo Line_LDR" extends "Service Cr.Memo Line"
         {
             Caption = 'Nº Concepto';
             DataClassification = ToBeClassified;
-            //TableRelation = "Table7122020"."Field1" WHERE("Field4" = CONST(1)); //TODO: Revisar si conservamos la tabla
+            //TableRelation = "Table7122020"."Field1" WHERE("Field4" = CONST(1)); 
         }
         field(50022; "Charge Capacity_LDR"; Decimal)
         {

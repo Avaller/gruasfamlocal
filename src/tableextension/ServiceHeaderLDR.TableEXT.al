@@ -149,21 +149,21 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         }
         // modify("Shipping No. Series")
         // {
-        //     trigger OnLookup()
-        //     var
-        //         ServiceHeader: Record "Service Header";
-        //         ServSetup: Record "Service Mgt. Setup";
-        //         NoSeriesMgt: Codeunit NoSeriesManagement;
-        //     begin
-        //         with ServiceHeader do begin
-        //             ServiceHeader := Rec;
-        //             ServSetup.Get();
-        //             ServSetup.TestField("Posted Service Shipment Nos.");
-        //             if NoSeriesMgt.LookupSeries(ServSetup."Posted Service Shipment Nos.", "Shipping No. Series") then
-        //                 Validate("Shipping No. Series");
-        //             Rec := ServiceHeader;
-        //         end;
-        //     end;
+        //     // trigger OnLookup()
+        //     // var
+        //     //     ServiceHeader: Record "Service Header";
+        //     //     ServSetup: Record "Service Mgt. Setup";
+        //     //     NoSeriesMgt: Codeunit NoSeriesManagement;
+        //     // begin
+        //     //     with ServiceHeader do begin
+        //     //         ServiceHeader := Rec;
+        //     //         ServSetup.Get();
+        //     //         ServSetup.TestField("Posted Service Shipment Nos.");
+        //     //         if NoSeriesMgt.LookupSeries(ServSetup."Posted Service Shipment Nos.", "Shipping No. Series") then
+        //     //             Validate("Shipping No. Series");
+        //     //         Rec := ServiceHeader;
+        //     //     end;
+        //     // end;
         // }
         modify("Service Order Type")
         {
@@ -231,7 +231,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         {
             Caption = 'Nº Movimiento Operación Producto Servicio';
             DataClassification = ToBeClassified;
-            //TableRelation = "Serv. Item Operations Entry"."Entry No."; //TODO: Revisar si conservamos la tabla
+            TableRelation = "Serv. Item Operat Entry_LDR"."Entry No.";
         }
         field(50053; "Role Center Filter_LDR"; Boolean)
         {
@@ -296,7 +296,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             TableRelation = if ("Country/Region Code" = CONST()) "Post Code"."City" else
             if ("Country/Region Code" = FILTER(<> ''))
             "Post Code"."City" WHERE("Country/Region Code" = FIELD("Country/Region Code"));
-            TestTableRelation = false; //TODO: Revisar warning del atributo TestTableRelation de este field
+            TestTableRelation = false;
             ValidateTableRelation = false;
         }
         field(50060; "Destination Post Code_LDR"; Code[20])
@@ -305,7 +305,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             DataClassification = ToBeClassified;
             TableRelation = if ("Country/Region Code" = CONST()) "Post Code" else
             if ("Country/Region Code" = FILTER(<> '')) "Post Code" WHERE("Country/Region Code" = FIELD("Country/Region Code"));
-            TestTableRelation = false; //TODO: Revisar warning del atributo TestTableRelation de este field
+            TestTableRelation = false;
             ValidateTableRelation = false;
         }
         field(50061; "Destination County_LDR"; Text[30])
@@ -408,7 +408,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         {
             Caption = 'Id. de Orden de Domiciliación de Adeudo Directo';
             DataClassification = ToBeClassified;
-            //TableRelation = "SEPA Direct Debit Mandate" WHERE("Customer No." = FIELD("Bill-to Customer No."), "Closed" = CONST("No"), "Blocked" = CONST("No")); //TODO: Revisar si conservamos la tabla
+            TableRelation = "SEPA Direct Debit Mandate" WHERE("Customer No." = field("Bill-to Customer No."), "Closed" = CONST(false), "Blocked" = CONST(false));
         }
         field(50072; "Source Type_LDR"; Option)
         {
@@ -422,7 +422,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         {
             Caption = 'Código Tipo Trabajo por Defecto';
             DataClassification = ToBeClassified;
-            //TableRelation = "Work Type" WHERE ("Res. Journal Type_LDR"=FILTER("No")); //TODO: Revisar si conservamos la tabla
+            TableRelation = "Work Type" WHERE("Res. Journal Type_LDR" = FILTER(false));
 
             trigger OnValidate()
             var
@@ -448,7 +448,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         {
             Caption = 'Nº Contrato Interno';
             DataClassification = ToBeClassified;
-            //TableRelation = Table70028.Field1 WHERE(Field2 = CONST(1)); //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70028.Field1 WHERE(Field2 = CONST(1)); 
 
             trigger OnValidate()
             var
@@ -497,7 +497,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         {
             Caption = 'Nº Plantilla Revisión';
             DataClassification = ToBeClassified;
-            //TableRelation = Table70002; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70002; 
         }
         field(50078; "Rejected Quote_LDR"; Boolean)
         {
@@ -671,9 +671,9 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50104; "Replicate Pending_LDR"; Boolean) //TODO: Revisar warning del atributo CalcFormula del field
+        field(50104; "Replicate Pending_LDR"; Boolean)
         {
-            //CalcFormula = Exist("Service Line" WHERE("Document Type" = FIELD("Document Type"), "Customer No." = FIELD("Customer No."), "Document No." = FIELD("No."), Replicate_LDR = CONST(true), Replicated_LDR = CONST("No"), "Replicate Company" = FIELD("CompanyFilter"))); //TODO: Revisar si conservamos el atributo CalcFormula
+            CalcFormula = Exist("Service Line" WHERE("Document Type" = FIELD("Document Type"), "Customer No." = FIELD("Customer No."), "Document No." = FIELD("No."), Replicate_LDR = CONST(true), Replicated_LDR = CONST(false), "Replicate Company_LDR" = FIELD(CompanyFilter_LDR)));
             Caption = 'Pendiente Replicar';
             Editable = false;
             FieldClass = FlowField;
@@ -857,7 +857,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         end;
     end;
 
-    procedure QuoteToOrderAssistEdit(OldServHeader: Record "Service Header"): BoolEAN;
+    procedure QuoteToOrderAssistEdit(OldServHeader: Record "Service Header"): Boolean;
     var
         ServHeader: Record "Service Header";
         NoSeriesMgt: Codeunit NoSeriesManagement;
@@ -927,9 +927,9 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
     procedure DeshacerLineaContrato(RecSalesline: Record "Service Line");
     var
         ServiceContractHeader: Record "Service Contract Header";
-        //LockOpenServContract: Codeunit 5943;
+        LockOpenServContract: Codeunit "Lock-OpenServContract";
         ServiceEntry: Record "Service Ledger Entry";
-        Estado: BoolEAN;
+        Estado: Boolean;
     begin
         ServiceContractHeader.Get(ServiceContractHeader."Contract Type"::Contract, RecSalesline."Contract No.");
 
@@ -979,8 +979,8 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
     procedure DeshacerCabeceraContrato(RecSalesline: Record "Service Line");
     var
         ServiceContractHeader: Record "Service Contract Header";
-        //LockOpenServContract: Codeunit 5943;
-        Estado: BoolEAN;
+        LockOpenServContract: Codeunit "Lock-OpenServContract";
+        Estado: Boolean;
         ServDocRegister: Record "Service Document Register";
         ServiceHeader: Record "Service Header";
     begin
@@ -1239,8 +1239,8 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         end;
     end;
 
-    procedure ComprobarPedidoCompleto(bMostrarError: BoolEAN): BoolEAN;
-    VAR
+    procedure ComprobarPedidoCompleto(bMostrarError: Boolean): Boolean;
+    var
         ServiceOrderLine: Record "Purchase Line";
         txtPendiente: TextConst ENU = 'There is outstanding quantities on Service Order %1', ESP = 'Existen cantidades pendientes para el pedido de Servicio %1';
         txtEstado: TextConst ENU = 'Service Order %1 does not have Finished Status', ESP = 'El pedido de Servicio %1 no tiene el estado Terminado';
@@ -1434,7 +1434,6 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
                     ServItemLine.SetRange(ServItemLine."Document No.", "No.");
                     if ServItemLine.FindFirst() then
                         ServItemLine.TestField("Service Item No.");
-
 
                     Clear(NewAlarm);
                     NewAlarm."Alarm No." := NewAlarm.GetNextAlarmNo;

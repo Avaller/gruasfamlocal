@@ -23,13 +23,13 @@ tableextension 50082 "Filed Contract Line_LDR" extends "Filed Contract Line"
             DataClassification = ToBeClassified;
             Description = 'Permite Introducir un Importe Coste Diario';
         }
-        field(50003; "Exit Nº of Hours"; Integer)
+        field(50003; "Exit Nº of Hours_LDR"; Integer)
         {
             Caption = 'Nº Horas Salida';
             DataClassification = ToBeClassified;
             Description = 'Nº Horas Salida';
         }
-        field(50004; "Total Nº of Hours"; Integer)
+        field(50004; "Total Nº of Hours_LDR"; Integer)
         {
             Caption = 'Nº Horas Totales';
             DataClassification = ToBeClassified;

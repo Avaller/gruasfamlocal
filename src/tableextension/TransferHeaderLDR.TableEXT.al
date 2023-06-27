@@ -35,15 +35,15 @@ tableextension 50107 "Transfer Header_LDR" extends "Transfer Header"
             //Rutafichero := environment.GetEnvironmentVariable('userprofile');
             Orden.Create(TempServerFileName);
             repeat
-                if TransferLine."Nº EAN labels" <> 0 then
-                    Orden.Write('{IMPR#1#' + Format(TransferLine."Nº EAN labels") + '#' + Format(TransferLine.Description) + '#'
+                if TransferLine."Nº EAN labels_LDR" <> 0 then
+                    Orden.Write('{IMPR#1#' + Format(TransferLine."Nº EAN labels_LDR") + '#' + Format(TransferLine.Description) + '#'
                                           // + FuncionesEAN.GetEAN(TransferLine."Item No.") + '#' + Format(TransferLine."Item No.")
                                           + '#' + Format(TransferLine."Transfer-To Bin Code") + '#}');
 
             until TransferLine.Next = 0;
             Orden.Close;
             //FileManagement.DownloadToFile(TempServerFileName, Rutafichero + '\Etiquetas.txt');
-            SLEEP(1000);
+            Sleep(1000);
             //FuncionesEAN.EjecutarImpresion(Report::Report7122020);
         end;
     end;

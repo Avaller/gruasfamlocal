@@ -41,7 +41,7 @@ tableextension 50010 "Purchase Header_LDR" extends "Purchase Header"
         {
             Caption = 'Nº Contrato Proveedor';
             DataClassification = ToBeClassified;
-            //TableRelation = Table70072.Field1 WHERE (Field2=CONST(1))"; //TODO: Revisar si conservamos la tabla
+            //TableRelation = Table70072.Field1 WHERE (Field2=CONST(1))"; 
         }
         field(50006; Notas1_LDR; Text[100])
         {
@@ -56,16 +56,6 @@ tableextension 50010 "Purchase Header_LDR" extends "Purchase Header"
         {
         }
     }
-
-    var
-        Text000: TextConst ENU = 'Do you want to print receipt %1?', ESP = '¿Confirma que desea imprimir el albarán %1?';
-        Text001: TextConst ENU = 'Do you want to print invoice %1?', ESP = '¿Confirma que desea imprimir la factura %1?';
-        Text002: TextConst ENU = 'Do you want to print credit memo %1?', ESP = '¿Confirma que desea imprimir el abono %1?';
-        Text024: TextConst ENU = 'Do you want to print return shipment %1?', ESP = '¿Confirma que desea imprimir el envío devolución %1?';
-        Text043: TextConst ENU = 'Do you want to print prepayment invoice %1?', ESP = '¿Desea imprimir la factura prepago %1?';
-        Text044: TextConst ENU = 'Do you want to print prepayment credit memo %1?', ESP = '¿Desea imprimir el abono prepago %1?';
-        Text3: TextConst ENU = 'It is not possible to close %1 because it is included on bill group.', ESP = '%1 No se puede liquidar ya que esta incluido en una remesa.';
-        Text4: TextConst ENU = 'Delete it from Bill group and try.', ESP = 'Borrelo de la remesa e intentelo de nuevo.';
 
     trigger OnAfterDelete()
     var
@@ -132,6 +122,16 @@ tableextension 50010 "Purchase Header_LDR" extends "Purchase Header"
                 PurchCrMemoHeaderPrepmt.PrintRecords(true);
             end;
     end;
+
+    var
+        Text000: TextConst ENU = 'Do you want to print receipt %1?', ESP = '¿Confirma que desea imprimir el albarán %1?';
+        Text001: TextConst ENU = 'Do you want to print invoice %1?', ESP = '¿Confirma que desea imprimir la factura %1?';
+        Text002: TextConst ENU = 'Do you want to print credit memo %1?', ESP = '¿Confirma que desea imprimir el abono %1?';
+        Text024: TextConst ENU = 'Do you want to print return shipment %1?', ESP = '¿Confirma que desea imprimir el envío devolución %1?';
+        Text043: TextConst ENU = 'Do you want to print prepayment invoice %1?', ESP = '¿Desea imprimir la factura prepago %1?';
+        Text044: TextConst ENU = 'Do you want to print prepayment credit memo %1?', ESP = '¿Desea imprimir el abono prepago %1?';
+        Text3: TextConst ENU = 'It is not possible to close %1 because it is included on bill group.', ESP = '%1 No se puede liquidar ya que esta incluido en una remesa.';
+        Text4: TextConst ENU = 'Delete it from Bill group and try.', ESP = 'Borrelo de la remesa e intentelo de nuevo.';
 
     procedure CheckBillSituation();
     var
@@ -216,7 +216,6 @@ tableextension 50010 "Purchase Header_LDR" extends "Purchase Header"
 
     local procedure UpdateTaxWithholdingLines();
     begin
-        ;
         Modify();
         PurchLine.SetRange("Document Type", "Document Type");
         PurchLine.SetRange("Document No.", "No.");
