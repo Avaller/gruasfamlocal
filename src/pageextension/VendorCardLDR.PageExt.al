@@ -164,7 +164,7 @@ pageextension 50007 "Vendor Card" extends "Vendor Card"
                 Caption = 'Crear Alarma';
                 trigger OnAction()
                 begin
-                    CreateAlarmFor(1);
+                    Rec.CreateAlarmFor(1);
                 end;
             }
         }
@@ -180,7 +180,7 @@ pageextension 50007 "Vendor Card" extends "Vendor Card"
 
                     trigger OnAction()
                     var
-                        MultiCompanyMgt: Report 50212;
+                        MultiCompanyMgt: Report "MultiCompany Mgt.";
                     begin
                         MultiCompanyMgt.CreateVendor(Rec, true);
                     end;

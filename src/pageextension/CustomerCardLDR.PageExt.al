@@ -450,7 +450,7 @@ pageextension 50004 "Customer Card_LDR" extends "Customer Card"
                     ConfigTemplateMgt: Codeunit "Config. Template Management";
                     RecRef: RecordRef;
                 begin
-                    CreaAlarmFor(1);
+                    Rec.CreateAlarmFor(1);
                 end;
             }
         }

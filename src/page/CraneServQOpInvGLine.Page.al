@@ -78,7 +78,7 @@ page 50035 "Crane Serv. Q. Op. Inv. G Line"
                     RunObject = Page "Service Comment Sheet";
                     RunPageLink = Type = const("General"),
                                   "Table Subtype" = const(2),
-                                  "Table Name" = const("Crane Quote"), //TODO: Crane Quote
+                                  "Table Name" = const("Crane Quote"),
                                   "No." = field("Quote No."),
                                   "Table Line No." = field("Operation Line No.");
                 }

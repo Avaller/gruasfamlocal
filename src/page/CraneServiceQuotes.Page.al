@@ -120,7 +120,7 @@ page 50023 "Crane Service Quotes"
                 RunObject = Page "Service Comment Sheet";
                 RunPageLink = Type = const(General),
                               "Table Subtype" = const(0),
-                              "Table Name" = const("Crane Quote"),  //TODO: Crane Quote
+                              "Table Name" = const("Crane Quote"),
                               "No." = field("Quote no."),
                               "Table Line No." = const(0);
             }

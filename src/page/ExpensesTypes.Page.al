@@ -34,7 +34,7 @@ page 50095 "Expenses Types"
                 field("Mobility Exp. Type"; Rec."Mobility Exp. Type")
                 {
                     ApplicationArea = All;
-                    Caption = 'Movilidad Exp. Tipo'; //TODO: Ni idea de la traducción
+                    Caption = 'Movilidad Exp. Tipo';
                     ToolTip = 'Movilidad Exp. Tipo';
                 }
                 field("Reduced Bonus"; Rec."Reduced Bonus")

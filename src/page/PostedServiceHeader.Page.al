@@ -632,7 +632,7 @@ page 50203 "Posted Service Header"
                     Image = ViewComments;
                     RunObject = Page "Service Comment Sheet";
                     RunPageLink = "No." = field("No."),
-                                  "Table Name" = Const("Service Header"), //TODO: "Posted Service Header" no esta , asi que lo sustitui por Service Header
+                                  "Table Name" = Const("Service Header"),
                                   Type = Const(General);
                 }
                 action(Dimensions)

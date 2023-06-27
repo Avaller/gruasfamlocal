@@ -332,11 +332,11 @@ pageextension 50008 "Item Card" extends "Item Card"
     /// </summary>
     procedure FormatearFormulario()
     begin
-        CASE Type2 OF
-            Type2::Component:
+        CASE Rec.Type2_LDR OF
+            Rec.Type2_LDR::Component:
                 BEGIN
-                    CASE Subtype OF
-                        Subtype::Chasis:
+                    CASE Rec.Subtype_LDR OF
+                        Rec.Subtype_LDR::Chasis:
                             BEGIN
                                 ItemTypeEnabled := FALSE;
                                 ModelEnabled := TRUE;
@@ -357,7 +357,7 @@ pageextension 50008 "Item Card" extends "Item Card"
                                 PlatesEnabled := FALSE;
                                 MedeaCodeEnabled := TRUE;
                             END;
-                        Subtype::Mast:
+                        Rec.Subtype_LDR::Mast:
                             BEGIN
                                 ItemTypeEnabled := TRUE;
                                 ModelEnabled := FALSE;
@@ -378,7 +378,7 @@ pageextension 50008 "Item Card" extends "Item Card"
                                 PlatesEnabled := FALSE;
                                 MedeaCodeEnabled := FALSE;
                             END;
-                        Subtype::Engine:
+                        Rec.Subtype_LDR::Engine:
                             BEGIN
                                 ItemTypeEnabled := FALSE;
                                 ModelEnabled := TRUE;
@@ -399,7 +399,7 @@ pageextension 50008 "Item Card" extends "Item Card"
                                 PlatesEnabled := FALSE;
                                 MedeaCodeEnabled := TRUE;
                             END;
-                        Subtype::Wheels:
+                        Rec.Subtype_LDR::Wheels:
                             BEGIN
                                 ItemTypeEnabled := TRUE;
                                 ModelEnabled := FALSE;
@@ -420,7 +420,7 @@ pageextension 50008 "Item Card" extends "Item Card"
                                 PlatesEnabled := FALSE;
                                 MedeaCodeEnabled := TRUE;
                             END;
-                        Subtype::Brackets:
+                        Rec.Subtype_LDR::Brackets:
                             BEGIN
                                 ItemTypeEnabled := TRUE;
                                 ModelEnabled := FALSE;
@@ -441,7 +441,7 @@ pageextension 50008 "Item Card" extends "Item Card"
                                 PlatesEnabled := FALSE;
                                 MedeaCodeEnabled := TRUE;
                             END;
-                        Subtype::Batery:
+                        Rec.Subtype_LDR::Batery:
                             BEGIN
                                 ItemTypeEnabled := FALSE;
                                 ModelEnabled := TRUE;
@@ -462,7 +462,7 @@ pageextension 50008 "Item Card" extends "Item Card"
                                 PlatesEnabled := TRUE;
                                 MedeaCodeEnabled := TRUE;
                             END;
-                        Subtype::Charger:
+                        Rec.Subtype_LDR::Charger:
                             BEGIN
                                 ItemTypeEnabled := TRUE;
                                 ModelEnabled := TRUE;
@@ -483,7 +483,7 @@ pageextension 50008 "Item Card" extends "Item Card"
                                 PlatesEnabled := FALSE;
                                 MedeaCodeEnabled := TRUE;
                             END;
-                        Subtype::" ":
+                        Rec.Subtype_LDR::" ":
                             BEGIN
                                 ItemTypeEnabled := FALSE;
                                 ModelEnabled := FALSE;
@@ -508,7 +508,7 @@ pageextension 50008 "Item Card" extends "Item Card"
                     END;
 
                 END;
-            Type2::Implement:
+            Rec.Type2_LDR::Implement:
                 BEGIN
                     ItemTypeEnabled := FALSE;
                     ModelEnabled := TRUE;
@@ -530,7 +530,7 @@ pageextension 50008 "Item Card" extends "Item Card"
                     MedeaCodeEnabled := TRUE;
 
                 END;
-            Type2::"Spare Part":
+            Rec.Type2_LDR::"Spare Part":
                 BEGIN
                     ItemTypeEnabled := FALSE;
                     ModelEnabled := FALSE;
@@ -552,7 +552,7 @@ pageextension 50008 "Item Card" extends "Item Card"
                     MedeaCodeEnabled := TRUE;
 
                 END;
-            Type2::Machine:
+            Rec.Type2_LDR::Machine:
                 BEGIN
                     ItemTypeEnabled := FALSE;
                     ModelEnabled := TRUE;
@@ -574,7 +574,7 @@ pageextension 50008 "Item Card" extends "Item Card"
                     MedeaCodeEnabled := TRUE;
 
                 END;
-            Type2::" ":
+            Rec.Type2_LDR::" ":
                 BEGIN
                     ItemTypeEnabled := FALSE;
                     ModelEnabled := FALSE;

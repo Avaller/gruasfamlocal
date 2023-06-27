@@ -1,0 +1,141 @@
+/// <summary>
+/// PageExtension Purch. Invoice Subform (ID 50024) extends Record Purch. Invoice Subform.
+/// </summary>
+pageextension 50024 "Purch. Invoice Subform" extends "Purch. Invoice Subform"
+{
+    layout
+    {
+        addafter("No.")
+        {
+            field("VAT Bus. Posting Group_LDR"; Rec."VAT Bus. Posting Group")
+            {
+                ApplicationArea = All;
+                Caption = 'Grupo de registro comercial de IVA';
+                ToolTip = 'Grupo de registro comercial de IVA';
+            }
+            field("Gen. Prod. Posting Group_LDR"; Rec."Gen. Prod. Posting Group")
+            {
+                ApplicationArea = All;
+                Caption = 'Prod. gen. Grupo de contabilización';
+                ToolTip = 'Prod. gen. Grupo de contabilización';
+            }
+            field("VAT Prod. Posting Group_LDR"; Rec."VAT Prod. Posting Group")
+            {
+                ApplicationArea = All;
+                Caption = 'IVA prod. Grupo de contabilización';
+                ToolTip = 'IVA prod. Grupo de contabilización';
+                trigger OnValidate()
+                begin
+
+                end;
+            }
+            field("Gen. Bus. Posting Group_LDR"; Rec."Gen. Bus. Posting Group")
+            {
+                ApplicationArea = All;
+                Caption = 'Grupo de contabilización comercial general';
+                ToolTip = 'Grupo de contabilización comercial general';
+            }
+        }
+        addafter("Inv. Discount Amount")
+        {
+            field("Vendor Contract No._LDR"; Rec."Vendor Contract No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'N.° de contrato de proveedor';
+                ToolTip = 'N.° de contrato de proveedor';
+            }
+            field("Service Contract No._LDR"; Rec."Service Contract No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Contrato de Servicio No.';
+                ToolTip = 'Contrato de Servicio No.';
+            }
+            field("Service Contract Line No._LDR"; Rec."Service Contract Line No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de línea del contrato de servicio';
+                ToolTip = 'Número de línea del contrato de servicio';
+            }
+            field("Service Item No._LDR"; Rec."Service Item No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de artículo de servicio';
+                ToolTip = 'Número de artículo de servicio';
+            }
+        }
+    }
+
+    actions
+    {
+        addafter(GetReceiptLines)
+        {
+            action(GetForecastLines)
+            {
+                AccessByPermission = TableData Forecast_LDR = R;
+                ApplicationArea = All;
+                Ellipsis = true;
+                Caption = 'Traer &previsi¢n de pago';
+                Visible = ForecastActive;
+                Image = Payment;
+
+                trigger OnAction()
+                var
+                    GetForecastLines: Page "Get Forecast Lines";
+                    PurchaseHeader: Record "Purchase Header";
+                begin
+                    GetForecastLines.SelectVendor(PaytoVendor, PurchInvoiceNo, '', '');  //jmb
+                    GetForecastLines.LOOKUPMODE := TRUE;
+                    GetForecastLines.RUNMODAL;
+                    CurrPage.UPDATE;
+                end;
+            }
+        }
+    }
+    /// <summary>
+    /// GetWarantyServiceOrder.
+    /// </summary>
+    procedure GetWarantyServiceOrder()
+    var
+        PurchSetup: Record "Purchases & Payables Setup";
+    begin
+        PurchSetup.Get();
+        PurchSetup.TestField("Warranty Mgt. Type", PurchSetup."Warranty Mgt. Type"::Compra);
+    end;
+    /// <summary>
+    /// UpdateMachinePurchDoc.
+    /// </summary>
+    procedure UpdateMachinePurchDoc()
+    var
+        UpdatePurchLine: Record "Purchase Line";
+        PurchRcptHeader: Record "Purch. Rcpt. Header";
+        PurchaseHeader: Record "Purchase Header";
+    begin
+        Clear(UpdatePurchLine);
+        UpdatePurchLine.SetRange("Document Type", Rec."Document Type");
+        UpdatePurchLine.SetRange("Document No.", Rec."Document No.");
+        UpdatePurchLine.SetFilter("Receipt No.", '<>%1', '');
+        if UpdatePurchLine.FindLast() then begin
+            PurchRcptHeader.Get(UpdatePurchLine."Receipt No.");
+            PurchaseHeader.Get(Rec."Document Type", Rec."Document No.");
+            PurchaseHeader."Machine Purchase Document_LDR" := PurchRcptHeader."Machine Purchase Document_LDR";
+            PurchaseHeader.Modify();
+            CurrPage.Update();
+        end;
+    end;
+    /// <summary>
+    /// SetForecastVendor.
+    /// </summary>
+    /// <param name="Vendor">Code[20].</param>
+    /// <param name="Active">Boolean.</param>
+    /// <param name="Invoice">Code[20].</param>
+    procedure SetForecastVendor(Vendor: Code[20]; Active: Boolean; Invoice: Code[20])
+    begin
+        PaytoVendor := Vendor;
+        ForecastActive := Active;
+        PurchInvoiceNo := Invoice;
+    end;
+
+    var
+        PaytoVendor: Code[20];
+        ForecastActive: Boolean;
+        PurchInvoiceNo: Code[20];

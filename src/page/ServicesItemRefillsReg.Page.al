@@ -182,7 +182,7 @@ page 50021 "Services Item Refills Reg"
                 begin
                     //MESSAGE('Pendiente de Implementar');
 
-                    ServItemRefillMgt.ProcessSingleEntry(Rec); //TODO: No definido
+                    ServItemRefillMgt.ProcessSingleEntry(Rec);
                     CurrPage.UPDATE(FALSE);
                 end;
             }
