@@ -904,7 +904,7 @@ tableextension 50074 "Service Item_LDR" extends "Service Item"
         DimMgt: Codeunit "DimensionManagement";
     begin
         DimMgt.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
-        //DimMgt.SaveDefaultDim(Database:"Service Item", "No.", FieldNumber, ShortcutDimCode);
+        DimMgt.SaveDefaultDim(Database::"Service Item", "No.", FieldNumber, ShortcutDimCode);
         Modify();
     end;
 

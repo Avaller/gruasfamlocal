@@ -128,7 +128,7 @@ pageextension 50008 "Item Card" extends "Item Card"
                         Enabled = true;
                         ToolTip = 'Capacidad de carga';
                     }
-                    field(Heightss_LDR; Rec.Heightss_LDR)
+                    field(Height_LDR; Rec.Height_LDR)
                     {
                         ApplicationArea = All;
                         Caption = 'Alturas';

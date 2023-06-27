@@ -74,7 +74,7 @@ tableextension 50022 "Sales Cr.Memo Header_LDR" extends "Sales Cr.Memo Header"
     end;
 
     //[External]
-    local procedure IsSingleCustomerSelected(ShowRequestPage: BoolEAN): BoolEAN;
+    local procedure IsSingleCustomerSelected(ShowRequestPage: Boolean): Boolean;
     var
         SelectedCount: Integer;
         CustomerCount: Integer;
@@ -104,7 +104,7 @@ tableextension 50022 "Sales Cr.Memo Header_LDR" extends "Sales Cr.Memo Header"
     end;
 
     //[External]
-    procedure PrintRecords(ShowRequestPage: BoolEAN);
+    procedure PrintRecords(ShowRequestPage: Boolean);
     var
         DocumentSendingProfile: Record "Document Sending Profile";
         DummyReportSelections: Record "Report Selections";
@@ -120,7 +120,7 @@ tableextension 50022 "Sales Cr.Memo Header_LDR" extends "Sales Cr.Memo Header"
     end;
 
     //[External]
-    procedure EmailRecords(ShowRequestPage: BoolEAN);
+    procedure EmailRecords(ShowRequestPage: Boolean);
     var
         DocumentSendingProfile: Record "Document Sending Profile";
         DocTxt: Text;

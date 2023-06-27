@@ -43,7 +43,7 @@ tableextension 50107 "Transfer Header_LDR" extends "Transfer Header"
             until TransferLine.Next = 0;
             Orden.Close;
             //FileManagement.DownloadToFile(TempServerFileName, Rutafichero + '\Etiquetas.txt');
-            SLEEP(1000);
+            Sleep(1000);
             //FuncionesEAN.EjecutarImpresion(Report::Report7122020);
         end;
     end;

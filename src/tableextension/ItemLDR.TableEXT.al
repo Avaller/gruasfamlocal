@@ -186,7 +186,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                     Clear(recItem);
                     recItem.SetCurrentKey(EAN_LDR);
                     recItem.SetRange(recItem.EAN_LDR, EAN_LDR);
-                    if recItem.FindFirst then
+                    if recItem.FindFirst() then
                         Error(TextEANerror, EAN_LDR);
 
                     if StrLen(EAN_LDR) <> 13 then

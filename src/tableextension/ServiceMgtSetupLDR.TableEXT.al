@@ -587,7 +587,7 @@ tableextension 50071 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
                 if BatchTable.FindSet() then;
                 BatchForm.SetTableView(BatchTable);
                 BatchForm.LookupMode := true;
-                if BatchForm.RunModal = Action::LookupOK then begin
+                if BatchForm.RunModal() = Action::LookupOK then begin
                     BatchForm.GetRecord(BatchTable);
                     "PDA Recl. Journal Batch_LDR" := BatchTable.Name;
                 end;

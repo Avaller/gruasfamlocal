@@ -67,7 +67,7 @@ tableextension 50011 "Purchase Line_LDR" extends "Purchase Line"
             var
                 ServHeader: Record "Service Header";
             begin
-                TestStatusOpen;
+                TestStatusOpen();
 
                 if "Service Order No._LDR" <> '' then begin
                     if not ServHeader.Get(ServHeader."Document Type"::Order, "Service Order No._LDR") then
@@ -87,7 +87,7 @@ tableextension 50011 "Purchase Line_LDR" extends "Purchase Line"
             begin
                 if Type <> Type::Item then
                     Error(Text035);
-                ServMgtSetup.Get;
+                ServMgtSetup.Get();
 
                 Clear(ServItemLine2);
                 ServItemLine2.SetRange(ServItemLine2."Document Type", ServItemLine."Document Type"::Order);
@@ -122,7 +122,7 @@ tableextension 50011 "Purchase Line_LDR" extends "Purchase Line"
             var
                 ServItemLine: Record "Service Item Line";
             begin
-                TestStatusOpen;
+                TestStatusOpen();
 
                 if "Service Order No._LDR" = '' then
                     Error(Text50008);
@@ -399,7 +399,7 @@ tableextension 50011 "Purchase Line_LDR" extends "Purchase Line"
         ServContractLine.SetRange(ServContractLine."Contract Type", ServContractLine."Contract Type"::Contract);
         ServContractLine.SetRange(ServContractLine."Contract Status", ServContractLine."Contract Status"::Signed);
         ServContractLine.SetRange(ServContractLine."Service Item No.", "Service Item No._LDR");
-        if ServContractLine.FindSet then;
+        if ServContractLine.FindSet() then;
 
         Clear(frmServContractLine);
         frmServContractLine.LookupMode := true;

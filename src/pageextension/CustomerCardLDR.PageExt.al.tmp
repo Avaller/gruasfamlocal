@@ -488,7 +488,7 @@ pageextension 50004 "Customer Card_LDR" extends "Customer Card"
         if (CraneMgtSetup."Auto Create General Quote") and ((CloseAction = ACTION::OK) OR (CloseAction = ACTION::LookupOK)) then
             ServiceQuoteMgt.CreateGeneralQuote(Rec);
         SalesSetup.Get();
-        if (SalesSetup."CIF/NIF Obligatory") and (Rec."VAT Registration No." = '') AND (Rec."No." <> '') then
+        if (SalesSetup."CIF/NIF Obligatory_LDR") and (Rec."VAT Registration No." = '') AND (Rec."No." <> '') then
             Message(txtErrorCIF);
     end;
 

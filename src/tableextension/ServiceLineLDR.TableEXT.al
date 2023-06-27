@@ -1439,7 +1439,7 @@ tableextension 50067 "Service Line_LDR" extends "Service Line"
                         //"Spare Part Action" := "Spare Part Action"::"Component Changed";
                         Quantity := 0;
                     end else
-                        Error(Text007, ServItemComponent.TABLECAPTION);
+                        Error(Text007, ServItemComponent.TableCaption());
                 end;
         end;
     end;

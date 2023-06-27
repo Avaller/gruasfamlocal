@@ -134,7 +134,7 @@ tableextension 50005 "Vendor_LDR" extends Vendor
         PurchPrepmtPct.SetRange("Vendor No.", "No.");
         PurchPrepmtPct.DeleteAll(true);
 
-        CustomReportSelection.SetRange("Source Type", DATABASE::Vendor);
+        CustomReportSelection.SetRange("Source Type", Database::Vendor);
         CustomReportSelection.SetRange("Source No.", "No.");
         CustomReportSelection.DeleteAll();
     end;
@@ -159,7 +159,7 @@ tableextension 50005 "Vendor_LDR" extends Vendor
                     NewAlarm."Source Type" := NewAlarm."Source Type"::Vendor;
                     NewAlarm."Source No." := "No.";
                     NewAlarm."User ID" := UserId;
-                    NewAlarm.insert(true);
+                    NewAlarm.Insert(true);
                 end;
         end;
 
