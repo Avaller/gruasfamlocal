@@ -530,7 +530,7 @@ tableextension 50066 "Service Item Line_LDR" extends "Service Item Line"
         Modify();
     end;
 
-    procedure bOmitirComprobarFacturarA(bValor: BoolEAN);
+    procedure bOmitirComprobarFacturarA(bValor: Boolean);
     begin
         bOmitirFacturarA := bValor;
     end;

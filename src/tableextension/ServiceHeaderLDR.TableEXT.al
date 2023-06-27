@@ -857,7 +857,7 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         end;
     end;
 
-    procedure QuoteToOrderAssistEdit(OldServHeader: Record "Service Header"): BoolEAN;
+    procedure QuoteToOrderAssistEdit(OldServHeader: Record "Service Header"): Boolean;
     var
         ServHeader: Record "Service Header";
         NoSeriesMgt: Codeunit NoSeriesManagement;
@@ -1239,8 +1239,8 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
         end;
     end;
 
-    procedure ComprobarPedidoCompleto(bMostrarError: BoolEAN): BoolEAN;
-    VAR
+    procedure ComprobarPedidoCompleto(bMostrarError: Boolean): Boolean;
+    var
         ServiceOrderLine: Record "Purchase Line";
         txtPendiente: TextConst ENU = 'There is outstanding quantities on Service Order %1', ESP = 'Existen cantidades pendientes para el pedido de Servicio %1';
         txtEstado: TextConst ENU = 'Service Order %1 does not have Finished Status', ESP = 'El pedido de Servicio %1 no tiene el estado Terminado';
@@ -1434,7 +1434,6 @@ tableextension 50065 "Service Header_LDR" extends "Service Header"
                     ServItemLine.SetRange(ServItemLine."Document No.", "No.");
                     if ServItemLine.FindFirst() then
                         ServItemLine.TestField("Service Item No.");
-
 
                     Clear(NewAlarm);
                     NewAlarm."Alarm No." := NewAlarm.GetNextAlarmNo;

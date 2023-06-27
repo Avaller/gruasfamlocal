@@ -13,7 +13,7 @@ tableextension 50095 "Service Cue_LDR" extends "Service Cue"
         }
         field(50001; "Service Orders - to Plan_LDR"; Integer)
         {
-            //CalcFormula = Count("Service Item Line" WHERE("Requested Starting Date_LDR" = FIELD("WorkDate Filter_LDR"), "Service Item No." = FILTER(''), "Repair Status Code" = FIELD("Repair Status Filter_LDR"), "Role Center Filter_LDR" = CONST(true), "Repair Status Code" = CONST("Initial")));
+            CalcFormula = Count("Service Item Line" WHERE("Requested Starting Date_LDR" = FIELD("WorkDate Filter_LDR"), "Service Item No." = FILTER(''), "Repair Status Code" = FIELD("Repair Status Filter_LDR"), "Role Center Filter_LDR" = CONST(true), "Repair Status Code" = CONST('Initial')));
             Caption = 'Pedidos Servicio - Pendientes de Planificar';
             Editable = false;
             FieldClass = FlowField;

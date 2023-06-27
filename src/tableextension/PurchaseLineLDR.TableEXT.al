@@ -348,9 +348,9 @@ tableextension 50011 "Purchase Line_LDR" extends "Purchase Line"
             trigger OnValidate()
             begin
                 TestField(Quantity);
-                UpdateAmounts;
-                UpdateUnitCost;
-                CalcInvDiscToInvoice;
+                UpdateAmounts();
+                UpdateUnitCost();
+                CalcInvDiscToInvoice();
             end;
         }
     }

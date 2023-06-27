@@ -750,7 +750,7 @@ tableextension 50006 "Item_LDR" extends "Item"
         frmJournal.Run;
     end;
 
-    procedure GetJournalBatch(TemplateName: Code[20] /*; var SelectedJournalBatch: Record 70065*/): BoolEAN;
+    procedure GetJournalBatch(TemplateName: Code[20] /*; var SelectedJournalBatch: Record 70065*/): Boolean;
     var
     //frmJournalBatch : Page 70100;
     begin
@@ -768,7 +768,7 @@ tableextension 50006 "Item_LDR" extends "Item"
         end; */
     end;
 
-    procedure ProdOrderExistCompany(Company: Text[80]): BoolEAN;
+    procedure ProdOrderExistCompany(Company: Text[80]): Boolean;
     var
         ProdOrderLine: Record "Prod. Order Line";
     begin

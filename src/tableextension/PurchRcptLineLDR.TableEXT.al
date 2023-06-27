@@ -76,7 +76,7 @@ tableextension 50025 "Purch. Rcpt. Line_LDR" extends "Purch. Rcpt. Line"
         }
     }
 
-    procedure CambiarEstadoReclasificacion(boolEstado: BoolEAN)
+    procedure CambiarEstadoReclasificacion(boolEstado: Boolean)
     var
         Text001: TextConst ENU = 'Line has been marked as reclasified.', ESP = 'La línea ha sido marcada como reclasificada.';
         Text002: TextConst ENU = 'Line has been marked as not reclasified.', ESP = 'La línea ha sido marcada como no reclasificada.';
