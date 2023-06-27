@@ -211,17 +211,17 @@ tableextension 50015 "Item Journal Line_LDR" extends "Item Journal Line"
         }
     }
 
-    var
-        TxtErrorEAN: TextConst ENU = 'EAN does not match with any item.', ESP = 'El EAN especificado no corresponde con ningún producto, verifique dicho código';
-        Text038: TextConst ENU = 'You must introduce the Service Order number', ESP = 'Se debe rellenar primero el No. de Pedido de Servicio';
-        Text039: TextConst ENU = 'The Line No. inserted isnt created in the Service Order No. chosen, you have to check the Service Order No.', ESP = 'El No. de Línea introducida no está creada en el Pedido de Servicio introducido, revise el No. Pedido de Servicio';
-
     trigger OnAfterInsert()
     var
         ItemJnlBatch: Record "Item Journal Batch";
     begin
         Mobility_LDR := ItemJnlBatch.Mobility_LDR;
     end;
+
+    var
+        TxtErrorEAN: TextConst ENU = 'EAN does not match with any item.', ESP = 'El EAN especificado no corresponde con ningún producto, verifique dicho código';
+        Text038: TextConst ENU = 'You must introduce the Service Order number', ESP = 'Se debe rellenar primero el No. de Pedido de Servicio';
+        Text039: TextConst ENU = 'The Line No. inserted isnt created in the Service Order No. chosen, you have to check the Service Order No.', ESP = 'El No. de Línea introducida no está creada en el Pedido de Servicio introducido, revise el No. Pedido de Servicio';
 
     local procedure CreateCodeArray(var CodeArray: array[10] of Code[20]; No1: Code[20]; No2: Code[20]; No3: Code[20]);
     begin

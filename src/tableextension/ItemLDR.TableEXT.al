@@ -192,7 +192,7 @@ tableextension 50006 "Item_LDR" extends "Item"
                     if StrLen(EAN_LDR) <> 13 then
                         Error(TextEANIncorrecto, EAN_LDR);
 
-                    //CheckEAN := FuncionesEAN.ObtenerDC(CopyStr(EAN, 1, (StrLen(EAN) - 1)));
+                    //CheckEAN := FuncionesEAN.ObtenerDC(CopyStr(EAN_LDR, 1, (StrLen(EAN_LDR) - 1)));
                     if CheckEAN <> EAN_LDR then
                         Error(TextDCIncorrecto, EAN_LDR);
                 END;
