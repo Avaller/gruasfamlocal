@@ -199,7 +199,7 @@ tableextension 50088 "Service Invoice Line_LDR" extends "Service Invoice Line"
             Caption = 'Nº Garantía';
             DataClassification = ToBeClassified;
         }
-        field(50087; Warranty_LDR; Boolean)
+        field(50087; "Warranty_LDR"; Boolean)
         {
             Caption = 'Garantía';
             DataClassification = ToBeClassified;

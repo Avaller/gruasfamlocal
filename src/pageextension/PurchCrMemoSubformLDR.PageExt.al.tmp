@@ -57,7 +57,7 @@ pageextension 50030 "Purch. Cr. Memo Subform_LDR" extends "Purch. Cr. Memo Subfo
         PurchSetup: Record "Purchases & Payables Setup";
     begin
         PurchSetup.GET;
-        PurchSetup.TESTFIELD(PurchSetup."Warranty Mgt. Type", PurchSetup."Warranty Mgt. Type"::Compra);
+        PurchSetup.TESTFIELD(PurchSetup."Warranty Mgt. Type_LDR", PurchSetup."Warranty Mgt. Type_LDR"::Compra);
     end;
 
     var

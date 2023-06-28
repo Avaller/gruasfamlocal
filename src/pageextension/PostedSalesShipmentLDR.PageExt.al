@@ -59,4 +59,7 @@ pageextension 50034 "Posted Sales Shipment_LDR" extends "Posted Sales Shipment"
             }
         }
     }
+
+    var
+        SalesShptHeader: Record "Sales Shipment Header";
 }

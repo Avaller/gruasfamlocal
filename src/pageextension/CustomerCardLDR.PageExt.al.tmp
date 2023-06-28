@@ -465,7 +465,7 @@ pageextension 50004 "Customer Card_LDR" extends "Customer Card"
 
                     trigger OnAction()
                     var
-                        MultiCompanyMgt: Report 50212;
+                        MultiCompanyMgt: Report "MultiCompany Mgt.";
                     begin
                         MultiCompanyMgt.CreateCustomer(Rec, true);
                     end;
