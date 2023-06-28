@@ -1,4 +1,4 @@
-pageextension 50026 "Resource Groups" extends "Resource Groups"
+pageextension 50026 "Resource Groups_LDR" extends "Resource Groups"
 {
     layout
     {

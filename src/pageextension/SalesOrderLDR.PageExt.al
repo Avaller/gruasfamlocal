@@ -1,4 +1,4 @@
-pageextension 50014 "Sales Order" extends "Sales Order"
+pageextension 50014 "Sales Order_LDR" extends "Sales Order"
 {
     layout
     {

@@ -1,0 +1,157 @@
+pageextension 50027 "Resource Card_LDR" extends "Resource Card"
+{
+    layout
+    {
+        addafter("Time Sheet Approver User ID")
+        {
+            field("Base Calendar Code_LDR"; Rec."Base Calendar Code_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Código base del calendario';
+                ToolTip = 'Código base del calendario';
+            }
+            field("Company Dependence_LDR"; Rec."Company Dependence_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Dependencia de la empresa';
+                ToolTip = 'Dependencia de la empresa';
+            }
+            group(Schedule)
+            {
+                Caption = 'Horario';
+                field("Journey Starting Time_LDR"; Rec."Journey Starting Time_LDR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Hora de inicio del viaje';
+                    ToolTip = 'Hora de inicio del viaje';
+                }
+                field("Journey Ending Time_LDR"; Rec."Journey Ending Time_LDR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Hora de finalización del viaje';
+                    ToolTip = 'Hora de finalización del viaje';
+                }
+            }
+            group("Work Center")
+            {
+                Caption = 'Centro Trabajo';
+                field("Explotation Customer No._LDR"; Rec."Explotation Customer No._LDR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Explotación Cliente No.';
+                    ToolTip = 'Explotación Cliente No.';
+                }
+                field("Explotation Name_LDR"; Rec."Explotation Name_LDR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Nombre de explotación';
+                    ToolTip = 'Nombre de explotación';
+                }
+            }
+        }
+        addafter("Employment Date")
+        {
+            group(Mobility)
+            {
+                Caption = 'Movilidad';
+                field("Mobility User_LDR"; Rec."Mobility User_LDR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Usuario de movilidad';
+                    ToolTip = 'Usuario de movilidad';
+                }
+                field("Mobility Password_LDR"; Rec."Mobility Password_LDR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Contraseña de movilidad';
+                    ToolTip = 'Contraseña de movilidad';
+                }
+            }
+        }
+    }
+
+    actions
+    {
+        addafter("&Resource")
+        {
+            action(Employee)
+            {
+                ApplicationArea = All;
+                Caption = 'Empleado';
+                Image = Employee;
+
+                trigger OnAction()
+                var
+                    Employee: Record Employee;
+                begin
+                    Employee.SetRange("Resource No.", Rec."No.");
+                    Page.Run(5200, Employee);
+                end;
+            }
+        }
+        addbefore(ActionGroupCRM)
+        {
+            action(ResourceAllocations)
+            {
+                ApplicationArea = All;
+                Caption = 'Asignaciones de Recurso';
+                Promoted = true;
+                Image = Allocations;
+                RunPageMode = View;
+
+                RunObject = Page "Service Order Allocations";
+                RunPageView = sorting("Resource No.", "Document Type", "Allocation Date", Status, Posted);
+                RunPageLink = "Resource No." = field("No.");
+            }
+        }
+        addafter(Prices)
+        {
+            action("Line Discounts")
+            {
+                ApplicationArea = All;
+                Caption = 'Descuentos Lineas';
+                Promoted = true;
+                Image = LineDiscount;
+                PromotedCategory = Process;
+
+                RunObject = Page "Sales Line Discounts";
+                RunPageView = sorting(Type, Code, "Sales Type", "Sales Code", "Starting Date", "Currency Code", "Variant Code", "Unit of Measure Code", "Minimum Quantity");
+                RunPageLink = Type = const(Resource),
+                            Code = field("No.");
+            }
+        }
+        addafter("Ledger E&ntries")
+        {
+            action("Displacement Entries")
+            {
+                ApplicationArea = All;
+                Caption = 'Movimientos Desplazamiento';
+
+                RunObject = Page "Displacement Entry";
+                RunPageLink = "Resource No." = FIELD("No.");
+            }
+        }
+        addafter("Resource - Cost Breakdown")
+        {
+            action("Report Monthly Hours Breakdown")
+            {
+                ApplicationArea = All;
+                Caption = 'Desglose mensual de horas';
+                Promoted = true;
+                Image = Report;
+                PromotedCategory = Report;
+
+                trigger OnAction()
+                var
+                    MonthlyHoursBreakdown: Report 50028;
+                begin
+                    MonthlyHoursBreakdown.PrintFromResourceCard(Rec."No.");
+                    MonthlyHoursBreakdown.RunModal();
+                end;
+            }
+        }
+    }
+
+    var
+        myInt: Integer;
+}

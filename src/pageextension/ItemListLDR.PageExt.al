@@ -1,4 +1,7 @@
-pageextension 50010 "Item List" extends "Item List"
+/// <summary>
+/// PageExtension Item List_LDR (ID 50010) extends Record Item List.
+/// </summary>
+pageextension 50010 "Item List_LDR" extends "Item List"
 {
     layout
     {

@@ -1,7 +1,7 @@
 /// <summary>
 /// PageExtension Purchase List (ID 50022) extends Record Purchase List.
 /// </summary>
-pageextension 50022 "Purchase List" extends "Purchase List"
+pageextension 50022 "Purchase List_LDR" extends "Purchase List"
 {
     layout
     {

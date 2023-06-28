@@ -1,4 +1,4 @@
-pageextension 50032 "User Setup" extends "User Setup"
+pageextension 50032 "User Setup_LDR" extends "User Setup"
 {
     layout
     {

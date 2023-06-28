@@ -1,7 +1,7 @@
 /// <summary>
 /// PageExtension Purchase Orders (ID 50025) extends Record Purchase Orders.
 /// </summary>
-pageextension 50025 "Purchase Orders" extends "Purchase Orders"
+pageextension 50025 "Purchase Orders_LDR" extends "Purchase Orders"
 {
     layout
     {

@@ -1,7 +1,7 @@
 /// <summary>
 /// PageExtension Comment Sheet (ID 50033) extends Record Comment Sheet.
 /// </summary>
-pageextension 50033 "Comment Sheet" extends "Comment Sheet"
+pageextension 50033 "Comment Sheet_LDR" extends "Comment Sheet"
 {
     layout
     {

@@ -1,4 +1,4 @@
-pageextension 50035 "Posted Sales Shpt. Subform" extends "Posted Sales Shpt. Subform"
+pageextension 50035 "Posted Sales Shpt. Subform_LDR" extends "Posted Sales Shpt. Subform"
 {
     layout
     {

@@ -183,7 +183,8 @@ pageextension 50005 "Customer List_LDR" extends "Customer List"
         {
             group("Crane Service Quotes")
             {
-                action(CraneServiceQuotes)
+            }
+            action(CraneServiceQuotes)
                 {
                     ApplicationArea = All;
                     Caption = 'Ofertas Servicio Grua';
@@ -215,11 +216,11 @@ pageextension 50005 "Customer List_LDR" extends "Customer List"
                         Page.Run(50035, CraneServiceQuoteHeader);
                     end;
                 }
-            }
             group(Ingestrel)
             {
                 Caption = 'Ingestrel';
-                action(ViewLinks)
+            }
+            action(ViewLinks)
                 {
                     ApplicationArea = All;
                     Caption = 'Ver Adjuntos';
@@ -238,7 +239,6 @@ pageextension 50005 "Customer List_LDR" extends "Customer List"
                         pLinks.RunModal();
                     end;
                 }
-            }
         }
     }
 

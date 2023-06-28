@@ -86,8 +86,8 @@ pageextension 50004 "Customer Card_LDR" extends "Customer Card"
             {
                 Caption = 'Parametros Ingestrel';
                 Visible = false;
-
-                field("Ingestrel Export"; Rec."Ingestrel Export_LDR")
+            }
+            field("Ingestrel Export"; Rec."Ingestrel Export_LDR")
                 {
                     ApplicationArea = All;
                     Caption = 'Exportación de Ingestrel';
@@ -199,7 +199,6 @@ pageextension 50004 "Customer Card_LDR" extends "Customer Card"
                     Editable = false;
                     ToolTip = 'Eliminación de extranet';
                 }
-            }
         }
         addafter("Primary Contact No.")
         {
@@ -223,7 +222,8 @@ pageextension 50004 "Customer Card_LDR" extends "Customer Card"
         {
             group(PaymentDistinction)
             {
-                field("Serv Cont Payment Terms Code_LDR"; Rec."Serv Cont Payment Terms Code_LDR")
+            }
+            field("Serv Cont Payment Terms Code_LDR"; Rec."Serv Cont Payment Terms Code_LDR")
                 {
                     ApplicationArea = All;
                     Caption = 'Código de condiciones de pago de Serv Cont';
@@ -259,17 +259,16 @@ pageextension 50004 "Customer Card_LDR" extends "Customer Card"
                     Caption = 'Código de método de pago del documento de ventas';
                     ToolTip = 'Código de método de pago del documento de ventas';
                 }
-            }
             group(Services)
             {
                 Caption = 'Service';
-                field("Service Customer Sales Code_LDR"; Rec."Service Customer Sales Code_LDR")
+            }
+            field("Service Customer Sales Code_LDR"; Rec."Service Customer Sales Code_LDR")
                 {
                     ApplicationArea = All;
                     Caption = 'Servicio Cliente Código Ventas';
                     ToolTip = 'Servicio Cliente Código Ventas';
                 }
-            }
         }
         addafter("Copy Sell-to Addr. to Qte From")
         {
@@ -359,8 +358,8 @@ pageextension 50004 "Customer Card_LDR" extends "Customer Card"
             {
                 Caption = 'Ofertas Servicio Grua';
                 Image = CoupledQuote;
-
-                action(CraneServiceQuotes)
+            }
+            action(CraneServiceQuotes)
                 {
                     ApplicationArea = All;
                     Caption = 'Ofertas Servicio Grua';
@@ -393,11 +392,11 @@ pageextension 50004 "Customer Card_LDR" extends "Customer Card"
                         Page.Run(50035, CraneServiceQuoteHeader);
                     end;
                 }
-            }
             group(Ingestrel)
             {
                 Caption = 'Ingestrel';
-                action("View Links")
+            }
+            action("View Links")
                 {
                     ApplicationArea = All;
                     Caption = 'Ver Adjuntos';
@@ -432,7 +431,6 @@ pageextension 50004 "Customer Card_LDR" extends "Customer Card"
                         end;
                     end;
                 }
-            }
         }
         addafter(ApplyTemplate)
         {
@@ -458,7 +456,8 @@ pageextension 50004 "Customer Card_LDR" extends "Customer Card"
         {
             group("Multi-company Management")
             {
-                action("Replicate among Companies")
+            }
+            action("Replicate among Companies")
                 {
                     ApplicationArea = All;
                     Caption = 'Replicar entre Empresas';
@@ -471,7 +470,6 @@ pageextension 50004 "Customer Card_LDR" extends "Customer Card"
                         MultiCompanyMgt.CreateCustomer(Rec, true);
                     end;
                 }
-            }
         }
     }
 

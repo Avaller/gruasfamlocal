@@ -1,4 +1,4 @@
-pageextension 50018 "Sales Invoice Subform" extends "Sales Invoice Subform"
+pageextension 50018 "Sales Invoice Subform_LDR" extends "Sales Invoice Subform"
 {
     layout
     {

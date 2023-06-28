@@ -1,4 +1,4 @@
-pageextension 50020 "Purchase Invoice" extends "Purchase Invoice"
+pageextension 50020 "Purchase Invoice_LDR" extends "Purchase Invoice"
 {
     layout
     {
@@ -84,9 +84,13 @@ pageextension 50020 "Purchase Invoice" extends "Purchase Invoice"
     end;
 
     var
-        Tax1Editable: Boolean INDATASET;
-        Tax2Editable: Boolean INDATASET;
-        Tax3Editable: Boolean INDATASET;
-        Tax4Editable: Boolean INDATASET;
+        [InDataSet]
+        Tax1Editable: Boolean;
+        [InDataSet]
+        Tax2Editable: Boolean;
+        [InDataSet]
+        Tax3Editable: Boolean;
+        [InDataSet]
+        Tax4Editable: Boolean;
         PurchLines: Page "Purchase Lines";
 }

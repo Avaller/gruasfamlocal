@@ -1,0 +1,162 @@
+/// <summary>
+/// PageExtension Posted Purchase Receipt_LDR (ID 50039) extends Record Posted Purchase Receipt.
+/// </summary>
+pageextension 50039 "Posted Purchase Receipt_LDR" extends "Posted Purchase Receipt"
+{
+    layout
+    {
+        addafter("Shortcut Dimension 2 Code")
+        {
+            field("Machine Purchase Document_LDR"; Rec."Machine Purchase Document_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Documento de compra de la máquina';
+                ToolTip = 'Documento de compra de la máquina';
+            }
+            field("Machine Status_LDR"; Rec."Machine Status_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Estado de la máquina';
+                ToolTip = 'Estado de la máquina';
+            }
+            field("Posting Description"; Rec."Posting Description")
+            {
+                ApplicationArea = All;
+                Caption = 'Descripción de la publicación';
+                Editable = false;
+                ToolTip = 'Descripción de la publicación';
+            }
+        }
+        addafter("Expected Receipt Date")
+        {
+            field(Notas1_LDR; Rec.Notas1_LDR)
+            {
+                ApplicationArea = All;
+                Caption = 'Notas';
+                ToolTip = 'Notas';
+            }
+        }
+    }
+
+    actions
+    {
+        addafter("&Print")
+        {
+            group("F&unctions")
+            {
+                Caption = 'Acci&ones';
+            }
+            group(PrintLabels)
+            {
+                Caption = 'Imprimir Etiquetado';
+                Image = BarCode;
+            }
+            action("Print Intermec")
+            {
+                ApplicationArea = All;
+                Caption = 'Imprimir Intermec';
+                Image = BarCode;
+
+                trigger OnAction()
+                var
+                    RecAlbaranes: Record "Purch. Rcpt. Header";
+                    reportSelection: Record 7122074;
+                begin
+                    Clear(RecAlbaranes);
+                    RecAlbaranes.SetRange("No.", Rec."No.");
+
+                    if RecAlbaranes.FindSet() then begin
+                        Report.RunModal(Report::Report7122019, TRUE, FALSE, RecAlbaranes);
+                    end;
+                end;
+            }
+            action("Print Labels")
+            {
+                ApplicationArea = All;
+                Caption = 'Imprimir Etiquetas EAN13';
+                Image = BarCode;
+
+                trigger OnAction()
+                var
+                    RecAlbaranes: Record "Purch. Rcpt. Header";
+                    reportSelection: Record 7122074;
+                begin
+                    Clear(RecAlbaranes);
+                    RecAlbaranes.SetRange("No.", Rec."No.");
+
+                    if RecAlbaranes.FindSet() then begin
+                        reportSelection.setRange(Usage, reportSelection.Usage::"2");
+                        reportSelection.FindSet();
+                        repeat
+                            Report.RunModal(reportSelection."Report ID", TRUE, FALSE, RecAlbaranes);
+                        until reportSelection.Next() = 0;
+                    end;
+                end;
+            }
+            action("<Action50>")
+            {
+                ApplicationArea = All;
+                Caption = 'Montaje &Automatico de Maquina';
+
+                trigger OnAction()
+                var
+                    purchHeader: Record "Purch. Rcpt. Header";
+                begin
+                    Rec.TestField("Machine Purchase Document_LDR", true);
+                    Rec.TestField("Machine Status_LDR", Rec."Machine Status_LDR"::Pending);
+
+                    Clear(purchHeader);
+                    purchHeader.SetRange("No.", Rec."No.");
+
+                    if purchHeader.FindSet() then begin
+                        assemblyReport.UsereQuestPage := TRUE;
+                        assemblyReport.setParameters(purchHeader);
+                        assemblyReport.SetTableView(purchHeader);
+                        assemblyReport.Run();
+                    end;
+                end;
+            }
+            group(Print)
+            {
+                Caption = 'Imprimir';
+            }
+            action("Print Shipment")
+            {
+                ApplicationArea = All;
+                Caption = 'Imprimir Albaran';
+                Ellipsis = true;
+                Image = Print;
+                Promoted = true;
+                PromotedCategory = Process;
+
+
+                trigger OnAction()
+                begin
+                    CurrPage.SetSelectionFilter(PurchRcptHeader);
+                    PurchRcptHeader.PrintRecords(true);
+
+                end;
+            }
+            action("Print Valued Shipment")
+            {
+                ApplicationArea = All;
+                Caption = 'Imprimir Albaran valorado';
+                Ellipsis = true;
+                Image = Print;
+                Promoted = true;
+                PromotedCategory = Process;
+
+                trigger OnAction()
+                begin
+                    CurrPage.SetSelectionFilter(PurchRcptHeader);
+                    Report.Run(Report::Report7122068, true, false, PurchRcptHeader);
+                end;
+            }
+        }
+    }
+
+    var
+        PurchRcptHeader: Record "Purch. Rcpt. Header";
+        assemblyReport: Report 7122115;
+        PurchSetup: Record "Purchases & Payables Setup";
+}

@@ -1,4 +1,4 @@
-pageextension 50031 "General Ledger Setup" extends "General Ledger Setup"
+pageextension 50031 "General Ledger Setup_LDR" extends "General Ledger Setup"
 {
     layout
     {
@@ -70,57 +70,59 @@ pageextension 50031 "General Ledger Setup" extends "General Ledger Setup"
                 group(Analytical)
                 {
                     Caption = 'Analitica';
-                    field("Analytical Schedule Name_LDR"; Rec."Analytical Schedule Name_LDR")
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Nombre del programa analítico';
-                        ToolTip = 'Nombre del programa analítico';
-                    }
-                    field("Analytical Excel Template_LDR"; Rec."Analytical Excel Template_LDR")
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Plantilla Excel Analítica';
-                        ToolTip = 'Plantilla Excel Analítica';
-                        trigger OnAssistEdit()
-                        var
-                            TemplateExist: Boolean;
-                            FileMgt: Codeunit "File Management";
-                            TempBlob: Record 99008535; //TODO: TempBlop
-                        begin
-                            TemplateExist := Rec."Analytical Excel Template_LDR".HasValue;
-                            IF FileMgt.BLOBImport(TempBlob, '*.xlsm') = '' THEN
+                }
+                field("Analytical Schedule Name_LDR"; Rec."Analytical Schedule Name_LDR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Nombre del programa analítico';
+                    ToolTip = 'Nombre del programa analítico';
+                }
+                field("Analytical Excel Template_LDR"; Rec."Analytical Excel Template_LDR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Plantilla Excel Analítica';
+                    ToolTip = 'Plantilla Excel Analítica';
+                    trigger OnAssistEdit()
+                    var
+                        TemplateExist: Boolean;
+                        FileMgt: Codeunit "File Management";
+                        TempBlob: Codeunit "Temp Blob";
+                        OutStream: OutStream;
+                    begin
+                        TemplateExist := Rec."Analytical Excel Template_LDR".HasValue;
+                        IF FileMgt.BLOBImport(TempBlob, '*.xlsm') = '' THEN
+                            EXIT;
+                        Rec."Analytical Excel Template_LDR".CreateOutStream(OutStream);
+                        TempBlob.CreateOutStream(OutStream);
+                        IF TemplateExist THEN
+                            IF NOT CONFIRM(TextExcel, FALSE) THEN
                                 EXIT;
-                            Rec."Analytical Excel Template_LDR" := TempBlob.Blob;
-                            IF TemplateExist THEN
-                                IF NOT CONFIRM(TextExcel, FALSE) THEN
-                                    EXIT;
-                            CurrPage.SaveRecord();
-                        end;
-                    }
-                    field("External Net Sales Acc. Filter_LDR"; Rec."External Net Sales Acc. Filter_LDR")
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Cuenta de ventas netas externas Filtrar';
-                        ToolTip = 'Cuenta de ventas netas externas Filtrar';
-                    }
-                    field("Usage (Expenses) Acc. Filter_LDR"; Rec."Usage (Expenses) Acc. Filter_LDR")
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Uso (Gastos) Cta. Filtrar';
-                        ToolTip = 'Uso (Gastos) Cta. Filtrar';
-                    }
-                    field("Other Income Acc. Filter_LDR"; Rec."Other Income Acc. Filter_LDR")
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Otros Ingresos Cuenta Filtrar';
-                        ToolTip = 'Otros Ingresos Cuenta Filtrar';
-                    }
-                    field("Other Expenses Acc. Filter_LDR"; Rec."Other Expenses Acc. Filter_LDR")
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Cuenta Otros Gastos Filtrar';
-                        ToolTip = 'Cuenta Otros Gastos Filtrar';
-                    }
+                        CurrPage.SaveRecord();
+                    end;
+                }
+                field("External Net Sales Acc. Filter_LDR"; Rec."External Net Sales Acc. Filter_LDR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Cuenta de ventas netas externas Filtrar';
+                    ToolTip = 'Cuenta de ventas netas externas Filtrar';
+                }
+                field("Usage (Expenses) Acc. Filter_LDR"; Rec."Usage (Expenses) Acc. Filter_LDR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Uso (Gastos) Cta. Filtrar';
+                    ToolTip = 'Uso (Gastos) Cta. Filtrar';
+                }
+                field("Other Income Acc. Filter_LDR"; Rec."Other Income Acc. Filter_LDR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Otros Ingresos Cuenta Filtrar';
+                    ToolTip = 'Otros Ingresos Cuenta Filtrar';
+                }
+                field("Other Expenses Acc. Filter_LDR"; Rec."Other Expenses Acc. Filter_LDR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Cuenta Otros Gastos Filtrar';
+                    ToolTip = 'Cuenta Otros Gastos Filtrar';
                 }
             }
         }
@@ -140,15 +142,18 @@ pageextension 50031 "General Ledger Setup" extends "General Ledger Setup"
                 PromotedCategory = Process;
 
                 trigger OnAction()
-                    TempBlob: Record 99008535;
-                    FileMgt: Codeunit 419;
-                    begin
-                        Rec.CALCFIELDS("Analytical Excel Template_LDR");
-                        IF Rec."Analytical Excel Template_LDR".HASVALUE THEN BEGIN
-                            TempBlob.Blob := Rec."Analytical Excel Template_LDR";
-                            FileMgt.BLOBExport(TempBlob, '*.xlsm', FALSE);
-                        END;
+                var
+                    TempBlob: Codeunit "Temp Blob";
+                    FileMgt: Codeunit "File Management";
+                    OutStream: OutStream;
+                begin
+                    Rec.CalcFields("Analytical Excel Template_LDR");
+                    if Rec."Analytical Excel Template_LDR".HasValue then begin
+                        Rec."Analytical Excel Template_LDR".CreateOutStream(OutStream);
+                        TempBlob.CreateOutStream(OutStream);
+                        FileMgt.BLOBExport(TempBlob, '*.xlsm', false);
                     end;
+                end;
             }
         }
     }

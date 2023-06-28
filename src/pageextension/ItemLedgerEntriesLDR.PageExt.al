@@ -1,4 +1,4 @@
-pageextension 50011 "Item Ledger Entries" extends "Item Ledger Entries"
+pageextension 50011 "Item Ledger Entries_LDR" extends "Item Ledger Entries"
 {
     layout
     {

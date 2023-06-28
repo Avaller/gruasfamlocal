@@ -1,4 +1,4 @@
-pageextension 50012 "General Journal" extends "General Journal"
+pageextension 50012 "General Journal_LDR" extends "General Journal"
 {
     layout
     {

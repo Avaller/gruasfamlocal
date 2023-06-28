@@ -1,4 +1,4 @@
-pageextension 50009 "Vendor Ledger Entries" extends "Vendor Ledger Entries"
+pageextension 50009 "Vendor Ledger Entries_LDR" extends "Vendor Ledger Entries"
 {
     layout
     {
