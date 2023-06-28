@@ -17,6 +17,27 @@ codeunit 50100 "EventosTablas_LDR"
         GLEntry."Leasing Line No._LDR" := GenJournalLine."Leasing Line No._LDR";
     end;
 
+    //**********************************************************************************************************  203
+    [EventSubscriber(ObjectType::Table, Database::"Res. Ledger Entry", OnAfterCopyFromResJnlLine, '', false, false)]
+    local procedure OnAfterCopyFromResJnlLine(var ResLedgerEntry: Record "Res. Ledger Entry"; ResJournalLine: Record "Res. Journal Line");
+    var
+        Res: Record "Resource";
+        UnitOfMeasure: Record "Unit of Measure";
+    begin
+        Res.Get(ResLedgerEntry."Resource No.");
+        UnitOfMeasure.Get(ResJournalLine."Unit of Measure Code");
+        if UnitOfMeasure."Time Measure Unit_LDR" = true then begin
+            ResJournalLine.TestField("Initial Time_LDR");
+            ResJournalLine.TestField("End Time_LDR");
+        end;
+
+        ResLedgerEntry.Replicated_LDR := ResJournalLine.Replicated_LDR;
+        ResLedgerEntry."Resource Name_LDR" := Res.Name;
+        ResLedgerEntry."Initial Time_LDR" := ResJournalLine."Initial Time_LDR";
+        ResLedgerEntry."End Time_LDR" := ResJournalLine."End Time_LDR";
+        ResLedgerEntry."Internal Quantity_LDR" := ResJournalLine."Internal Quantity_LDR";
+    end;
+
     //**********************************************************************************************************  5940
     [EventSubscriber(ObjectType::Table, Database::"Service Item", OnBeforeValidateCustomerNo, '', false, false)]
     local procedure OnBeforeValidateCustomerNo(var ServiceItem: Record "Service Item"; CurrFieldNo: Integer; var IsHandled: BoolEAN)
