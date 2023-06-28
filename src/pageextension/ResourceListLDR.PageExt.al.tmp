@@ -1,25 +1,25 @@
 /// <summary>
 /// PageExtension Resource List (ID 50028) extends Record Resource List.
 /// </summary>
-pageextension 50028 "Resource List_LDR" extends "Resource List"
+pageextension 50043 "ResourceList_LDR" extends "Resource List"
 {
     layout
     {
         addafter("Default Deferral Template Code")
         {
-            field(Blocked; Rec.Blocked)
+            field(Blocked_LDR; Rec.Blocked)
             {
                 ApplicationArea = All;
                 Caption = 'Obstruido';
                 ToolTip = 'Obstruido';
             }
-            field("Explotation Customer No._LDR"; Rec."Explotation Customer No._LDR")
+            field(ExplotationCustomerNo_LDR; Rec."Explotation Customer No._LDR")
             {
                 ApplicationArea = All;
                 Caption = 'Explotación Cliente No.';
                 ToolTip = 'Explotación Cliente No.';
             }
-            field("Explotation Name_LDR"; Rec."Explotation Name_LDR")
+            field(ExplotationName_LDR; Rec."Explotation Name_LDR")
             {
                 ApplicationArea = All;
                 Caption = 'Nombre de explotación';
@@ -32,7 +32,7 @@ pageextension 50028 "Resource List_LDR" extends "Resource List"
     {
         addafter(Prices)
         {
-            action("Descuentos Lineas")
+            action("DescuentosLineas")
             {
                 ApplicationArea = All;
                 Caption = 'Descuentos Lineas';
