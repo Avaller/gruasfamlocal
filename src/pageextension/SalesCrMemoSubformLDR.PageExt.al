@@ -21,6 +21,6 @@ pageextension 50029 "Sales Cr. Memo Subform" extends "Sales Cr. Memo Subform"
         PurchSetup: Record "Purchases & Payables Setup";
     begin
         PurchSetup.GET;
-        PurchSetup.TESTFIELD(PurchSetup."Warranty Mgt. Type", PurchSetup."Warranty Mgt. Type"::Venta);
+        PurchSetup.TESTFIELD(PurchSetup."Warranty Mgt. Type_LDR", PurchSetup."Warranty Mgt. Type_LDR"::Venta);
     end;
 }

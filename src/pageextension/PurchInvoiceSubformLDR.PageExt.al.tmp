@@ -99,7 +99,7 @@ pageextension 50024 "Purch. Invoice Subform" extends "Purch. Invoice Subform"
         PurchSetup: Record "Purchases & Payables Setup";
     begin
         PurchSetup.Get();
-        PurchSetup.TestField("Warranty Mgt. Type", PurchSetup."Warranty Mgt. Type"::Compra);
+        PurchSetup.TestField("Warranty Mgt. Type_LDR", PurchSetup."Warranty Mgt. Type_LDR"::Compra);
     end;
     /// <summary>
     /// UpdateMachinePurchDoc.
@@ -139,3 +139,4 @@ pageextension 50024 "Purch. Invoice Subform" extends "Purch. Invoice Subform"
         PaytoVendor: Code[20];
         ForecastActive: Boolean;
         PurchInvoiceNo: Code[20];
+}

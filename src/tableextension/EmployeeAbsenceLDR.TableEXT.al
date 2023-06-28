@@ -9,7 +9,7 @@ tableextension 50058 "Employee Absence_LDR" extends "Employee Absence"
         {
             trigger OnAfterValidate()
             var
-                Employee: Record Employee;
+                Employee: Record "Employee";
             begin
                 if "Employee No." <> '' then begin
                     if Resource.get(Employee."Resource No.") then

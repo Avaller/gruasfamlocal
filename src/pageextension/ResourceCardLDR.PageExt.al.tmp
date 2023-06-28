@@ -143,7 +143,7 @@ pageextension 50027 "Resource Card" extends "Resource Card"
 
                 trigger OnAction()
                 var
-                    MonthlyHoursBreakdown: Report 50028;
+                    MonthlyHoursBreakdown: Report "Monthly Hours Breakdown";
                 begin
                     MonthlyHoursBreakdown.PrintFromResourceCard(Rec."No.");
                     MonthlyHoursBreakdown.RunModal();
