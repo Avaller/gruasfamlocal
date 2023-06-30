@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension Purchase Credit Memo_LDR (ID 50021) extends Record Purchase Credit Memo.
+/// </summary>
 pageextension 50021 "Purchase Credit Memo_LDR" extends "Purchase Credit Memo"
 {
     layout

@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension General Journal_LDR (ID 50012) extends Record General Journal.
+/// </summary>
 pageextension 50012 "General Journal_LDR" extends "General Journal"
 {
     layout

@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension Posted Sales Invoice_LDR (ID 50036) extends Record Posted Sales Invoice.
+/// </summary>
 pageextension 50036 "Posted Sales Invoice_LDR" extends "Posted Sales Invoice"
 {
     layout

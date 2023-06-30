@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension Purchase Order Subform_LDR (ID 50023) extends Record Purchase Order Subform.
+/// </summary>
 pageextension 50023 "Purchase Order Subform_LDR" extends "Purchase Order Subform"
 {
     layout

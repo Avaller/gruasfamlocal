@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension Posted Sales Shipment_LDR (ID 50034) extends Record Posted Sales Shipment.
+/// </summary>
 pageextension 50034 "Posted Sales Shipment_LDR" extends "Posted Sales Shipment"
 {
     layout

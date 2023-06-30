@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension Vendor Ledger Entries_LDR (ID 50009) extends Record Vendor Ledger Entries.
+/// </summary>
 pageextension 50009 "Vendor Ledger Entries_LDR" extends "Vendor Ledger Entries"
 {
     layout

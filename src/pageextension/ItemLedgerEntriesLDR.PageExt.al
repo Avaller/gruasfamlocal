@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension Item Ledger Entries_LDR (ID 50011) extends Record Item Ledger Entries.
+/// </summary>
 pageextension 50011 "Item Ledger Entries_LDR" extends "Item Ledger Entries"
 {
     layout

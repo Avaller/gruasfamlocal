@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension Vendor Card_LDR (ID 50007) extends Record Vendor Card.
+/// </summary>
 pageextension 50007 "Vendor Card_LDR" extends "Vendor Card"
 {
     layout

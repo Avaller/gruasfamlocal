@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension Resource Groups_LDR (ID 50026) extends Record Resource Groups.
+/// </summary>
 pageextension 50026 "Resource Groups_LDR" extends "Resource Groups"
 {
     layout

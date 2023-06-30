@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension General Ledger Setup_LDR (ID 50031) extends Record General Ledger Setup.
+/// </summary>
 pageextension 50031 "General Ledger Setup_LDR" extends "General Ledger Setup"
 {
     layout

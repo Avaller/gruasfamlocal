@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension General Ledger Entries_LDR (ID 50003) extends Record General Ledger Entries.
+/// </summary>
 pageextension 50003 "General Ledger Entries_LDR" extends "General Ledger Entries"
 {
     layout
