@@ -1,0 +1,256 @@
+/// <summary>
+/// PageExtension Purchases&PayablesSetup_LDR (ID 50079) extends Record Purchases & Payables Setup.
+/// </summary>
+pageextension 50079 "Purchases&PayablesSetup_LDR" extends "Purchases & Payables Setup"
+{
+    layout
+    {
+        addafter("Check Prepmt. when Posting")
+        {
+            field("CIF/NIF Obligatory_LDR"; Rec."CIF/NIF Obligatory_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'CIF / NIF Obligatorio';
+                ToolTip = 'CIF / NIF Obligatorio';
+            }
+            field("Payment Discount Expl. Count_LDR"; Rec."Payment Discount Expl. Count_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Pago Descuento Expl. Contar';
+                ToolTip = 'Pago Descuento Expl. Contar';
+            }
+            field("Vendor Shipment No. Mandatory_LDR"; Rec."Vendor Shipment No. Mandatory_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de envío del proveedor Obligatorio';
+                ToolTip = 'Número de envío del proveedor Obligatorio';
+            }
+            field("Create Payment Days_LDR"; Rec."Create Payment Days_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Crear Días de Pago';
+                ToolTip = 'Crear Días de Pago';
+            }
+        }
+        addafter("Default Posting Date")
+        {
+            field(checkCostZero_LDR; Rec.checkCostZero_LDR)
+            {
+                ApplicationArea = All;
+                Caption = 'comprobar Costo Cero';
+                ToolTip = 'comprobar Costo Cero';
+            }
+            field(forzeCostUpdate_LDR; Rec.forzeCostUpdate_LDR)
+            {
+                ApplicationArea = All;
+                Caption = 'actualización de costos de forze';
+                ToolTip = 'actualización de costos de forze';
+            }
+        }
+        addafter("Posted Prepmt. Cr. Memo Nos.")
+        {
+            field("Forecast Nos._LDR"; Rec."Forecast Nos._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Números de pronóstico';
+                ToolTip = 'Números de pronóstico';
+            }
+            group(labels)
+            {
+                Caption = 'Etiquetas';
+            }
+            field("Label Type_LDR"; Rec."Label Type_LDR")
+            {
+                ApplicationArea = All;
+                Caption = '';
+                ToolTip = '';
+            }
+            field("EAN Nos._LDR"; Rec."EAN Nos._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Números de EAN';
+                ToolTip = 'Números de EAN';
+            }
+            field("Print Command_LDR"; Rec."Print Command_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Comando de impresión';
+                ToolTip = 'Comando de impresión';
+            }
+            field("Source print file_LDR"; Rec."Source print file_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Archivo de impresión de origen';
+                ToolTip = 'Archivo de impresión de origen';
+
+                trigger OnAssistEdit()
+                var
+                    FileMgt: Codeunit "File Management";
+                    DefaultFileName: Text;
+                begin
+                    Rec."Source print file_LDR" := FileMgt.SaveFileDialog('Guardar como', DefaultFileName, 'exe file (*.exe)');
+                end;
+            }
+            field("Company EAN Name_LDR"; Rec."Company EAN Name_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Nombre EAN de la empresa';
+                ToolTip = 'Nombre EAN de la empresa';
+            }
+            group("AS400 Integration")
+            {
+                Caption = 'Integraci¢n AS400';
+            }
+            field("AS400 Response E-Mail_LDR"; Rec."AS400 Response E-Mail_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Correo electrónico de respuesta AS400';
+                ToolTip = 'Correo electrónico de respuesta AS400';
+            }
+            field("AS400 ftp url_LDR"; Rec."AS400 ftp url_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'URL de ftp AS400';
+                ToolTip = 'URL de ftp AS400';
+            }
+            field("AS400 ftp port_LDR"; Rec."AS400 ftp port_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Puerto ftp AS400';
+                ToolTip = 'Puerto ftp AS400';
+            }
+            field("AS400 ftp folder_LDR"; Rec."AS400 ftp folder_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Carpeta ftp AS400';
+                ToolTip = 'Carpeta ftp AS400';
+            }
+            field("AS400 User_LDR"; Rec."AS400 User_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Usuario AS400';
+                ToolTip = 'Usuario AS400';
+            }
+            field("AS400 Password_LDR"; Rec."AS400 Password_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Contraseña AS400';
+                ToolTip = 'Contraseña AS400';
+            }
+            group(Armopa)
+            {
+                Caption = 'Armopa';
+            }
+            field("ARMOPA Dias_LDR"; Rec."ARMOPA Dias_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'ARMOPA Días';
+                ToolTip = 'ARMOPA Días';
+            }
+            field("ARMOPA Factor_LDR"; Rec."ARMOPA Factor_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Factor ARMOPA';
+                ToolTip = 'Factor ARMOPA';
+            }
+            field("ARMOPA Factor Sale_LDR"; Rec."ARMOPA Factor Sale_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Venta Factor ARMOPA';
+                ToolTip = 'Venta Factor ARMOPA';
+            }
+            field("ARMOPA Dias Año_LDR"; Rec."ARMOPA Dias Año_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'ARMOPA Días Año';
+                ToolTip = 'ARMOPA Días Año';
+            }
+            field("ARMOPA Factor Mattress_LDR"; Rec."ARMOPA Factor Mattress_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Colchón ARMOPA Factor';
+                ToolTip = 'Colchón ARMOPA Factor';
+            }
+            field("ARMOPA Post Transfers_LDR"; Rec."ARMOPA Post Transfers_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Transferencias postales de ARMOPA';
+                ToolTip = 'Transferencias postales de ARMOPA';
+            }
+            field("Armopa Dis. date formula_LDR"; Rec."Armopa Dis. date formula_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Armopa Dis. fórmula de fecha';
+                ToolTip = 'Armopa Dis. fórmula de fecha';
+            }
+            field("Armopa Search Period Formula_LDR"; Rec."Armopa Search Period Formula_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Fórmula del período de búsqueda de Armopa';
+                ToolTip = 'Fórmula del período de búsqueda de Armopa';
+            }
+            field("ARMOPA Order Nos._LDR"; Rec."ARMOPA Order Nos._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Números de pedido de ARMOPA';
+                ToolTip = 'Números de pedido de ARMOPA';
+            }
+            group(Service)
+            {
+                Caption = 'Servicio';
+            }
+            field("Transport Service Cost_LDR"; Rec."Transport Service Cost_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Costo del servicio de transporte';
+                ToolTip = 'Costo del servicio de transporte';
+            }
+            field("Purch. Inv. Service Cost_LDR"; Rec."Purch. Inv. Service Cost_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Comprar Inversión Costo del servicio';
+                ToolTip = 'Comprar Inversión Costo del servicio';
+            }
+            field("Purch. Credit M. Service Cost_LDR"; Rec."Purch. Credit M. Service Cost_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Comprar Crédito M. Servicio Costo';
+                ToolTip = 'Comprar Crédito M. Servicio Costo';
+            }
+            group(Warranties)
+            {
+                Caption = 'Garantias';
+            }
+            field("Warranty Mgt. Type_LDR"; Rec."Warranty Mgt. Type_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Gestión de garantía Tipo';
+                ToolTip = 'Gestión de garantía Tipo';
+            }
+            field("Disp. Time Service Cost_LDR"; Rec."Disp. Time Service Cost_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Disp. Costo del servicio de tiempo';
+                ToolTip = 'Disp. Costo del servicio de tiempo';
+            }
+            field("Displacement Service Cost_LDR"; Rec."Displacement Service Cost_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Costo del Servicio de Desplazamiento';
+                ToolTip = 'Costo del Servicio de Desplazamiento';
+            }
+            field("Work Time Service Cost_LDR"; Rec."Work Time Service Cost_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Costo del servicio de tiempo de trabajo';
+                ToolTip = 'Costo del servicio de tiempo de trabajo';
+            }
+            field("Materials Service Cost_LDR"; Rec."Materials Service Cost_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Costo del servicio de materiales';
+                ToolTip = 'Costo del servicio de materiales';
+            }
+        }
+    }
+}

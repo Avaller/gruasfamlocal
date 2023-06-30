@@ -1,0 +1,352 @@
+pageextension 50071 "Phys. Inventory Journal" extends "Phys. Inventory Journal"
+{
+    layout
+    {
+        addafter(Description)
+        {
+            field("EAN code_LDR"; Rec."EAN code_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Código EAN';
+                ToolTip = 'Código EAN';
+            }
+        }
+        addafter("Applies-to Entry")
+        {
+            field(Marked_LDR; Rec.Marked_LDR)
+            {
+                ApplicationArea = All;
+                Caption = 'Marcado';
+                ToolTip = 'Marcado';
+            }
+        }
+        addafter("Reason Code")
+        {
+            field("Rectified by Device_LDR"; Rec."Rectified by Device_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Rectificado por Dispositivo';
+                Editable = false;
+                ToolTip = 'Rectificado por Dispositivo';
+            }
+        }
+    }
+
+    actions
+    {
+        addafter("F&unctions")
+        {
+            action(ProcessNonPlacedInventory)
+            {
+                ApplicationArea = All;
+                Caption = 'Procesar stock no ubicado';
+                Visible = false;
+                Image = InventoryJournal;
+
+                trigger OnAction()
+                begin
+
+                end;
+            }
+        }
+        addafter(CalculateCountingPeriod)
+        {
+            separator(Separador)
+            {
+
+            }
+            action(UploadBagFile)
+            {
+                ApplicationArea = All;
+                Caption = 'Cargar fichero Mochila';
+                Image = Filed;
+
+                trigger OnAction()
+                var
+                    Inserta: Boolean;
+                begin
+                    CreaLog();
+                    GestionaFichero();
+                    Inserta := true;
+                    Linea := 0;
+
+                    WHILE Fichero.READ(Lectura) <> 0 DO BEGIN
+                        Linea := Linea + 1;
+                        Ventana.OPEN(Text007, EAN);
+                        WHILE STRLEN(Lectura) > 0 DO BEGIN
+                            EAN := COPYSTR(Lectura, 1, STRPOS(Lectura, ',') - 1);
+                            EAN := DELCHR(EAN, '=', ' ');
+                            Ventana.UPDATE();
+
+                            IF STRLEN(EAN) <> 13 THEN BEGIN
+                                Inserta := FALSE;
+                                //EscribeLog(STRSUBSTNO(Text003,EAN,Ruta.FileTitle,Linea));
+                                EscribeLog(STRSUBSTNO(Text003, EAN, FileName, Linea));
+                            END ELSE BEGIN
+
+                                QuantityFich := COPYSTR(Lectura, STRPOS(Lectura, ',') + 1);
+
+                                IF STRLEN(QuantityFich) = 0 THEN BEGIN
+                                    Inserta := FALSE;
+                                    //EscribeLog(STRSUBSTNO(Text004,EAN,Ruta.FileTitle,Linea));
+                                    EscribeLog(STRSUBSTNO(Text004, EAN, FileName, Linea));
+                                END;
+
+                                QuantityFich := CONVERTSTR(QuantityFich, '.', ',');
+                                EVALUATE(CANTIDAD, QuantityFich);
+
+                                IF Inserta THEN
+                                    InsertaProdDiario(EAN, CANTIDAD);
+
+                            END;
+
+                            Lectura := '';
+                            EAN := '';
+                            QuantityFich := '';
+                            Inserta := TRUE;
+
+                        END;
+                        Ventana.CLOSE();
+                    END;
+
+                    Fichero.CLOSE();
+
+                    IF ERRORES THEN
+                        MESSAGE(Text009)
+                    ELSE
+                        MESSAGE(Text008);
+                end;
+            }
+            action(LoadFileWithUbications)
+            {
+                ApplicationArea = All;
+                Caption = 'Cargar fichero Mochila con Ubicaciones';
+                Image = Filed;
+
+                trigger OnAction()
+                var
+                    Ubicacion: Text[30];
+                    Inserta: Boolean;
+                begin
+                    CreaLog();
+                    GestionaFichero();
+                    Inserta := TRUE;
+                    Linea := 0;
+
+                    WHILE Fichero.READ(Lectura) <> 0 DO BEGIN
+                        Ventana.OPEN(Text007, EAN);
+                        WHILE STRLEN(Lectura) > 0 DO BEGIN
+                            Linea := Linea + 1;
+                            Ubicacion := COPYSTR(Lectura, 1, STRPOS(Lectura, ',') - 1);
+                            Lectura := COPYSTR(Lectura, STRLEN(Ubicacion) + 2);
+                            IF STRPOS(Lectura, ',') = 0 THEN BEGIN
+                                Ventana.CLOSE();
+                                ERROR(Text010);
+                            END;
+                            EAN := COPYSTR(Lectura, 1, STRPOS(Lectura, ',') - 1);
+                            //Ventana.UPDATE();
+                            EAN := DELCHR(EAN, '=', ' ');
+                            Ventana.UPDATE();
+
+                            IF STRLEN(EAN) <> 13 THEN BEGIN
+                                Inserta := FALSE;
+                                //EscribeLog(STRSUBSTNO(Text003,EAN,Ruta.FileTitle,Linea));
+                                EscribeLog(STRSUBSTNO(Text003, EAN, FileName, Linea));
+                            END;
+                            QuantityFich := COPYSTR(Lectura, STRPOS(Lectura, ',') + 1);
+                            IF STRLEN(QuantityFich) = 0 THEN BEGIN
+                                Inserta := FALSE;
+                                //EscribeLog(STRSUBSTNO(Text004,EAN,Ruta.FileTitle,Linea));
+                                EscribeLog(STRSUBSTNO(Text004, EAN, FileName, Linea));
+                            END;
+
+                            QuantityFich := CONVERTSTR(QuantityFich, '.', ',');
+                            EVALUATE(CANTIDAD, QuantityFich);
+                            IF Inserta THEN
+                                InsertaProdDiarioUbicacion(EAN, CANTIDAD, Ubicacion);
+
+                            Lectura := '';
+                            EAN := '';
+                            QuantityFich := '';
+                            Ubicacion := '';
+                            Inserta := TRUE;
+
+                        END;
+                        Ventana.CLOSE();
+                    END;
+
+                    Fichero.CLOSE;
+
+                    IF ERRORES THEN
+                        MESSAGE(Text009)
+                    ELSE
+                        MESSAGE(Text008);
+                    // END: ALQUINTA
+                end;
+            }
+        }
+    }
+
+    /// <summary>
+    /// InsertaProdDiario.
+    /// </summary>
+    /// <param name="EAN">Text[13].</param>
+    /// <param name="CANTIDAD">Decimal.</param>
+    procedure InsertaProdDiario(EAN: Text[13]; CANTIDAD: Decimal)
+    var
+        Item: Record Item;
+        RecitemJournal: Record "Item Journal Line";
+        Bencontrado: Boolean;
+    begin
+        CLEAR(RecitemJournal);
+        Bencontrado := FALSE;
+        RecitemJournal := Rec;
+        IF Rec.FIND('-') THEN
+            REPEAT
+                IF Item.GET(Rec."Item No.") THEN
+                    IF (Item.EAN_LDR = EAN) THEN BEGIN
+                        IF Rec.MARK THEN BEGIN
+                            Rec."Qty. (Phys. Inventory)" := (Rec."Qty. (Phys. Inventory)" + CANTIDAD);
+                            Rec.VALIDATE("Qty. (Phys. Inventory)");
+                        END ELSE
+                            Rec.VALIDATE("Qty. (Phys. Inventory)", CANTIDAD);
+                        // CIC Marcar el campo importado cuando se obtenga desde el fichero
+                        Rec.Marked_LDR := true;
+                        Rec.Modify(true);
+                        Rec.MARK(true);
+                        Bencontrado := true;
+                    END;
+            UNTIL (Rec.NEXT = 0) OR (Bencontrado = TRUE);
+
+        IF NOT Bencontrado THEN BEGIN
+            //Ventana.CLOSE();
+            EscribeLog(STRSUBSTNO(Text006, EAN, Linea));
+        END;
+    end;
+
+    /// <summary>
+    /// GestionaFichero.
+    /// </summary>
+    procedure GestionaFichero()
+    begin
+        CLEAR(Recitemjournal);
+        Recitemjournal.SETRANGE(Recitemjournal."Journal Template Name", Rec."Journal Template Name");
+        Recitemjournal.SETRANGE(Recitemjournal."Journal Batch Name", Rec."Journal Batch Name");
+        IF NOT Recitemjournal.FIND('-') THEN
+            ERROR(Text001);
+
+        FileName := FileManagement.OpenFileDialog('Carga de fichero Mochila', 'C:\', 'Archivos de texto|*.txt');
+
+        IF FileName = '' THEN
+            EXIT;
+
+        TempServerFileName := FileManagement.UploadFileSilent(FileName);
+        CLEAR(Fichero);
+        Fichero.WRITEMODE := FALSE;
+        Fichero.TEXTMODE := TRUE;
+
+        IF NOT Fichero.OPEN(TempServerFileName) THEN
+            ERROR(Text002);
+    end;
+
+    /// <summary>
+    /// InsertaProdDiarioUbicacion.
+    /// </summary>
+    /// <param name="EAN">Text[13].</param>
+    /// <param name="CANTIDAD">Decimal.</param>
+    /// <param name="UBICACION">Text[30].</param>
+    procedure InsertaProdDiarioUbicacion(EAN: Text[13]; CANTIDAD: Decimal; UBICACION: Text[30])
+    var
+        BencontradoUbi: Boolean;
+        Item: Record Item;
+    begin
+        CLEAR(Recitemjournal);
+        BencontradoUbi := FALSE;
+        Recitemjournal := Rec;
+        IF Rec.FIND('-') THEN
+            REPEAT
+                IF Item.GET(Rec."Item No.") THEN
+                    IF (Item.EAN_LDR = EAN) AND (Rec."Bin Code" = UBICACION) THEN BEGIN
+                        IF Rec.MARK THEN BEGIN
+                            Rec."Qty. (Phys. Inventory)" := (Rec."Qty. (Phys. Inventory)" + CANTIDAD);
+                            Rec.VALIDATE("Qty. (Phys. Inventory)");
+                        END ELSE
+                            Rec.VALIDATE("Qty. (Phys. Inventory)", CANTIDAD);
+                        // CIC Marcar el campo importado cuando se obtenga desde el fichero
+                        Rec.Marked_LDR := TRUE;
+                        Rec.MODIFY(TRUE);
+                        Rec.MARK(TRUE);
+                        BencontradoUbi := TRUE;
+                    END;
+            UNTIL (Rec.NEXT = 0) OR (BencontradoUbi = TRUE);
+
+        IF NOT BencontradoUbi THEN BEGIN
+            //Ventana.CLOSE();
+            EscribeLog(STRSUBSTNO(Text006, EAN, Linea));
+        END;
+    end;
+
+    /// <summary>
+    /// CreaLog.
+    /// </summary>
+    procedure CreaLog()
+    begin
+        ConfAlmacen.Get();
+        ConfAlmacen.TestField(ConfAlmacen."Folder Log File_LDR");
+        TempServerFileName2 := FileManagement.ServerTempFileName('txt');
+        Clear(FicheroLog);
+        FicheroLog.WriteMode := true;
+        FicheroLog.TextMode := true;
+
+        NombreficheroLog := Format(Format(ConfAlmacen."Folder Log File_LDR") + 'LOG' + FORMAT(TODAY, 10, '<Closing><Day,2><Month,2><Year4>'));
+        NombreficheroLog := NombreficheroLog + Format(TIME, 8, '<Hours,2><Minutes,2><Seconds,2>') + '.txt';
+        FicheroLog.Create(TempServerFileName2);
+    end;
+
+    /// <summary>
+    /// EscribeLog.
+    /// </summary>
+    /// <param name="TextoError">Text[1024].</param>
+    procedure EscribeLog(TextoError: Text[1024])
+    var
+        LecturaFich: Text[1024];
+    begin
+        CLEAR(FicheroLog);
+        FicheroLog.WRITEMODE := TRUE;
+        FicheroLog.OPEN(TempServerFileName2);
+        WHILE FicheroLog.READ(LecturaFich) <> 0 DO;
+        FicheroLog.WRITE(TextoError);
+        FicheroLog.CLOSE();
+        FileManagement.DownloadToFile(TempServerFileName2, NombreficheroLog);
+        ERRORES := TRUE;
+    end;
+
+    var
+        Text001: Label 'Debe calcular el inventario para poder cargar el fichero.';
+        Text002: Label 'No es posible abrir el fichero o el fichero no es correcto.';
+        Text003: Label 'El EAN %1 no es un c¢digo correcto en el fichero %2 linea %3';
+        Text005: Label 'El EAN %1 no corresponde con nig£n producto.\\   - Compruebe si existe alg£n producto con dicho EAN.\  - Compruebe que el producto que est  cargando existe en el diario.';
+        Text006: Label 'El EAN %1  de la linea %2 no corresponde con nig£n producto de la aplicaci¢n, compruebe que dicho EAN est dado de alta en la aplicaci¢n y que aparezca en el diario propuesto.';
+        Text004: Label 'El EAN %1 no tiene cantidad definida en el fichero %2 linea %3.';
+        Text007: Label 'Procesando EAN #1#############';
+        Text008: Label 'La carga fue completada satisfactoriamente';
+        Text009: Label 'La carga ha sido realizada pero existen errores. Por favor compruebe el fichero LOG generado.';
+        Text010: Label 'El formato del fichero no es correcto compruebe que est  seleccionando un fichero correcto';
+        Ventana: Dialog;
+        Recitemjournal: Record "Item Journal Line";
+        Fichero: File;
+        Lectura: Text[250];
+        Linea: Integer;
+        EAN: Text[30];
+        CANTIDAD: Decimal;
+        RutaMochila: Text[250];
+        QuantityFich: Text[30];
+        ERRORES: Boolean;
+        FicheroLog: File;
+        NombreficheroLog: Text[250];
+        ConfAlmacen: Record "Warehouse Setup";
+        FileManagement: Codeunit "File Management";
+        TempServerFileName: Text;
+        TempServerFileName2: Text;
+        FileName: Text;
+}

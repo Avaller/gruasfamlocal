@@ -1,0 +1,36 @@
+/// <summary>
+/// PageExtension Order Address_LDR (ID 50068) extends Record Order Address.
+/// </summary>
+pageextension 50068 "Order Address_LDR" extends "Order Address"
+{
+    layout
+    {
+        addafter("Last Date Modified")
+        {
+            field("Last User Modified_LDR"; Rec."Last User Modified_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Último usuario modificado';
+                ToolTip = 'Último usuario modificado';
+            }
+        }
+    }
+
+    actions
+    {
+        addafter("Online Map")
+        {
+            action("Show Alarms")
+            {
+                ApplicationArea = All;
+                Caption = 'Ver Alarmas';
+                Image = ErrorFALedgerEntries;
+
+                RunObject = Page 7122098;
+                RunPageLink = Field5 = CONST(1),
+                                  Field6 = FIELD("Vendor No."),
+                                  Field7 = FIELD(Code);
+            }
+        }
+    }
+}
