@@ -70,7 +70,7 @@ pageextension 50020 "Purchase Invoice_LDR" extends "Purchase Invoice"
 
                 trigger OnAction()
                 begin
-                    CurrPage.PurchLines.Page.GetWarrantyServiceOrder;
+                    CurrPage.PurchLines.Page.GetWarantyServiceOrder();
                 end;
             }
         }
