@@ -13,5 +13,4 @@ tableextension 50016 "BOM Component_LDR" extends "BOM Component"
             FieldClass = FlowField;
         }
     }
-
 }

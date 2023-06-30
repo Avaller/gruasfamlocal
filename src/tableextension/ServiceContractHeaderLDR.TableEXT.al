@@ -549,7 +549,7 @@ tableextension 50078 "Service Contract Header_LDR" extends "Service Contract Hea
         if ("Next Inv. Lineal Period Start_LDR" <> 0D) and ("Next Inv. Lineal Period End_LDR" <> 0D) then
             exit(StrSubstNo(Text027, "Next Inv. Lineal Period Start_LDR", "Next Inv. Lineal Period End_LDR"));
     end;
-
+    
     procedure GenerateDelivery(var SelectedServContractLines: Record "Service Contract Line"; Fast: Boolean);
     var
         TempLinDiarioMovimiento: Record "Serv.Item. Entry Journal_LDR";
