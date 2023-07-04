@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension FADepreciationBooksSubform_LDR (ID 50101) extends Record FA Depreciation Books Subform.
+/// </summary>
 pageextension 50101 "FADepreciationBooksSubform_LDR" extends "FA Depreciation Books Subform"
 {
     layout

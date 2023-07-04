@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension TransferOrderSubform_LDR (ID 50108) extends Record Transfer Order Subform.
+/// </summary>
 pageextension 50108 "TransferOrderSubform_LDR" extends "Transfer Order Subform"
 {
     layout

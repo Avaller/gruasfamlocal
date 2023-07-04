@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension Customer Ledger Entries_LDR (ID 50006) extends Record Customer Ledger Entries.
+/// </summary>
 pageextension 50006 "Customer Ledger Entries_LDR" extends "Customer Ledger Entries"
 {
     layout

@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension StockkeepingUnitList_LDR (ID 50103) extends Record Stockkeeping Unit List.
+/// </summary>
 pageextension 50103 "StockkeepingUnitList_LDR" extends "Stockkeeping Unit List"
 {
     layout
