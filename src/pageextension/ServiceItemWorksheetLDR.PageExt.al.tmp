@@ -1,0 +1,87 @@
+/// <summary>
+/// PageExtension Service Item Worksheet_LDR (ID 50117) extends Record Service Item Worksheet.
+/// </summary>
+pageextension 50117 "Service Item Worksheet_LDR" extends "Service Item Worksheet"
+{
+    layout
+    {
+        // Add changes to page layout here
+    }
+
+    actions
+    {
+        addafter(Loaners)
+        {
+            action(Suboperation)
+            {
+                ApplicationArea = All;
+                Caption = 'Suboperaciones Pedido Servicio';
+                Image = List;
+
+                trigger OnAction()
+                var
+                    error50001: Label 'El tipo de operaci¢n no tcnica o no tiene activo el check de requiere pedido servicio.';
+                    ServHeaderSuboperation: Record "Serv. Header Suboperation_LDR";
+                    ServHeaderSuoboperationList: Page 50099;
+                begin
+                    CLEAR(ServHeaderSuboperation);
+                    ServHeaderSuboperation.SETRANGE("Document Type", Rec."Document Type");
+                    ServHeaderSuboperation.SETRANGE("Document No.", Rec."Document No.");
+                    ServHeaderSuboperation.SETRANGE("Line No.", Rec."Line No.");
+                    ServHeaderSuoboperationList.SETTABLEVIEW(ServHeaderSuboperation);
+                    ServHeaderSuoboperationList.LOOKUPMODE(TRUE);
+                    ServHeaderSuoboperationList.EDITABLE(FALSE);
+                    ServHeaderSuoboperationList.RUNMODAL;
+                end;
+            }
+        }
+        addafter("&Print")
+        {
+            action("Delete Component")
+            {
+                ApplicationArea = All;
+                Caption = 'Quitar Componente';
+
+                trigger OnAction()
+                begin
+                    CurrPage.ServInvLines.PAGE.QuitarComponente(Rec);
+                end;
+            }
+            separator()
+            {
+
+            }
+            action("Undo Line")
+            {
+                ApplicationArea = All;
+                Caption = 'Revertir Linea';
+
+                trigger OnAction()
+                begin
+                    CurrPage.ServInvLines.PAGE.UndoLine;
+                end;
+            }
+        }
+    }
+
+    trigger OnAfterGetRecord()
+    begin
+        ServHeader.Get(Rec."Document Type", Rec."Document No.");
+        Rec.UpdateShiptoCode;
+        Rec.SETRANGE("Line No.");
+        IF NOT ServItem.GET(Rec."Service Item No.") THEN
+            CLEAR(ServItem);
+
+        IF Rec."Serial No." = '' THEN
+            Rec."No. of Previous Services" := 0;
+
+        CurrPage.ServInvLines.PAGE.SetValues(Rec."Line No.");
+
+        CurrPage.ServInvLines.PAGE.SetDefaultWorkType(ServHeader."Default Work Type Code_LDR");
+    end;
+
+    var
+        ServHeader: Record "Service Header";
+        ServItem: Record "Service Item";
+        Text50001: Label '%1 para %2 se pierde en %3.';
+}

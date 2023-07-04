@@ -1,8 +1,275 @@
+/// <summary>
+/// PageExtension ServiceOrder_LDR (ID 50111) extends Record Service Order.
+/// </summary>
 pageextension 50111 "ServiceOrder_LDR" extends "Service Order"
 {
     layout
     {
-        // Add changes to page layout here
+        addafter("Address 2")
+        {
+            field("Post Code_LDR"; Rec."Post Code")
+            {
+                ApplicationArea = All;
+                Caption = 'Especifica el c¢digo postal.';
+                QuickEntry = false;
+                ToolTip = 'Especifica el c¢digo postal.';
+            }
+            field("Contact No._LDR"; Rec."Contact No.")
+            {
+                ApplicationArea = All;
+                Caption = 'Especifica el n£mero del contacto a quien se prestara el servicio.';
+                ToolTip = 'Especifica el n£mero del contacto a quien se prestara el servicio.';
+                trigger OnValidate()
+                begin
+                    IF Rec.GETFILTER("Contact No.") = xRec."Contact No." THEN
+                        IF Rec."Contact No." <> xRec."Contact No." THEN
+                            Rec.SETRANGE("Contact No.");
+                end;
+            }
+            group("Sell-To_LDR")
+            {
+                Caption = 'Direcci¢n venta';
+            }
+        }
+        addafter("Contract No.")
+        {
+            field("Contract group Code_LDR"; Rec."Contract group Code_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Código del grupo de contrato';
+                ToolTip = 'Código del grupo de contrato';
+                Visible = false;
+            }
+            field("Order Date_LDR"; Rec."Order Date")
+            {
+                ApplicationArea = All;
+                Caption = 'Especifica la fecha en la que se cre¢ el pedido.';
+                ToolTip = 'Especifica la fecha en la que se cre¢ el pedido.';
+
+                trigger OnValidate()
+                begin
+                    OrderDateOnAfterValidate();
+                end;
+            }
+        }
+        addafter("Responsibility Center")
+        {
+            field("Crane Service Quote No._LDR"; Rec."Crane Service Quote No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'No. Cotización de servicio de grúa';
+                Editable = false;
+                ToolTip = 'No. Cotización de servicio de grúa';
+            }
+            field("Invoicing Type_LDR"; Rec."Invoicing Type_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Tipo de facturación';
+                Editable = false;
+                ToolTip = 'Tipo de facturación';
+            }
+            field("Service Item Rate No._LDR"; Rec."Service Item Rate No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de tasa de artículo de servicio';
+                Editable = false;
+                ToolTip = 'Número de tasa de artículo de servicio';
+            }
+            field(Retained_LDR; Rec.Retained_LDR)
+            {
+                ApplicationArea = All;
+                Caption = 'Retenido';
+                ToolTip = 'Retenido';
+            }
+            field("Customer Order No._LDR"; Rec."Customer Order No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de pedido del cliente';
+                ToolTip = 'Número de pedido del cliente';
+            }
+        }
+        addafter("Shortcut Dimension 2 Code")
+        {
+            field("Payment Method Code_LDR"; Rec."Payment Method Code")
+            {
+                ApplicationArea = All;
+                Caption = 'Codigo de Metodo de Pago';
+                ToolTip = 'Codigo de Metodo de Pago';
+            }
+            field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group")
+            {
+                ApplicationArea = All;
+                Caption = 'Grupo de contabilización comercial general';
+                ToolTip = 'Grupo de contabilización comercial general';
+            }
+        }
+        addafter("VAT Bus. Posting Group")
+        {
+            field("Default Work Type Code_LDR"; Rec."Default Work Type Code_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Código de tipo de trabajo predeterminado';
+                ToolTip = 'Código de tipo de trabajo predeterminado';
+            }
+            field("Customer Price Group"; Rec."Customer Price Group")
+            {
+                ApplicationArea = All;
+                Caption = 'Grupo de precios del cliente';
+                ToolTip = 'Grupo de precios del cliente';
+            }
+            field("Posting No. Series"; Rec."Posting No. Series")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de contabilización Serie';
+                ToolTip = 'Número de contabilización Serie';
+            }
+            field("Posting No."; Rec."Posting No.")
+            {
+                ApplicationArea = All;
+                Caption = 'Nº de publicación';
+                ToolTip = 'Nº de publicación';
+            }
+            field("VAT Registration No."; Rec."VAT Registration No.")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de registro de IVA';
+                ToolTip = 'Número de registro de IVA';
+            }
+            field("Direct Debit Mandate ID_LDR"; Rec."Direct Debit Mandate ID_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'ID de mandato de domiciliación bancaria';
+                ToolTip = 'ID de mandato de domiciliación bancaria';
+            }
+        }
+        addafter("Ship-to Name")
+        {
+            field("Ship-to Name 2"; Rec."Ship-to Name 2")
+            {
+                ApplicationArea = All;
+                Caption = 'Enviar a nombre de';
+                ToolTip = 'Enviar a nombre de';
+            }
+        }
+        addafter("Shipping Time")
+        {
+            field("Shipping No. Series"; Rec."Shipping No. Series")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de envío Serie';
+                ToolTip = 'Número de envío Serie';
+            }
+            group("Displacement Info")
+            {
+                Caption = 'Información desplazamiento';
+            }
+            field("Travel Type_LDR"; Rec."Travel Type_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Tipo de viaje';
+                ToolTip = 'Tipo de viaje';
+
+                trigger OnValidate()
+                begin
+                    CurrPage.Update(true);
+                end;
+            }
+            group(Columns)
+            {
+
+            }
+            field("Ship-to Post Code2"; Rec."Ship-to Post Code")
+            {
+                ApplicationArea = All;
+                Caption = 'Código postal de envío';
+                ToolTip = 'Código postal de envío';
+            }
+            field("Ship-to City2"; Rec."Ship-to City")
+            {
+                ApplicationArea = All;
+                Caption = 'Ciudad de destino';
+                ToolTip = 'Ciudad de destino';
+            }
+            group(bShowReturn)
+            {
+
+            }
+            field("Destination Post Code_LDR"; Rec."Destination Post Code_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Código postal de destino';
+                ToolTip = 'Código postal de destino';
+            }
+            field("Destination City_LDR"; Rec."Destination City_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Ciudad de destino';
+                ToolTip = 'Ciudad de destino';
+            }
+
+        }
+        addafter("Service Time (Hours)")
+        {
+            field("No. Printed"; Rec."No. Printed")
+            {
+                ApplicationArea = All;
+                Caption = 'No. Impreso';
+                ToolTip = 'No. Impreso';
+            }
+            field("Interruption Reason_LDR"; Rec."Interruption Reason_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Motivo de la interrupción';
+                ToolTip = 'Motivo de la interrupción';
+            }
+        }
+        addafter("Area")
+        {
+            group(Payment)
+            {
+                Caption = 'Pago';
+            }
+            field("Pay-at Code"; Rec."Pay-at Code")
+            {
+                ApplicationArea = All;
+                Caption = 'Código de pago';
+                Importance = Promoted;
+                ToolTip = 'Código de pago';
+
+                trigger OnAssistEdit()
+                begin
+                    Clear(ChangeExchangeRate);
+                    ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date");
+                    IF ChangeExchangeRate.RUNMODAL = ACTION::OK THEN BEGIN
+                        Rec.VALIDATE("Currency Factor", ChangeExchangeRate.GetParameter);
+                        CurrPage.UPDATE;
+                    END;
+                    CLEAR(ChangeExchangeRate);
+                end;
+            }
+            group("PDF Mail")
+            {
+                Caption = 'PDF Mail;';
+            }
+            field("Cust. Bank Acc. Code"; Rec."Cust. Bank Acc. Code")
+            {
+                ApplicationArea = All;
+                Caption = 'Código de cuenta bancaria del cliente';
+                ToolTip = 'Código de cuenta bancaria del cliente';
+            }
+            field("Send Document By Mail_LDR"; Rec."Send Document By Mail_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Enviar documento por correo';
+                ToolTip = 'Enviar documento por correo';
+            }
+            field("E-Mail Destination_LDR"; Rec."E-Mail Destination_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Destino de correo electrónico';
+                ToolTip = 'Destino de correo electrónico';
+            }
+        }
     }
 
     actions
@@ -220,7 +487,7 @@ pageextension 50111 "ServiceOrder_LDR" extends "Service Order"
 
                 trigger OnAction()
                 var
-                    CduHistoricos: Report 50205;
+                    CduHistoricos: Report "ServiceOrder-Post Doc";
                     CduIntCompInvoicing: Codeunit "Intercompany invoicing_LDR";
                 begin
                     ServHeader.GET(Rec."Document Type", Rec."No.");
@@ -263,18 +530,180 @@ pageextension 50111 "ServiceOrder_LDR" extends "Service Order"
                 PromotedCategory = Report;
 
                 trigger OnAction()
+                var
+                    ServItemEntryJournal: Record "Serv.Item. Entry Journal_LDR";
+                    SourceCodeSetup: Record "Source Code Setup";
+                    PostedServiceItemBinEntry: Record "Posted Serv Item Bin Entr_LDR";
                 begin
+                    CraneMgtSetup.GET;
+                    servmgtsetup.GET;
 
+                    SourceCodeSetup.GET;
+                    SourceCodeSetup.TESTFIELD(SourceCodeSetup."Service Item Entry Journal_LDR");
+
+                    IF ((Rec."Service Order Type" = CraneMgtSetup."Serv. Order Type - Platf. Del.") OR
+                        (Rec."Service Order Type" = CraneMgtSetup."Serv. Order Type - Platf. Pick")) THEN BEGIN
+                        CLEAR(Rec.ServItemLine);
+                        Rec.ServItemLine.SETRANGE(Rec."Document Type", Rec."Document Type");
+                        Rec.ServItemLine.SETRANGE(Rec."Document No.", Rec."No.");
+                        Rec.ServItemLine.SETRANGE(Rec."Contract No.", Rec."Contract No.");
+                        Rec.ServItemLine.SETFILTER(Rec."Review Contract Line No._LDR", '<>%1', 0);
+                        Rec.ServItemLine.FINDFIRST;
+
+                        CLEAR(ServItemEntryJournal);
+                        ServItemEntryJournal.SETRANGE("Journal Template Name", SourceCodeSetup."Service Item Entry Journal_LDR");
+                        ServItemEntryJournal.SETRANGE("Journal Batch Name", servmgtsetup."S.Item Bin Entry Default Batch_LDR");
+                        IF (Rec."Service Order Type" = CraneMgtSetup."Serv. Order Type - Platf. Del.") THEN
+                            ServItemEntryJournal.SETRANGE("Entry Type", ServItemEntryJournal."Entry Type"::"Entrega Inicio Contrato Alquiler")
+                        ELSE
+                            IF (Rec."Service Order Type" = CraneMgtSetup."Serv. Order Type - Platf. Pick") THEN
+                                ServItemEntryJournal.SETRANGE("Entry Type", ServItemEntryJournal."Entry Type"::"Recogida Fin Contrato Alquiler");
+
+                        ServItemEntryJournal.SETRANGE("Service Item No.", Rec.ServItemLine."Service Item No.");
+                        ServItemEntryJournal.SETRANGE("Source Table Id", 5964); //TB Linea Contrato
+                        ServItemEntryJournal.SETRANGE("Source Type", 1); //contrato
+                        ServItemEntryJournal.SETRANGE("Source Document No.", ServItemLine."Contract No.");
+                        ServItemEntryJournal.SETRANGE("Source Line No.", ServItemLine."Contract Line No.");
+                        ServItemEntryJournal.SETRANGE("Service Order No", ServItemLine."Document No.");
+                        ServItemEntryJournal.SETRANGE("Service Item Line No", ServItemLine."Line No.");
+                        IF ServItemEntryJournal.FINDFIRST THEN BEGIN
+                            ServItemEntryJournal.SETRECFILTER;
+                            REPORT.RUN(50031, TRUE, TRUE, ServItemEntryJournal);
+                        END ELSE BEGIN
+                            CLEAR(PostedServiceItemBinEntry);
+                            IF (Rec."Service Order Type" = CraneMgtSetup."Serv. Order Type - Platf. Del.") THEN
+                                PostedServiceItemBinEntry.SETRANGE("Entry Type", PostedServiceItemBinEntry."Entry Type"::"Delivery Rent Contract Start")
+                            ELSE
+                                IF (Rec."Service Order Type" = CraneMgtSetup."Serv. Order Type - Platf. Pick") THEN
+                                    PostedServiceItemBinEntry.SETRANGE("Entry Type", PostedServiceItemBinEntry."Entry Type"::"Return Rent Contract Finish");
+
+                            PostedServiceItemBinEntry.SETRANGE("Service Item No.", ServItemLine."Service Item No.");
+                            PostedServiceItemBinEntry.SETRANGE("Source Table Id", 5964); //TB Linea Contrato
+                            PostedServiceItemBinEntry.SETRANGE("Source Type", 1); //contrato
+                            PostedServiceItemBinEntry.SETRANGE("Source Document No.", ServItemLine."Contract No.");
+                            PostedServiceItemBinEntry.SETRANGE("Source Line No.", ServItemLine."Contract Line No.");
+                            PostedServiceItemBinEntry.SETRANGE("Service Order No", ServItemLine."Document No.");
+                            PostedServiceItemBinEntry.SETRANGE("Service Item Line No", ServItemLine."Line No.");
+                            IF PostedServiceItemBinEntry.FINDFIRST THEN BEGIN
+                                PostedServiceItemBinEntry.SETRECFILTER;
+                                REPORT.RUN(50032, TRUE, TRUE, PostedServiceItemBinEntry);
+                            END;
+                        END;
+
+                    END ELSE
+                        ERROR(Text50002);
+                end;
+            }
+            action(PrintValuedServiceOrder)
+            {
+                ApplicationArea = All;
+                Caption = 'Imprimir Pedido de Servicio Valorado';
+                Image = Print;
+
+                trigger OnAction()
+                var
+                    TempServHeader: Record "Service Header";
+                begin
+                    TempServHeader.COPY(Rec);
+                    TempServHeader.SETRECFILTER;
+                    TempServHeader.SETRANGE("Document Type", TempServHeader."Document Type"::Order);
+                    REPORT.RUNMODAL(REPORT::"Pedido Servicio Valorado FAM", TRUE, FALSE, TempServHeader);
                 end;
             }
         }
     }
+
 
     trigger OnAfterGetRecord()
     begin
         SetVisibility();
     end;
 
+    procedure FindServiceContract()
     var
-        myInt: Integer;
+        recLineasContrato: Record "Service Contract Line";
+        txtConfirmarContrato: Label '=Se han encontrado contratos asociados al Prod. Servicio. ¨ Desea asociar el Pedido de Servicio a alguno de esos contratos ?';
+        frmLineasContrato: Page "Serv. Contr. List (Serv. Item)";
+        Pedido: Record "Service Header";
+        recContratos: Record "Service Contract Header";
+    begin
+        IF Rec."Internal Contract No._LDR" <> '' THEN BEGIN
+            CLEAR(recLineasContrato);
+            recLineasContrato.SETFILTER(recLineasContrato."Starting Date", '<=%1', Rec."Order Date");
+            recLineasContrato.SETFILTER(recLineasContrato."Contract Expiration Date", '>=%1', Rec."Order Date");
+            recLineasContrato.SETRANGE(Historical_LDR, FALSE);
+            IF recLineasContrato.FIND('-') THEN BEGIN
+                REPEAT
+                    recContratos.GET(recLineasContrato."Contract Type", recLineasContrato."Contract No.");
+                    IF Rec."Internal Contract No._LDR" = recContratos."Internal Contract No._LDR" THEN
+                        recLineasContrato.MARK(TRUE)
+                    ELSE
+                        recLineasContrato.MARK(FALSE);
+                UNTIL recLineasContrato.NEXT = 0;
+            END;
+            recLineasContrato.MARKEDONLY(TRUE);
+            frmLineasContrato.LOOKUPMODE(TRUE);
+            frmLineasContrato.SETTABLEVIEW(recLineasContrato);
+            IF frmLineasContrato.RUNMODAL = ACTION::LookupOK THEN BEGIN
+                frmLineasContrato.GETRECORD(recLineasContrato);
+                Rec.VALIDATE(Rec."Contract No.", recLineasContrato."Contract No.");
+            END;
+
+        END ELSE BEGIN
+            CLEAR(recLineasContrato);
+            recLineasContrato.SETRANGE(recLineasContrato."Customer No.", Rec."Customer No.");
+            recLineasContrato.SETFILTER(recLineasContrato."Starting Date", '<=%1', Rec."Order Date");
+            recLineasContrato.SETFILTER(recLineasContrato."Contract Expiration Date", '>=%1', Rec."Order Date");
+            recLineasContrato.SETRANGE(Historical_LDR, FALSE);
+            IF recLineasContrato.FIND('-') THEN BEGIN
+                REPEAT
+                    recContratos.GET(recLineasContrato."Contract Type", recLineasContrato."Contract No.");
+                    IF (Rec."Ship-to Code" = recContratos."Ship-to Code") AND (Rec."Bill-to Customer No." = recContratos."Bill-to Customer No.") THEN
+                        recLineasContrato.MARK(TRUE)
+                    ELSE
+                        recLineasContrato.MARK(FALSE);
+                UNTIL recLineasContrato.NEXT = 0;
+            END;
+            recLineasContrato.MARKEDONLY(TRUE);
+            frmLineasContrato.LOOKUPMODE(TRUE);
+            frmLineasContrato.SETTABLEVIEW(recLineasContrato);
+            IF frmLineasContrato.RUNMODAL = ACTION::LookupOK THEN BEGIN
+                frmLineasContrato.GETRECORD(recLineasContrato);
+                Rec.VALIDATE("Contract No.", recLineasContrato."Contract No.");
+            END;
+        END;
+    end;
+
+    PROCEDURE Showreport_hoja_trabajo_detall();
+    VAR
+        ServHeader: Record "Service Header";
+        ReportHojaTrabajoDetalle: Report "Service Order";
+    BEGIN
+        // Muestra el informe de la hoja de trabajo
+        ServHeader.COPY(Rec);
+        ServHeader.SETRECFILTER;
+        ReportHojaTrabajoDetalle.SETTABLEVIEW(ServHeader);
+        ReportHojaTrabajoDetalle.RUN();
+    END;
+
+    LOCAL PROCEDURE SetVisibility();
+    BEGIN
+        IF Rec."Travel Type_LDR" = Rec."Travel Type_LDR"::Simple THEN
+            bShowReturn := FALSE
+        ELSE
+            bShowReturn := TRUE;
+
+        CurrPage.UPDATE(FALSE);
+    END;
+
+    var
+        Reportentrega: Report 70050;
+        ServHeaderinforme: Record "Service Header";
+        servmgtsetup: Record "Service Mgt. Setup";
+        ServItemLine: Record "Service Item Line";
+        PurchSetup: Record "Purchases & Payables Setup";
+        Text50001: Label '%1 para %2 se pierde en %3.';
+        CraneMgtSetup: Record "Crane Mgt. Setup_LDR";
+        Text50002: Label 'Esta opcion solo es valida para Entregas o Recogidas de Plataformas';
+        bShowReturn: Boolean;
 }

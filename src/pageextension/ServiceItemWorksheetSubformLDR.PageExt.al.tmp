@@ -1,0 +1,337 @@
+/// <summary>
+/// PageExtension MyExtension (ID 50118) extends Record Service Item Worksheet Subform.
+/// </summary>
+pageextension 50118 "Serv.ItemWorksheetSubform_LDR" extends "Service Item Worksheet Subform"
+{
+    layout
+    {
+        addafter(Type)
+        {
+            field("Convert to Order_LDR"; Rec."Convert to Order_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Convertir a pedido';
+                ToolTip = 'Convertir a pedido';
+            }
+            field("Service Item No."; Rec."Service Item No.")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de artículo de servicio';
+                ToolTip = 'Número de artículo de servicio';
+            }
+            field("EAN code_LDR"; Rec."EAN code_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Código EAN';
+                ToolTip = 'Código EAN';
+            }
+        }
+        addafter("No.")
+        {
+            field("No. 2_LDR"; Rec."No. 2_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'No';
+                ToolTip = 'No';
+            }
+            field("Document No."; Rec."Document No.")
+            {
+                ApplicationArea = All;
+                Caption = 'No de Documento';
+                ToolTip = 'No de Documento';
+            }
+        }
+        addafter("Unit of Measure")
+        {
+            field("Invoicing UOM Code_LDR"; Rec."Invoicing UOM Code_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Código UOM de facturación';
+                ToolTip = 'Código UOM de facturación';
+            }
+            field("Initial Time_LDR"; Rec."Initial Time_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Tiempo inicial';
+                ToolTip = 'Tiempo inicial';
+            }
+            field("End Time_LDR"; Rec."End Time_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Hora de finalización';
+                ToolTip = 'Hora de finalización';
+            }
+            field("Internal Quantity_LDR"; Rec."Internal Quantity_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Cantidad interna';
+                ToolTip = 'Cantidad interna';
+            }
+        }
+        addafter(Quantity)
+        {
+            field("Qty. to Invoice"; Rec."Qty. to Invoice")
+            {
+                ApplicationArea = All;
+                Caption = 'Cant. facturar';
+                ToolTip = 'Cant. facturar';
+            }
+        }
+        addafter("Reserved Quantity")
+        {
+            field("Quantity Shipped"; Rec."Quantity Shipped")
+            {
+                ApplicationArea = All;
+                Caption = 'Cantidad enviada';
+                ToolTip = 'Cantidad enviada';
+            }
+            field(Chargeable_LDR; Rec.Chargeable_LDR)
+            {
+                ApplicationArea = All;
+                Caption = 'Cobrable';
+                ToolTip = 'Cobrable';
+            }
+            field(Revaluation_LDR; Rec.Revaluation_LDR)
+            {
+                ApplicationArea = All;
+                Caption = 'Revalorización';
+                ToolTip = 'Revalorización';
+            }
+        }
+        addafter("Line Discount %")
+        {
+            field("Unit Cost (LCY)"; Rec."Unit Cost (LCY)")
+            {
+                ApplicationArea = All;
+                Caption = 'Costo unitario (LCY)';
+                ToolTip = 'Costo unitario (LCY)';
+            }
+        }
+        addafter("Line Discount Amount")
+        {
+            field("Invoice Line Discount Amount_LDR"; Rec."Invoice Line Discount Amount_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Importe de descuento de línea de factura';
+                ToolTip = 'Importe de descuento de línea de factura';
+            }
+        }
+        addafter("Line Amount")
+        {
+            field("Invoice Line Amount_LDR"; Rec."Invoice Line Amount_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Importe de línea de factura';
+                ToolTip = 'Importe de línea de factura';
+            }
+        }
+        addafter("ShortcutDimCode[8]")
+        {
+            field(Reclasified_LDR; Rec.Reclasified_LDR)
+            {
+                ApplicationArea = All;
+                Caption = 'Reclasificado';
+                ToolTip = 'Reclasificado';
+            }
+        }
+    }
+
+    actions
+    {
+        addafter("&Line")
+        {
+            action("Calc Price / Distance / Duration")
+            {
+                ApplicationArea = All;
+                Caption = 'Calcular Precio / Distancia / Duraci¢n';
+
+                trigger OnAction()
+                begin
+                    CalcDistances;
+                end;
+            }
+            action(Unblock)
+            {
+                ApplicationArea = All;
+                Caption = 'Desbloquear';
+
+                trigger OnAction()
+                begin
+                    Unlock;
+                end;
+            }
+            action("&Bin Contents")
+            {
+                ApplicationArea = All;
+                Caption = 'Contenidos u&bicaci¢n';
+                Image = BinContent;
+
+                trigger OnAction()
+                begin
+                    ShowItemBinContents;
+                end;
+            }
+        }
+    }
+
+    procedure CalcDistances()
+    begin
+        ServMgtSetup.Get();
+        if ServMgtSetup."Price/Km Advanced Calc" then
+            CalcPriceDistanceDuration
+        else
+            CalcDistanceDuration;
+    end;
+
+    PROCEDURE Unlock();
+    BEGIN
+        Rec."Opened (Quote)_LDR" := true;
+        Rec.Modify(TRUE);
+    END;
+
+    PROCEDURE QuitarComponente(ServItemLine: Record "Service Item Line");
+    VAR
+        ServItemComponent: Record "Service Item Component";
+        Text007: Label 'Debe seleccionar un %1.';
+        TempServInvLine: Record "Service Line";
+        NewServInvLine: Record "Service Line";
+    BEGIN
+        ServMgtSetup.GET;
+        ServMgtSetup.TESTFIELD(ServMgtSetup."Component In Location");
+
+        ServItemComponent.RESET;
+        ServItemComponent.SETRANGE(Active, TRUE);
+        ServItemComponent.SETRANGE(Type, Rec.Type::Item);
+        ServItemComponent.SETRANGE("Parent Service Item No.", ServItemLine."Service Item No.");
+        IF PAGE.RUNMODAL(0, ServItemComponent) = ACTION::LookupOK THEN BEGIN
+
+            TempServInvLine.SETRANGE("Document Type", ServItemLine."Document Type");
+            TempServInvLine.SETRANGE("Document No.", ServItemLine."Document No.");
+            TempServInvLine.SETRANGE("Service Item Line No.", ServItemLine."Line No.");
+            IF TempServInvLine.FIND('+') THEN
+                NewServInvLine.INIT;
+            NewServInvLine.SetHideReplacementDialog(TRUE);
+            NewServInvLine."Document Type" := ServItemLine."Document Type";
+            NewServInvLine."Document No." := ServItemLine."Document No.";
+            NewServInvLine."Line No." := TempServInvLine."Line No." + 10000;
+            NewServInvLine."Service Item Line No." := ServItemLine."Line No.";
+            NewServInvLine."Service Item No." := ServItemLine."Service Item No.";
+            NewServInvLine."Service Item Serial No." := ServItemLine."Serial No.";
+            NewServInvLine.VALIDATE(Type, Rec.Type::Item);
+            NewServInvLine.VALIDATE("No.", ServItemComponent."No.");
+            NewServInvLine.VALIDATE("Location Code", ServMgtSetup."Component In Location");
+            NewServInvLine."Replaced Item No." := ServItemComponent."No.";
+            NewServInvLine."Component Line No." := ServItemComponent."Line No.";
+            CheckIfServItemReplacement(NewServInvLine."Component Line No.");
+            NewServInvLine."Spare Part Action" := Rec."Spare Part Action"::"Component Deleted";
+            NewServInvLine.VALIDATE(Chargeable_LDR, Rec.Chargeable_LDR::"0");
+            NewServInvLine.VALIDATE(Quantity, -1);
+            NewServInvLine.VALIDATE("Unit Cost", 0);
+            NewServInvLine.VALIDATE("Unit Cost (LCY)", 0);
+            NewServInvLine.VALIDATE("Unit Price", 0);
+            NewServInvLine.INSERT(TRUE);
+            IF ServItemComponent."Serial No." <> '' THEN BEGIN
+                CreateReservation(NewServInvLine, ServItemComponent."Serial No.");
+            END;
+
+        END ELSE
+            ERROR(Text007, ServItemComponent.TABLECAPTION);
+    END;
+
+    PROCEDURE CreateReservation(ServInvLine: Record "Service Line"; SerialNo: Code[20]);
+    VAR
+        CreateReservEntry: Codeunit "Create Reserv. Entry";
+        ItemEntryRelation: Record "Item Entry Relation";
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        CurrentEntryStatus: 'Reservation,Tracking,Surplus,Prospect';
+        ReservEntry1: Record "Reservation Entry";
+    BEGIN
+        CurrentEntryStatus := CurrentEntryStatus::Surplus;
+
+        CreateReservEntry.SetDates(
+          0D, 0D);
+
+        CreateReservEntry.CreateReservEntryFor(
+             5902, 1, ServInvLine."Document No.", '', 0,
+             ServInvLine."Line No.",
+             ServInvLine."Qty. per Unit of Measure",
+             ServInvLine.Quantity,
+             ServInvLine."Quantity (Base)",
+             SerialNo,
+             '');
+
+        CreateReservEntry.CreateEntry(ServInvLine."No.",
+              ServInvLine."Variant Code",
+              ServInvLine."Location Code",
+              ServInvLine.Description,
+              ServInvLine."Posting Date",
+              0D, 0, CurrentEntryStatus);
+        CreateReservEntry.GetLastEntry(ReservEntry1);
+    END;
+
+    PROCEDURE GetLocationTransfer(ServItem: Record "Service Item Line");
+    VAR
+        //ReportGetReclasification : Report 70021;
+        RecItemLedger: Record "Item Ledger Entry";
+    BEGIN
+
+        //ReportGetReclasification.SetServItemLine(ServItem);
+        CLEAR(RecItemLedger);
+        RecItemLedger.SETFILTER("Document No.", ServItem."Document No.");
+        //ReportGetReclasification.SETTABLEVIEW(RecItemLedger);
+        //ReportGetReclasification.RUNMODAL;
+    END;
+
+    PROCEDURE SetDefaultWorkType(SetDefaultWorkType: Code[20]);
+    BEGIN
+        DefaultWorkType := SetDefaultWorkType;
+    END;
+
+    PROCEDURE SetSelecFilter(VAR ServInvLine: Record "Service Line");
+    BEGIN
+        CurrPage.SETSELECTIONFILTER(ServInvLine);
+    END;
+
+    PROCEDURE UndoLine();
+    VAR
+        ServOrderMgt: Codeunit ServOrderManagement;
+        RecServinvoiceLine: Record "Service Line";
+    BEGIN
+        RecServinvoiceLine.COPY(Rec);
+        CurrPage.SETSELECTIONFILTER(RecServinvoiceLine);
+        ServOrderMgt.UndoServiceLine(RecServinvoiceLine);
+    END;
+
+    LOCAL PROCEDURE ShowItemBinContents();
+    VAR
+        ItemBinContents: Page "Item Bin Contents";
+        BinContent: Record "Bin Content";
+    BEGIN
+        Rec.TESTFIELD(Type, Rec.Type::Item);
+        BinContent.SETRANGE("Item No.", Rec."No.");
+        ItemBinContents.SETTABLEVIEW(BinContent);
+        ItemBinContents.RUNMODAL;
+    END;
+
+    trigger OnAfterGetCurrRecord()
+    begin
+        Rec.ShowShortcutDimCode(ShortcutDimCode);
+
+        ServHeader.GET(Rec."Document Type", Rec."Document No.");
+        IF (ServHeader."Document Type" = ServHeader."Document Type"::Quote) AND (ServHeader."Converted to Order_LDR") THEN BEGIN
+            CurrPage.EDITABLE(false);
+        END ELSE BEGIN
+            CurrPage.EDITABLE(true);
+        END;
+    end;
+
+    trigger OnNewRecord(BelowxRec: Boolean)
+    begin
+        Rec."Work Type Code" := DefaultWorkType;
+    end;
+
+    var
+        DefaultWorkType: Code[20];
+        CraneMgtSetup: Record "Crane Mgt. Setup_LDR";
+        ServHeader: Record "Service Header";
+}

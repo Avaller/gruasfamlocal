@@ -1772,4 +1772,9 @@ codeunit 50008 "Planner Mgt._LDR"
         EXIT(NOT ServItemLine.ISEMPTY);
     end;
     */
+
+    procedure AssignTruck(myCode: Code[20]; myInteger: Integer)
+    begin
+
+    end;
 }

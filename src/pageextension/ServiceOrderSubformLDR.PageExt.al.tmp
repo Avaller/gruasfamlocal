@@ -1,0 +1,261 @@
+/// <summary>
+/// PageExtension Service Order Subform_LDR (ID 50113) extends Record Service Order Subform.
+/// </summary>
+pageextension 50113 "Service Order Subform_LDR" extends "Service Order Subform"
+{
+    layout
+    {
+        addafter("Line No.")
+        {
+            field("Service Inv. Group No._LDR"; Rec."Service Inv. Group No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Inversión de servicio grupo no.';
+                ToolTip = 'Inversión de servicio grupo no.';
+            }
+            field("Service Inv. Group Description_LDR"; Rec."Service Inv. Group Description_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Inversión de servicio Descripción del Grupo';
+                ToolTip = 'Inversión de servicio Descripción del Grupo';
+            }
+            field("Crane Service Quote No._LDR"; Rec."Crane Service Quote No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'No. de Cotización de servicio de grúa';
+                Editable = false;
+                ToolTip = 'No. de Cotización de servicio de grúa';
+            }
+            field("Service Item Tariff No._LDR"; Rec."Service Item Tariff No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de tarifa del artículo de servicio';
+                Editable = false;
+                ToolTip = 'Número de tarifa del artículo de servicio';
+            }
+        }
+        addafter(ServiceItemNo)
+        {
+            field("Serv. Item Planner No_LDR"; Rec."Serv. Item Planner No_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Planificador de artículo de servicio No';
+                ToolTip = 'Planificador de artículo de servicio No';
+            }
+            field("No of Active Service Orders_LDR"; Rec."No of Active Service Orders_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de pedidos de servicio activo';
+                ToolTip = 'Número de pedidos de servicio activo';
+                Visible = false;
+            }
+        }
+        addafter("Serial No.")
+        {
+            field(nonfacturable_LDR; Rec.nonfacturable_LDR)
+            {
+                ApplicationArea = All;
+                Caption = 'No facturable';
+                ToolTip = 'No facturable';
+            }
+        }
+        addafter("No. of Previous Services")
+        {
+            field("Requested Starting Date_LDR"; Rec."Requested Starting Date_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Fecha de inicio solicitada';
+                ToolTip = 'Fecha de inicio solicitada';
+            }
+            field("Requested Starting Time_LDR"; Rec."Requested Starting Time_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Hora de inicio solicitada';
+                ToolTip = 'Hora de inicio solicitada';
+            }
+            field("Requested Ending Date_LDR"; Rec."Requested Ending Date_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Fecha de finalización solicitada';
+                ToolTip = 'Fecha de finalización solicitada';
+            }
+            field("Requested Ending Time_LDR"; Rec."Requested Ending Time_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Hora de finalización solicitada';
+                ToolTip = 'Hora de finalización solicitada';
+            }
+            field("Sent to Device_LDR"; Rec."Sent to Device_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Enviado al dispositivo';
+                ToolTip = 'Enviado al dispositivo';
+            }
+            field("Old Worksheet No._LDR"; Rec."Old Worksheet No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Hoja de trabajo antigua No.';
+                ToolTip = 'Hoja de trabajo antigua No.';
+            }
+            field("Serv. Item Counter Code_LDR"; Rec."Serv. Item Counter Code_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Código de contador de artículo de servicio';
+                ToolTip = 'Código de contador de artículo de servicio';
+            }
+            field("Serv. Item Counter Description_LDR"; Rec."Serv. Item Counter Description_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Descripción del contador de elementos de servicio';
+                ToolTip = 'Descripción del contador de elementos de servicio';
+            }
+            field("No of hours_LDR"; Rec."No of hours_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Nº de horas';
+                ToolTip = 'Nº de horas';
+            }
+        }
+    }
+    actions
+    {
+        addafter(Dimensions)
+        {
+            action("Service item Localization")
+            {
+                ApplicationArea = All;
+                Caption = 'Localización de artículos de servicio';
+
+                trigger OnAction()
+                begin
+                    Showreport_Localizaciones();
+                end;
+            }
+            action("Generate Dellivery / Collection")
+            {
+                ApplicationArea = All;
+                Caption = 'Generar Entrega / Recogida';
+
+                trigger OnAction()
+                begin
+                    Showreport_EntregaRecogida();
+                end;
+
+            }
+            action("Internal Format")
+            {
+                ApplicationArea = All;
+                Caption = 'Formato Interno';
+                Image = Document;
+
+                trigger OnAction()
+                begin
+                    Showreport_hoja_trabajo();
+                end;
+            }
+        }
+        addafter("Get St&d. Service Codes")
+        {
+            action("Print")
+            {
+                ApplicationArea = All;
+                Caption = 'Imprimir Parte de Trabajo';
+                Image = Print;
+
+                trigger OnAction()
+                VAR
+                    ServiceHeader: Record "Service Header";
+                    ReportSelection: Record "Report Selections";
+                    ServiceItemLine: Record "Service Item Line";
+                BEGIN
+                    CLEAR(ServiceItemLine);
+                    ServiceItemLine.SETRANGE("Document Type", Rec."Document Type");
+                    ServiceItemLine.SETRANGE("Document No.", Rec."Document No.");
+                    ServiceItemLine.SETRANGE("Line No.", Rec."Line No.");
+
+                    ReportSelection.SETRANGE(Usage, ReportSelection.Usage::"S.Order");
+                    ReportSelection.SETFILTER("Report ID", '<>0');
+                    IF ReportSelection.FINDSET THEN BEGIN
+                        REPEAT
+                            REPORT.RUNMODAL(ReportSelection."Report ID", TRUE, FALSE, ServiceItemLine);
+                        UNTIL ReportSelection.NEXT = 0;
+                    END ELSE
+                        ERROR(Text50001, ReportSelection.FIELDCAPTION("Report ID"), ServiceItemLine.TABLECAPTION, ReportSelection.TABLECAPTION);
+                END;
+            }
+            action(AssignTruck)
+            {
+                ApplicationArea = All;
+                Caption = 'Asignar Cami¢n de Trasporte';
+                Image = Delivery;
+
+                trigger OnAction()
+                VAR
+                    PlannerMgt: Codeunit "Planner Mgt._LDR";
+                BEGIN
+                    PlannerMgt.AssignTruck(Rec."Document No.", Rec."Line No.");
+                    CurrPage.UPDATE;
+                END;
+            }
+            action(SetSelfTransport)
+            {
+                ApplicationArea = All;
+                Caption = 'Asignar trasnporte propio';
+                Image = ExportShipment;
+
+                trigger OnAction()
+                VAR
+                    PlannerMgt: Codeunit "Planner Mgt._LDR";
+                BEGIN
+                    IF CONFIRM(Text50002, FALSE) THEN BEGIN
+                        PlannerMgt.SetSelfTransport(Rec."Document No.", Rec."Line No.");
+                        CurrPage.UPDATE;
+                    END;
+                END;
+            }
+        }
+    }
+
+    procedure Showreport_hoja_trabajo()
+    begin
+        Servitemlineinforme.COPY(Rec);
+        Servitemlineinforme.SETRECFILTER;
+        Reporthojatrabajo.SETTABLEVIEW(Servitemlineinforme);
+        Reporthojatrabajo.RUN();
+    end;
+
+    procedure Showreport_Localizaciones()
+    var
+        ServItem: Record "Service Item";
+    begin
+        Rec.TESTFIELD("Service Item No.");
+        ServItem.GET(Rec."Service Item No.");
+        ServItem.SETRECFILTER;
+        REPORT.RUN(REPORT::Report7122060, TRUE, TRUE, ServItem);
+    end;
+
+    PROCEDURE Showreport_EntregaRecogida();
+    VAR
+        TempServItemLine: Record "Service Item Line";
+    //ReportEntregaRecogida: Report 70056;
+    BEGIN
+        // Muestra el informe de entrega recogida
+        Rec.TESTFIELD("Service Item No.");
+        TempServItemLine.COPY(Rec);
+        TempServItemLine.SETRECFILTER;
+        //ReportEntregaRecogida.SetServOrderLine(TempServItemLine);
+        //ReportEntregaRecogida.RUN;
+    END;
+
+    PROCEDURE ShowAdvancedComments(Type: 'General,Fault,Resolution,Accessory,Internal,Service Item Loaner');
+    BEGIN
+        Rec.ShowAdvancedComments(Type);
+    END;
+
+    var
+        Text50001: Label '%1 para %2 se pierde en %3.';
+        Reporthojatrabajo: Report "Service Item Worksheet";
+        Servitemlineinforme: Record "Service Item Line";
+        Text50002: Label 'Esta acci¢n establecer  la Linea del Contrato como entregada/recogida y modificar  la Ubicaci¢n del Producto de Servicio. ¨Est  seguro de querer continuar?';
+
+}
