@@ -1,0 +1,250 @@
+pageextension 50124 "Service Invoice_LDR" extends "Service Invoice"
+{
+    layout
+    {
+        addafter("Contact No.")
+        {
+            field("Posting No. Series"; Rec."Posting No. Series")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de contabilización Serie';
+                ToolTip = 'Número de contabilización Serie';
+            }
+            field("Posting No."; Rec."Posting No.")
+            {
+                ApplicationArea = All;
+                Caption = 'Nº de publicación';
+                ToolTip = 'Nº de publicación';
+            }
+            field("VAT Registration No._LDR"; Rec."VAT Registration No.")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de registro de IVA';
+                ToolTip = 'Número de registro de IVA';
+            }
+        }
+        addafter("Assigned User ID")
+        {
+            field("Crane Service Quote No._LDR"; Rec."Crane Service Quote No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'No. de Cotización de servicio de grúa';
+                ToolTip = 'No. de Cotización de servicio de grúa';
+            }
+            field("Customer Order No._LDR"; Rec."Customer Order No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de pedido del cliente';
+                ToolTip = 'Número de pedido del cliente';
+            }
+            field(Replicate_LDR; Rec.Replicate_LDR)
+            {
+                ApplicationArea = All;
+                Caption = 'replicar';
+                ToolTip = 'replicar';
+            }
+            field("Replicate Pending_LDR"; Rec."Replicate Pending_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Réplica pendiente';
+                ToolTip = 'Réplica pendiente';
+            }
+        }
+        addafter("Bill-to Contact")
+        {
+            field("Posting Description"; Rec."Posting Description")
+            {
+                ApplicationArea = All;
+                Caption = 'Descripción de la publicación';
+                ToolTip = 'Descripción de la publicación';
+            }
+            field("Posting No.2"; Rec."Posting No.")
+            {
+                ApplicationArea = All;
+                Caption = 'Nº de publicación';
+                ToolTip = 'Nº de publicación';
+            }
+        }
+        addafter("VAT Registration No.")
+        {
+            field("Direct Debit Mandate ID_LDR"; Rec."Direct Debit Mandate ID_LDR")//TODO: Existen dos Direct Debit Mandate, uno con LDR y otro sin el
+            {
+                ApplicationArea = All;
+                Caption = 'ID de mandato de domiciliación bancaria';
+                ToolTip = 'ID de mandato de domiciliación bancaria';
+            }
+            field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
+            {
+                ApplicationArea = All;
+                Caption = 'Grupo de registro comercial de IVA';
+                ToolTip = 'Grupo de registro comercial de IVA';
+            }
+        }
+        addafter("ID Type")
+        {
+            field("External Document No._LDR"; Rec."External Document No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = '';
+                ToolTip = '';
+            }
+        }
+        addafter("Ship-to Name")
+        {
+            field("Ship-to Name 2"; Rec."Ship-to Name 2")
+            {
+                ApplicationArea = All;
+                Caption = 'Enviar a nombre de';
+                ToolTip = 'Enviar a nombre de';
+            }
+        }
+        addafter("Applies-to Doc. No.")
+        {
+            field("Your Reference"; Rec."Your Reference")
+            {
+                ApplicationArea = All;
+                Caption = 'Tu Referencia';
+                ToolTip = 'Tu Referencia';
+            }
+            field("Pay-at Code_LDR"; Rec."Pay-at Code")
+            {
+                ApplicationArea = All;
+                Caption = 'Código de pago';
+                ToolTip = 'Código de pago';
+            }
+            field("Cust. Bank Acc. Code_LDR"; Rec."Cust. Bank Acc. Code")
+            {
+                ApplicationArea = All;
+                Caption = 'Código de cuenta bancaria del cliente';
+                ToolTip = 'Código de cuenta bancaria del cliente';
+            }
+        }
+        addafter("Cust. Bank Acc. Code")
+        {
+            field("Send Document By Mail_LDR"; Rec."Send Document By Mail_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Enviar documento por correo';
+                ToolTip = 'Enviar documento por correo';
+            }
+            field("E-Mail Destination_LDR"; Rec."E-Mail Destination_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Destino de correo electrónico';
+                ToolTip = 'Destino de correo electrónico';
+            }
+            group("PDF Mail")
+            {
+                Caption = 'PDF Mail';
+            }
+        }
+    }
+
+    actions
+    {
+        addafter("&Dimensions")
+        {
+            action(Unlock)
+            {
+                ApplicationArea = All;
+                Caption = 'Desbloquear';
+                Image = Open;
+
+                trigger OnAction()
+                begin
+                    CurrPage.ServLines.PAGE.OpenQuoteLine;
+                end;
+            }
+        }
+        addafter("Calculate Invoice Discount")
+        {
+            separator("0")
+            {
+
+            }
+            action(InsServItemComp)
+            {
+                ApplicationArea = All;
+                Caption = 'Insertar componentes Prod. servicio';
+                Image = PostedServiceOrder;
+
+                trigger OnAction()
+                begin
+                    CurrPage.ServLines.PAGE.InsertServItemExtText;
+                end;
+            }
+            separator("1")
+            {
+
+            }
+            action(GetWarranty)
+            {
+                ApplicationArea = All;
+                Caption = 'Traer garantia';
+                Image = GetOrder;
+
+                trigger OnAction()
+                begin
+                    CurrPage.ServLines.PAGE.GetWarrantyServiceOrder;
+                end;
+            }
+        }
+        addafter("Get St&d. Service Codes")
+        {
+            action(DelServInvwoValue)
+            {
+                ApplicationArea = All;
+                Caption = 'Eliminar prefactura servicios a cero';
+
+                RunObject = Codeunit 70034;
+            }
+            separator("3")
+            {
+
+            }
+            action(CopyLines)
+            {
+                ApplicationArea = All;
+                Caption = 'Copiar lineas';
+                Image = ChangeToLines;
+
+                trigger OnAction()
+                begin
+                    CopyServInvoice;
+                end;
+            }
+        }
+        addafter("Test Report")
+        {
+            action(PrintPreInvoice)
+            {
+                ApplicationArea = All;
+                Caption = 'Factura Proforma';
+                Image = Print;
+
+                trigger OnAction()
+                var
+                    TempServHeader: Record "Service Header";
+                begin
+                    TempServHeader.Copy(Rec);
+                    TempServHeader.SetRecFilter();
+                    TempServHeader.SetRange("Document Type", TempServHeader."Document Type"::Invoice);
+                    Report.RUNMODAL(REPORT::"Service - PreInvoice Color FAM", TRUE, FALSE, TempServHeader);
+                    Report.RUNMODAL(REPORT::"Serv.Inv. Work Order", TRUE, FALSE, TempServHeader);
+                end;
+            }
+        }
+    }
+
+    procedure CopyServInvoice()
+    var
+        CopyServInv: Report 50202;
+    begin
+        CLEAR(CopyServInv);
+        CopyServInv.SetServHeader(Rec);
+        CopyServInv.RUNMODAL;
+    end;
+
+    var
+        myInt: Integer;
+}

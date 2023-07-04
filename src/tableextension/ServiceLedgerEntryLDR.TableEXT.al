@@ -80,7 +80,7 @@ tableextension 50070 "Service Ledger Entry_LDR" extends "Service Ledger Entry"
             Caption = 'Importe Sin Descuentos';
             DataClassification = ToBeClassified;
         }
-        field(50015; AO_LDR; Code[20])
+        field(50015; AC_LDR; Code[20])
         {
             DataClassification = ToBeClassified;
         }

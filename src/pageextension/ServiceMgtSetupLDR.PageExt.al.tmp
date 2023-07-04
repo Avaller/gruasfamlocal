@@ -1,0 +1,640 @@
+pageextension 50123 "Service Mgt. Setup_LDR" extends "Service Mgt. Setup"
+{
+    layout
+    {
+        addafter("Base Calendar Code")
+        {
+            field("Default Customer Sales Code_LDR"; Rec."Default Customer Sales Code_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Código de ventas de cliente predeterminado';
+                ToolTip = 'Código de ventas de cliente predeterminado';
+            }
+        }
+        addafter("Copy Comments Order to Invoice")
+        {
+            field("Copy Comments Contract Invoice_LDR"; Rec."Copy Comments Contract Invoice_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Copiar Comentarios Contrato Factura';
+                ToolTip = 'Copiar Comentarios Contrato Factura';
+            }
+        }
+        addafter("Logo Position on Documents")
+        {
+            field("0 Pending Qty. on Invoicing_LDR"; Rec."0 Pending Qty. on Invoicing_LDR")
+            {
+                ApplicationArea = All;
+                Caption = '0 Cantidad pendiente en Facturación';
+                ToolTip = '0 Cantidad pendiente en Facturación';
+            }
+            field("Hide Offered Invoice Lines_LDR"; Rec."Hide Offered Invoice Lines_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Ocultar líneas de factura ofrecidas';
+                ToolTip = 'Ocultar líneas de factura ofrecidas';
+            }
+        }
+        addafter("Salesperson Mandatory")
+        {
+            field("Sales Price Mandatory_LDR"; Rec."Sales Price Mandatory_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Precio de venta obligatorio';
+                ToolTip = 'Precio de venta obligatorio';
+            }
+            field("Res. Center Mandatory_LDR"; Rec."Res. Center Mandatory_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Res. Centro Obligatorio';
+                ToolTip = 'Res. Centro Obligatorio';
+            }
+        }
+        addafter("Default Warranty Duration")
+        {
+            field("Group Displacement on Invoices_LDR"; Rec."Group Displacement on Invoices_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Desplazamiento de grupo en facturas';
+                ToolTip = 'Desplazamiento de grupo en facturas';
+            }
+            field("Check Displacement Calculation_LDR"; Rec."Check Displacement Calculation_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Comprobar cálculo de desplazamiento';
+                ToolTip = 'Comprobar cálculo de desplazamiento';
+            }
+            field("Auto Adjust Journal Template_LDR"; Rec."Auto Adjust Journal Template_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Plantilla de diario de ajuste automático';
+                ToolTip = 'Plantilla de diario de ajuste automático';
+            }
+            field("Auto Adjust Journal Batch_LDR"; Rec."Auto Adjust Journal Batch_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Lote de diario de ajuste automático';
+                ToolTip = 'Lote de diario de ajuste automático';
+            }
+            field("Auto Adjust S. Item Jnl. Tmpl._LDR"; Rec."Auto Adjust S. Item Jnl. Tmpl._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Ajuste automático S. Artículo Jnl. Tmpl.';
+                ToolTip = 'Ajuste automático S. Artículo Jnl. Tmpl.';
+            }
+            field("Auto Adjust S. Item Jnl. Bach._LDR"; Rec."Auto Adjust S. Item Jnl. Bach._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Ajuste automático S. Artículo Jnl. Bach.';
+                ToolTip = 'Ajuste automático S. Artículo Jnl. Bach.';
+            }
+            field("WorkLoad Jnl. Tmpl._LDR"; Rec."WorkLoad Jnl. Tmpl._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Carga de trabajo Jnl. Tmpl.';
+                ToolTip = 'Carga de trabajo Jnl. Tmpl.';
+            }
+            field("WorkLoad Jnl. Batch._LDR"; Rec."WorkLoad Jnl. Batch._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Carga de trabajo Jnl. Lote.';
+                ToolTip = 'Carga de trabajo Jnl. Lote.';
+            }
+            field("S.Item Bin Entry Default Batch_LDR"; Rec."S.Item Bin Entry Default Batch_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Lote predeterminado de entrada de contenedor de artículos S.';
+                ToolTip = 'Lote predeterminado de entrada de contenedor de artículos S.';
+            }
+            field("Phys. Inv. Journal Template_LDR"; Rec."Phys. Inv. Journal Template_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Phys. inversión Plantilla de diario';
+                ToolTip = 'Phys. inversión Plantilla de diario';
+            }
+            field("Hide proposal Res. Allocation_LDR"; Rec."Hide proposal Res. Allocation_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Ocultar propuesta Res. Asignación';
+                ToolTip = 'Ocultar propuesta Res. Asignación';
+            }
+            field("Order Post not Purch. Test_LDR"; Rec."Order Post not Purch. Test_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Pedido por publicación, no por compra. Prueba';
+                ToolTip = 'Pedido por publicación, no por compra. Prueba';
+            }
+            field("Additional Contract Inv. Text_LDR"; Rec."Additional Contract Inv. Text_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Contrato Adicional Inv. Texto';
+                ToolTip = 'Contrato Adicional Inv. Texto';
+            }
+            field("Automatic Cust. Item Jnl. Batch_LDR"; Rec."Automatic Cust.Item Jnl. Batch_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Cliente Automático artículo jnl. Lote';
+                ToolTip = 'Cliente Automático artículo jnl. Lote';
+            }
+            field("Default Purpose_LDR"; Rec."Default Purpose_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Propósito predeterminado';
+                ToolTip = 'Propósito predeterminado';
+            }
+        }
+        addafter("Contract Value %")
+        {
+            field("Show Delivery Contract Invoice_LDR"; Rec."Show Delivery Contract Invoice_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Mostrar factura de contrato de entrega';
+                ToolTip = 'Mostrar factura de contrato de entrega';
+            }
+            group("Contracts by Hours")
+            {
+                Caption = 'Contratos por Horas';
+            }
+            field("ContractHourGeneric Price_LDR"; Rec."Contract Hour Generic Price_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Contrato Hora Precio Genérico';
+                ToolTip = 'Contrato Hora Precio Genérico';
+            }
+            field("Contract Day Generic Price_LDR"; Rec."Contract Day Generic Price_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Contrato Día Precio Genérico';
+                ToolTip = 'Contrato Día Precio Genérico';
+            }
+            field("ContractHourGenericPrice_LDR"; Rec."Contract Hour Generic Price_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Contrato Hora Precio Genérico';
+                ToolTip = 'Contrato Hora Precio Genérico';
+            }
+        }
+        addafter("Posted Service Shipment Nos.")
+        {
+            field("Vendor Contract Nos._LDR"; Rec."Vendor Contract Nos._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Números de contrato de proveedor';
+                ToolTip = 'Números de contrato de proveedor';
+            }
+        }
+        addafter("Contract Credit Memo Nos.")
+        {
+            field("Warranty Nos._LDR"; Rec."Warranty Nos._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Números de garantía';
+                ToolTip = 'Números de garantía';
+            }
+            field("Serv. Contract Inv. Group Nos._LDR"; Rec."Serv. Contract Inv. Group Nos._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'serv. Contrato Inv. Nº de grupo';
+                ToolTip = 'serv. Contrato Inv. Nº de grupo';
+            }
+            field("Internal Contract Nos._LDR"; Rec."Internal Contract Nos._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Nº de contratos internos';
+                ToolTip = 'Nº de contratos internos';
+            }
+        }
+        addafter("Prepaid Posting Document Nos.")
+        {
+            group(Maintenance)
+            {
+                Caption = 'Mantenimiento';
+            }
+            group("Group0")
+            {
+
+            }
+            group("Group1")
+            {
+
+            }
+            field("Periodic Service Order Type_LDR"; Rec."Periodic Service Order Type_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Tipo de orden de servicio periódico';
+                ToolTip = 'Tipo de orden de servicio periódico';
+            }
+            field("Assembly Service Order Type_LDR"; Rec."Assembly Service Order Type_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Tipo de orden de servicio de montaje';
+                ToolTip = 'Tipo de orden de servicio de montaje';
+            }
+            field("No. Internal Customer_LDR"; Rec."No. Internal Customer_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Nº Cliente Interno';
+                ToolTip = 'Nº Cliente Interno';
+            }
+            field("No. Internal Vendor_LDR"; Rec."No. Internal Vendor_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'No. Vendedor interno';
+                ToolTip = 'No. Vendedor interno';
+            }
+            group("Automatic Assembly Parameters")
+            {
+                Caption = 'Parametros Montaje Automatico';
+            }
+            field("Assembly No. Series_LDR"; Rec."Assembly No. Series_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de montaje Serie';
+                ToolTip = 'Número de montaje Serie';
+            }
+            field("Assembly Work Type Code_LDR"; Rec."Assembly Work Type Code_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Código de tipo de trabajo de montaje';
+                ToolTip = 'Código de tipo de trabajo de montaje';
+            }
+            field("Assembly Fault Reason Code_LDR"; Rec."Assembly Fault Reason Code_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Código de motivo de falla de ensamblaje';
+                ToolTip = 'Código de motivo de falla de ensamblaje';
+            }
+            field("Assembly Fin. Rep. Status Code_LDR"; Rec."Assembly Fin. Rep. Status Code_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Aleta de montaje Código de estado del representante';
+                ToolTip = 'Aleta de montaje Código de estado del representante';
+            }
+            group("SAT E-Mail Parameters")
+            {
+                Caption = 'Parametros Email Postventa';
+            }
+            field("web images URL_LDR"; Rec."web images URL_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'URL de imágenes web';
+                ToolTip = 'URL de imágenes web';
+            }
+            field("SAT email_LDR"; Rec."SAT email_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'correo electrónico SAT';
+                ToolTip = 'correo electrónico SAT';
+            }
+            group("Group2")
+            {
+
+            }
+            group("Group3")
+            {
+
+            }
+            field("General Resource Mantenaince_LDR"; Rec."General Resource Mantenaince_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Mantenimiento de recursos generales';
+                ToolTip = 'Mantenimiento de recursos generales';
+            }
+            field("Update Maint. Template Log_LDR"; Rec."Update Maint. Template Log_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Actualizar mantenimiento Registro de plantilla';
+                ToolTip = 'Actualizar mantenimiento Registro de plantilla';
+            }
+            field("Default Maint. Template No._LDR"; Rec."Default Maint. Template No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Mantenimiento predeterminado Nº de plantilla';
+                ToolTip = 'Mantenimiento predeterminado Nº de plantilla';
+            }
+            field("Person in charge of warranty_LDR"; Rec."Person in charge of warranty_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Persona a cargo de la garantía';
+                ToolTip = 'Persona a cargo de la garantía';
+            }
+            field("Warranty Vendor No._LDR"; Rec."Warranty Vendor No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de proveedor de garantía';
+                ToolTip = 'Número de proveedor de garantía';
+            }
+            group("Calculate Service Item Hour/Day Maintenance")
+            {
+                Caption = 'Calculo Horas/Dia Mantenimientos Prod. Serv.';
+            }
+            field("Calculate Maint._LDR"; Rec."Calculate Maint._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Calcular Mantenimiento.';
+                ToolTip = 'Calcular Mantenimiento.';
+            }
+            field("Calculate Maint. Type Period_LDR"; Rec."Calculate Maint. Type Period_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Calcular Mant. Tipo Período';
+                ToolTip = 'Calcular Mant. Tipo Período';
+            }
+            field("Calculate Maint. Type Order_LDR"; Rec."Calculate Maint. Type Order_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Calcular Mant. Orden de tipo';
+                ToolTip = 'Calcular Mant. Orden de tipo';
+            }
+            field("Not Service Orders Active_LDR"; Rec."Not Service Orders Active_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Órdenes de servicio no activas';
+                ToolTip = 'Órdenes de servicio no activas';
+            }
+            group("Service Items")
+            {
+                Caption = 'Prods. Servicio';
+            }
+            field("In Location_LDR"; Rec."In Location_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'En ubicación';
+                ToolTip = 'En ubicación';
+            }
+            field("Status Dimension_LDR"; Rec."Status Dimension_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Dimensión de estado';
+                ToolTip = 'Dimensión de estado';
+            }
+            field("New Dimension Value_LDR"; Rec."New Dimension Value_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Nuevo valor de dimensión';
+                ToolTip = 'Nuevo valor de dimensión';
+            }
+            field("Used Dimension Value_LDR"; Rec."Used Dimension Value_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Valor de dimensión usado';
+                ToolTip = 'Valor de dimensión usado';
+            }
+            field("Component In Location_LDR"; Rec."Component In Location_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Componente en ubicación';
+                ToolTip = 'Componente en ubicación';
+            }
+            field("A/F Location_LDR"; Rec."A/F Location_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Ubicación A/F';
+                ToolTip = 'Ubicación A/F';
+            }
+            field("Machine Type Dimension_LDR"; Rec."Machine Type Dimension_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Dimensión del tipo de máquina';
+                ToolTip = 'Dimensión del tipo de máquina';
+            }
+            field("Not to detract Serv. Item_LDR"; Rec."Not to detract Serv. Item_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Para no desmerecer Serv. Artículo';
+                ToolTip = 'Para no desmerecer Serv. Artículo';
+            }
+            field("Resp. Center Dim._LDR"; Rec."Resp. Center Dim._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'resp. Centro Dim.';
+                ToolTip = 'resp. Centro Dim.';
+            }
+            group(Tariff)
+            {
+                Caption = 'Tarificaci¢n';
+            }
+            group("Day Prices")
+            {
+                Caption = 'Tarificación por precio dia';
+            }
+            field("No. of days in Month_LDR"; Rec."No. of days in Month_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'No. de días en Mes';
+                ToolTip = 'No. de días en Mes';
+            }
+            field("No. of days in week_LDR"; Rec."No. of days in week_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'No. de días en la semana';
+                ToolTip = 'No. de días en la semana';
+            }
+            field("No. of hours in day_LDR"; Rec."No. of hours in day_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Nº de horas en el día';
+                ToolTip = 'Nº de horas en el día';
+            }
+            group("Anual Prices")
+            {
+                Caption = 'Tarificación por precio anual';
+            }
+            field("No. of months in year_LDR"; Rec."No. of months in year_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'No. de meses en el año';
+                ToolTip = 'No. de meses en el año';
+            }
+            field("No. of weeks in year_LDR"; Rec."No. of weeks in year_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'No. de semanas en el año';
+                ToolTip = 'No. de semanas en el año';
+            }
+            field("No. of days in year_LDR"; Rec."No. of days in year_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Nº de días en el año';
+                ToolTip = 'Nº de días en el año';
+            }
+            field("No. of hours in year_LDR"; Rec."No. of hours in year_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Nº de horas en el año';
+                ToolTip = 'Nº de horas en el año';
+            }
+            group(Measures)
+            {
+                Caption = 'Unidades de Medida';
+            }
+            field("Displacement Unit Of Measure_LDR"; Rec."Displacement Unit Of Measure_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Unidad de medida de desplazamiento';
+                ToolTip = 'Unidad de medida de desplazamiento';
+            }
+            field("Work Time Unit Of Measure_LDR"; Rec."Work Time Unit Of Measure_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Unidad de medida del tiempo de trabajo';
+                ToolTip = 'Unidad de medida del tiempo de trabajo';
+            }
+            field("Disp. Time Unit Of Measure_LDR"; Rec."Disp. Time Unit Of Measure_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'disipar Unidad de medida de tiempo';
+                ToolTip = 'disipar Unidad de medida de tiempo';
+            }
+            group("Hours Control Price")
+            {
+                Caption = 'Tarificación Control Horas';
+            }
+            field("Ext. Hours Control Service Cost_LDR"; Rec."Ext.Hours Control Service Cost_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'ext. Costo del servicio de control de horas';
+                ToolTip = 'ext. Costo del servicio de control de horas';
+            }
+            field("Int. Hours Control Service Cost_LDR"; Rec."Int.Hours Control Service Cost_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'En t. Costo del servicio de control de horas';
+                ToolTip = 'En t. Costo del servicio de control de horas';
+            }
+            field("Linde Vendor No._LDR"; Rec."Linde Vendor No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de proveedor de Linde';
+                ToolTip = 'Número de proveedor de Linde';
+            }
+            field("Price/Km Advanced Calc_LDR"; Rec."Price/Km Advanced Calc_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Precio/Km Calc Avanzado';
+                ToolTip = 'Precio/Km Calc Avanzado';
+            }
+            field("Transfer Displacement / KM_LDR"; Rec."Transfer Displacement / KM_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Transferencia Desplazamiento / KM';
+                ToolTip = 'Transferencia Desplazamiento / KM';
+            }
+            group("Direct Sales")
+            {
+                Caption = 'Venta Directa';
+            }
+            field("Direct Sales Serv. Order Type_LDR"; Rec."Direct Sales Serv. Order Type_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Servicio de Venta Directa Tipo de orden';
+                ToolTip = 'Servicio de Venta Directa Tipo de orden';
+            }
+            field("Direct Sales Serv. Order Desc_LDR"; Rec."Direct Sales Serv. Order Desc_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Servicio de Venta Directa Descripción del pedido';
+                ToolTip = 'Servicio de Venta Directa Descripción del pedido';
+            }
+            field("Automatic Delivery on Sale_LDR"; Rec."Automatic Delivery on Sale_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Entrega automática en oferta';
+                ToolTip = 'Entrega automática en oferta';
+            }
+            group(KPIs)
+            {
+                Caption = 'KPIs';
+            }
+            field("KPI Destination Folder_LDR"; Rec."KPI Destination Folder_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Carpeta de destino de KPI';
+                ToolTip = 'Carpeta de destino de KPI';
+            }
+            field("Last File Loaded Date_LDR"; Rec."Last File Loaded Date_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Fecha del último archivo cargado';
+                ToolTip = 'Fecha del último archivo cargado';
+            }
+            field("Last File Loaded_LDR"; Rec."Last File Loaded_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Último archivo cargado';
+                ToolTip = 'Último archivo cargado';
+            }
+            field("Materials pending state_LDR"; Rec."Materials pending state_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Estado pendiente de materiales';
+                ToolTip = 'Estado pendiente de materiales';
+            }
+            group("Device Setup")
+            {
+                Caption = 'Configuración Dispositivo';
+            }
+            field("PDA Auto Post Device Entries_LDR"; Rec."PDA Auto Post Device Entries_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Entradas de dispositivo de publicación automática de PDA';
+                ToolTip = 'Entradas de dispositivo de publicación automática de PDA';
+            }
+            field("PDA Recl. Journal Template_LDR"; Rec."PDA Recl. Journal Template_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Rec. PDA Plantilla de diario';
+                ToolTip = 'Rec. PDA Plantilla de diario';
+            }
+            field("PDA Recl. Journal Batch_LDR"; Rec."PDA Recl. Journal Batch_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Rec. PDA Lote de diario';
+                ToolTip = 'Rec. PDA Lote de diario';
+            }
+            field("PDA New Items Phys. Template_LDR"; Rec."PDA New Items Phys. Template_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'PDA Nuevos artículos Phys. Plantilla';
+                ToolTip = 'PDA Nuevos artículos Phys. Plantilla';
+            }
+            field("PDA New Items Phys. Batch_LDR"; Rec."PDA New Items Phys. Batch_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'PDA Nuevos artículos Phys. Lote';
+                ToolTip = 'PDA Nuevos artículos Phys. Lote';
+            }
+            field("Cumulate Phys. Inv Qty._LDR"; Rec."Cumulate Phys. Inv Qty._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Acumular Phys. Cant. de inversión';
+                ToolTip = 'Acumular Phys. Cant. de inversión';
+            }
+        }
+    }
+
+    /// <summary>
+    /// OpenDialog.
+    /// </summary>
+    /// <returns>Return variable ReturnPath of type Text[1024].</returns>
+    procedure OpenDialog() ReturnPath: Text[1024];
+    var
+        txtDestiny: label 'Selecciones carpeta destino';
+        blv: Automation "{50A7E9B0-70EF-11D1-B75A-00A0C90564FE} 1.0:{13709620-C279-11CE-A49E-444553540000}:'Microsoft Shell Controls And Automation'.Shell";
+        Folder: Automation "{50A7E9B0-70EF-11D1-B75A-00A0C90564FE} 1.0:{BBCBDE60-C3FF-11CE-8350-444553540000}:'Microsoft Shell Controls And Automation'.Folder";
+    begin
+        Rec.CREATE(blv, true, true);
+        Folder := blv.BrowseForFolder(0, txtDestiny, 0, 0);
+        IF NOT Rec.ISCLEAR(Folder) THEN BEGIN
+            IF Folder.Items.Item.Path() <> '' THEN BEGIN
+                ReturnPath := FORMAT(Folder.Items.Item.Path()) + '\';
+            END ELSE BEGIN
+                ReturnPath := 'C:\';
+            END;
+        END;
+    end;
+
+    var
+        d: Text[30];
+        ServiceDocumentLog: Record "Service Document Log";
+}

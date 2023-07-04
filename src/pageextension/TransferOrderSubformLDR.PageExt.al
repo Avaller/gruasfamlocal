@@ -44,7 +44,7 @@ pageextension 50108 "TransferOrderSubform_LDR" extends "Transfer Order Subform"
                 trigger OnAction()
                 var
                     TransferLine: Record "Transfer Line";
-                //ReportSelection: Record 7122074;
+                //ReportSelection: Record 7122074; //TODO: No esta.
                 begin
                     TransferLine.Copy(Rec);
                     CurrPage.SetSelectionFilter(TransferLine);
@@ -58,6 +58,4 @@ pageextension 50108 "TransferOrderSubform_LDR" extends "Transfer Order Subform"
         }
     }
 
-    var
-        myInt: Integer;
 }

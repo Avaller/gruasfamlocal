@@ -1,0 +1,25 @@
+/// <summary>
+/// PageExtension Service Item Groups_LDR (ID 50120) extends Record Service Item Groups.
+/// /// /// </summary>
+pageextension 50120 "Service Item Groups_LDR" extends "Service Item Groups"
+{
+    actions
+    {
+        addafter("Trou&bleshooting Setup")
+        {
+            separator("")
+            {
+
+            }
+            action(ServiceTemplates)
+            {
+                ApplicationArea = All;
+                Caption = 'Plantillas servicio';
+
+                RunObject = Page 7121997;
+                RunPageLink = "Field1" = field(Code);
+
+            }
+        }
+    }
+}
