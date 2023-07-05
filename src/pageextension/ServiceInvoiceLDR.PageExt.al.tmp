@@ -244,7 +244,4 @@ pageextension 50124 "Service Invoice_LDR" extends "Service Invoice"
         CopyServInv.SetServHeader(Rec);
         CopyServInv.RUNMODAL;
     end;
-
-    var
-        myInt: Integer;
 }

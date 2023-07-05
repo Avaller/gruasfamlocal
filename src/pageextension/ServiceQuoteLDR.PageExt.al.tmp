@@ -1,0 +1,247 @@
+/// <summary>
+/// PageExtension Service Quote_LDR (ID 50131) extends Record Service Quote.
+/// </summary>
+pageextension 50131 "Service Quote_LDR" extends "Service Quote"
+{ //Page 5964
+    layout
+    {
+        addafter("Phone No.")
+        {
+            field("Fax No."; Rec."Fax No.")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de fax.';
+                ToolTip = 'Número de fax.';
+            }
+        }
+        addafter("Responsibility Center")
+        {
+            field("Linked Service Order No._LDR"; REC."Linked Service Order No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Número de orden de servicio vinculado';
+                ToolTip = 'Número de orden de servicio vinculado';
+            }
+            field("New Order No. Series_LDR"; Rec."New Order No. Series_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Serie de n.º de pedido nuevo';
+                ToolTip = 'Serie de n.º de pedido nuevo';
+                trigger OnLookup(var Text: Text): Boolean
+                var
+                    myInt: Integer;
+                begin
+                    Rec.QuoteToOrderAssistEdit(xRec);
+                end;
+            }
+        }
+        addafter("Assigned User ID")
+        {
+            field("Crane Service Quote No._LDR"; Rec."Crane Service Quote No._LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'No. de Cotización de servicio de grúa';
+                ToolTip = 'No. de Cotización de servicio de grúa';
+            }
+        }
+        addafter("Max. Labor Unit Price")
+        {
+            field("Posting Date"; Rec."Posting Date")
+            {
+                ApplicationArea = All;
+                Caption = '';
+                ToolTip = '';
+            }
+        }
+        addafter("Area")
+        {
+            group("PDF Mail")
+            {
+                Caption = 'PDF Mail';
+            }
+            field("Send Document By Mail_LDR"; Rec."Send Document By Mail_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Enviar documento por correo';
+                ToolTip = 'Enviar documento por correo';
+            }
+            field("E-Mail Destination_LDR"; Rec."E-Mail Destination_LDR")
+            {
+                ApplicationArea = All;
+                Caption = 'Destino de correo electrónico';
+                ToolTip = 'Destino de correo electrónico';
+            }
+        }
+    }
+    actions
+    {
+        addafter("Service Document Lo&g")
+        {
+            separator(" ")
+            {
+
+            }
+            action(Serviceorder)
+            {
+                ApplicationArea = All;
+                Caption = 'Pedido Servicio';
+                Image = ViewServiceOrder;
+
+                RunObject = Page "Service List";
+                RunPageView = SORTING("Document Type", "No.")
+                                  WHERE("Document Type" = CONST(Order));
+                RunPageLink = "Quote No." = FIELD("No.");
+            }
+            group("Comm&ents")
+            {
+                Caption = 'Come&ntarios';
+                Image = ViewComments;
+            }
+            action(Faults)
+            {
+                ApplicationArea = All;
+                Caption = 'Defectos';
+                Image = Error;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Category5;
+
+                trigger OnAction()
+                begin
+                    CurrPage.ServItemLine.Page.ShowAdvancedComments(1);
+                end;
+            }
+            action(Resolutions)
+            {
+                ApplicationArea = All;
+                Caption = 'Resolución';
+                Image = Completed;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Category5;
+
+                trigger OnAction()
+                begin
+                    CurrPage.ServItemLine.PAGE.ShowAdvancedComments(2);
+                end;
+            }
+            action(Internal)
+            {
+                ApplicationArea = All;
+                Caption = 'Interno';
+                Image = Comment;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Category5;
+
+                trigger OnAction()
+                begin
+                    CurrPage.ServItemLine.Page.ShowAdvancedComments(4);
+                end;
+            }
+        }
+        addafter("&Create Customer")
+        {
+            separator("")
+            {
+
+            }
+            action(RejectQuote)
+            {
+                ApplicationArea = All;
+                Caption = 'Rechazar Oferta';
+                Image = CloseDocument;
+
+                trigger OnAction()
+                begin
+                    IF CONFIRM(txt001, TRUE, Rec."No.") THEN BEGIN
+                        Rec."Rejected Quote_LDR" := TRUE;
+                        Rec."Historical Quote_LDR" := TRUE;
+                        Rec.MODIFY(true);
+                    END;
+                end;
+            }
+            separator("0")
+            {
+
+            }
+            action(PrintBdgRep)
+            {
+                ApplicationArea = All;
+                Caption = 'Imprimir Presupuesto Reparación';
+                Image = Print;
+
+                trigger OnAction()
+                var
+                    InformePresupuesto: Report 70017;
+                begin
+                    CLEAR(ServHeader);
+                    ServHeader.SETRANGE(ServHeader."No.", Rec."No.");
+                    InformePresupuesto.SETTABLEVIEW(ServHeader);
+                    InformePresupuesto.RUN;
+                end;
+            }
+        }
+        addafter("&Print")
+        {
+            action(CopyDoc)
+            {
+                ApplicationArea = All;
+                Caption = 'Copiar Documento';
+                Image = CopyDocument;
+
+                trigger OnAction()
+                var
+                    CopyServDoc: Report 70111;
+                begin
+                    CLEAR(CopyServDoc);
+                    CopyServDoc.SetServHeader(Rec);
+                    CopyServDoc.RUNMODAL;
+                end;
+            }
+            action(CopyServLines)
+            {
+                ApplicationArea = All;
+                Caption = 'Copiar Lineas Servicio';
+                Visible = false;
+                Image = ChangeToLines;
+
+                trigger OnAction()
+                var
+                    CopyServDocLines: Report 70115;
+                begin
+                    CLEAR(CopyServDocLines);
+                    CopyServDocLines.SetServHeader(Rec);
+                    CopyServDocLines.RUNMODAL;
+                end;
+            }
+            separator("2")
+            {
+
+            }
+            action(ApplyServiceTemplate)
+            {
+                ApplicationArea = All;
+                Caption = 'Aplicar plantilla de Servicio';
+                Image = ApplyTemplate;
+
+                trigger OnAction()
+                var
+                    recRef: RecordRef;
+                    ServTemplateMgt: Codeunit 70044;
+                begin
+                    IF CONFIRM(text50001, FALSE, Rec."No.") THEN BEGIN
+                        recRef.GETTABLE(Rec);
+                        ServTemplateMgt.ApplyServTemplate(recRef);
+                    END;
+                end;
+            }
+        }
+    }
+
+    var
+        txt001: Label 'Si rechaza la Oferta %1, no podr  realizar cambios sobre la misma y tan solo podr  efectuar acciones de consulta en el Hist¢rico. ¨Est  seguro de querer Rechazar la oferta?';
+        ServHeader: Record "Service Header";
+        text50001: Label 'Desea aplicar una Plantilla de Servicio en la Oferta de Servicio N§ %1?';
+
+}

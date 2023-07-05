@@ -88,7 +88,7 @@ pageextension 50079 "Purchases&PayablesSetup_LDR" extends "Purchases & Payables 
                     FileMgt: Codeunit "File Management";
                     DefaultFileName: Text;
                 begin
-                    Rec."Source print file_LDR" := FileMgt.SaveFileDialog('Guardar como', DefaultFileName, 'exe file (*.exe)');
+                    Rec."Source print file_LDR" := FileMgt.SaveFileDialog('Guardar como', DefaultFileName, 'exe file (*.exe)'); //TODO: No existe la procedure
                 end;
             }
             field("Company EAN Name_LDR"; Rec."Company EAN Name_LDR")

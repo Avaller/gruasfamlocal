@@ -348,6 +348,20 @@ pageextension 50122 "Service Tasks_LDR" extends "Service Tasks"
         Rec.FILTERGROUP(0);
     END;
 
+    LOCAL PROCEDURE TestFilter(): Boolean;
+    BEGIN
+        IF ServOrderFilter <> '' THEN BEGIN
+            Rec.FILTERGROUP(2);
+            IF Rec.GETRANGEMIN("Document No.") = Rec.GETRANGEMAX("Document No.") THEN
+                IF Rec.ISEMPTY THEN BEGIN
+                    Rec.FILTERGROUP(0);
+                    EXIT(true);
+                END;
+            Rec.FILTERGROUP(0);
+        END;
+        EXIT(TRUE);
+    END;
+
     var
         Cust: Record Customer;
         TempTextFilter: Text;

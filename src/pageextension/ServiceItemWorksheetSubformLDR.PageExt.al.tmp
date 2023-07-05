@@ -176,11 +176,11 @@ pageextension 50118 "Serv.ItemWorksheetSubform_LDR" extends "Service Item Worksh
 
     procedure CalcDistances()
     begin
-        ServMgtSetup.Get();
-        if ServMgtSetup."Price/Km Advanced Calc" then
-            CalcPriceDistanceDuration
+        Rec.ServMgtSetup.Get();
+        if Rec.ServMgtSetup."Price/Km Advanced Calc" then
+            Rec.CalcPriceDistanceDuration
         else
-            CalcDistanceDuration;
+            Rec.CalcDistanceDuration;
     end;
 
     PROCEDURE Unlock();
@@ -196,8 +196,8 @@ pageextension 50118 "Serv.ItemWorksheetSubform_LDR" extends "Service Item Worksh
         TempServInvLine: Record "Service Line";
         NewServInvLine: Record "Service Line";
     BEGIN
-        ServMgtSetup.GET;
-        ServMgtSetup.TESTFIELD(ServMgtSetup."Component In Location");
+        Rec.ServMgtSetup.GET;
+        Rec.ServMgtSetup.TESTFIELD(Rec.ServMgtSetup."Component In Location");
 
         ServItemComponent.RESET;
         ServItemComponent.SETRANGE(Active, TRUE);
@@ -219,10 +219,10 @@ pageextension 50118 "Serv.ItemWorksheetSubform_LDR" extends "Service Item Worksh
             NewServInvLine."Service Item Serial No." := ServItemLine."Serial No.";
             NewServInvLine.VALIDATE(Type, Rec.Type::Item);
             NewServInvLine.VALIDATE("No.", ServItemComponent."No.");
-            NewServInvLine.VALIDATE("Location Code", ServMgtSetup."Component In Location");
+            NewServInvLine.VALIDATE("Location Code", Rec.ServMgtSetup."Component In Location");
             NewServInvLine."Replaced Item No." := ServItemComponent."No.";
             NewServInvLine."Component Line No." := ServItemComponent."Line No.";
-            CheckIfServItemReplacement(NewServInvLine."Component Line No.");
+            Rec.CheckIfServItemReplacement(NewServInvLine."Component Line No.");
             NewServInvLine."Spare Part Action" := Rec."Spare Part Action"::"Component Deleted";
             NewServInvLine.VALIDATE(Chargeable_LDR, Rec.Chargeable_LDR::"0");
             NewServInvLine.VALIDATE(Quantity, -1);

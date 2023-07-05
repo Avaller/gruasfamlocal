@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension Resource Card_LDR (ID 50027) extends Record Resource Card.
+/// </summary>
 pageextension 50027 "Resource Card_LDR" extends "Resource Card"
 {
     layout
