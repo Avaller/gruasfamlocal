@@ -65,7 +65,4 @@ pageextension 50056 "Units of Measure_LDR" extends "Units of Measure"
             }
         }
     }
-
-    var
-        myInt: Integer;
 }

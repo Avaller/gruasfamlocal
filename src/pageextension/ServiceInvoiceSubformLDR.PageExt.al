@@ -1,4 +1,7 @@
-pageextension 50125 "Service Invoice Subform" extends "Service Invoice Subform"
+/// <summary>
+/// PageExtension Service Invoice Subform (ID 50125) extends Record Service Invoice Subform.
+/// </summary>
+pageextension 50125 "Service Invoice Subform_LDR" extends "Service Invoice Subform"
 {
     layout
     {

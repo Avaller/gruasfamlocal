@@ -191,7 +191,4 @@ pageextension 50007 "Vendor Card_LDR" extends "Vendor Card"
             }
         }
     }
-
-    var
-        myInt: Integer;
 }
