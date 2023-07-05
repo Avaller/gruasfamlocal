@@ -1,0 +1,14 @@
+/// <summary>
+/// PageExtension Service Quote Subform_LDR (ID 50132) extends Record Service Quote Subform.
+/// </summary>
+pageextension 50132 "Service Quote Subform_LDR" extends "Service Quote Subform"
+{
+    /// <summary>
+    /// ShowAdvancedComments.
+    /// </summary>
+    /// <param name="Type">'General,Fault,Resolution,Accessory,Internal,Service Item Loaner'.</param>
+    procedure ShowAdvancedComments(Type: 'General,Fault,Resolution,Accessory,Internal,Service Item Loaner')
+    begin
+        Rec.ShowAdvancedComments(Type);
+    end;
+}

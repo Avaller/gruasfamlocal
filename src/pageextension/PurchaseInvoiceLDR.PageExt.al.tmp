@@ -77,7 +77,7 @@ pageextension 50020 "Purchase Invoice_LDR" extends "Purchase Invoice"
     }
     trigger OnAfterGetRecord()
     begin
-        SetControlAppearance;
+        Rec.SetControlAppearance;
         Rec.SetForecast(Rec."Pay-to Vendor No.");
         CurrPage.PurchLines.PAGE.SetForecastVendor(Rec."Pay-to Vendor No.", Forecast, Rec."No.");
 
