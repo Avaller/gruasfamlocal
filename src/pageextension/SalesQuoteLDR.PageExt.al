@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension Sales Quote_LDR (ID 50013) extends Record Sales Quote.
+/// </summary>
 pageextension 50013 "Sales Quote_LDR" extends "Sales Quote"
 {
     layout

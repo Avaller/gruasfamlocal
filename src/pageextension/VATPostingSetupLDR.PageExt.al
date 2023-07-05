@@ -15,12 +15,4 @@ pageextension 50082 "VAT Posting Setup" extends "VAT Posting Setup"
             }
         }
     }
-
-    actions
-    {
-        // Add changes to page actions here
-    }
-
-    var
-        myInt: Integer;
 }
